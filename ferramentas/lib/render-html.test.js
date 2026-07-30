@@ -61,3 +61,32 @@ test('declara o idioma do documento', () => {
 test('o título da aba identifica o perfil', () => {
   assert.match(renderHtml(CV), /<title>.*Fulano de Tal.*Desenvolvedor Backend Sênior.*<\/title>/);
 });
+
+test('oferece botão de exportar para PDF e para Word', () => {
+  const html = renderHtml(CV);
+  assert.match(html, /id="btn-pdf"/, 'falta o botão de PDF');
+  assert.match(html, /id="btn-doc"/, 'falta o botão de Word');
+  assert.match(html, /window\.print\(\)/, 'o botão de PDF não aciona a impressão');
+  assert.match(html, /application\/msword/, 'o botão de Word não gera arquivo .doc');
+});
+
+test('a barra de botões some na impressão e não entra no PDF', () => {
+  const html = renderHtml(CV);
+  // Sem isso, os botões apareceriam impressos no currículo entregue.
+  assert.match(html, /@media print[\s\S]*\.barra\s*\{\s*display:\s*none/,
+    'a barra de botões não é escondida na impressão');
+});
+
+test('o conteúdo do currículo fica isolado num container próprio', () => {
+  // A exportação para Word serializa só este container; sem ele, os botões
+  // iriam junto para dentro do documento.
+  const html = renderHtml(CV);
+  assert.match(html, /id="curriculo"/, 'falta o container do currículo');
+  const posBarra = html.indexOf('class="barra"');
+  const posCurriculo = html.indexOf('id="curriculo"');
+  assert.ok(posBarra < posCurriculo, 'a barra deveria vir antes do currículo');
+});
+
+test('o nome do arquivo exportado identifica pessoa e perfil', () => {
+  assert.match(renderHtml(CV), /CV-Fulano-de-Tal-dev/);
+});

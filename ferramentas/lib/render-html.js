@@ -44,12 +44,73 @@ const ESTILO = `
   ul { margin: 4px 0 10px; padding-left: 20px; }
   li { margin-bottom: 3px; }
   .grupo-titulo { font-weight: 700; margin: 10px 0 2px; }
+  .barra {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--linha);
+  }
+  .barra button {
+    font: inherit; font-size: 10pt; cursor: pointer;
+    padding: 7px 14px; border-radius: 6px;
+    color: var(--tinta); background: #f4f4f6; border: 1px solid var(--linha);
+  }
+  .barra button:hover { background: #e8e8ec; }
+  .barra .dica { font-size: 9.5pt; color: var(--suave); align-self: center; margin: 0; }
   @media print {
     body { max-width: none; padding: 0; font-size: 10.5pt; }
     @page { margin: 14mm; }
     h2, h3, li { break-inside: avoid; }
+    .barra { display: none; }
   }
 `;
+
+/**
+ * Script de exportação, embutido no arquivo.
+ *
+ * PDF sai pela impressão do próprio navegador — é o caminho que preserva o
+ * texto selecionável, que é o que o ATS lê. "Salvar como PDF" no diálogo.
+ *
+ * Word sai serializando o HTML do currículo com o tipo MIME do Word, sem
+ * biblioteca nenhuma: o Word abre HTML e converte. A barra de botões fica
+ * fora do container exportado, então não vai junto para dentro do documento.
+ */
+function scriptExportacao(nomeArquivo) {
+  return `
+document.getElementById('btn-pdf').addEventListener('click', function () {
+  window.print();
+});
+
+document.getElementById('btn-doc').addEventListener('click', function () {
+  var conteudo = document.getElementById('curriculo').innerHTML;
+  var estilo = document.getElementById('estilo-cv').innerHTML;
+  var documento =
+    '<html xmlns:o="urn:schemas-microsoft-com:office:office"' +
+    ' xmlns:w="urn:schemas-microsoft-com:office:word"' +
+    ' xmlns="http://www.w3.org/TR/REC-html40">' +
+    '<head><meta charset="utf-8"><style>' + estilo + '</style></head>' +
+    '<body>' + conteudo + '</body></html>';
+
+  // O BOM faz o Word reconhecer o UTF-8 e não corromper os acentos.
+  var blob = new Blob(['\\ufeff', documento], { type: 'application/msword' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url;
+  link.download = ${JSON.stringify(nomeArquivo)} + '.doc';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+});
+`;
+}
+
+/** Nome de arquivo seguro, sem acento nem espaço. */
+function nomeDeArquivo(nome, perfil) {
+  const limpo = String(nome)
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^A-Za-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+  return `CV-${limpo}-${perfil}`;
+}
 
 function lista(itens) {
   return `<ul>\n${itens.map(i => `  <li>${escapar(i)}</li>`).join('\n')}\n</ul>`;
@@ -100,21 +161,33 @@ function renderHtml(cv) {
     return `<h2>${escapar(secao.titulo)}</h2>\n${renderizador(secao)}`;
   }).join('\n\n');
 
+  const arquivo = nomeDeArquivo(pessoal.nome, cv.perfil);
+
   return `<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapar(pessoal.nome)} - ${escapar(cv.titulo)}</title>
-<style>${ESTILO}</style>
+<style id="estilo-cv">${ESTILO}</style>
 </head>
 <body>
+<div class="barra">
+  <button type="button" id="btn-pdf">Baixar PDF</button>
+  <button type="button" id="btn-doc">Baixar Word (.doc)</button>
+  <p class="dica">No diálogo de impressão, escolha "Salvar como PDF".</p>
+</div>
+
+<div id="curriculo">
 <h1>${escapar(pessoal.nome)}</h1>
 <p class="cargo">${escapar(cv.titulo)}</p>
 <p class="contato">${contato}</p>
 ${links ? `<p class="contato">${links}</p>` : ''}
 
 ${corpo}
+</div>
+
+<script>${scriptExportacao(arquivo)}</script>
 </body>
 </html>
 `;
