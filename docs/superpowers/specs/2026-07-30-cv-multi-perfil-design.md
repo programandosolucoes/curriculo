@@ -377,6 +377,64 @@ com número em vez de opinião.
 
 São 16 artefatos no total: oito perfis × (`cv.txt` + `cv.html`).
 
+## Regras de ATS (requisito do usuário)
+
+Os oito currículos precisam atravessar triagem automatizada. Isso é restrição
+de **renderização**, não de conteúdo, e vale para os dois formatos de saída.
+
+O `cv.txt` já é o artefato mais seguro possível — texto puro, sem estrutura
+para o parser errar. As regras abaixo existem para o `cv.html` e o PDF gerado a
+partir dele.
+
+### Proibido
+
+- **Layout em mais de uma coluna.** Um parser lê o PDF em ordem de fluxo; duas
+  colunas viram frases intercaladas. O HTML atual (`cv-2026-07.html`) usa
+  `display: grid` nas competências e `columns: 2` em formação e idiomas —
+  **os dois precisam sair**. Coluna única, ordem de leitura linear.
+- **Tabela para conteúdo de currículo.** Muitos parsers descartam ou embaralham
+  células.
+- **Texto dentro de imagem, ícone ou SVG.** O que não é texto real não é lido.
+- **Cabeçalho e rodapé de página** (`position: fixed`, `@page` com conteúdo):
+  parte dos extratores ignora essas regiões.
+- **Texto injetado por CSS** (`::before` / `::after` com `content`): não sai na
+  extração.
+- **Caixas de texto, colunas flutuantes, elementos posicionados em absoluto.**
+
+### Obrigatório
+
+- **Títulos de seção convencionais**, escritos por extenso e sem invenção:
+  `RESUMO PROFISSIONAL`, `COMPETÊNCIAS`, `EXPERIÊNCIA PROFISSIONAL`,
+  `PROJETOS`, `FORMAÇÃO ACADÊMICA`, `CERTIFICAÇÕES`, `IDIOMAS`. Nomes
+  criativos ("Minha jornada", "O que me move") impedem o parser de mapear a
+  seção.
+- **Datas em `MM/AAAA - MM/AAAA`**, o mesmo formato em todos os itens e em
+  todos os oito perfis.
+- **Cargo e empresa em linhas identificáveis**, nunca fundidos num parágrafo.
+- **Fonte comum** (family de sistema), tamanho mínimo 10pt, texto selecionável.
+- **Sigla e forma expandida juntas na primeira ocorrência**: "Inteligência
+  Artificial (IA)", "Robotic Process Automation (RPA)", "Answering Machine
+  Detection (AMD)". A vaga pode buscar qualquer uma das duas formas — esta é a
+  regra de ATS com maior retorno por esforço.
+- **Caracteres simples no `cv.txt`**: hífen em vez de travessão, `-` em vez de
+  `•`. No HTML a tipografia pode ser normal.
+
+### Como isso é verificado
+
+Um teste automatizado sobre o HTML gerado, sem depender de navegador:
+
+- nenhuma ocorrência de `display:grid`, `display:flex` com direção de coluna,
+  `columns:`, `position:absolute` ou `float:` no bloco de estilo;
+- nenhuma tag `<table>`, `<img>` ou `<svg>` no corpo do currículo;
+- nenhum `content:` em pseudo-elemento dentro do escopo do currículo;
+- todos os títulos de seção pertencem à lista canônica;
+- todas as datas casam `^\d{2}/\d{4}( - (\d{2}/\d{4}|atual))?$`.
+
+A conferência final do PDF (extrair o texto e checar se a ordem de leitura
+bate com o `cv.txt`) fica como verificação manual — automatizá-la exigiria
+dependência de extrator de PDF, o que quebraria a garantia de rodar sem
+`npm install`.
+
 ## Sincronia com os bots
 
 O perfil marcado `padrao: true` é copiado para `bots/infojobs/cv.txt` e
