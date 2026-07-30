@@ -214,7 +214,7 @@ como saber contra o que medir.
 | `dados` | Engenheiro de Dados / BI | Analista de Dados | 32 | 64% |
 | `seguranca` | Analista de Segurança Sênior | Segurança da Informação | 33 | 27% |
 | `qa` | Analista de QA / Automação de Testes | QA | 21 | 42% |
-| `rpa` | Desenvolvedor de Automação (RPA) | *filtro por termo* | 15 | a medir |
+| `rpa` | Automação de Processos & Integração | *filtro por termo* | 15 | 38% |
 
 Esses percentuais são a linha de base contra a qual cada perfil será comparado.
 
@@ -298,23 +298,58 @@ que mencionam automação de passagem.
 Por isso o perfil `rpa` é medido por **filtro de termo** sobre o texto das
 vagas, não por categoria (ver `filtro_termos` no formato da receita).
 
-Medição das ferramentas que o mercado de RPA de fato contrata, no dataset:
+#### Correção de uma análise errada (2026-07-30)
 
-| Ferramenta | Vagas |
-|---|---|
-| UiPath | 0 |
-| Blue Prism | 0 |
-| Automation Anywhere | 0 |
-| Power Automate | 2 |
-| Selenium | 4 |
-| Puppeteer (o usado no projeto próprio) | 0 |
+A primeira leitura deste documento concluiu que RPA seria "lacuna de
+ferramenta, não de redação", com o argumento de que o mercado contrata UiPath e
+a experiência do usuário é Puppeteer artesanal. **Essa conclusão estava errada**
+e foi desfeita ao medir o que as 15 vagas de fato pedem, em vez de medir a
+presença das ferramentas que eu supus que elas pediriam.
 
-A experiência de automação do usuário é Puppeteer artesanal; o mercado de RPA
-contrata plataforma proprietária. **É lacuna de ferramenta, não de redação** —
-um CV focado não resolve sozinho, do mesmo modo que Azure ou SQL Server não se
-resolvem escrevendo melhor. O perfil `rpa` é construído a pedido do usuário,
-com essa limitação registrada; se a medição confirmar aderência baixa, a
-conclusão a tirar é sobre estudar UiPath, não sobre reescrever o currículo.
+Ranking real de termos exigidos por essas vagas:
+
+| | Termo | Vagas |
+|---|---|---|
+| falta no CV | **automação de processos** | **10** |
+| tem | python | 5 |
+| tem | sql | 3 |
+| tem | rpa | 3 |
+| falta no CV | azure | 3 |
+| tem | devops, power bi | 2 |
+| falta no CV | compliance | 2 |
+
+As ferramentas proprietárias **não aparecem no ranking**: UiPath, Blue Prism e
+Automation Anywhere têm zero ocorrência; Power Automate tem 2 e Selenium tem 1.
+O que domina é a expressão genérica **"automação de processos"**, presente em
+10 das 15 vagas — e ausente do currículo **como frase**, embora o trabalho
+exista de sobra.
+
+Ou seja: é **lacuna de redação**, exatamente o que este projeto resolve.
+Aderência atual: 38%.
+
+#### O que sustenta o perfil `rpa`
+
+Levantado a partir do inventário de projetos e da experiência profissional:
+
+- **Motor de automação autônoma de interação web** — adaptadores por site sobre
+  núcleo compartilhado, motor de regras, preenchimento de formulários
+  dinâmicos, detecção de página e sessão com re-login, controle de ritmo,
+  trava de concorrência e evidência auditável por captura de tela; 716 testes.
+- **Bot autônomo de limpeza de caixa de e-mail** — ciclo não supervisionado a
+  cada 30 minutos combinando IMAP e automação de navegador com decisão por IA.
+- **Chatbots em produção** — bot de voz (CPQD) automatizando 10% do volume
+  operacional; bot em Asterisk/Node automatizando 25% das chamadas de triagem;
+  motor de fluxo conversacional com estado na plataforma omnichannel.
+- **Integração de API como especialidade recorrente** — 5 gateways de WhatsApp
+  atrás de uma única interface de driver, clientes próprios de Yeastar
+  (OAuth2), Proxmox VE, NextQualify e Kamailio (JSON-RPC), cadeia de 5
+  provedores de IA sobre dois formatos de API distintos, mensageria JMS/STOMP,
+  SOAP/XML para sistema legado, ingestão IMAP e integração Zendesk/Power BI.
+
+O perfil `rpa` é, portanto, um dos mais bem sustentados por evidência — o
+problema nunca foi de conteúdo, foi de vocabulário. A redação deve nomear
+"automação de processos" explicitamente e liderar com bots e integração de API,
+que é o que essas vagas descrevem.
 
 ## Medição
 
@@ -390,6 +425,13 @@ vista, mas a ressalva fica registrada — e ganhou consequência prática: o per
 palavras do requisito. Mede se o currículo fala a língua da vaga — não mede
 competência, senioridade nem desempenho em entrevista.
 
+**Uma análise deste documento já se provou errada.** A primeira versão
+concluiu que RPA era lacuna de ferramenta, porque mediu a presença de UiPath e
+Blue Prism em vez de medir o que as vagas pediam. Ao ranquear os termos reais,
+a ferramenta proprietária não aparece e o que domina é "automação de
+processos". A lição vale para o resto do trabalho: **medir o que as vagas
+pedem, nunca a presença do que eu suponho que elas peçam.**
+
 **Reenquadrar não é inventar.** Descrever a mesma entrega por outro ângulo é
 legítimo; atribuir-se responsabilidade que não existiu não é. Cada bullet de
 perfil precisa ser defensável em entrevista sobre aquele emprego.
@@ -403,9 +445,11 @@ anterior a este trabalho, que se multiplica por oito aqui.
 2. Os testes de consistência passam — em particular, fatos idênticos entre
    perfis.
 3. Cada perfil pontua, no seu alvo de medição, **mais** que a linha de base da
-   tabela de perfis. Duas exceções conhecidas e aceitas:
-   - `rpa` não tem linha de base e pode não superar nada — é lacuna de
-     ferramenta (UiPath), não de redação;
-   - `voip` não é mensurável enquanto não houver coleta de telecom; entrega-se
-     gerado, com o aviso de alvo não coletado.
+   tabela de perfis. Uma exceção conhecida e aceita: `voip` não é mensurável
+   enquanto não houver coleta de telecom; entrega-se gerado, com o aviso de
+   alvo não coletado.
+
+   Para `rpa` a expectativa é de ganho grande: o termo mais pedido
+   ("automação de processos", 10 de 15 vagas) hoje simplesmente não aparece no
+   texto do currículo.
 4. O repositório continua rodando após um clone limpo, sem `npm install`.
