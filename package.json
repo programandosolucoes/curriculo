@@ -1,0 +1,12 @@
+{
+  "name": "curriculo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Currículo de Carlos Alberto: CV, estratégia de posicionamento e análise de aderência ao mercado",
+  "scripts": {
+    "aderencia": "node ferramentas/aderencia.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

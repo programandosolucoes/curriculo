@@ -4,7 +4,7 @@ São Paulo, SP, Brasil • +55 11 2615-2880 • carlosalberto4ti@gmail.com
 linkedin.com/in/carlosalberto4ti • programandosolucoes.com.br
 
 RESUMO PROFISSIONAL
-Arquiteto de Soluções e Engenheiro VoIP Sênior com mais de 10 anos de experiência, focado em projetar e implementar sistemas de comunicação em nuvem de alta disponibilidade. Especialista em arquitetar ecossistemas VoIP complexos (Asterisk, Kamailio, OpenSIPS) e infraestrutura Cloud/DevOps (Kubernetes, AWS, GCP). Lidero projetos de migração e modernização de plataformas de Call Center, combinando expertise em backend (Node.js, PHP) e automação para entregar soluções escaláveis que reduzem custos operacionais e aumentam a performance.
+Arquiteto de Soluções e Engenheiro VoIP Sênior com mais de 10 anos de experiência, focado em projetar e implementar sistemas de comunicação em nuvem de alta disponibilidade. Especialista em arquitetar ecossistemas VoIP complexos (Asterisk, Kamailio, OpenSIPS) e infraestrutura Cloud/DevOps (Kubernetes, AWS, GCP). Lidero projetos de migração e modernização de plataformas de Call Center, combinando expertise em backend (Node.js, PHP, Python) e automação para entregar soluções escaláveis que reduzem custos operacionais e aumentam a performance. Atuo também como desenvolvedor PJ em projetos autorais de telefonia, processamento de sinais de áudio e integração de IA, listados no portfólio técnico ao final.
 
 PRINCIPAIS CONQUISTAS
 - Otimização do Onboarding de Clientes: Reduzi o tempo de onboarding de novos clientes em 60% com provisionamento "zero-touch".
@@ -15,32 +15,70 @@ PRINCIPAIS CONQUISTAS
 COMPETÊNCIAS PRINCIPAIS
 VoIP & Telecom:
 - Arquitetura de Soluções VoIP
-- Asterisk (DCAA Certified)
-- Kamailio OpenSIPS
+- Asterisk (dCAA Certified)
+- Kamailio, OpenSIPS
 - SBC (Session Border Controller)
 - Plataformas de Call Center
 - WebRTC, SIP/TLS, PJSIP
 - Chatbot de Voz (CPQD, ASR)
+- ARI (Asterisk REST Interface), dialplan JSON-driven, DTMF, URA/IVR
+- ODBC realtime (unixODBC), CDR, CEL, tronco SIP
+- rtpengine, NAT traversal, FusionPBX, VitalPBX, Issabel
+- SIPp (teste de conformidade de protocolo SIP), codecs G.711/G.729/G.723.1
 
 Cloud & DevOps:
 - Kubernetes (K8s) & Docker
 - AWS & GCP
 - Proxmox, KVM, VMware vSphere
 - Infraestrutura como Código (IaC)
-- CI/CD (Bitbucket, Jenkins)
-- Monitoramento (Zabbix, NOC)
+- CI/CD (Bitbucket, Jenkins), Git
+- Monitoramento (Zabbix, NOC), observabilidade
 - Análise de Logs SOC
 - WAF (ModSecurity, OWASP)
-- Pfsense OpenVPN
+- Pfsense, OpenVPN
+- LXC, systemd, gunicorn, healthcheck
+- API do Proxmox VE (automação de provisionamento)
 
 Desenvolvimento & DB:
 - Node.js (REST APIs, Drachtio)
-- PHP
+- PHP, Laravel 12
 - Python (AGI, ASR)
-- SQL (MySQL, PostgreSQL)
-- PL/pgSQL
-- REST
-- Metodologias Ágeis (Scrum, JIRA)
+- TypeScript, React 18, TailwindCSS, Vite
+- SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL
+- FastAPI, Flask, Express, Hono, tRPC
+- Prisma, Drizzle ORM, SQLAlchemy, ORM
+- Protobuf, JMS/STOMP (ActiveMQ), BullMQ/Redis, mensageria
+- API REST, JSON-RPC, SOAP/XML, webhook, websocket
+- pytest, PHPUnit, Vitest, Cypress, Locust (teste de carga), teste automatizado
+- Metodologias Ágeis (Scrum, JIRA, Kanban)
+
+IA & LLM:
+- Engenharia assistida por IA (Claude Code) com metodologia spec-driven: especificação, plano, implementação e revisão adversarial
+- Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic/Claude, NVIDIA NIM, Groq/Llama 3, Ollama)
+- Inferência local em CPU, sem nuvem, para dados sensíveis: LLM quantizado GGUF via llama.cpp, ASR com faster-whisper int8, ONNX Runtime
+- Prompt engineering estruturado: few-shot, saída JSON forçada, coerção de schema e fallback determinístico
+- Avaliação comparativa de modelos neurais de MOS (DNSMOS P.835, TorchAudio SQUIM, NISQA) com corpus rotulado e critério de licenciamento comercial
+- IA generativa, NLP, machine learning, redes neurais, transcrição, reconhecimento de fala
+- MCP (Model Context Protocol) para automação de infraestrutura via IA
+
+Processamento de Sinais & Áudio:
+- DSP em Python/NumPy: energia por frame (RMS/dBFS), janelas deslizantes vetorizadas, FFT e features espectrais (flatness, flux, centroide)
+- Qualidade de voz por norma ITU-T: E-model G.107 (R-factor para MOS) implementado do zero, P.862.1 (PESQ para MOS-LQO), P.835 (SIG/BAK/OVRL)
+- Detecção de defeito em telefonia: picote/dropout por perda de pacote, clipping, dead-air, one-way, SNR, jitter, QoS
+- Codecs G.711, G.729, G.723.1, Opus, PLC; ffmpeg/ffprobe
+- ASR local e classificação de transcrição em português do Brasil
+
+Ecossistema Python:
+- Bibliotecas: NumPy, Pandas, Flask, FastAPI, requests, pytest, SQLAlchemy, cryptography, protobuf, ONNX Runtime, PyTorch/TorchAudio, faster-whisper, llama-cpp-python, librosa, matplotlib
+- Biblioteca padrão: sqlite3 (WAL), threading (Lock/Event/thread-local), hashlib/hmac/secrets, subprocess, argparse, configparser
+- Concorrência: jobs assíncronos em background, serialização de renovação de token OAuth2 de uso único, cursor persistido e parada verificada
+- Qualidade e distribuição: mypy (tipagem estática), black, flake8, PyInstaller (binário único), asyncio
+
+Segurança Aplicada:
+- Criptografia: AES-128/AES-256 (CBC, ECB, CFB, OFB, CTR), AES-256-GCM, RSA-2048, HMAC-SHA256, PBKDF2, assinatura digital
+- Autenticação por desafio criptográfico com chave SSH; OAuth2, JWT, TLS/SSL
+- Multi-tenancy com isolamento físico de dados por cliente, RBAC
+- Proteção de aplicação: anti-SSRF, CSRF, XSS, SQL Injection, rate limiting, hardening
 
 EXPERIÊNCIA PROFISSIONAL
 - Engenheiro VoIP (Akiva Software - Callcenter) | 09/2025 - 11/2025 (São Paulo, Brasil)
@@ -101,6 +139,30 @@ EXPERIÊNCIA PROFISSIONAL
 
 - Analista de Infraestrutura (All Net Group) | 04/2013 - 02/2015
   - Resolvi problemas de suporte N3 para NOC, Virtualização e Servidores Windows/Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.
+
+PROJETOS FREELANCE / PORTFÓLIO TÉCNICO
+Projetos autorais e contratados, executados como PJ em paralelo às atividades acima.
+
+- Plataforma de Discador VoIP para Call Center (projeto próprio/freelance) | 01/2025 - 07/2026
+  Arquitetei e mantive uma suite completa de discador para call center: painel web de gestão (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (concurrent.futures + threading, Asterisk ARI/PJSIP) e engine de IVR JSON-driven - uma linguagem de fluxo própria com 16 primitivas (playback, DTMF, condicional, switch, time condition, gravação, chamada HTTP, salto externo) interpretada pelo dialplan, com backend realtime via ODBC (unixODBC, func_odbc, CDR/CEL sobre PostgreSQL) e editor visual de fluxo em React/Tailwind com conversão bidirecional grafo-steps. Provisionamento de infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling. Modelagem de 17 tabelas e tuning manual de PostgreSQL; 15 suítes pytest cobrindo cada primitiva do IVR ponta a ponta.
+
+- Plataforma de Atendimento Omnichannel Multi-tenant (projeto próprio/freelance) | 02/2026 - 07/2026
+  Liderei a reescrita completa de uma plataforma SaaS de atendimento (originalmente Node.js/React/Drizzle) para Laravel 12/PHP, mantendo paridade de funcionalidades para viabilizar hospedagem própria em vez de infra Node dedicada. Integrei 5 gateways de WhatsApp atrás de uma única interface de driver (Evolution, WAHA, Whaticket, WaVoIP, Meta Cloud API) - padrão Strategy aplicado a integração, permitindo trocar de gateway sem tocar na aplicação - além de ingestão de e-mail por IMAP com a mesma abordagem, motor de automação conversacional com estado, RBAC multi-tenant de 4 níveis e jobs assíncronos de IA (Groq, Llama 3.1 70B/8B) para análise de sentimento e qualidade de atendimento sem bloquear a operação. 41 migrations e 23 suítes PHPUnit. A versão anterior (React 18/TypeScript, Express, Drizzle ORM, PostgreSQL) já incluía videochamada WebRTC (LiveKit/mediasoup), webphone SIP embarcado e segmentação de fundo por IA no navegador (TensorFlow.js/MediaPipe), com testes E2E em Cypress.
+
+- Sistema de Retaguarda para Pedágio Eletrônico (freelance, setor de mobilidade/rodovias) | 12/2025 - 01/2026
+  Contratado para arquitetar e desenvolver a retaguarda de leitura de transponder RFID em pedágio eletrônico, atuando como arquiteto hands-on: defini a arquitetura de integração e a implementei. Entreguei o parser do protocolo da antena CIR, decriptação AES do payload do chip com suporte configurável a 10 combinações de algoritmo e modo (AES-128/256 em CBC, ECB, CFB, OFB e CTR via biblioteca cryptography), API assíncrona em FastAPI, publicação em fila JMS/STOMP no broker ActiveMQ da concessionária e três serializadores intercambiáveis de saída (Protobuf, JSON e SOAP/XML) para atender formatos impostos por sistemas legados. Sistema aderente às normas ISO/IEC 18000-63 e ISO/IEC 29167-10 e à Resolução ARTESP 001/2014. Implementei licenciamento próprio de software com assinatura RSA-2048, vínculo por hash de hardware e níveis de licença, distribuído como binário único via PyInstaller com instaladores para Rocky Linux, Ubuntu e Windows. Qualidade garantida por pytest (incluindo testes assíncronos e cobertura), teste de carga com Locust e checagem estática de tipos com mypy.
+
+- Análise de Qualidade de Chamadas por Processamento de Sinais (projeto próprio/freelance) | 07/2026 - atual
+  Desenvolvi um analisador de qualidade de áudio de telefonia que detecta picote (dropout por perda de pacote), clipping, dead-air, one-way e nível/SNR baixo diretamente do sinal, em Python/NumPy - energia por frame, análise espectral (FFT: flatness, flux, centroide) e estimativa de ruído de fundo por percentil para separar perda de pacote de pausa natural da conversa. Implementei o E-model (ITU-T G.107) do zero, convertendo as detecções em R-factor e MOS, e avaliei modelos neurais no-reference (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, com decisão de arquitetura documentada por eixo de discriminação e por licenciamento comercial. Camada de IA 100% local em CPU (faster-whisper int8 + LLM GGUF via llama.cpp) classifica a transcrição - caixa postal, URA, reclamação de qualidade - com prompt few-shot de saída JSON e fallback determinístico. Painel Flask multi-tenant com isolamento físico de dados por cliente, SQLite, autenticação PBKDF2 e SPA sem framework/build; empacotado em Docker e implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) de terceiros, que cruza a classificação da API do cliente com a análise independente do áudio para achar falso positivo nas duas direções (121 testes automatizados em pytest).
+
+- SIP Proxy / SBC para FusionPBX (projeto próprio/freelance) | 07/2026 - atual
+  Desenvolvo um proxy SIP baseado em Kamailio + rtpengine com foco em NAT traversal e modo transparent, como alternativa enxuta ao dSIPRouter para integração com FusionPBX. Roteamento dinâmico (drouting), controle de acesso por origem (permissions), estado em htable e registro remoto via path; painel de administração em Flask com blueprints e SQLAlchemy 2.0 por reflection sobre as tabelas do motor (MariaDB/PyMySQL), comandando o Kamailio por JSON-RPC. Validação por 13 cenários SIPp de conformidade de protocolo - negociação de G.729 com payload type dinâmico e estático, AVPF sem rtpmap, REGISTER de ramal remoto e rejeição 403/404. Migrations SQL versionadas e stack inteira containerizada (Kamailio, rtpengine, FusionPBX e painel).
+
+- Motor de Automação Autônoma de Interação Web (RPA) com IA Multi-provedor (projeto próprio) | 06/2026 - atual
+  Projetei um motor genérico de automação de navegador (Node.js/Puppeteer) que opera portais web de forma autônoma e não supervisionada: adaptadores por site sobre um núcleo compartilhado, motor de regras próprio, preenchimento de formulários dinâmicos, detecção de página e de estado de sessão com re-login automático, controle de ritmo por ação, rede de segurança e trava de concorrência entre execuções. Persistência em Prisma/SQLite, painel web de operação e evidência auditável por captura de tela a cada etapa. Camada de decisão por IA com cadeia de fallback entre provedores (OpenRouter, OpenAI, Anthropic, NVIDIA NIM) sobre dois formatos de API distintos, degradando para regra determinística quando todos falham. Suíte de 716 testes automatizados.
+
+- Plataforma Própria de Hospedagem Git (projeto pessoal, uso profissional contínuo) | 08/2025 - atual
+  Desenvolvi e mantenho uma plataforma própria de hospedagem Git (alternativa self-hosted a GitHub/GitLab) em PHP, sem nenhuma dependência de runtime. Implementei do zero o servidor WebDAV (RFC 4918 - PROPFIND, MKCOL, COPY, MOVE, LOCK/UNLOCK) com mutex FIFO por caminho, o protocolo git smart HTTP (upload-pack/receive-pack) e um esquema de autenticação por desafio criptográfico com chave SSH. Pipeline de CI/CD com disparo assinado por HMAC-SHA256 e validação anti-SSRF do endpoint, credenciais cifradas em AES-256-GCM, controle de acesso via gitolite, rate limiting, bloqueio de IP, CSRF e cabeçalhos de segurança, interface internacionalizada em 4 idiomas. 129 commits ao longo de quase 1 ano de operação contínua, hospedando +30 repositórios.
 
 FORMAÇÃO ACADÊMICA
 - Pós-Graduação em DATA WAREHOUSE E BUSINESS INTELLIGENCE | 2025 - Atual (UniBF CENTRO UNIVERSITÁRIO)
