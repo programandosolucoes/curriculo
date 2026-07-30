@@ -17,91 +17,91 @@ Aderência média: **45%**.
 
 ### Vaga de emprego de Desenvlvedor Back-End PHP - Júnior Ou Pleno -1014 em São José dos Pinhais,- PR — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: Júnior
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-desenvlvedor-back-end-php-junior-pleno-1014-em-parana__11846057.aspx
 - Termos que batem: php, laravel, sql, postgresql, docker, ci/cd, git, jwt, redis
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Desenvolvedor De Sistemas em Porto Alegre,- RS — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-desenvolvedor-sistemas-em-rio-grande-do-sul__11834267.aspx
 - Termos que batem: python
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Desenvolvedor PHP Pleno em Porto Alegre,- RS — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: Pleno
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-desenvolvedor-php-pleno-em-rio-grande-do-sul__11831893.aspx
 - Termos que batem: php
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Arquiteto De Software em Taboão da Serra,- SP — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-arquiteto-software-em-sao-paulo__11805942.aspx
 - Termos que batem: microsserviços
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Atendimento Receptivo | Suporte Técnico - Lapa SP em São Paulo,- SP — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-atendimento-receptivo-suporte-tecnico-lapa-sp-em-sao-paulo__11847061.aspx
 - Termos que batem: whatsapp
 - Termos que faltam no CV: (nenhum)
 
 ### Bolsista Desenvolvedor Inteligência Artificial - Stellantis — 100%
 - Empresa: Stellantis | Plataforma: vagas | Senioridade: não informada
-- Link: undefined
+- Link: https://www.vagas.com.br/vagas/v2827289/bolsista-desenvolvedor-inteligencia-artificial-stellantis
 - Termos que batem: python, sql, power bi, aws, git, machine learning
 - Termos que faltam no CV: (nenhum)
 
 ### Analista de Suporte N2 — 100%
 - Empresa: Confidencial | Plataforma: vagas | Senioridade: não informada
-- Link: undefined
+- Link: https://www.vagas.com.br/vagas/v2825714/analista-de-suporte-n2
 - Termos que batem: jira
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Analista De Sistemas Junior em Bauru,- SP — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-analista-sistemas-junior-em-sao-paulo__11847692.aspx
 - Termos que batem: sql
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Analista De Sistemas SR | Linx ERP VTEX em São Paulo,- SP — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-analista-sistemas-sr-linx-erp-vtex-em-sao-paulo__11842009.aspx
 - Termos que batem: sql, power bi, omnichannel
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Analista De Sistemas em Itabira,- MG — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-analista-sistemas-em-minas-gerais__11819637.aspx
 - Termos que batem: rpa
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Analista De Sistemas em Curitiba,- PR — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-analista-sistemas-em-parana__11818431.aspx
 - Termos que batem: power bi, opus
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Analista De Governança De Segurança Da Informação em São Paulo,- SP — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-analista-governanca-seguranca-da-informacao-em-sao-paulo__11664359.aspx
 - Termos que batem: criptografia
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Analista De Dados (Planejamento De Vendas) em Cachoeirinha,- RS — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-analista-dados-planejamento-vendas-em-rio-grande-do-sul__11846238.aspx
 - Termos que batem: python, sql
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Analista De Dados Sr. em Rio de Janeiro,- RJ — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-analista-dados-sr-em-rio-janeiro__11843551.aspx
 - Termos que batem: power bi
 - Termos que faltam no CV: (nenhum)
 
 ### Vaga de emprego de Analista De Dados JR em Belo Horizonte,- MG — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: undefined
+- Link: https://www.infojobs.com.br/vaga-de-analista-dados-jr-em-minas-gerais__11817121.aspx
 - Termos que batem: sql
 - Termos que faltam no CV: (nenhum)
 
