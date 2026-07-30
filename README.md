@@ -1,123 +1,136 @@
 # curriculo
 
-Repositório do currículo de Carlos Alberto: a fonte de verdade do CV, o
-material de estratégia que sustenta cada afirmação escrita nele, e a
-ferramenta que mede a aderência do currículo às vagas reais do mercado.
+Currículo de Carlos Alberto em **nove versões**, uma por área-alvo, geradas a
+partir de um único arquivo de conteúdo — e a ferramenta que mede a aderência de
+cada uma às vagas reais do mercado.
 
 Separado do `vagas-automation-suite` de propósito: lá é **código** de
 automação; aqui é **conteúdo de carreira**.
 
 ## Rodando depois do clone
 
-Não precisa de `npm install`, banco de dados, chave de API nem rede.
-Só Node.js 18 ou superior:
+Sem `npm install`, banco, chave de API ou rede. Só Node.js 18+:
 
 ```bash
-git clone ssh://…/repos/curriculo.git
-cd curriculo
-node ferramentas/aderencia.js      # ou: npm run aderencia
+node ferramentas/gerar-cv.js              # gera os 9 currículos (18 arquivos)
+node ferramentas/aderencia.js --perfil=dev  # mede um perfil contra o alvo dele
+node --test 'ferramentas/**/*.test.js'    # 50 testes
 ```
 
-Para ver o currículo formatado, abra `cv/cv-2026-07.html` no navegador
-(`xdg-open cv/cv-2026-07.html`) — é um arquivo único, sem dependências.
+Para ver um currículo, abra o HTML no navegador:
+
+```bash
+xdg-open cv/dev/cv.html
+```
+
+Cada HTML tem, no topo, botões de **Baixar PDF** (pela impressão do navegador,
+que preserva texto selecionável) e **Baixar Word (.doc)**. Os botões somem na
+impressão e não entram no arquivo Word.
+
+## Os nove perfis
+
+| Perfil | Título | Alvo de medição | Aderência |
+|---|---|---|---|
+| `voip` | Arquiteto de Soluções VoIP Sênior | termo (sem vagas coletadas) | não mensurável |
+| `ia` | Engenheiro de Inteligência Artificial (IA) Sênior | termo | 53% |
+| `dev` | Desenvolvedor Backend Sênior ⭐ | Desenvolvedor, Eng. de Software | 53% |
+| `frontend` | Desenvolvedor Frontend Sênior | termo | 62% |
+| `devops` | Engenheiro DevOps / SRE Sênior | DevOps, Analista de Sistemas | 46% |
+| `dados` | Engenheiro de Dados / Business Intelligence | Analista de Dados | 64% |
+| `seguranca` | Analista de Segurança da Informação Sênior | Segurança da Informação | 27% |
+| `qa` | Analista de QA / Automação de Testes Sênior | QA | 56% |
+| `rpa` | Especialista em Automação de Processos (RPA) e Integração | termo | 59% |
+
+⭐ = perfil padrão, o que vai para o `cv.txt` dos bots de candidatura.
+
+Comparativo completo, com o que os números dizem e o que não dizem:
+[aderencia/2026-07-30-comparativo-perfis.md](aderencia/2026-07-30-comparativo-perfis.md).
+
+## Como editar o currículo
+
+> **Nunca edite `cv/<perfil>/cv.txt` ou `cv.html`.** São gerados, e a próxima
+> execução de `gerar-cv.js` sobrescreve.
+
+| O que mudar | Onde |
+|---|---|
+| Texto, fatos, variantes por perfil | `cv/mestre.json` |
+| Título, ordem das seções, o que incluir, alvo | `perfis/<id>.json` |
+| Vocabulário de termos de mercado | `ferramentas/lib/termos-mercado.js` |
+
+Depois de editar, rode `node ferramentas/gerar-cv.js`.
+
+### Por que mestre e receita
+
+Os **fatos** — empresa, cargo, período, local — existem **uma vez só**, no
+mestre. Não têm variante por perfil, então é impossível duas versões do
+currículo se contradizerem em datas. Um teste compara todos os perfis entre si
+e falha se divergirem.
+
+O que varia por perfil é a **ênfase**: cada item guarda um `bullets.base` e,
+opcionalmente, uma variante por perfil. A receita só seleciona e ordena — não
+contém nenhuma frase de currículo.
 
 ## Estrutura
 
 ```
 cv/
-  cv.txt              fonte de verdade do CV em texto — é o que a ferramenta lê
-  cv.pdf              versão em PDF anexada nas candidaturas
-  cv-2026-07.html     mesma revisão em HTML, para revisar e gerar o PDF
-docs/
-  CV_ESTRATEGIA.md    documento vivo: inventário técnico dos projetos feito a
-                      partir do código real, decisões de redação, e a base de
-                      evidência de cada data escrita no CV
+  mestre.json          único lugar onde se escreve conteúdo
+  <perfil>/cv.txt      gerado — é o que a aderência lê e os bots consomem
+  <perfil>/cv.html     gerado — para revisar e exportar PDF/Word
+perfis/
+  <id>.json            receita: título, ordem, o que incluir, alvo de medição
 ferramentas/
-  aderencia.js        compara o CV com as vagas coletadas
-  lib/                vocabulário de mercado e lógica de avaliação
+  gerar-cv.js          mestre + receitas -> os 18 arquivos
+  aderencia.js         mede um currículo contra as vagas
+  exportar-snapshot.js regera dados/vagas-coletadas.json
+  lib/                 lógica pura, testada
 dados/
-  vagas-coletadas.json  snapshot de 1.129 vagas reais em 30 categorias
-aderencia/
-  AAAA-MM-DD-aderencia-cv.md   relatórios gerados
+  vagas-coletadas.json 1.129 vagas reais em 30 categorias
+aderencia/             relatórios gerados
+docs/
+  DIARIO.md            decisões e achados, em ordem — comece por aqui
+  PROXIMAS_FRENTES.md  o que está enfileirado
+  CV_ESTRATEGIA.md     inventário técnico dos projetos, com evidência
+  superpowers/         spec e plano do multi-perfil
 ```
-
-## Como usar o `cv-2026-07.html`
-
-Três controles no topo da página:
-
-- **Destacar inclusões** — vem ligado; o amarelo é o que entrou na revisão de
-  07/2026. Desligue para ver como o currículo fica de verdade.
-- **Tema** — claro/escuro.
-- **Imprimir / PDF** — layout A4, sem destaques e sem a barra de controles.
-  É por aqui que se gera o `cv.pdf`.
 
 ## A ferramenta de aderência
 
-`ferramentas/aderencia.js` cruza os termos técnicos do `cv/cv.txt` com os
-requisitos das vagas em `dados/vagas-coletadas.json` e responde:
+Cruza os termos técnicos de um `cv.txt` com os requisitos das vagas e responde:
 
-- **aderência média** — quanto do que o mercado pede já está escrito no CV;
-- **lacunas ranqueadas** — os termos mais pedidos que o CV não menciona,
-  ordenados por número de vagas.
+- **aderência média** — quanto do que aquelas vagas pedem já está escrito;
+- **lacunas ranqueadas** — os termos mais pedidos que o currículo não menciona.
 
-O vocabulário fica em `ferramentas/lib/termos-mercado.js`: é **dado
-editável**, não código. Para a ferramenta enxergar uma tecnologia nova, basta
-acrescentar o termo lá.
+Sem `--perfil`, mede o currículo genérico contra as 8 categorias de TI.
 
-### Por que é uma cópia adaptada, e não o original
-
-O `aderencia.js` do `vagas-automation-suite` depende de Prisma, do banco
-`coleta.db` e — por importar o filtro de área — de toda a cadeia de provedores
-de IA com suas chaves. Nada disso é necessário para comparar texto com texto.
-Esta versão troca o banco por um snapshot JSON e copia isolada a única função
-de que precisava do filtro (`termoBateNoTexto`, regex pura, em
-`ferramentas/lib/texto.js`), de modo que o repositório rode sozinho.
-
-**Consequência:** `ferramentas/lib/termos-mercado.js` e o `core/termos-mercado.js`
-da suite são cópias e **podem divergir**. Ao acrescentar termos, atualize os
-dois — ou trate este como o canônico e copie para lá.
+**Duas regras que a prática impôs.** O casamento de termo usa fronteira de
+palavra, nunca substring: buscar `ios` por substring casou 929 vagas, batendo
+dentro de "negóc**ios**" e "benefíc**ios**". E alvo sem nenhuma vaga encerra
+com aviso, nunca com 0% — "seu currículo não fala a língua do mercado" e "não
+há mercado medido aqui" são conclusões opostas.
 
 ### Atualizando o snapshot de vagas
 
-O snapshot é uma foto do `coleta.db` da suite. Para regerá-lo depois de uma
-nova coleta:
-
 ```bash
-node -e "
-const {DatabaseSync}=require('node:sqlite'), fs=require('fs');
-const db=new DatabaseSync('../vagas-automation-suite/coleta.db',{readOnly:true});
-fs.writeFileSync('dados/vagas-coletadas.json', JSON.stringify(
-  db.prepare('SELECT titulo, categoria, plataforma, empresa, senioridade, descricaoResumo, requisitos FROM Vaga WHERE ativa = 1').all(), null, 1));
-"
+node ferramentas/exportar-snapshot.js
 ```
 
-## Sincronia do `cv.txt` com os bots
+Lê o `coleta.db` do `vagas-automation-suite`. Passe outro caminho como
+argumento se o repositório estiver em outro lugar.
 
-Os bots de automação leem o CV em runtime, em `bots/infojobs/cv.txt` e
-`bots/vagas/cv.txt` dentro do `vagas-automation-suite`. Por isso o arquivo
-existe nos dois lugares.
+## Sincronia com os bots de candidatura
 
-**Este repositório é a fonte de verdade.** Ao editar o CV aqui, copie de volta:
+Os bots leem o CV em runtime, em `bots/infojobs/cv.txt` e `bots/vagas/cv.txt`
+do `vagas-automation-suite`. O `gerar-cv.js` imprime o comando de cópia ao
+final; ele não escreve em outro repositório por conta própria.
 
 ```bash
-cp cv/cv.txt ../vagas-automation-suite/bots/infojobs/cv.txt
-cp cv/cv.txt ../vagas-automation-suite/bots/vagas/cv.txt
+cp cv/dev/cv.txt ../vagas-automation-suite/bots/infojobs/cv.txt
+cp cv/dev/cv.txt ../vagas-automation-suite/bots/vagas/cv.txt
 ```
 
-## Estado atual (2026-07-30)
+## Pendências
 
-- `cv/cv.txt` e `cv/cv-2026-07.html` estão na revisão nova, com as seções de
-  IA & LLM, Processamento de Sinais, Ecossistema Python, Segurança Aplicada e
-  o portfólio de 7 projetos freelance.
-- `cv/cv.pdf` **ainda é o PDF antigo** — precisa ser regerado a partir do HTML
-  (botão *Imprimir / PDF*).
-- Medição no mesmo vocabulário de 379 termos:
-
-  | | termos no CV | aderência média | lacunas |
-  |---|---|---|---|
-  | CV antigo | 57 | 33% | 96 |
-  | CV novo | 216 | 45% | 68 |
-
-  Fecharam com o inventário: Git, React, TypeScript. Continuam abertas e são
-  lacuna real de conhecimento (não de redação): Azure, SQL Server, DAX,
-  C#/.NET, LGPD, Excel avançado, SAP, ITIL.
+Ver [docs/PROXIMAS_FRENTES.md](docs/PROXIMAS_FRENTES.md). As principais: o
+simulador de ATS, coletar vagas de telecom para tornar o perfil `voip`
+mensurável, e regerar o `cv.pdf`, que ainda é anterior a todo este trabalho.

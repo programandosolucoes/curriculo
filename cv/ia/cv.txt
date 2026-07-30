@@ -41,7 +41,7 @@ Desenvolvimento e Banco de Dados:
 - PHP e Laravel 12
 - SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
 - Prisma, Drizzle ORM, SQLAlchemy
-- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
 - Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
 

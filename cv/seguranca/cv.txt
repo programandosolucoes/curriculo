@@ -30,7 +30,7 @@ Cloud e DevOps:
 - Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
 - systemd, gunicorn, Nginx, Apache, healthcheck
 - Automação de provisionamento via API do Proxmox VE
-- Backup automatizado e disaster recovery (DR)
+- Backup automatizado, disaster recovery (DR) e alta disponibilidade
 
 Desenvolvimento e Banco de Dados:
 - JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
@@ -38,7 +38,7 @@ Desenvolvimento e Banco de Dados:
 - PHP e Laravel 12
 - SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
 - Prisma, Drizzle ORM, SQLAlchemy
-- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
 - Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
 
@@ -48,6 +48,23 @@ Ecossistema Python:
 - Concorrência: threading, jobs assíncronos em background, asyncio
 - pytest, pytest-asyncio, cobertura de testes, Locust
 - mypy, black, flake8, PyInstaller
+
+Qualidade e Testes:
+- pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
+- Testes end-to-end com Cypress
+- Teste de carga e performance com Locust
+- Teste de conformidade de protocolo com SIPp
+- Mock de HTTP, geração de dados sintéticos, cobertura de testes
+- Checagem estática de tipos com mypy e TypeScript
+- Suporte N3: reprodução e isolamento de defeito em produção
+
+Dados e Business Intelligence:
+- SQL avançado, modelagem relacional e tuning de PostgreSQL
+- Power BI, dashboards e relatórios operacionais
+- Pipelines de mais de 1 milhão de eventos diários
+- CDR e CEL: extração, correlação e análise de registros de chamada
+- Pandas, NumPy e análise estatística
+- Data Warehouse e Business Intelligence (pós-graduação em curso)
 
 EXPERIÊNCIA PROFISSIONAL
 Analista de Infraestrutura e Redes de TI | E-Prepag Fintech | 03/2015 - 12/2017

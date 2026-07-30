@@ -2,10 +2,43 @@
   "id": "seguranca",
   "titulo": "Analista de Segurança da Informação Sênior",
   "padrao": false,
-  "ordem": ["resumo", "conquistas", "competencias", "experiencia", "projetos", "formacao", "certificacoes", "idiomas"],
-  "competencias": ["seguranca", "cloud", "desenvolvimento", "python"],
-  "incluir_conquistas": ["mttd", "uptime"],
-  "incluir_experiencia": ["e-prepag", "ez-security", "open-new", "sothis", "tw-solutions", "all-net"],
-  "incluir_projetos": ["painel-git", "pedagio", "sipproxy", "analise-audio"],
-  "categorias_alvo": ["Segurança da Informação"]
+  "ordem": [
+    "resumo",
+    "conquistas",
+    "competencias",
+    "experiencia",
+    "projetos",
+    "formacao",
+    "certificacoes",
+    "idiomas"
+  ],
+  "competencias": [
+    "seguranca",
+    "cloud",
+    "desenvolvimento",
+    "python",
+    "qa",
+    "dados"
+  ],
+  "incluir_conquistas": [
+    "mttd",
+    "uptime"
+  ],
+  "incluir_experiencia": [
+    "e-prepag",
+    "ez-security",
+    "open-new",
+    "sothis",
+    "tw-solutions",
+    "all-net"
+  ],
+  "incluir_projetos": [
+    "painel-git",
+    "pedagio",
+    "sipproxy",
+    "analise-audio"
+  ],
+  "categorias_alvo": [
+    "Segurança da Informação"
+  ]
 }

@@ -4,9 +4,11 @@
     "local": "São Paulo, SP, Brasil",
     "telefone": "+55 11 2615-2880",
     "email": "carlosalberto4ti@gmail.com",
-    "links": ["linkedin.com/in/carlosalberto4ti", "programandosolucoes.com.br"]
+    "links": [
+      "linkedin.com/in/carlosalberto4ti",
+      "programandosolucoes.com.br"
+    ]
   },
-
   "resumos": {
     "voip": "Arquiteto de Soluções e Engenheiro VoIP Sênior com mais de 10 anos de experiência, focado em projetar e implementar sistemas de comunicação em nuvem de alta disponibilidade. Especialista em arquitetar ecossistemas VoIP complexos (Asterisk, Kamailio, OpenSIPS), integrar plataformas de telefonia a sistemas de negócio e desenvolver os componentes que faltam: appliances de roteamento, engines de URA/IVR, proxies SIP e APIs de integração. Certificado dCAA, com histórico de 99,99% de uptime em operação internacional e migrações sem indisponibilidade.",
     "dev": "Desenvolvedor Backend Sênior com mais de 10 anos construindo sistemas de missão crítica em Node.js, Python e PHP. Projetei APIs REST que processam mais de 1 milhão de eventos diários, liderei squad de 11 desenvolvedores como referência técnica de CI/CD, e mantenho um portfólio de sete plataformas autorais em produção, de discador para call center a análise de áudio por processamento de sinais. Trabalho com PostgreSQL, Laravel, FastAPI, Prisma e Docker, com suítes automatizadas que somam mais de 850 testes.",
@@ -18,14 +20,24 @@
     "qa": "Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.",
     "rpa": "Especialista em Automação de Processos (RPA, Robotic Process Automation) e Integração de Sistemas. Construí um motor de automação de navegador que opera portais web de forma autônoma e não supervisionada, bots de processamento de e-mail com decisão por Inteligência Artificial (IA), e chatbots que automatizaram até 25% do volume operacional de atendimento. Integração de API é especialidade recorrente: cinco gateways de mensageria atrás de uma única interface, clientes próprios de seis APIs distintas, mensageria assíncrona JMS/STOMP e webhooks substituindo polling."
   },
-
   "conquistas": [
-    { "id": "onboarding", "texto": "Otimização do onboarding de clientes: reduzi o tempo de onboarding em 60% com provisionamento zero-touch." },
-    { "id": "campanha", "texto": "Eficiência de campanha aprimorada: melhorei a eficiência das campanhas em 30% usando Inteligência Artificial (IA) para detecção de caixa postal." },
-    { "id": "uptime", "texto": "Garantia de uptime de serviço: garanti 99,99% de uptime para serviços críticos no mercado de telefonia italiano." },
-    { "id": "mttd", "texto": "Detecção de falhas aprimorada: reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade." }
+    {
+      "id": "onboarding",
+      "texto": "Otimização do onboarding de clientes: reduzi o tempo de onboarding em 60% com provisionamento zero-touch."
+    },
+    {
+      "id": "campanha",
+      "texto": "Eficiência de campanha aprimorada: melhorei a eficiência das campanhas em 30% usando Inteligência Artificial (IA) para detecção de caixa postal."
+    },
+    {
+      "id": "uptime",
+      "texto": "Garantia de uptime de serviço: garanti 99,99% de uptime para serviços críticos no mercado de telefonia italiano."
+    },
+    {
+      "id": "mttd",
+      "texto": "Detecção de falhas aprimorada: reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade."
+    }
   ],
-
   "competencias": {
     "voip": {
       "titulo": "VoIP e Telecomunicações",
@@ -49,7 +61,7 @@
         "PHP e Laravel 12",
         "SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional",
         "Prisma, Drizzle ORM, SQLAlchemy",
-        "API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket",
+        "API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços",
         "Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis",
         "Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)"
       ]
@@ -79,7 +91,7 @@
         "Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)",
         "systemd, gunicorn, Nginx, Apache, healthcheck",
         "Automação de provisionamento via API do Proxmox VE",
-        "Backup automatizado e disaster recovery (DR)"
+        "Backup automatizado, disaster recovery (DR) e alta disponibilidade"
       ]
     },
     "ia-llm": {
@@ -153,7 +165,6 @@
       ]
     }
   },
-
   "experiencia": [
     {
       "id": "akiva",
@@ -491,7 +502,6 @@
       }
     }
   ],
-
   "projetos": [
     {
       "id": "discador",
@@ -717,15 +727,33 @@
       }
     }
   ],
-
   "formacao": [
-    { "curso": "Pós-Graduação em Data Warehouse e Business Intelligence", "instituicao": "UniBF Centro Universitário", "periodo": "2025 - atual" },
-    { "curso": "Bacharelado em Ciências de Inteligência Artificial", "instituicao": "UniBF Centro Universitário", "periodo": "2025 - atual" },
-    { "curso": "Pós-Graduação (Especialização) em Banco de Dados", "instituicao": "Faculdade Play", "periodo": "2020 - 2024" },
-    { "curso": "Bacharelado em Sistemas de Informação", "instituicao": "ESAB - Escola Superior Aberta do Brasil", "periodo": "2016 - 2020" },
-    { "curso": "Gestão da Tecnologia da Informação", "instituicao": "Faculdade Sumaré", "periodo": "2009 - 2012" }
+    {
+      "curso": "Pós-Graduação em Data Warehouse e Business Intelligence",
+      "instituicao": "UniBF Centro Universitário",
+      "periodo": "2025 - atual"
+    },
+    {
+      "curso": "Bacharelado em Ciências de Inteligência Artificial",
+      "instituicao": "UniBF Centro Universitário",
+      "periodo": "2025 - atual"
+    },
+    {
+      "curso": "Pós-Graduação (Especialização) em Banco de Dados",
+      "instituicao": "Faculdade Play",
+      "periodo": "2020 - 2024"
+    },
+    {
+      "curso": "Bacharelado em Sistemas de Informação",
+      "instituicao": "ESAB - Escola Superior Aberta do Brasil",
+      "periodo": "2016 - 2020"
+    },
+    {
+      "curso": "Gestão da Tecnologia da Informação",
+      "instituicao": "Faculdade Sumaré",
+      "periodo": "2009 - 2012"
+    }
   ],
-
   "certificacoes": [
     "Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)",
     "Asterisk Certified Essentials (ACE) - Sangoma University (2021)",
@@ -738,7 +766,6 @@
     "Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy",
     "Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9"
   ],
-
   "idiomas": [
     "Português: nativo / fluente",
     "Italiano: fluente (proficiência profissional)",
