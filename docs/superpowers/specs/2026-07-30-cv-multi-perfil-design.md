@@ -16,9 +16,9 @@ aderência média, variando de 64% (Analista de Dados) a 18% (Suporte Técnico).
 
 ## Objetivo
 
-Produzir **oito versões do currículo**, uma por área-alvo, com os **mesmos
-fatos** e **ênfase diferente**: sete para apoiar uma migração de área (IA,
-desenvolvimento, DevOps, dados, segurança, QA e RPA) e uma para continuar
+Produzir **nove versões do currículo**, uma por área-alvo, com os **mesmos
+fatos** e **ênfase diferente**: oito para apoiar uma migração de área (IA,
+desenvolvimento, frontend, DevOps, dados, segurança, QA e RPA) e uma para continuar
 concorrendo na área de origem (VoIP), que segue sendo a mais forte do
 histórico.
 
@@ -32,7 +32,7 @@ Registradas com quem decidiu, porque mudam o resultado:
 | Decisão | Escolha | Quem |
 |---|---|---|
 | Objetivo dos perfis | **Migrar de área de verdade**, não só pegar vagas vizinhas | usuário |
-| Áreas-alvo | **Oito**: VoIP, IA, desenvolvimento, DevOps, dados, segurança, QA e RPA | usuário |
+| Áreas-alvo | **Nove**: VoIP, IA, desenvolvimento, frontend, DevOps, dados, segurança, QA e RPA | usuário |
 | Tratamento do histórico VoIP | **Reenquadrar na língua da área-alvo** — mesmos empregos e fatos, descritos pelo ângulo que interessa | usuário |
 | Arquitetura | **Mestre + receita por perfil** | usuário (contra a recomendação de fonte de dados única) |
 | Formato dos dados | **JSON** | imposto por restrição técnica (ver abaixo) |
@@ -62,14 +62,16 @@ cv/
   voip/       cv.txt  cv.html
   ia/         cv.txt  cv.html
   dev/        cv.txt  cv.html
+  frontend/   cv.txt  cv.html
   devops/     cv.txt  cv.html
   dados/      cv.txt  cv.html
   seguranca/  cv.txt  cv.html
   qa/         cv.txt  cv.html
   rpa/        cv.txt  cv.html
 perfis/
-  voip.json  ia.json  dev.json  devops.json
-  dados.json  seguranca.json  qa.json  rpa.json
+  voip.json  ia.json  dev.json  frontend.json
+  devops.json  dados.json  seguranca.json
+  qa.json  rpa.json
 ferramentas/
   gerar-cv.js              mestre + receita -> txt e html
   aderencia.js             ganha --perfil
@@ -79,7 +81,7 @@ ferramentas/
     render-html.js
 ```
 
-`node ferramentas/gerar-cv.js` regenera os 16 artefatos de saída. **Nenhum
+`node ferramentas/gerar-cv.js` regenera os 18 artefatos de saída. **Nenhum
 arquivo em `cv/<perfil>/` é editado à mão** — são derivados.
 
 ### Fluxo
@@ -111,7 +113,7 @@ perfis/X.json ┘                                                        └─�
   "resumos": {
     "dev": "…", "devops": "…", "dados": "…",
     "seguranca": "…", "qa": "…", "rpa": "…",
-    "voip": "…", "ia": "…"
+    "voip": "…", "ia": "…", "frontend": "…"
   },
 
   "conquistas": [
@@ -203,13 +205,14 @@ Um perfil declara `categorias_alvo` **ou** `filtro_termos`, nunca os dois — o
 gerador rejeita a receita que traga ambos ou nenhum, porque nesse caso não há
 como saber contra o que medir.
 
-## Os oito perfis
+## Os nove perfis
 
 | Perfil | Título | Alvo de medição | Vagas | Linha de base |
 |---|---|---|---|---|
 | `voip` | Arquiteto de Soluções VoIP Sênior | *filtro por termo* | **0** | **impossível hoje** |
 | `ia` | Engenheiro de IA / LLM Sênior | *filtro por termo* | 36 | **60%** |
 | `dev` | Desenvolvedor Backend Sênior | Desenvolvedor, Eng. de Software | 62 | 50% / 48% |
+| `frontend` | Desenvolvedor Frontend Sênior | *filtro por termo* | 23 | 56% |
 | `devops` | Engenheiro DevOps / SRE Sênior | DevOps, Analista de Sistemas | 53 | 52% / 43% |
 | `dados` | Engenheiro de Dados / BI | Analista de Dados | 32 | 64% |
 | `seguranca` | Analista de Segurança Sênior | Segurança da Informação | 33 | 27% |
@@ -231,7 +234,7 @@ WhatsApp, Yeastar, NextQualify, brokers).
 
 Isso produz uma propriedade útil para a implementação: **o `bullets.base` do
 mestre é a voz VoIP**, porque é assim que o currículo atual já está escrito.
-Os outros sete perfis é que sobrescrevem. Migrar o conteúdo para o mestre vira
+Os outros oito perfis é que sobrescrevem. Migrar o conteúdo para o mestre vira
 basicamente copiar o CV de hoje para `base` e depois escrever as variantes —
 não há retrabalho de tradução para a área de origem.
 
@@ -287,6 +290,31 @@ MCP — em vez de credencial acadêmica de ML.
 
 Reforço de formação: **Bacharelado em Ciências de Inteligência Artificial** em
 curso, que ancora o perfil sem depender de certificação de framework.
+
+### O perfil `frontend` — e por que não existe perfil `mobile`
+
+**23 vagas** citam frontend/React/TypeScript/CSS, com 56% de aderência já hoje
+— a terceira maior medida. Concentradas em Desenvolvedor (15). Termos mais
+pedidos: react (11), git (10), typescript (7), **javascript (6 — ausente do
+CV)**, node (6), css (8), **html (5 — ausente do CV)**, next.js (5).
+
+"JavaScript" e "HTML" não aparecem literalmente no currículo, embora sejam
+diários. Lacuna de redação pura, das mais baratas de fechar.
+
+Material que sustenta o perfil: React 18 + TypeScript (zib, ivr-flow-designer,
+evoluaiv2), Next.js, TailwindCSS em quatro projetos, Radix UI e shadcn, stack
+TanStack completa, Vite, testes E2E em Cypress, Angular na ELEV, TensorFlow.js
+executando no navegador, e um SPA em JavaScript puro de 2.081 linhas com
+`<canvas>` desenhando a forma de onda do áudio — frontend sem framework nem
+build, que é evidência de fundamento e não só de biblioteca.
+
+**Não haverá perfil `mobile`.** São só 6 vagas com fronteira de palavra, mas o
+motivo de recusa não é volume: **não existe material**. Nenhum dos 30
+repositórios inventariados usa React Native, Flutter, Kotlin ou Swift. O
+`evoluaiv2` tem um script `dev:native` no `package.json`, mas não há aplicativo
+nativo em `apps/`. Um currículo de mobile descreveria experiência inexistente —
+fora do princípio de que reenquadrar não é inventar, e inútil na prática,
+porque a primeira pergunta técnica derruba.
 
 ### O caso especial do RPA
 
@@ -375,7 +403,7 @@ com número em vez de opinião.
   era um recurso de revisão pontual.
 - **PDF** — gerado pelo navegador a partir do HTML. Fora do escopo automatizar.
 
-São 16 artefatos no total: oito perfis × (`cv.txt` + `cv.html`).
+São 18 artefatos no total: nove perfis × (`cv.txt` + `cv.html`).
 
 ## Regras de ATS (requisito do usuário)
 
@@ -409,7 +437,7 @@ partir dele.
   criativos ("Minha jornada", "O que me move") impedem o parser de mapear a
   seção.
 - **Datas em `MM/AAAA - MM/AAAA`**, o mesmo formato em todos os itens e em
-  todos os oito perfis.
+  todos os nove perfis.
 - **Cargo e empresa em linhas identificáveis**, nunca fundidos num parágrafo.
 - **Fonte comum** (family de sistema), tamanho mínimo 10pt, texto selecionável.
 - **Sigla e forma expandida juntas na primeira ocorrência**: "Inteligência
@@ -453,6 +481,10 @@ Lógica pura em `ferramentas/lib/`, testada com o runner nativo do Node
 - receita com `categorias_alvo` e `filtro_termos` juntos é rejeitada;
 - receita sem nenhum dos dois é rejeitada;
 - alvo que casa zero vagas produz aviso de "alvo não coletado", nunca 0%;
+- `filtro_termos` casa com **fronteira de palavra**, nunca por substring —
+  medido na prática: o termo "ios" por substring casou 929 vagas ao bater
+  dentro de "negócios", "benefícios" e "relatórios", número que parece dado e
+  não é;
 - `incluir_*` respeita a ordem do array e ignora id inexistente com aviso;
 - fatos (empresa, cargo, período) idênticos entre dois perfis quaisquer;
 - exatamente um perfil com `padrao: true`.
@@ -495,11 +527,11 @@ legítimo; atribuir-se responsabilidade que não existiu não é. Cada bullet de
 perfil precisa ser defensável em entrevista sobre aquele emprego.
 
 **O `cv.pdf` atual está desatualizado** em relação ao `cv.txt` — pendência
-anterior a este trabalho, que se multiplica por oito aqui.
+anterior a este trabalho, que se multiplica por nove aqui.
 
 ## Critério de sucesso
 
-1. `node ferramentas/gerar-cv.js` produz os 16 artefatos sem edição manual.
+1. `node ferramentas/gerar-cv.js` produz os 18 artefatos sem edição manual.
 2. Os testes de consistência passam — em particular, fatos idênticos entre
    perfis.
 3. Cada perfil pontua, no seu alvo de medição, **mais** que a linha de base da
