@@ -1,41 +1,34 @@
 /**
- * aderencia.js — Compara o CV deste repositório com as vagas do mercado já
- * coletadas, pra responder duas perguntas: "quais vagas batem melhor com o
- * que eu já tenho?" e, principalmente, "o que o mercado está pedindo que
- * ainda não está no meu CV?".
+ * aderencia.js — Compara um currículo deste repositório com as vagas do
+ * mercado já coletadas, e responde duas perguntas: "quais vagas batem melhor
+ * com o que eu tenho?" e, principalmente, "o que o mercado pede que ainda não
+ * está no meu currículo?".
  *
- * VERSÃO AUTOCONTIDA. O original vive no `vagas-automation-suite` e depende
- * de Prisma, do banco `coleta.db` e — por tabela — da cadeia de provedores de
- * IA. Aqui nada disso é necessário: as vagas vêm de um snapshot JSON commitado
- * em `dados/vagas-coletadas.json` e os únicos módulos usados são regex e
- * vocabulário puro. Clonou, roda:
+ * AUTOCONTIDO: as vagas vêm de um snapshot JSON commitado, e os módulos usados
+ * são regex e vocabulário puro. Clonou, roda — sem npm install, banco, chave de
+ * API ou rede. Requer Node.js 18+.
  *
- *     node ferramentas/aderencia.js
- *
- * Sem `npm install`, sem banco, sem chave de API, sem rede. Requer apenas
- * Node.js 18 ou superior.
- *
- * O relatório é impresso e salvo em `aderencia/AAAA-MM-DD-aderencia-cv.md`.
+ *   node ferramentas/aderencia.js                # currículo genérico
+ *   node ferramentas/aderencia.js --perfil=dev   # um perfil, contra o alvo dele
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 const {
   termosNoTexto, avaliarVaga, montarRankingTermos,
   calcularAderenciaMedia, montarRelatorioMarkdown,
 } = require('./lib/aderencia');
+const { selecionarVagas } = require('./lib/selecionar-vagas');
 
 const RAIZ = path.join(__dirname, '..');
-const CAMINHO_CV = path.join(RAIZ, 'cv', 'cv.txt');
 const CAMINHO_VAGAS = path.join(RAIZ, 'dados', 'vagas-coletadas.json');
 const DIR_SAIDA = path.join(RAIZ, 'aderencia');
 
-const CATEGORIAS_RELEVANTES = [
+const CATEGORIAS_GENERICAS = [
   'Desenvolvedor', 'DevOps', 'Suporte Técnico', 'Segurança da Informação',
   'Analista de Sistemas', 'Engenheiro de Software', 'QA', 'Analista de Dados',
 ];
 
-/** Lê um arquivo obrigatório e aborta com mensagem útil se faltar. */
 function lerObrigatorio(caminho, oQueE) {
   try {
     return fs.readFileSync(caminho, 'utf8');
@@ -45,46 +38,66 @@ function lerObrigatorio(caminho, oQueE) {
   }
 }
 
+function argumentoPerfil() {
+  const arg = process.argv.find(a => a.startsWith('--perfil='));
+  return arg ? arg.split('=')[1] : null;
+}
+
+/** Resolve de onde ler o CV e quais vagas medir, com ou sem perfil. */
+function resolverAlvo(perfilId, vagas) {
+  if (!perfilId) {
+    return {
+      caminhoCv: path.join(RAIZ, 'cv', 'cv.txt'),
+      rotulo: 'genérico',
+      ...selecionarVagas(vagas, { id: 'generico', categorias_alvo: CATEGORIAS_GENERICAS }),
+    };
+  }
+  const caminhoReceita = path.join(RAIZ, 'perfis', `${perfilId}.json`);
+  const receita = JSON.parse(lerObrigatorio(caminhoReceita, `Perfil "${perfilId}"`));
+  return {
+    caminhoCv: path.join(RAIZ, 'cv', perfilId, 'cv.txt'),
+    rotulo: perfilId,
+    ...selecionarVagas(vagas, receita),
+  };
+}
+
 function main() {
-  const cvText = lerObrigatorio(CAMINHO_CV, 'CV');
+  const perfilId = argumentoPerfil();
+  const vagas = JSON.parse(lerObrigatorio(CAMINHO_VAGAS, 'Snapshot de vagas'));
+  const alvo = resolverAlvo(perfilId, vagas);
+
+  const cvText = lerObrigatorio(alvo.caminhoCv, `CV do perfil "${alvo.rotulo}"`);
   const cvTermos = termosNoTexto(cvText);
 
-  let vagas;
-  try {
-    vagas = JSON.parse(lerObrigatorio(CAMINHO_VAGAS, 'Snapshot de vagas'));
-  } catch (err) {
-    console.error(`[Aderência] Snapshot de vagas ilegível (${err.message}) — abortando.`);
-    process.exit(1);
+  // "Nenhuma vaga no alvo" NÃO é 0% de aderência: uma coisa é o currículo não
+  // falar a língua do mercado, outra é não haver mercado medido. Imprimir 0%
+  // aqui produziria a conclusão oposta à verdadeira.
+  if (alvo.vagas.length === 0) {
+    console.error(`[Aderência] Perfil "${alvo.rotulo}": nenhuma vaga no alvo (${alvo.descricaoAlvo}).`);
+    console.error('[Aderência] Isso NÃO significa aderência zero — significa que o alvo não foi coletado.');
+    console.error('[Aderência] Nenhum relatório gravado. Colete vagas dessa área antes de medir.');
+    process.exit(2);
   }
 
-  // Mesmo recorte do original: só categorias do perfil e só vagas que trazem
-  // requisitos de verdade (sem isso a média de aderência fica sem sentido).
-  const relevantes = vagas.filter(v =>
-    CATEGORIAS_RELEVANTES.includes(v.categoria) && v.requisitos
-  );
+  console.log(`[Aderência] Perfil "${alvo.rotulo}" — ${alvo.vagas.length} vaga(s) no alvo (${alvo.descricaoAlvo}).\n`);
 
-  console.log(`[Aderência] ${relevantes.length} vaga(s) com requisitos reais nas categorias do perfil (de ${vagas.length} coletadas).\n`);
-  if (relevantes.length === 0) {
-    console.error('[Aderência] Nada a avaliar. Atualize o snapshot (ver README).');
-    process.exit(1);
-  }
-
-  const avaliacoes = relevantes.map(vaga => avaliarVaga(vaga, cvTermos));
+  const avaliacoes = alvo.vagas.map(vaga => avaliarVaga(vaga, cvTermos));
   const rankingTermos = montarRankingTermos(avaliacoes, cvTermos);
   const aderenciaMedia = calcularAderenciaMedia(avaliacoes);
 
   console.log(`Termos do vocabulário encontrados no CV: ${cvTermos.length}`);
-  console.log(`Aderência média: ${aderenciaMedia !== null ? aderenciaMedia + '%' : 'não calculável (nenhum termo reconhecido nas vagas)'}\n`);
-  console.log('Top termos pedidos pelo mercado que NÃO estão no seu CV:');
+  console.log(`Aderência média: ${aderenciaMedia !== null ? aderenciaMedia + '%' : 'não calculável'}\n`);
+  console.log('Top termos pedidos pelo mercado que NÃO estão neste CV:');
   const lacunas = rankingTermos.filter(t => !t.noCv).slice(0, 10);
-  if (lacunas.length === 0) console.log('  (nenhuma lacuna — o CV cobre todos os termos pedidos)');
+  if (lacunas.length === 0) console.log('  (nenhuma lacuna)');
   else lacunas.forEach(t => console.log(`  - ${t.termo} (${t.vagas} vaga(s))`));
 
   const dataHoje = new Date().toISOString().slice(0, 10);
-  if (!fs.existsSync(DIR_SAIDA)) fs.mkdirSync(DIR_SAIDA, { recursive: true });
-  const arquivoSaida = path.join(DIR_SAIDA, `${dataHoje}-aderencia-cv.md`);
+  fs.mkdirSync(DIR_SAIDA, { recursive: true });
+  const nome = perfilId ? `${dataHoje}-aderencia-${perfilId}.md` : `${dataHoje}-aderencia-cv.md`;
+  const arquivoSaida = path.join(DIR_SAIDA, nome);
   fs.writeFileSync(arquivoSaida, montarRelatorioMarkdown(avaliacoes, rankingTermos, dataHoje));
-  console.log(`\n[Aderência] Relatório completo salvo em ${path.relative(RAIZ, arquivoSaida)}`);
+  console.log(`\n[Aderência] Relatório salvo em ${path.relative(RAIZ, arquivoSaida)}`);
 }
 
 main();
