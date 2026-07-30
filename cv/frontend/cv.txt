@@ -1,0 +1,118 @@
+CARLOS ALBERTO
+Desenvolvedor Frontend Sênior
+São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
+linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
+
+RESUMO PROFISSIONAL
+Desenvolvedor Frontend Sênior com experiência em React 18, TypeScript e Next.js, construindo desde plataformas SaaS completas com design system próprio até interfaces em JavaScript puro sem framework nem build. Trabalhei com TailwindCSS, Radix UI, TanStack e Vite, testes end-to-end em Cypress, videochamada WebRTC e segmentação de imagem por Inteligência Artificial (IA) executando no navegador com TensorFlow.js. Base sólida de HTML, CSS e JavaScript, com mais de 10 anos de engenharia de backend por trás.
+
+COMPETÊNCIAS
+Frontend:
+- HTML, CSS e JavaScript (ES6+)
+- React 18, TypeScript, Next.js
+- TailwindCSS, Radix UI, shadcn/ui, design system com tokens de tema
+- TanStack (Query, Router, Table, Form), React Hook Form, Recharts
+- Vite, esbuild, PostCSS
+- Angular
+- SPA sem framework nem build, Canvas, tema claro/escuro
+- Testes end-to-end com Cypress e Testing Library
+- WebRTC (LiveKit, mediasoup) e TensorFlow.js no navegador
+
+Desenvolvimento e Banco de Dados:
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
+- Python (FastAPI, Flask, AGI, asyncio)
+- PHP e Laravel 12
+- SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
+- Prisma, Drizzle ORM, SQLAlchemy
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket
+- Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
+- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+
+Qualidade e Testes:
+- pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
+- Testes end-to-end com Cypress
+- Teste de carga e performance com Locust
+- Teste de conformidade de protocolo com SIPp
+- Mock de HTTP, geração de dados sintéticos, cobertura de testes
+- Checagem estática de tipos com mypy e TypeScript
+- Suporte N3: reprodução e isolamento de defeito em produção
+
+Cloud e DevOps:
+- Kubernetes (K8s), Docker e Docker Compose
+- AWS e GCP; AWS S3 com presigned URL
+- Proxmox, KVM, VMware vSphere, OpenStack, LXC
+- Infraestrutura como Código (IaC) e runbooks versionados
+- CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
+- systemd, gunicorn, Nginx, Apache, healthcheck
+- Automação de provisionamento via API do Proxmox VE
+- Backup automatizado e disaster recovery (DR)
+
+PROJETOS
+Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance | 02/2026 - 07/2026
+- Na versão React 18/TypeScript, construí a interface completa de atendimento com Radix UI, TailwindCSS e TanStack Query, incluindo videochamada WebRTC (LiveKit/mediasoup) e webphone SIP embarcado no navegador.
+- Implementei segmentação de fundo por Inteligência Artificial (IA) executando no cliente com TensorFlow.js e MediaPipe.
+- Cobri os fluxos críticos com testes end-to-end em Cypress.
+- Na reescrita para Laravel 12, mantive a paridade de interface com Blade, Vite e TailwindCSS.
+
+Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026
+- Desenvolvi um editor visual de fluxo de URA em React e TailwindCSS, com conversão bidirecional entre o grafo desenhado na tela e os passos executáveis do motor.
+- Construí o painel web de gestão que expõe campanhas, contatos, registros de chamada e execuções em tempo real.
+
+Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+- Desenvolvi um analisador de qualidade de áudio de telefonia que detecta perda de pacote, clipping, dead-air, one-way e nível/SNR baixo diretamente do sinal, em Python e NumPy: energia por frame, análise espectral (FFT) e estimativa de ruído de fundo por percentil para separar perda de pacote de pausa natural da conversa.
+- Implementei o E-model (ITU-T G.107) do zero, convertendo as detecções em R-factor e MOS, e avaliei modelos neurais no-reference (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, com decisão de arquitetura documentada por eixo de discriminação e por licenciamento comercial.
+- Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.
+- Painel Flask multi-tenant com isolamento físico de dados por cliente, SQLite, autenticação PBKDF2 e SPA sem framework nem build; empacotado em Docker e implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) com 121 testes automatizados.
+
+Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual
+- Desenvolvi e mantenho uma plataforma própria de hospedagem Git (alternativa self-hosted a GitHub e GitLab) em PHP, sem nenhuma dependência de runtime.
+- Implementei do zero o servidor WebDAV (RFC 4918: PROPFIND, MKCOL, COPY, MOVE, LOCK e UNLOCK) com mutex FIFO por caminho, o protocolo git smart HTTP (upload-pack e receive-pack) e autenticação por desafio criptográfico com chave SSH.
+- Construí pipeline de CI/CD com disparo assinado por HMAC-SHA256 e validação anti-SSRF do endpoint, credenciais cifradas em AES-256-GCM, controle de acesso via gitolite, rate limiting, bloqueio de IP, CSRF e cabeçalhos de segurança, com interface internacionalizada em 4 idiomas.
+- 129 commits ao longo de quase um ano de operação contínua, hospedando mais de 30 repositórios.
+
+EXPERIÊNCIA PROFISSIONAL
+Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
+- Desenvolvi o frontend em Angular de uma plataforma completa de gerenciamento, junto do backend em Node.js e PHP que o alimenta.
+- Liderei a arquitetura técnica de todos os projetos fullstack, supervisionando 11 desenvolvedores.
+- Projetei a integração com Zendesk e Power BI que virou um novo produto, com ganho de 200% em novas receitas.
+
+Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
+- Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados diariamente por gerentes em mais de 25 empresas clientes.
+- Construí um chatbot de voz do zero como novo produto, automatizando 10% do volume de chamadas operacionais.
+
+Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
+- Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.
+- Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).
+- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.
+
+Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil
+- Projetei e implementei a arquitetura de borda (SBC) de alta disponibilidade da empresa, combinando Asterisk, OpenSIPS e Kamailio.
+- Reduzi os custos de telefonia em mais de 300% ao criar APIs de microsserviços (Node.js) que eliminaram novas taxas de licença através da modernização.
+- Desenvolvi um appliance de roteamento (Node.js/Drachtio) para integração e roteamento dinâmico de chamadas com o Microsoft Teams.
+- Desenvolvi uma URA dinâmica com AGI em Python, utilizando TTS/STT e ASR para reconhecimento de voz.
+
+FORMAÇÃO ACADÊMICA
+- Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
+- Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual
+- Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024
+- Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020
+- Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012
+
+CERTIFICAÇÕES E TREINAMENTOS
+- Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)
+- Asterisk Certified Essentials (ACE) - Sangoma University (2021)
+- FreePBX Certified Essentials - Sangoma University (2022)
+- LPIC-1 - Linux Professional Institute (2016)
+- Red Hat Certified System Administrator (RHCSA) (2022)
+- VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations
+- Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios
+- Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik
+- Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy
+- Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9
+
+IDIOMAS
+- Português: nativo / fluente
+- Italiano: fluente (proficiência profissional)
+- Espanhol: avançado
+- Inglês: intermediário (foco em leitura técnica)

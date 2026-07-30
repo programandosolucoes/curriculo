@@ -1,0 +1,129 @@
+CARLOS ALBERTO
+Analista de Segurança da Informação Sênior
+São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
+linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
+
+RESUMO PROFISSIONAL
+Analista de Segurança da Informação Sênior com experiência em proteção de aplicação, criptografia aplicada e resposta a incidentes. Implementei arquitetura WAF com ModSecurity e regras OWASP em ambiente financeiro, reduzi o tempo de resposta a incidentes em mais de 99% com análise automatizada de logs em nível de SOC, e desenvolvi sistemas com criptografia AES, assinatura digital RSA-2048 e isolamento físico de dados entre clientes. Experiência com pfSense, OpenVPN, hardening de Linux e conformidade regulatória (normas ISO/IEC).
+
+PRINCIPAIS CONQUISTAS
+- Detecção de falhas aprimorada: reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade.
+- Garantia de uptime de serviço: garanti 99,99% de uptime para serviços críticos no mercado de telefonia italiano.
+
+COMPETÊNCIAS
+Segurança Aplicada:
+- WAF (ModSecurity, regras OWASP), pfSense, OpenVPN, Squid Proxy
+- Análise de logs em nível de SOC, Fail2ban, resposta a incidentes
+- Criptografia AES-128 e AES-256 (CBC, ECB, CFB, OFB, CTR) e AES-256-GCM
+- RSA-2048, HMAC-SHA256, PBKDF2, assinatura digital
+- OAuth2, JWT, TLS/SSL, autenticação por desafio criptográfico com chave SSH
+- Multi-tenancy com isolamento físico de dados, RBAC granular
+- Proteção contra SSRF, CSRF, XSS e SQL Injection; rate limiting e hardening
+- Conformidade regulatória: normas ISO/IEC, homologação técnica
+
+Cloud e DevOps:
+- Kubernetes (K8s), Docker e Docker Compose
+- AWS e GCP; AWS S3 com presigned URL
+- Proxmox, KVM, VMware vSphere, OpenStack, LXC
+- Infraestrutura como Código (IaC) e runbooks versionados
+- CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
+- systemd, gunicorn, Nginx, Apache, healthcheck
+- Automação de provisionamento via API do Proxmox VE
+- Backup automatizado e disaster recovery (DR)
+
+Desenvolvimento e Banco de Dados:
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
+- Python (FastAPI, Flask, AGI, asyncio)
+- PHP e Laravel 12
+- SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
+- Prisma, Drizzle ORM, SQLAlchemy
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket
+- Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
+- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+
+Ecossistema Python:
+- NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
+- cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
+- Concorrência: threading, jobs assíncronos em background, asyncio
+- pytest, pytest-asyncio, cobertura de testes, Locust
+- mypy, black, flake8, PyInstaller
+
+EXPERIÊNCIA PROFISSIONAL
+Analista de Infraestrutura e Redes de TI | E-Prepag Fintech | 03/2015 - 12/2017
+- Implementei a arquitetura de segurança web (WAF) da fintech com ModSecurity e regras OWASP, protegendo contra SQL Injection, XSS e força bruta.
+- Reduzi o tempo de resposta a incidentes de segurança em mais de 99%, de minutos para tempo real, desenvolvendo análise automatizada de logs em nível de SOC com Fail2ban.
+- Garanti 100% de continuidade dos negócios elaborando o plano completo de disaster recovery (DR) e gerenciando as rotinas de backup off-site.
+- Atuei em ambiente financeiro, onde indisponibilidade e vazamento têm consequência regulatória direta.
+
+Analista de Infraestrutura e Redes de TI | EZ-Security | 01/2018 - 08/2018
+- Monitorei métricas vitais de aplicações de segurança (Symantec, OTP) configurando Zabbix com SNMP, com abertura automática de ticket para a equipe responsável.
+- Automatizei a resposta a incidentes de segurança, encurtando o tempo entre a detecção e o início do tratamento.
+
+Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasil
+- Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.
+- Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade, encurtando a janela de exposição a incidentes.
+- Investiguei e resolvi escalonamentos de N3 envolvendo comportamento anômalo de arquitetura e performance.
+
+Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019
+- Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux, mantendo 99,99% de uptime para todos os serviços de telefonia IP.
+- Administrei plataformas de nuvem (VMware vSphere, OpenStack) e Sippulse (STFC) para um ambiente de mais de 400 servidores.
+- Desenvolvi um novo chatbot em Asterisk e Node.js que automatizou 25% das chamadas de triagem inicial de clientes, liberando o tempo dos agentes para problemas complexos.
+
+Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
+- Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.
+- Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).
+- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.
+
+Analista de Infraestrutura | All Net Group | 04/2013 - 02/2015
+- Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows e Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.
+
+PROJETOS
+Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual
+- Implementei autenticação por desafio criptográfico com chave SSH: o servidor gera um nonce, o cliente assina e o servidor verifica contra o authorized_keys, com tratamento explícito de replay porque uma operação git reenvia o mesmo cabeçalho em requisições sucessivas.
+- Cifrei credenciais de integração em AES-256-GCM e assinei o disparo de automação com HMAC-SHA256, incluindo validação anti-SSRF do endpoint de destino.
+- Implementei rate limiting, bloqueio de IP, token CSRF, cabeçalhos de segurança e sanitização de entrada, com log de segurança auditável.
+- Controle de acesso a repositórios via gitolite, em plataforma sem nenhuma dependência de runtime - menos superfície de ataque herdada.
+
+Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | freelance, setor de mobilidade e rodovias | 12/2025 - 01/2026
+- Implementei a camada criptográfica de um sistema de arrecadação: decriptação AES do payload do chip RFID com suporte configurável a 10 combinações de algoritmo e modo (AES-128 e AES-256 em CBC, ECB, CFB, OFB e CTR).
+- Desenvolvi licenciamento próprio de software com assinatura digital RSA-2048, vínculo por hash de hardware e controle de expiração, impedindo execução não autorizada.
+- Garanti aderência às normas ISO/IEC 18000-63 e ISO/IEC 29167-10 e à regulamentação do órgão certificador, em contexto de homologação regulatória.
+- Atuei como arquiteto hands-on, definindo a arquitetura de integração segura entre a antena, o backend e o broker da concessionária.
+
+SIP Proxy e SBC para FusionPBX | projeto próprio/freelance | 07/2026 - atual
+- Desenvolvo um proxy SIP baseado em Kamailio e rtpengine com foco em NAT traversal e modo transparent, como alternativa enxuta ao dSIPRouter para integração com FusionPBX.
+- Implementei roteamento dinâmico (drouting), controle de acesso por origem (permissions), estado em htable e registro remoto via path.
+- Construí painel de administração em Flask com blueprints e SQLAlchemy 2.0 por reflection sobre as tabelas do motor (MariaDB/PyMySQL), comandando o Kamailio por JSON-RPC.
+- Validei por 13 cenários SIPp de conformidade de protocolo: negociação de G.729 com payload type dinâmico e estático, AVPF sem rtpmap, REGISTER de ramal remoto e rejeição 403/404. Stack inteira containerizada.
+
+Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+- Desenvolvi um analisador de qualidade de áudio de telefonia que detecta perda de pacote, clipping, dead-air, one-way e nível/SNR baixo diretamente do sinal, em Python e NumPy: energia por frame, análise espectral (FFT) e estimativa de ruído de fundo por percentil para separar perda de pacote de pausa natural da conversa.
+- Implementei o E-model (ITU-T G.107) do zero, convertendo as detecções em R-factor e MOS, e avaliei modelos neurais no-reference (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, com decisão de arquitetura documentada por eixo de discriminação e por licenciamento comercial.
+- Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.
+- Painel Flask multi-tenant com isolamento físico de dados por cliente, SQLite, autenticação PBKDF2 e SPA sem framework nem build; empacotado em Docker e implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) com 121 testes automatizados.
+
+FORMAÇÃO ACADÊMICA
+- Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
+- Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual
+- Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024
+- Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020
+- Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012
+
+CERTIFICAÇÕES E TREINAMENTOS
+- Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)
+- Asterisk Certified Essentials (ACE) - Sangoma University (2021)
+- FreePBX Certified Essentials - Sangoma University (2022)
+- LPIC-1 - Linux Professional Institute (2016)
+- Red Hat Certified System Administrator (RHCSA) (2022)
+- VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations
+- Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios
+- Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik
+- Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy
+- Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9
+
+IDIOMAS
+- Português: nativo / fluente
+- Italiano: fluente (proficiência profissional)
+- Espanhol: avançado
+- Inglês: intermediário (foco em leitura técnica)

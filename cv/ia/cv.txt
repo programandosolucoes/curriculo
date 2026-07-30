@@ -1,0 +1,124 @@
+CARLOS ALBERTO
+Engenheiro de Inteligência Artificial (IA) Sênior
+São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
+linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
+
+RESUMO PROFISSIONAL
+Engenheiro de Inteligência Artificial (IA) com experiência prática em integrar modelos de linguagem (LLM) a produtos em produção. Construí cadeia de fallback entre cinco provedores sobre dois formatos de API distintos, inferência local em CPU com modelos quantizados para dados que não podem sair da máquina, e avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento comercial. Mais de 10 anos de engenharia de sistemas dão a base para colocar IA em produção, não só prototipar. Bacharelado em Ciências de Inteligência Artificial em curso.
+
+PRINCIPAIS CONQUISTAS
+- Eficiência de campanha aprimorada: melhorei a eficiência das campanhas em 30% usando Inteligência Artificial (IA) para detecção de caixa postal.
+
+COMPETÊNCIAS
+Inteligência Artificial (IA) e LLM:
+- Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic, NVIDIA NIM, Groq/Llama 3, Ollama)
+- Inferência local em CPU para dados sensíveis: LLM quantizado GGUF via llama.cpp e ONNX Runtime
+- Reconhecimento de fala (ASR) local com faster-whisper
+- Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico
+- Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento
+- IA generativa, agentes de IA, MCP (Model Context Protocol), RAG
+- Machine learning aplicado, NLP e processamento de linguagem natural
+- Engenharia assistida por IA com metodologia spec-driven
+
+Ecossistema Python:
+- NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
+- cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
+- Concorrência: threading, jobs assíncronos em background, asyncio
+- pytest, pytest-asyncio, cobertura de testes, Locust
+- mypy, black, flake8, PyInstaller
+
+Processamento de Sinais e Áudio:
+- Processamento Digital de Sinais (DSP) em Python e NumPy
+- FFT e features espectrais (flatness, flux, centroide)
+- Qualidade de voz por norma ITU-T: E-model G.107 (R-factor para MOS), P.862.1, P.835
+- Detecção de perda de pacote, clipping, dead-air, one-way, SNR e jitter
+- AMD (Answering Machine Detection) e auditoria de classificador
+- ffmpeg e ffprobe
+
+Desenvolvimento e Banco de Dados:
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
+- Python (FastAPI, Flask, AGI, asyncio)
+- PHP e Laravel 12
+- SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
+- Prisma, Drizzle ORM, SQLAlchemy
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket
+- Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
+- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+
+Dados e Business Intelligence:
+- SQL avançado, modelagem relacional e tuning de PostgreSQL
+- Power BI, dashboards e relatórios operacionais
+- Pipelines de mais de 1 milhão de eventos diários
+- CDR e CEL: extração, correlação e análise de registros de chamada
+- Pandas, NumPy e análise estatística
+- Data Warehouse e Business Intelligence (pós-graduação em curso)
+
+PROJETOS
+Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+- Construí uma camada de Inteligência Artificial (IA) 100% local em CPU, sem nuvem, porque os áudios são de clientes e não podem sair da máquina: reconhecimento de fala com faster-whisper quantizado em int8 e classificação por LLM quantizado GGUF via llama.cpp.
+- Implementei prompt engineering estruturado: system prompt com seis exemplos few-shot injetados como turnos, saída JSON forçada, coerção de schema e fallback determinístico quando o modelo falha.
+- Avaliei modelos neurais de qualidade percebida (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, medindo separação por eixo e correlação, com decisão de arquitetura documentada por desempenho e por licenciamento comercial.
+- Derivei uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) de terceiros, cruzando a classificação da API do cliente com análise independente do áudio para achar falso positivo nas duas direções.
+
+Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/2026 - atual
+- Implementei uma cadeia de fallback entre cinco provedores de Inteligência Artificial (IA) sobre dois formatos de API distintos (OpenAI-compatível e Anthropic Messages), garantindo disponibilidade mesmo com limite de cota.
+- Projetei a camada de decisão por IA para degradar em regra determinística quando todos os provedores falham, de modo que a automação nunca para por indisponibilidade de modelo.
+- Construí geração de resposta por IA a partir de documento de referência, com validação da saída antes do uso.
+
+Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance | 02/2026 - 07/2026
+- Desenvolvi jobs assíncronos de Inteligência Artificial (IA) com Groq e Llama 3.1 (70B e 8B) para análise de sentimento e de qualidade de atendimento, executados fora do caminho crítico para não bloquear a operação.
+- Implementei segmentação de fundo por IA no navegador com TensorFlow.js e MediaPipe na videochamada WebRTC.
+- Construí motor de automação conversacional com estado, decidindo quando escalar para humano.
+
+Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026
+- Arquitetei e mantive uma suite completa de discador para call center: painel web de gestão (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (Asterisk ARI/PJSIP) e engine de URA/IVR JSON-driven com 16 primitivas interpretadas pelo dialplan, com backend realtime via ODBC (unixODBC, func_odbc, CDR/CEL sobre PostgreSQL) e editor visual de fluxo em React.
+- Provisionei a infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling.
+- Modelei 17 tabelas com tuning manual de PostgreSQL e escrevi 15 suítes pytest cobrindo cada primitiva da URA ponta a ponta.
+
+EXPERIÊNCIA PROFISSIONAL
+Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil
+- Aumentei a eficiência das campanhas em 30% integrando um serviço de Inteligência Artificial (IA) de classificação de áudio ao fluxo de discagem, em solução Python própria.
+- Liderei a arquitetura de uma plataforma de alto volume, definindo onde a classificação automática entra no ciclo de vida da chamada.
+
+Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
+- Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.
+- Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).
+- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.
+
+Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil
+- Desenvolvi uma URA dinâmica em Python usando reconhecimento de voz (ASR) e síntese de fala (TTS/STT), substituindo menus fixos por interação em linguagem natural.
+- Criei APIs de microsserviços em Node.js que reduziram custos em mais de 300% ao substituir software licenciado.
+
+Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
+- Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores.
+- Desenvolvi o backend completo (REST APIs em Node.js, PHP) e o frontend (Angular) para a plataforma de gerenciamento de call center.
+- Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Zendesk e Power BI, criando um novo produto para a equipe de vendas.
+
+Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
+- Construí do zero um chatbot de voz (CPQD) como novo produto, automatizando 10% do volume de chamadas operacionais dos clientes iniciais.
+- Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes.
+
+FORMAÇÃO ACADÊMICA
+- Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
+- Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual
+- Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024
+- Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020
+- Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012
+
+CERTIFICAÇÕES E TREINAMENTOS
+- Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)
+- Asterisk Certified Essentials (ACE) - Sangoma University (2021)
+- FreePBX Certified Essentials - Sangoma University (2022)
+- LPIC-1 - Linux Professional Institute (2016)
+- Red Hat Certified System Administrator (RHCSA) (2022)
+- VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations
+- Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios
+- Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik
+- Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy
+- Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9
+
+IDIOMAS
+- Português: nativo / fluente
+- Italiano: fluente (proficiência profissional)
+- Espanhol: avançado
+- Inglês: intermediário (foco em leitura técnica)

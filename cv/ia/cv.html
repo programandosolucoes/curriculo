@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlos Alberto - Engenheiro de Inteligência Artificial (IA) Sênior</title>
+<style id="estilo-cv">
+  :root { --tinta: #111; --suave: #444; --linha: #bbb; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto; max-width: 820px; padding: 32px 28px 64px;
+    font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+    font-size: 11pt; line-height: 1.45; color: var(--tinta); background: #fff;
+  }
+  h1 { font-size: 20pt; margin: 0; letter-spacing: .01em; }
+  .cargo { font-size: 12.5pt; color: var(--suave); margin: 2px 0 8px; font-weight: 600; }
+  .contato { font-size: 10pt; color: var(--suave); margin: 0; }
+  .contato a { color: inherit; }
+  h2 {
+    font-size: 11.5pt; margin: 22px 0 8px; padding-bottom: 3px;
+    border-bottom: 1px solid var(--linha); letter-spacing: .04em;
+  }
+  h3 { font-size: 11pt; margin: 12px 0 3px; font-weight: 700; }
+  p { margin: 0 0 8px; }
+  ul { margin: 4px 0 10px; padding-left: 20px; }
+  li { margin-bottom: 3px; }
+  .grupo-titulo { font-weight: 700; margin: 10px 0 2px; }
+  .barra {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--linha);
+  }
+  .barra button {
+    font: inherit; font-size: 10pt; cursor: pointer;
+    padding: 7px 14px; border-radius: 6px;
+    color: var(--tinta); background: #f4f4f6; border: 1px solid var(--linha);
+  }
+  .barra button:hover { background: #e8e8ec; }
+  .barra .dica { font-size: 9.5pt; color: var(--suave); align-self: center; margin: 0; }
+  @media print {
+    body { max-width: none; padding: 0; font-size: 10.5pt; }
+    @page { margin: 14mm; }
+    h2, h3, li { break-inside: avoid; }
+    .barra { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="barra">
+  <button type="button" id="btn-pdf">Baixar PDF</button>
+  <button type="button" id="btn-doc">Baixar Word (.doc)</button>
+  <p class="dica">No diálogo de impressão, escolha "Salvar como PDF".</p>
+</div>
+
+<div id="curriculo">
+<h1>Carlos Alberto</h1>
+<p class="cargo">Engenheiro de Inteligência Artificial (IA) Sênior</p>
+<p class="contato">São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com</p>
+<p class="contato">linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br</p>
+
+<h2>RESUMO PROFISSIONAL</h2>
+<p>Engenheiro de Inteligência Artificial (IA) com experiência prática em integrar modelos de linguagem (LLM) a produtos em produção. Construí cadeia de fallback entre cinco provedores sobre dois formatos de API distintos, inferência local em CPU com modelos quantizados para dados que não podem sair da máquina, e avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento comercial. Mais de 10 anos de engenharia de sistemas dão a base para colocar IA em produção, não só prototipar. Bacharelado em Ciências de Inteligência Artificial em curso.</p>
+
+<h2>PRINCIPAIS CONQUISTAS</h2>
+<ul>
+  <li>Eficiência de campanha aprimorada: melhorei a eficiência das campanhas em 30% usando Inteligência Artificial (IA) para detecção de caixa postal.</li>
+</ul>
+
+<h2>COMPETÊNCIAS</h2>
+<p class="grupo-titulo">Inteligência Artificial (IA) e LLM</p>
+<ul>
+  <li>Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic, NVIDIA NIM, Groq/Llama 3, Ollama)</li>
+  <li>Inferência local em CPU para dados sensíveis: LLM quantizado GGUF via llama.cpp e ONNX Runtime</li>
+  <li>Reconhecimento de fala (ASR) local com faster-whisper</li>
+  <li>Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico</li>
+  <li>Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento</li>
+  <li>IA generativa, agentes de IA, MCP (Model Context Protocol), RAG</li>
+  <li>Machine learning aplicado, NLP e processamento de linguagem natural</li>
+  <li>Engenharia assistida por IA com metodologia spec-driven</li>
+</ul>
+<p class="grupo-titulo">Ecossistema Python</p>
+<ul>
+  <li>NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy</li>
+  <li>cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio</li>
+  <li>Concorrência: threading, jobs assíncronos em background, asyncio</li>
+  <li>pytest, pytest-asyncio, cobertura de testes, Locust</li>
+  <li>mypy, black, flake8, PyInstaller</li>
+</ul>
+<p class="grupo-titulo">Processamento de Sinais e Áudio</p>
+<ul>
+  <li>Processamento Digital de Sinais (DSP) em Python e NumPy</li>
+  <li>FFT e features espectrais (flatness, flux, centroide)</li>
+  <li>Qualidade de voz por norma ITU-T: E-model G.107 (R-factor para MOS), P.862.1, P.835</li>
+  <li>Detecção de perda de pacote, clipping, dead-air, one-way, SNR e jitter</li>
+  <li>AMD (Answering Machine Detection) e auditoria de classificador</li>
+  <li>ffmpeg e ffprobe</li>
+</ul>
+<p class="grupo-titulo">Desenvolvimento e Banco de Dados</p>
+<ul>
+  <li>JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)</li>
+  <li>Python (FastAPI, Flask, AGI, asyncio)</li>
+  <li>PHP e Laravel 12</li>
+  <li>SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional</li>
+  <li>Prisma, Drizzle ORM, SQLAlchemy</li>
+  <li>API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket</li>
+  <li>Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis</li>
+  <li>Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)</li>
+</ul>
+<p class="grupo-titulo">Dados e Business Intelligence</p>
+<ul>
+  <li>SQL avançado, modelagem relacional e tuning de PostgreSQL</li>
+  <li>Power BI, dashboards e relatórios operacionais</li>
+  <li>Pipelines de mais de 1 milhão de eventos diários</li>
+  <li>CDR e CEL: extração, correlação e análise de registros de chamada</li>
+  <li>Pandas, NumPy e análise estatística</li>
+  <li>Data Warehouse e Business Intelligence (pós-graduação em curso)</li>
+</ul>
+
+<h2>PROJETOS</h2>
+<h3>Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual</h3>
+<ul>
+  <li>Construí uma camada de Inteligência Artificial (IA) 100% local em CPU, sem nuvem, porque os áudios são de clientes e não podem sair da máquina: reconhecimento de fala com faster-whisper quantizado em int8 e classificação por LLM quantizado GGUF via llama.cpp.</li>
+  <li>Implementei prompt engineering estruturado: system prompt com seis exemplos few-shot injetados como turnos, saída JSON forçada, coerção de schema e fallback determinístico quando o modelo falha.</li>
+  <li>Avaliei modelos neurais de qualidade percebida (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, medindo separação por eixo e correlação, com decisão de arquitetura documentada por desempenho e por licenciamento comercial.</li>
+  <li>Derivei uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) de terceiros, cruzando a classificação da API do cliente com análise independente do áudio para achar falso positivo nas duas direções.</li>
+</ul>
+<h3>Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/2026 - atual</h3>
+<ul>
+  <li>Implementei uma cadeia de fallback entre cinco provedores de Inteligência Artificial (IA) sobre dois formatos de API distintos (OpenAI-compatível e Anthropic Messages), garantindo disponibilidade mesmo com limite de cota.</li>
+  <li>Projetei a camada de decisão por IA para degradar em regra determinística quando todos os provedores falham, de modo que a automação nunca para por indisponibilidade de modelo.</li>
+  <li>Construí geração de resposta por IA a partir de documento de referência, com validação da saída antes do uso.</li>
+</ul>
+<h3>Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance | 02/2026 - 07/2026</h3>
+<ul>
+  <li>Desenvolvi jobs assíncronos de Inteligência Artificial (IA) com Groq e Llama 3.1 (70B e 8B) para análise de sentimento e de qualidade de atendimento, executados fora do caminho crítico para não bloquear a operação.</li>
+  <li>Implementei segmentação de fundo por IA no navegador com TensorFlow.js e MediaPipe na videochamada WebRTC.</li>
+  <li>Construí motor de automação conversacional com estado, decidindo quando escalar para humano.</li>
+</ul>
+<h3>Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026</h3>
+<ul>
+  <li>Arquitetei e mantive uma suite completa de discador para call center: painel web de gestão (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (Asterisk ARI/PJSIP) e engine de URA/IVR JSON-driven com 16 primitivas interpretadas pelo dialplan, com backend realtime via ODBC (unixODBC, func_odbc, CDR/CEL sobre PostgreSQL) e editor visual de fluxo em React.</li>
+  <li>Provisionei a infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling.</li>
+  <li>Modelei 17 tabelas com tuning manual de PostgreSQL e escrevi 15 suítes pytest cobrindo cada primitiva da URA ponta a ponta.</li>
+</ul>
+
+<h2>EXPERIÊNCIA PROFISSIONAL</h2>
+<h3>Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil</h3>
+<ul>
+  <li>Aumentei a eficiência das campanhas em 30% integrando um serviço de Inteligência Artificial (IA) de classificação de áudio ao fluxo de discagem, em solução Python própria.</li>
+  <li>Liderei a arquitetura de uma plataforma de alto volume, definindo onde a classificação automática entra no ciclo de vida da chamada.</li>
+</ul>
+<h3>Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil</h3>
+<ul>
+  <li>Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.</li>
+  <li>Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).</li>
+  <li>Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.</li>
+</ul>
+<h3>Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil</h3>
+<ul>
+  <li>Desenvolvi uma URA dinâmica em Python usando reconhecimento de voz (ASR) e síntese de fala (TTS/STT), substituindo menus fixos por interação em linguagem natural.</li>
+  <li>Criei APIs de microsserviços em Node.js que reduziram custos em mais de 300% ao substituir software licenciado.</li>
+</ul>
+<h3>Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil</h3>
+<ul>
+  <li>Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores.</li>
+  <li>Desenvolvi o backend completo (REST APIs em Node.js, PHP) e o frontend (Angular) para a plataforma de gerenciamento de call center.</li>
+  <li>Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Zendesk e Power BI, criando um novo produto para a equipe de vendas.</li>
+</ul>
+<h3>Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil</h3>
+<ul>
+  <li>Construí do zero um chatbot de voz (CPQD) como novo produto, automatizando 10% do volume de chamadas operacionais dos clientes iniciais.</li>
+  <li>Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes.</li>
+</ul>
+
+<h2>FORMAÇÃO ACADÊMICA</h2>
+<ul>
+  <li>Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual</li>
+  <li>Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual</li>
+  <li>Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024</li>
+  <li>Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020</li>
+  <li>Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012</li>
+</ul>
+
+<h2>CERTIFICAÇÕES E TREINAMENTOS</h2>
+<ul>
+  <li>Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)</li>
+  <li>Asterisk Certified Essentials (ACE) - Sangoma University (2021)</li>
+  <li>FreePBX Certified Essentials - Sangoma University (2022)</li>
+  <li>LPIC-1 - Linux Professional Institute (2016)</li>
+  <li>Red Hat Certified System Administrator (RHCSA) (2022)</li>
+  <li>VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations</li>
+  <li>Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios</li>
+  <li>Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik</li>
+  <li>Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy</li>
+  <li>Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9</li>
+</ul>
+
+<h2>IDIOMAS</h2>
+<ul>
+  <li>Português: nativo / fluente</li>
+  <li>Italiano: fluente (proficiência profissional)</li>
+  <li>Espanhol: avançado</li>
+  <li>Inglês: intermediário (foco em leitura técnica)</li>
+</ul>
+</div>
+
+<script>
+document.getElementById('btn-pdf').addEventListener('click', function () {
+  window.print();
+});
+
+document.getElementById('btn-doc').addEventListener('click', function () {
+  var conteudo = document.getElementById('curriculo').innerHTML;
+  var estilo = document.getElementById('estilo-cv').innerHTML;
+  var documento =
+    '<html xmlns:o="urn:schemas-microsoft-com:office:office"' +
+    ' xmlns:w="urn:schemas-microsoft-com:office:word"' +
+    ' xmlns="http://www.w3.org/TR/REC-html40">' +
+    '<head><meta charset="utf-8"><style>' + estilo + '</style></head>' +
+    '<body>' + conteudo + '</body></html>';
+
+  // O BOM faz o Word reconhecer o UTF-8 e não corromper os acentos.
+  var blob = new Blob(['\ufeff', documento], { type: 'application/msword' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url;
+  link.download = "CV-Carlos-Alberto-ia" + '.doc';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>

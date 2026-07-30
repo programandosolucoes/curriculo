@@ -1,0 +1,117 @@
+CARLOS ALBERTO
+Analista de QA / Automação de Testes Sênior
+São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
+linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
+
+RESUMO PROFISSIONAL
+Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.
+
+COMPETÊNCIAS
+Qualidade e Testes:
+- pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
+- Testes end-to-end com Cypress
+- Teste de carga e performance com Locust
+- Teste de conformidade de protocolo com SIPp
+- Mock de HTTP, geração de dados sintéticos, cobertura de testes
+- Checagem estática de tipos com mypy e TypeScript
+- Suporte N3: reprodução e isolamento de defeito em produção
+
+Desenvolvimento e Banco de Dados:
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
+- Python (FastAPI, Flask, AGI, asyncio)
+- PHP e Laravel 12
+- SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
+- Prisma, Drizzle ORM, SQLAlchemy
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket
+- Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
+- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+
+Ecossistema Python:
+- NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
+- cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
+- Concorrência: threading, jobs assíncronos em background, asyncio
+- pytest, pytest-asyncio, cobertura de testes, Locust
+- mypy, black, flake8, PyInstaller
+
+Cloud e DevOps:
+- Kubernetes (K8s), Docker e Docker Compose
+- AWS e GCP; AWS S3 com presigned URL
+- Proxmox, KVM, VMware vSphere, OpenStack, LXC
+- Infraestrutura como Código (IaC) e runbooks versionados
+- CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
+- systemd, gunicorn, Nginx, Apache, healthcheck
+- Automação de provisionamento via API do Proxmox VE
+- Backup automatizado e disaster recovery (DR)
+
+PROJETOS
+Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/2026 - atual
+- Construí e mantenho uma suíte de 716 testes automatizados no runner nativo do Node, cobrindo 46 módulos de um motor de automação.
+- Projetei o sistema para ser testável sem rede: a lógica de regras, detecção de página e estado de sessão é pura e verificável isoladamente.
+- Implementei evidência auditável por captura de tela a cada etapa, permitindo reconstruir o que a automação viu quando algo falha.
+
+Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+- Escrevi 121 testes automatizados em pytest para a ferramenta de auditoria de classificador, incluindo mock de HTTP e geração de WAV sintético para testar detecção sem depender de áudio real.
+- Validei o motor de detecção por autoteste que injeta defeitos conhecidos em sinal sintético e confere se cada um é apanhado, sem depender de infraestrutura externa.
+- Construí uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) de terceiros, que cruza a classificação do fornecedor com análise independente para achar falso positivo nas duas direções.
+
+SIP Proxy e SBC para FusionPBX | projeto próprio/freelance | 07/2026 - atual
+- Validei o sistema por 13 cenários SIPp de conformidade de protocolo, cobrindo negociação de codec G.729 com payload type dinâmico e estático, AVPF sem rtpmap, registro de ramal remoto e rejeição 403 e 404.
+- Testei o caminho de mídia com verificação automatizada do relay, contando tipos de payload RTP efetivamente trafegados.
+- Escrevi testes de integração em pytest para o painel de administração e o cliente JSON-RPC do motor.
+
+Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance | 02/2026 - 07/2026
+- Escrevi 23 suítes PHPUnit cobrindo a reescrita completa da plataforma, garantindo paridade de funcionalidades com a versão anterior.
+- Cobri os fluxos críticos da versão React/TypeScript com testes end-to-end em Cypress.
+- Projetei a camada de drivers de integração de forma isolável, permitindo testar cada gateway de mensageria sem depender do fornecedor.
+
+EXPERIÊNCIA PROFISSIONAL
+Engenheiro VoIP | Akiva Software | 09/2025 - 11/2025 | São Paulo, Brasil
+- Gerenciei e comparei dois sistemas distintos de classificação de chamadas, avaliando acurácia e comportamento de cada um em produção.
+- Atuei em suporte N3, reproduzindo e isolando defeitos críticos de arquitetura e performance antes da correção.
+- Validei fluxos de atendimento de ponta a ponta após cada implantação, das filas aos discadores automáticos.
+
+Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasil
+- Atuei como último nível de escalonamento (N3), reproduzindo e isolando incidentes críticos de arquitetura e performance antes da correção.
+- Modernizei o monitoramento com novos templates de observabilidade, reduzindo em 40% o tempo até a detecção de uma falha.
+- Validei rotinas de backup e recuperação, garantindo capacidade de disaster recovery para mais de 100 clientes.
+
+Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
+- Atuei como referência técnica de CI/CD no Bitbucket para o esquadrão de desenvolvimento, definindo o que roda em cada estágio do pipeline.
+- Projetei e integrei APIs RESTful de alto volume (mais de 1 milhão de eventos diários), com validação de contrato entre os sistemas.
+- Liderei o esquadrão em metodologia ágil (Scrum/JIRA).
+
+Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
+- Liderei a arquitetura técnica de todos os projetos da empresa, supervisionando 11 desenvolvedores e definindo o padrão de qualidade do código entregue.
+- Desenvolvi backend (Node.js, PHP) e frontend (Angular) de uma plataforma completa, respondendo pela integridade das duas pontas.
+- Projetei integração com Zendesk e Power BI que se tornou um novo produto.
+
+Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019
+- Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux, mantendo 99,99% de uptime em todos os serviços.
+- Validei e mantive plataformas de nuvem em ambiente de mais de 400 servidores.
+- Desenvolvi um chatbot que automatizou 25% das chamadas de triagem inicial.
+
+FORMAÇÃO ACADÊMICA
+- Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
+- Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual
+- Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024
+- Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020
+- Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012
+
+CERTIFICAÇÕES E TREINAMENTOS
+- Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)
+- Asterisk Certified Essentials (ACE) - Sangoma University (2021)
+- FreePBX Certified Essentials - Sangoma University (2022)
+- LPIC-1 - Linux Professional Institute (2016)
+- Red Hat Certified System Administrator (RHCSA) (2022)
+- VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations
+- Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios
+- Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik
+- Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy
+- Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9
+
+IDIOMAS
+- Português: nativo / fluente
+- Italiano: fluente (proficiência profissional)
+- Espanhol: avançado
+- Inglês: intermediário (foco em leitura técnica)

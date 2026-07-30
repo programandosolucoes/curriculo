@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlos Alberto - Analista de Segurança da Informação Sênior</title>
+<style id="estilo-cv">
+  :root { --tinta: #111; --suave: #444; --linha: #bbb; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto; max-width: 820px; padding: 32px 28px 64px;
+    font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+    font-size: 11pt; line-height: 1.45; color: var(--tinta); background: #fff;
+  }
+  h1 { font-size: 20pt; margin: 0; letter-spacing: .01em; }
+  .cargo { font-size: 12.5pt; color: var(--suave); margin: 2px 0 8px; font-weight: 600; }
+  .contato { font-size: 10pt; color: var(--suave); margin: 0; }
+  .contato a { color: inherit; }
+  h2 {
+    font-size: 11.5pt; margin: 22px 0 8px; padding-bottom: 3px;
+    border-bottom: 1px solid var(--linha); letter-spacing: .04em;
+  }
+  h3 { font-size: 11pt; margin: 12px 0 3px; font-weight: 700; }
+  p { margin: 0 0 8px; }
+  ul { margin: 4px 0 10px; padding-left: 20px; }
+  li { margin-bottom: 3px; }
+  .grupo-titulo { font-weight: 700; margin: 10px 0 2px; }
+  .barra {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--linha);
+  }
+  .barra button {
+    font: inherit; font-size: 10pt; cursor: pointer;
+    padding: 7px 14px; border-radius: 6px;
+    color: var(--tinta); background: #f4f4f6; border: 1px solid var(--linha);
+  }
+  .barra button:hover { background: #e8e8ec; }
+  .barra .dica { font-size: 9.5pt; color: var(--suave); align-self: center; margin: 0; }
+  @media print {
+    body { max-width: none; padding: 0; font-size: 10.5pt; }
+    @page { margin: 14mm; }
+    h2, h3, li { break-inside: avoid; }
+    .barra { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="barra">
+  <button type="button" id="btn-pdf">Baixar PDF</button>
+  <button type="button" id="btn-doc">Baixar Word (.doc)</button>
+  <p class="dica">No diálogo de impressão, escolha "Salvar como PDF".</p>
+</div>
+
+<div id="curriculo">
+<h1>Carlos Alberto</h1>
+<p class="cargo">Analista de Segurança da Informação Sênior</p>
+<p class="contato">São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com</p>
+<p class="contato">linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br</p>
+
+<h2>RESUMO PROFISSIONAL</h2>
+<p>Analista de Segurança da Informação Sênior com experiência em proteção de aplicação, criptografia aplicada e resposta a incidentes. Implementei arquitetura WAF com ModSecurity e regras OWASP em ambiente financeiro, reduzi o tempo de resposta a incidentes em mais de 99% com análise automatizada de logs em nível de SOC, e desenvolvi sistemas com criptografia AES, assinatura digital RSA-2048 e isolamento físico de dados entre clientes. Experiência com pfSense, OpenVPN, hardening de Linux e conformidade regulatória (normas ISO/IEC).</p>
+
+<h2>PRINCIPAIS CONQUISTAS</h2>
+<ul>
+  <li>Detecção de falhas aprimorada: reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade.</li>
+  <li>Garantia de uptime de serviço: garanti 99,99% de uptime para serviços críticos no mercado de telefonia italiano.</li>
+</ul>
+
+<h2>COMPETÊNCIAS</h2>
+<p class="grupo-titulo">Segurança Aplicada</p>
+<ul>
+  <li>WAF (ModSecurity, regras OWASP), pfSense, OpenVPN, Squid Proxy</li>
+  <li>Análise de logs em nível de SOC, Fail2ban, resposta a incidentes</li>
+  <li>Criptografia AES-128 e AES-256 (CBC, ECB, CFB, OFB, CTR) e AES-256-GCM</li>
+  <li>RSA-2048, HMAC-SHA256, PBKDF2, assinatura digital</li>
+  <li>OAuth2, JWT, TLS/SSL, autenticação por desafio criptográfico com chave SSH</li>
+  <li>Multi-tenancy com isolamento físico de dados, RBAC granular</li>
+  <li>Proteção contra SSRF, CSRF, XSS e SQL Injection; rate limiting e hardening</li>
+  <li>Conformidade regulatória: normas ISO/IEC, homologação técnica</li>
+</ul>
+<p class="grupo-titulo">Cloud e DevOps</p>
+<ul>
+  <li>Kubernetes (K8s), Docker e Docker Compose</li>
+  <li>AWS e GCP; AWS S3 com presigned URL</li>
+  <li>Proxmox, KVM, VMware vSphere, OpenStack, LXC</li>
+  <li>Infraestrutura como Código (IaC) e runbooks versionados</li>
+  <li>CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git</li>
+  <li>Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)</li>
+  <li>systemd, gunicorn, Nginx, Apache, healthcheck</li>
+  <li>Automação de provisionamento via API do Proxmox VE</li>
+  <li>Backup automatizado e disaster recovery (DR)</li>
+</ul>
+<p class="grupo-titulo">Desenvolvimento e Banco de Dados</p>
+<ul>
+  <li>JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)</li>
+  <li>Python (FastAPI, Flask, AGI, asyncio)</li>
+  <li>PHP e Laravel 12</li>
+  <li>SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional</li>
+  <li>Prisma, Drizzle ORM, SQLAlchemy</li>
+  <li>API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket</li>
+  <li>Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis</li>
+  <li>Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)</li>
+</ul>
+<p class="grupo-titulo">Ecossistema Python</p>
+<ul>
+  <li>NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy</li>
+  <li>cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio</li>
+  <li>Concorrência: threading, jobs assíncronos em background, asyncio</li>
+  <li>pytest, pytest-asyncio, cobertura de testes, Locust</li>
+  <li>mypy, black, flake8, PyInstaller</li>
+</ul>
+
+<h2>EXPERIÊNCIA PROFISSIONAL</h2>
+<h3>Analista de Infraestrutura e Redes de TI | E-Prepag Fintech | 03/2015 - 12/2017</h3>
+<ul>
+  <li>Implementei a arquitetura de segurança web (WAF) da fintech com ModSecurity e regras OWASP, protegendo contra SQL Injection, XSS e força bruta.</li>
+  <li>Reduzi o tempo de resposta a incidentes de segurança em mais de 99%, de minutos para tempo real, desenvolvendo análise automatizada de logs em nível de SOC com Fail2ban.</li>
+  <li>Garanti 100% de continuidade dos negócios elaborando o plano completo de disaster recovery (DR) e gerenciando as rotinas de backup off-site.</li>
+  <li>Atuei em ambiente financeiro, onde indisponibilidade e vazamento têm consequência regulatória direta.</li>
+</ul>
+<h3>Analista de Infraestrutura e Redes de TI | EZ-Security | 01/2018 - 08/2018</h3>
+<ul>
+  <li>Monitorei métricas vitais de aplicações de segurança (Symantec, OTP) configurando Zabbix com SNMP, com abertura automática de ticket para a equipe responsável.</li>
+  <li>Automatizei a resposta a incidentes de segurança, encurtando o tempo entre a detecção e o início do tratamento.</li>
+</ul>
+<h3>Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasil</h3>
+<ul>
+  <li>Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.</li>
+  <li>Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade, encurtando a janela de exposição a incidentes.</li>
+  <li>Investiguei e resolvi escalonamentos de N3 envolvendo comportamento anômalo de arquitetura e performance.</li>
+</ul>
+<h3>Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019</h3>
+<ul>
+  <li>Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux, mantendo 99,99% de uptime para todos os serviços de telefonia IP.</li>
+  <li>Administrei plataformas de nuvem (VMware vSphere, OpenStack) e Sippulse (STFC) para um ambiente de mais de 400 servidores.</li>
+  <li>Desenvolvi um novo chatbot em Asterisk e Node.js que automatizou 25% das chamadas de triagem inicial de clientes, liberando o tempo dos agentes para problemas complexos.</li>
+</ul>
+<h3>Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil</h3>
+<ul>
+  <li>Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.</li>
+  <li>Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).</li>
+  <li>Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.</li>
+</ul>
+<h3>Analista de Infraestrutura | All Net Group | 04/2013 - 02/2015</h3>
+<ul>
+  <li>Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows e Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.</li>
+</ul>
+
+<h2>PROJETOS</h2>
+<h3>Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual</h3>
+<ul>
+  <li>Implementei autenticação por desafio criptográfico com chave SSH: o servidor gera um nonce, o cliente assina e o servidor verifica contra o authorized_keys, com tratamento explícito de replay porque uma operação git reenvia o mesmo cabeçalho em requisições sucessivas.</li>
+  <li>Cifrei credenciais de integração em AES-256-GCM e assinei o disparo de automação com HMAC-SHA256, incluindo validação anti-SSRF do endpoint de destino.</li>
+  <li>Implementei rate limiting, bloqueio de IP, token CSRF, cabeçalhos de segurança e sanitização de entrada, com log de segurança auditável.</li>
+  <li>Controle de acesso a repositórios via gitolite, em plataforma sem nenhuma dependência de runtime — menos superfície de ataque herdada.</li>
+</ul>
+<h3>Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | freelance, setor de mobilidade e rodovias | 12/2025 - 01/2026</h3>
+<ul>
+  <li>Implementei a camada criptográfica de um sistema de arrecadação: decriptação AES do payload do chip RFID com suporte configurável a 10 combinações de algoritmo e modo (AES-128 e AES-256 em CBC, ECB, CFB, OFB e CTR).</li>
+  <li>Desenvolvi licenciamento próprio de software com assinatura digital RSA-2048, vínculo por hash de hardware e controle de expiração, impedindo execução não autorizada.</li>
+  <li>Garanti aderência às normas ISO/IEC 18000-63 e ISO/IEC 29167-10 e à regulamentação do órgão certificador, em contexto de homologação regulatória.</li>
+  <li>Atuei como arquiteto hands-on, definindo a arquitetura de integração segura entre a antena, o backend e o broker da concessionária.</li>
+</ul>
+<h3>SIP Proxy e SBC para FusionPBX | projeto próprio/freelance | 07/2026 - atual</h3>
+<ul>
+  <li>Desenvolvo um proxy SIP baseado em Kamailio e rtpengine com foco em NAT traversal e modo transparent, como alternativa enxuta ao dSIPRouter para integração com FusionPBX.</li>
+  <li>Implementei roteamento dinâmico (drouting), controle de acesso por origem (permissions), estado em htable e registro remoto via path.</li>
+  <li>Construí painel de administração em Flask com blueprints e SQLAlchemy 2.0 por reflection sobre as tabelas do motor (MariaDB/PyMySQL), comandando o Kamailio por JSON-RPC.</li>
+  <li>Validei por 13 cenários SIPp de conformidade de protocolo: negociação de G.729 com payload type dinâmico e estático, AVPF sem rtpmap, REGISTER de ramal remoto e rejeição 403/404. Stack inteira containerizada.</li>
+</ul>
+<h3>Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual</h3>
+<ul>
+  <li>Desenvolvi um analisador de qualidade de áudio de telefonia que detecta perda de pacote, clipping, dead-air, one-way e nível/SNR baixo diretamente do sinal, em Python e NumPy: energia por frame, análise espectral (FFT) e estimativa de ruído de fundo por percentil para separar perda de pacote de pausa natural da conversa.</li>
+  <li>Implementei o E-model (ITU-T G.107) do zero, convertendo as detecções em R-factor e MOS, e avaliei modelos neurais no-reference (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, com decisão de arquitetura documentada por eixo de discriminação e por licenciamento comercial.</li>
+  <li>Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.</li>
+  <li>Painel Flask multi-tenant com isolamento físico de dados por cliente, SQLite, autenticação PBKDF2 e SPA sem framework nem build; empacotado em Docker e implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) com 121 testes automatizados.</li>
+</ul>
+
+<h2>FORMAÇÃO ACADÊMICA</h2>
+<ul>
+  <li>Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual</li>
+  <li>Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual</li>
+  <li>Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024</li>
+  <li>Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020</li>
+  <li>Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012</li>
+</ul>
+
+<h2>CERTIFICAÇÕES E TREINAMENTOS</h2>
+<ul>
+  <li>Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)</li>
+  <li>Asterisk Certified Essentials (ACE) - Sangoma University (2021)</li>
+  <li>FreePBX Certified Essentials - Sangoma University (2022)</li>
+  <li>LPIC-1 - Linux Professional Institute (2016)</li>
+  <li>Red Hat Certified System Administrator (RHCSA) (2022)</li>
+  <li>VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations</li>
+  <li>Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios</li>
+  <li>Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik</li>
+  <li>Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy</li>
+  <li>Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9</li>
+</ul>
+
+<h2>IDIOMAS</h2>
+<ul>
+  <li>Português: nativo / fluente</li>
+  <li>Italiano: fluente (proficiência profissional)</li>
+  <li>Espanhol: avançado</li>
+  <li>Inglês: intermediário (foco em leitura técnica)</li>
+</ul>
+</div>
+
+<script>
+document.getElementById('btn-pdf').addEventListener('click', function () {
+  window.print();
+});
+
+document.getElementById('btn-doc').addEventListener('click', function () {
+  var conteudo = document.getElementById('curriculo').innerHTML;
+  var estilo = document.getElementById('estilo-cv').innerHTML;
+  var documento =
+    '<html xmlns:o="urn:schemas-microsoft-com:office:office"' +
+    ' xmlns:w="urn:schemas-microsoft-com:office:word"' +
+    ' xmlns="http://www.w3.org/TR/REC-html40">' +
+    '<head><meta charset="utf-8"><style>' + estilo + '</style></head>' +
+    '<body>' + conteudo + '</body></html>';
+
+  // O BOM faz o Word reconhecer o UTF-8 e não corromper os acentos.
+  var blob = new Blob(['\ufeff', documento], { type: 'application/msword' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url;
+  link.download = "CV-Carlos-Alberto-seguranca" + '.doc';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>

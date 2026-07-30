@@ -1,0 +1,166 @@
+CARLOS ALBERTO
+Desenvolvedor Backend Sênior
+São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
+linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
+
+RESUMO PROFISSIONAL
+Desenvolvedor Backend Sênior com mais de 10 anos construindo sistemas de missão crítica em Node.js, Python e PHP. Projetei APIs REST que processam mais de 1 milhão de eventos diários, liderei squad de 11 desenvolvedores como referência técnica de CI/CD, e mantenho um portfólio de sete plataformas autorais em produção, de discador para call center a análise de áudio por processamento de sinais. Trabalho com PostgreSQL, Laravel, FastAPI, Prisma e Docker, com suítes automatizadas que somam mais de 850 testes.
+
+COMPETÊNCIAS
+Desenvolvimento e Banco de Dados:
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
+- Python (FastAPI, Flask, AGI, asyncio)
+- PHP e Laravel 12
+- SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
+- Prisma, Drizzle ORM, SQLAlchemy
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket
+- Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
+- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+
+Frontend:
+- HTML, CSS e JavaScript (ES6+)
+- React 18, TypeScript, Next.js
+- TailwindCSS, Radix UI, shadcn/ui, design system com tokens de tema
+- TanStack (Query, Router, Table, Form), React Hook Form, Recharts
+- Vite, esbuild, PostCSS
+- Angular
+- SPA sem framework nem build, Canvas, tema claro/escuro
+- Testes end-to-end com Cypress e Testing Library
+- WebRTC (LiveKit, mediasoup) e TensorFlow.js no navegador
+
+Ecossistema Python:
+- NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
+- cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
+- Concorrência: threading, jobs assíncronos em background, asyncio
+- pytest, pytest-asyncio, cobertura de testes, Locust
+- mypy, black, flake8, PyInstaller
+
+Inteligência Artificial (IA) e LLM:
+- Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic, NVIDIA NIM, Groq/Llama 3, Ollama)
+- Inferência local em CPU para dados sensíveis: LLM quantizado GGUF via llama.cpp e ONNX Runtime
+- Reconhecimento de fala (ASR) local com faster-whisper
+- Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico
+- Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento
+- IA generativa, agentes de IA, MCP (Model Context Protocol), RAG
+- Machine learning aplicado, NLP e processamento de linguagem natural
+- Engenharia assistida por IA com metodologia spec-driven
+
+Cloud e DevOps:
+- Kubernetes (K8s), Docker e Docker Compose
+- AWS e GCP; AWS S3 com presigned URL
+- Proxmox, KVM, VMware vSphere, OpenStack, LXC
+- Infraestrutura como Código (IaC) e runbooks versionados
+- CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
+- systemd, gunicorn, Nginx, Apache, healthcheck
+- Automação de provisionamento via API do Proxmox VE
+- Backup automatizado e disaster recovery (DR)
+
+Qualidade e Testes:
+- pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
+- Testes end-to-end com Cypress
+- Teste de carga e performance com Locust
+- Teste de conformidade de protocolo com SIPp
+- Mock de HTTP, geração de dados sintéticos, cobertura de testes
+- Checagem estática de tipos com mypy e TypeScript
+- Suporte N3: reprodução e isolamento de defeito em produção
+
+PROJETOS
+Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance | 02/2026 - 07/2026
+- Liderei a reescrita completa de uma plataforma SaaS de Node.js/React/Drizzle para Laravel 12/PHP, mantendo paridade de funcionalidades para eliminar a dependência de infraestrutura Node dedicada.
+- Apliquei o padrão Strategy a integração: 5 gateways de mensageria atrás de uma única interface de driver, permitindo trocar de fornecedor sem tocar na aplicação. A mesma abordagem cobre a ingestão de e-mail por IMAP.
+- Desenvolvi motor de automação conversacional com estado, RBAC multi-tenant de 4 níveis e jobs assíncronos de Inteligência Artificial (IA) que não bloqueiam a operação.
+- 41 migrations e 23 suítes PHPUnit.
+
+Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/2026 - atual
+- Projetei um motor de automação em Node.js com 46 módulos: adaptadores por site sobre núcleo compartilhado, motor de regras próprio, máquina de estado de sessão com re-login automático, rede de segurança e trava de concorrência entre execuções.
+- Implementei cadeia de fallback entre provedores de Inteligência Artificial (IA) sobre dois formatos de API distintos, com degradação para regra determinística.
+- Persistência em Prisma sobre SQLite, painel web de operação e evidência auditável por captura de tela.
+- Suíte de 716 testes automatizados no runner nativo do Node.
+
+Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026
+- Arquitetei uma plataforma completa em Python/Flask sobre PostgreSQL 17: painel web de gestão, motor de processamento paralelo com controle de concorrência multi-nível (concurrent.futures e threading) e uma linguagem de fluxo própria com 16 primitivas, interpretada em tempo de execução.
+- Desenvolvi o editor visual de fluxo em React com conversão bidirecional entre grafo e passos executáveis.
+- Modelei 17 tabelas com tuning manual de PostgreSQL; 15 suítes pytest cobrem cada primitiva ponta a ponta.
+- Substituí polling por webhooks assíncronos e empacotei tudo com Docker Compose e healthcheck.
+
+Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+- Desenvolvi um analisador de áudio em Python e NumPy com processamento vetorizado, implementando o modelo E-model (ITU-T G.107) a partir da norma.
+- Construí painel web em Flask com 31 endpoints REST, jobs assíncronos em threading, SQLite e multi-tenancy com isolamento físico de dados por cliente.
+- Fiz o frontend como SPA de arquivo único em JavaScript puro, sem framework nem build, com Canvas desenhando a forma de onda.
+- Empacotei em Docker e implantei via systemd em LXC/Proxmox. Ferramenta derivada com 121 testes em pytest.
+
+Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | freelance, setor de mobilidade e rodovias | 12/2025 - 01/2026
+- Atuei como arquiteto hands-on: defini a arquitetura de integração e a implementei em Python.
+- Desenvolvi API assíncrona em FastAPI, parser de protocolo binário e três serializadores intercambiáveis de saída (Protobuf, JSON e SOAP/XML) para atender formatos impostos por sistemas legados.
+- Integrei o sistema ao broker de mensageria da concessionária por JMS/STOMP sobre ActiveMQ, com cliente thread-safe.
+- Distribuí como binário único via PyInstaller, com instaladores para Rocky Linux, Ubuntu e Windows. Qualidade por pytest com testes assíncronos, teste de carga com Locust e mypy.
+
+Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual
+- Implementei do zero o servidor WebDAV conforme a RFC 4918 (PROPFIND, MKCOL, COPY, MOVE, LOCK e UNLOCK), com mutex FIFO por caminho para serializar escritas concorrentes.
+- Implementei o protocolo git smart HTTP (upload-pack e receive-pack) e um esquema de autenticação por desafio criptográfico com chave SSH.
+- Construí a plataforma inteira em PHP sem nenhuma dependência de runtime, com interface internacionalizada em 4 idiomas.
+- 129 commits ao longo de quase um ano de operação contínua.
+
+EXPERIÊNCIA PROFISSIONAL
+Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
+- Projetei e integrei APIs RESTful em Node.js que processam mais de 1 milhão de eventos diários, integrando um sistema omnichannel a uma plataforma de comunicação.
+- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.
+- Arquitetei solução clusterizada multi-tenant com escalabilidade horizontal e balanceamento de carga.
+
+Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
+- Liderei a arquitetura técnica de todos os projetos fullstack da empresa, supervisionando 11 desenvolvedores.
+- Desenvolvi o backend completo em Node.js e PHP e o frontend em Angular de uma plataforma de gerenciamento.
+- Impulsionei um ganho de 200% em novas receitas ao projetar a integração com Zendesk e Power BI, transformando-a em um novo produto.
+
+Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil
+- Reduzi custos em mais de 300% ao criar APIs de microsserviços em Node.js que substituíram software licenciado de terceiros.
+- Desenvolvi um appliance de roteamento em Node.js para integração com o Microsoft Teams, com roteamento dinâmico por regra.
+- Desenvolvi uma URA dinâmica em Python com TTS/STT e reconhecimento de voz (ASR).
+- Projetei arquitetura de borda de alta disponibilidade.
+
+Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
+- Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes para operações de call center.
+- Desenvolvi e mantive múltiplas plataformas Asterisk (FreePBX, Xcally, Xorcom) suportando mais de 200 agentes concorrentes em mais de 100 empresas clientes.
+- Construí um chatbot de voz (CPQD) do zero como um novo produto, automatizando com sucesso 10% do volume de chamadas operacionais para seus clientes iniciais.
+
+Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil
+- Desenvolvi em Python a integração entre o sistema de billing e o serviço de classificação por Inteligência Artificial (IA), aumentando a eficiência das campanhas em 30%.
+- Liderei a arquitetura e o desenvolvimento de uma plataforma projetada para mais de 500 usuários concorrentes.
+- Conduzi migração de plataforma entre fornecedores com zero downtime para as operações críticas.
+
+Engenheiro VoIP | Akiva Software | 09/2025 - 11/2025 | São Paulo, Brasil
+- Resolvi incidentes críticos de suporte (N3) e gerenciei dois sistemas distintos de classificação de chamadas: o módulo proprietário Asterisk da Akiva e o classificador Flow da Khomp.
+- Implantei e configurei novos fluxos de call center de ponta a ponta, desde filas de atendimento até discadores automáticos.
+- Otimizei o processo de deploy da aplicação, desenvolvendo novos scripts de autoinstalação do codec G.729 e modernizando o sistema operacional de telefonia subjacente.
+- Melhorei o desempenho do classificador Khomp gerenciando atualizações de licenças e implantando novos servidores dedicados para escalar o recurso.
+
+Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019
+- Desenvolvi um chatbot em Asterisk e Node.js que automatizou 25% das chamadas de triagem inicial de clientes.
+- Administrei plataformas de nuvem (VMware vSphere, OpenStack) em um ambiente de mais de 400 servidores.
+- Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux.
+
+FORMAÇÃO ACADÊMICA
+- Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
+- Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual
+- Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024
+- Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020
+- Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012
+
+CERTIFICAÇÕES E TREINAMENTOS
+- Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)
+- Asterisk Certified Essentials (ACE) - Sangoma University (2021)
+- FreePBX Certified Essentials - Sangoma University (2022)
+- LPIC-1 - Linux Professional Institute (2016)
+- Red Hat Certified System Administrator (RHCSA) (2022)
+- VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations
+- Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios
+- Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik
+- Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy
+- Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9
+
+IDIOMAS
+- Português: nativo / fluente
+- Italiano: fluente (proficiência profissional)
+- Espanhol: avançado
+- Inglês: intermediário (foco em leitura técnica)
