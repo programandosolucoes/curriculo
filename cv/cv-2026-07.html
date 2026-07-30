@@ -1,0 +1,626 @@
+<title>CV — Carlos Alberto | Arquiteto de Soluções VoIP Sênior</title>
+<style>
+  :root {
+    --bg: #f2f4f8;
+    --paper: #ffffff;
+    --ink: #14181f;
+    --muted: #5a6474;
+    --faint: #8a94a6;
+    --rule: #d9dee8;
+    --accent: #1f4fd8;
+    --accent-soft: #e8eeff;
+    --new-bg: #fff8e1;
+    --new-edge: #e8b923;
+    --shadow: 0 1px 2px rgba(16,24,40,.06), 0 12px 32px rgba(16,24,40,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0f15; --paper: #151a23; --ink: #eef2f9; --muted: #a7b1c2;
+      --faint: #7b8598; --rule: #2b3341; --accent: #7ea6ff; --accent-soft: #1b2740;
+      --new-bg: #2a2410; --new-edge: #b8901c;
+      --shadow: 0 2px 8px rgba(0,0,0,.4), 0 18px 48px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0f15; --paper: #151a23; --ink: #eef2f9; --muted: #a7b1c2;
+    --faint: #7b8598; --rule: #2b3341; --accent: #7ea6ff; --accent-soft: #1b2740;
+    --new-bg: #2a2410; --new-edge: #b8901c;
+    --shadow: 0 2px 8px rgba(0,0,0,.4), 0 18px 48px rgba(0,0,0,.4);
+  }
+  :root[data-theme="light"] {
+    --bg: #f2f4f8; --paper: #ffffff; --ink: #14181f; --muted: #5a6474;
+    --faint: #8a94a6; --rule: #d9dee8; --accent: #1f4fd8; --accent-soft: #e8eeff;
+    --new-bg: #fff8e1; --new-edge: #e8b923;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Barra de controle (some na impressão) ---------- */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 10px clamp(14px, 4vw, 28px);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar .sp { flex: 1 1 auto; }
+  .btn {
+    font: inherit; font-size: 13px; cursor: pointer;
+    padding: 6px 12px; border-radius: 8px;
+    color: var(--ink); background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+  .hint { font-size: 12.5px; color: var(--faint); }
+
+  /* ---------- Folha ---------- */
+  .sheet {
+    max-width: 900px; margin: 22px auto 60px; padding: clamp(26px, 5vw, 52px);
+    background: var(--paper); border: 1px solid var(--rule);
+    border-radius: 12px; box-shadow: var(--shadow);
+  }
+
+  header.top { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 26px; }
+  h1 { margin: 0; font-size: clamp(26px, 4.4vw, 34px); letter-spacing: -.02em; font-weight: 750; }
+  .role { margin: 3px 0 10px; font-size: clamp(15px, 2.2vw, 17px); color: var(--accent); font-weight: 600; }
+  .contact { font-size: 13.5px; color: var(--muted); line-height: 1.8; }
+  .contact a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .contact a:hover { color: var(--accent); border-color: var(--accent); }
+
+  h2 {
+    font-size: 13px; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700;
+    margin: 30px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--rule);
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  p { margin: 0 0 12px; }
+  .lede { color: var(--muted); text-align: justify; }
+
+  ul { margin: 0 0 12px; padding-left: 19px; }
+  li { margin-bottom: 5px; }
+
+  /* ---------- Competências ---------- */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px 26px; }
+  .skill-group h3 {
+    margin: 0 0 6px; font-size: 13.5px; font-weight: 700; color: var(--ink);
+  }
+  .skill-group ul { margin: 0; padding-left: 17px; font-size: 13.8px; color: var(--muted); }
+  .skill-group li { margin-bottom: 3px; }
+
+  /* ---------- Experiência / Projetos ---------- */
+  .item { margin-bottom: 18px; break-inside: avoid; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .item-title { font-weight: 700; font-size: 15px; }
+  .item-org { font-weight: 500; color: var(--muted); }
+  .item-when { font-size: 13px; color: var(--faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .item p { margin: 5px 0 0; font-size: 14px; color: var(--muted); text-align: justify; }
+  .item ul { margin-top: 5px; font-size: 14px; color: var(--muted); }
+
+  .two-col { columns: 2; column-gap: 28px; }
+  .two-col li { break-inside: avoid; }
+  @media (max-width: 640px) { .two-col { columns: 1; } }
+
+  /* ---------- Marcação do que é novo ---------- */
+  .new { position: relative; }
+  body.mark .new {
+    background: var(--new-bg);
+    box-shadow: inset 3px 0 0 var(--new-edge);
+    padding: 6px 10px 6px 12px; margin-left: -12px; border-radius: 0 6px 6px 0;
+  }
+  body.mark .new-tag {
+    display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: #7a5c00; background: var(--new-edge);
+    padding: 1px 6px; border-radius: 4px; margin-left: 8px; vertical-align: 2px;
+  }
+  .new-tag { display: none; }
+
+  /* ---------- Impressão ---------- */
+  @media print {
+    body { background: #fff; color: #000; font-size: 10.5pt; }
+    .bar { display: none !important; }
+    .sheet { max-width: none; margin: 0; padding: 0; border: 0; box-shadow: none; border-radius: 0; }
+    body.mark .new { background: none; box-shadow: none; padding: 0; margin-left: 0; }
+    .new-tag { display: none !important; }
+    h2 { color: #000; margin-top: 18pt; }
+    .role { color: #000; }
+    .item, .skill-group { break-inside: avoid; }
+    a { color: #000; border: 0; }
+    @page { margin: 14mm; }
+  }
+</style>
+
+<div class="bar">
+  <button class="btn" id="mark" aria-pressed="true">Destacar inclusões</button>
+  <button class="btn" id="theme">Tema</button>
+  <button class="btn" onclick="window.print()">Imprimir / PDF</button>
+  <span class="sp"></span>
+  <span class="hint">Amarelo = conteúdo novo desta revisão. A marcação não sai na impressão.</span>
+</div>
+
+<div class="sheet">
+
+  <header class="top">
+    <h1>Carlos Alberto</h1>
+    <div class="role">Arquiteto de Soluções VoIP Sênior</div>
+    <div class="contact">
+      São Paulo, SP, Brasil &nbsp;•&nbsp; +55 11 2615-2880 &nbsp;•&nbsp;
+      <a href="mailto:carlosalberto4ti@gmail.com">carlosalberto4ti@gmail.com</a><br>
+      <a href="https://linkedin.com/in/carlosalberto4ti">linkedin.com/in/carlosalberto4ti</a> &nbsp;•&nbsp;
+      <a href="https://programandosolucoes.com.br">programandosolucoes.com.br</a>
+    </div>
+  </header>
+
+  <h2>Resumo Profissional</h2>
+  <p class="lede">
+    Arquiteto de Soluções e Engenheiro VoIP Sênior com mais de 10 anos de experiência, focado em
+    projetar e implementar sistemas de comunicação em nuvem de alta disponibilidade. Especialista em
+    arquitetar ecossistemas VoIP complexos (Asterisk, Kamailio, OpenSIPS) e infraestrutura Cloud/DevOps
+    (Kubernetes, AWS, GCP). Lidero projetos de migração e modernização de plataformas de Call Center,
+    combinando expertise em backend (Node.js, PHP, Python) e automação para entregar soluções escaláveis
+    que reduzem custos operacionais e aumentam a performance.<span class="new">
+    Atuo também como desenvolvedor PJ em projetos autorais de telefonia, processamento de sinais de
+    áudio e integração de IA, listados no portfólio técnico ao final.<span class="new-tag">novo</span></span>
+  </p>
+
+  <h2>Principais Conquistas</h2>
+  <ul>
+    <li><b>Otimização do Onboarding de Clientes:</b> reduzi o tempo de onboarding de novos clientes em 60% com provisionamento “zero-touch”.</li>
+    <li><b>Eficiência de Campanha Aprimorada:</b> melhorei a eficiência das campanhas em 30% usando IA para detecção de caixa postal.</li>
+    <li><b>Garantia de Uptime de Serviço:</b> garanti 99,99% de uptime para serviços críticos no mercado de telefonia italiano.</li>
+    <li><b>Detecção de Falhas Aprimorada:</b> reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade.</li>
+  </ul>
+
+  <h2>Competências Principais</h2>
+  <div class="skills">
+
+    <div class="skill-group">
+      <h3>VoIP &amp; Telecom</h3>
+      <ul>
+        <li>Arquitetura de Soluções VoIP</li>
+        <li>Asterisk (dCAA Certified)</li>
+        <li>Kamailio, OpenSIPS</li>
+        <li>SBC (Session Border Controller)</li>
+        <li>Plataformas de Call Center</li>
+        <li>WebRTC, SIP/TLS, PJSIP</li>
+        <li>Chatbot de Voz (CPQD, ASR)</li>
+        <li class="new">ARI, dialplan JSON-driven, ODBC realtime<span class="new-tag">novo</span></li>
+        <li class="new">rtpengine, NAT traversal, FusionPBX<span class="new-tag">novo</span></li>
+        <li class="new">SIPp — teste de conformidade de protocolo<span class="new-tag">novo</span></li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Cloud &amp; DevOps</h3>
+      <ul>
+        <li>Kubernetes (K8s) &amp; Docker</li>
+        <li>AWS &amp; GCP</li>
+        <li>Proxmox, KVM, VMware vSphere</li>
+        <li>Infraestrutura como Código (IaC)</li>
+        <li>CI/CD (Bitbucket, Jenkins)</li>
+        <li>Monitoramento (Zabbix, NOC)</li>
+        <li>Análise de Logs SOC</li>
+        <li>WAF (ModSecurity, OWASP)</li>
+        <li>pfSense, OpenVPN</li>
+        <li class="new">Git, LXC, systemd, gunicorn<span class="new-tag">novo</span></li>
+        <li class="new">API do Proxmox VE (automação de provisionamento)<span class="new-tag">novo</span></li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Desenvolvimento &amp; Banco de Dados</h3>
+      <ul>
+        <li>Node.js (REST APIs, Drachtio)</li>
+        <li>PHP <span class="new">/ Laravel 12</span></li>
+        <li>Python (AGI, ASR)</li>
+        <li>SQL (MySQL, PostgreSQL), PL/pgSQL</li>
+        <li>REST</li>
+        <li>Metodologias Ágeis (Scrum, JIRA)</li>
+        <li class="new">TypeScript, React 18, TailwindCSS<span class="new-tag">novo</span></li>
+        <li class="new">FastAPI, Flask, Express, Hono, tRPC<span class="new-tag">novo</span></li>
+        <li class="new">Prisma, Drizzle ORM, SQLAlchemy, SQLite<span class="new-tag">novo</span></li>
+        <li class="new">Protobuf, JMS/STOMP (ActiveMQ), BullMQ/Redis<span class="new-tag">novo</span></li>
+        <li class="new">pytest, PHPUnit, Vitest, Cypress, Locust<span class="new-tag">novo</span></li>
+      </ul>
+    </div>
+
+    <div class="skill-group new">
+      <h3>IA &amp; LLM<span class="new-tag">seção nova</span></h3>
+      <ul>
+        <li>Engenharia assistida por IA (Claude Code) com metodologia spec-driven: especificação → plano → implementação → revisão adversarial</li>
+        <li>Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic, NVIDIA NIM, Groq/Llama 3, Ollama)</li>
+        <li>Inferência local em CPU, sem nuvem, para dados sensíveis: LLM quantizado GGUF via llama.cpp, ASR com faster-whisper int8, ONNX Runtime</li>
+        <li>Prompt engineering estruturado: few-shot, saída JSON forçada, coerção de schema e fallback determinístico</li>
+        <li>Avaliação comparativa de modelos (MOS neural: DNSMOS P.835, TorchAudio SQUIM, NISQA) com corpus rotulado e critério de licenciamento comercial</li>
+        <li>MCP (Model Context Protocol) para automação de infraestrutura via IA</li>
+      </ul>
+    </div>
+
+    <div class="skill-group new">
+      <h3>Processamento de Sinais &amp; Áudio<span class="new-tag">seção nova</span></h3>
+      <ul>
+        <li>DSP em Python/NumPy: energia por frame (RMS/dBFS), janelas deslizantes vetorizadas, FFT e features espectrais (flatness, flux, centroide)</li>
+        <li>Qualidade de voz por norma ITU-T: E-model G.107 (R-factor → MOS) implementado do zero, P.862.1 (PESQ→MOS-LQO), P.835 (SIG/BAK/OVRL)</li>
+        <li>Detecção de defeito em telefonia: picote/dropout por perda de pacote, clipping, dead-air, one-way, SNR</li>
+        <li>Codecs G.711/G.729/G.723.1, PLC, ffmpeg/ffprobe</li>
+        <li>Reconhecimento de fala (ASR) local e classificação de transcrição em pt-BR</li>
+      </ul>
+    </div>
+
+    <div class="skill-group new">
+      <h3>Ecossistema Python<span class="new-tag">seção nova</span></h3>
+      <ul>
+        <li>Bibliotecas: NumPy, Flask, FastAPI, requests, pytest, SQLAlchemy, cryptography, protobuf, ONNX Runtime, PyTorch/TorchAudio, faster-whisper, llama-cpp-python, librosa, pandas, matplotlib</li>
+        <li>Padrão: sqlite3 (WAL), threading (Lock/Event/thread-local), hashlib/hmac/secrets (PBKDF2-HMAC-SHA256), subprocess, argparse</li>
+        <li>Concorrência: jobs assíncronos em background, serialização de renovação de token OAuth2 de uso único, cursor persistido e parada verificada</li>
+        <li>Qualidade e distribuição: mypy, black, flake8, PyInstaller (binário único)</li>
+      </ul>
+    </div>
+
+    <div class="skill-group new">
+      <h3>Segurança Aplicada<span class="new-tag">seção nova</span></h3>
+      <ul>
+        <li>Criptografia: AES-128/256 (CBC, ECB, CFB, OFB, CTR), AES-256-GCM, RSA-2048, HMAC-SHA256, PBKDF2</li>
+        <li>Autenticação por desafio criptográfico com chave SSH</li>
+        <li>Multi-tenancy com isolamento físico de dados por cliente</li>
+        <li>Proteção de aplicação: anti-SSRF, CSRF, rate limiting, bloqueio de IP, security headers</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>Experiência Profissional</h2>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Engenheiro VoIP <span class="item-org">— Akiva Software (Callcenter), São Paulo</span></span>
+      <span class="item-when">09/2025 – 11/2025</span>
+    </div>
+    <ul>
+      <li>Resolvi incidentes críticos de suporte (N3) e gerenciei dois sistemas distintos de classificação de chamadas: o módulo proprietário Asterisk da Akiva e o classificador Flow da Khomp.</li>
+      <li>Implantei e configurei novos fluxos de call center de ponta a ponta, desde filas de atendimento até discadores automáticos.</li>
+      <li>Otimizei o processo de deploy da aplicação Akiva, desenvolvendo novos scripts de autoinstalação do codec G.729 e modernizando o SO de telefonia subjacente.</li>
+      <li>Melhorei o desempenho do classificador Khomp gerenciando atualizações de licenças e implantando novos servidores dedicados para escalar o recurso.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Arquiteto de Soluções VoIP Sênior <span class="item-org">— On Vox, São Paulo</span></span>
+      <span class="item-when">09/2024 – 11/2025</span>
+    </div>
+    <ul>
+      <li>Liderei a arquitetura e o desenvolvimento de uma plataforma de call center ativo (power dialer) projetada para suportar +500 agentes concorrentes.</li>
+      <li>Aumentei a eficiência das campanhas em 30% ao desenvolver uma solução em Python que integra billing (Nextbilling) e IA para detecção de caixa postal (Sippulse).</li>
+      <li>Projetei e implementei a infraestrutura IaaS em nuvem da solução usando Proxmox e Kubernetes (K8s) para orquestração de contêineres.</li>
+      <li>Garanti “zero downtime” para operações críticas ao conduzir projetos de migração de clientes da plataforma GoTo para Yeastar PBX.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Analista SRE DevOps (foco em VoIP) <span class="item-org">— Open New, Brasília</span></span>
+      <span class="item-when">08/2024 – 11/2025</span>
+    </div>
+    <ul>
+      <li>Resolvi escalonamentos complexos de N3 para projetos de PBX Asterisk, depurando incidentes críticos de arquitetura e performance.</li>
+      <li>Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% ao modernizar o sistema de monitoramento Zabbix com novos templates de observabilidade.</li>
+      <li>Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Engenheiro VoIP Sênior <span class="item-org">— Ip Telecom, Itália</span></span>
+      <span class="item-when">01/2023 – 11/2025</span>
+    </div>
+    <ul>
+      <li>Gerenciei a plataforma de telefonia COMMUNI5/PORTSIP como arquiteto de soluções, garantindo 99,99% de uptime para serviços críticos no mercado italiano.</li>
+      <li>Reduzi o tempo de onboarding de novos clientes em 60% ao liderar a padronização de provisionamento de dispositivos VoIP (Snom, Fanvil), criando um sistema “zero-touch provisioning”.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Analista de Desenvolvimento Sênior <span class="item-org">— TW-Solutions Telecomunicações, São Paulo</span></span>
+      <span class="item-when">06/2022 – 08/2024</span>
+    </div>
+    <ul>
+      <li>Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.</li>
+      <li>Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).</li>
+      <li>Liderei o esquadrão de desenvolvimento em metodologia Ágil (Scrum/JIRA), atuando como referência técnica para pipelines CI/CD no Bitbucket.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Arquiteto Asterisk Sênior (Dev &amp; Telecom) <span class="item-org">— 55PBX (PABX na nuvem), São Paulo</span></span>
+      <span class="item-when">11/2021 – 06/2022</span>
+    </div>
+    <ul>
+      <li>Projetei e implementei a arquitetura de borda (SBC) de alta disponibilidade da empresa, combinando Asterisk, OpenSIPS e Kamailio.</li>
+      <li>Reduzi os custos de telefonia em mais de 300% ao criar APIs de microsserviços (Node.js) que eliminaram novas taxas de licença através da modernização.</li>
+      <li>Desenvolvi um appliance de roteamento (Node.js/Drachtio) para integração e roteamento dinâmico de chamadas com o Microsoft Teams.</li>
+      <li>Desenvolvi uma URA dinâmica com AGI em Python, utilizando TTS/STT e ASR para reconhecimento de voz.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Desenvolvedor Asterisk Sênior — Tech Leader <span class="item-org">— ELEV Tecnologia, São Paulo</span></span>
+      <span class="item-when">04/2020 – 03/2022</span>
+    </div>
+    <ul>
+      <li>Liderei a arquitetura técnica para todos os projetos Asterisk e Fullstack, supervisionando 11 desenvolvedores.</li>
+      <li>Desenvolvi o backend completo (REST APIs em Node.js, PHP) e o frontend (Angular) para a plataforma de gerenciamento de call center.</li>
+      <li>Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Zendesk e Power BI, criando um novo produto para a equipe de vendas.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Desenvolvedor Mid-level (foco em Asterisk) <span class="item-org">— TLD Teledata Tecnologia, São Paulo</span></span>
+      <span class="item-when">12/2019 – 05/2020</span>
+    </div>
+    <ul>
+      <li>Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes para operações de call center.</li>
+      <li>Desenvolvi e mantive múltiplas plataformas Asterisk (FreePBX, Xcally, Xorcom) suportando mais de 200 agentes concorrentes em mais de 100 empresas clientes.</li>
+      <li>Construí um chatbot de voz (CPQD) do zero como novo produto, automatizando 10% do volume de chamadas operacionais para seus clientes iniciais.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Analista de Telecom Mid-level <span class="item-org">— Sothis Telecom</span></span>
+      <span class="item-when">05/2017 – 08/2019</span>
+    </div>
+    <ul>
+      <li>Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux, mantendo 99,99% de uptime para todos os serviços de telefonia IP.</li>
+      <li>Administrei plataformas de nuvem (VMware vSphere, OpenStack) e Sippulse (STFC) para um ambiente de mais de 400 servidores.</li>
+      <li>Desenvolvi um chatbot em Asterisk e Node.js que automatizou 25% das chamadas de triagem inicial de clientes.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Analista de Infraestrutura/Redes de TI <span class="item-org">— EZ-Security</span></span>
+      <span class="item-when">01/2018 – 08/2018</span>
+    </div>
+    <ul>
+      <li>Automatizei a resposta a incidentes implantando VMs e configurando Zabbix (SNMP) para monitorar métricas vitais de aplicativos de segurança (Symantec, OTP), criando tickets automaticamente para as equipes responsáveis.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Analista de Infraestrutura/Redes de TI <span class="item-org">— E-Prepag Fintech</span></span>
+      <span class="item-when">03/2015 – 12/2017</span>
+    </div>
+    <ul>
+      <li>Garanti 100% de continuidade dos negócios ao elaborar o plano completo de Disaster Recovery (DR) e gerenciar todas as rotinas de backup off-site.</li>
+      <li>Gerei economias anuais significativas ao liderar o projeto de modernização da telefonia, migrando um PBX Elastix legado para uma solução FreePBX.</li>
+      <li>Reduzi o tempo de resposta a incidentes de segurança em mais de 99% (de minutos para tempo real) ao desenvolver um sistema automatizado de análise de logs em nível de SOC usando Fail2ban.</li>
+      <li>Implementei a arquitetura de segurança web (WAF) da fintech usando ModSecurity e regras OWASP para proteger contra SQL Injection, XSS e ataques de força bruta.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Analista de Infraestrutura <span class="item-org">— All Net Group</span></span>
+      <span class="item-when">04/2013 – 02/2015</span>
+    </div>
+    <ul>
+      <li>Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows/Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.</li>
+    </ul>
+  </div>
+
+  <div class="new">
+  <h2>Projetos Freelance / Portfólio Técnico<span class="new-tag">seção nova</span></h2>
+  <p class="lede" style="font-size:13.5px">
+    Projetos autorais e contratados, executados como PJ em paralelo às atividades acima.
+  </p>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Plataforma de Discador VoIP para Call Center <span class="item-org">— projeto próprio/freelance</span></span>
+      <span class="item-when">01/2025 – 07/2026</span>
+    </div>
+    <p>
+      Arquitetei e mantive uma suite completa de discador para call center: painel web de gestão
+      (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de
+      concorrência multi-nível (concurrent.futures + threading, Asterisk ARI/PJSIP) e engine de IVR
+      JSON-driven — uma linguagem de fluxo própria com 16 primitivas (playback, DTMF, condicional,
+      switch, time condition, gravação, chamada HTTP, salto externo) interpretada pelo dialplan, com
+      backend realtime via ODBC (unixODBC, func_odbc, CDR/CEL sobre PostgreSQL) e editor visual de
+      fluxo em React/Tailwind com conversão bidirecional grafo↔steps. Provisionamento de
+      infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os
+      containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling.
+      Modelagem de 17 tabelas e tuning manual de PostgreSQL; 15 suítes pytest cobrindo cada primitiva
+      do IVR ponta a ponta.
+    </p>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Plataforma de Atendimento Omnichannel Multi-tenant <span class="item-org">— projeto próprio/freelance</span></span>
+      <span class="item-when">02/2026 – 07/2026</span>
+    </div>
+    <p>
+      Liderei a reescrita completa de uma plataforma SaaS de atendimento (originalmente
+      Node.js/React/Drizzle) para Laravel 12/PHP, mantendo paridade de funcionalidades para viabilizar
+      hospedagem própria em vez de infra Node dedicada. Integrei 5 gateways de WhatsApp atrás de uma
+      única interface de driver (Evolution, WAHA, Whaticket, WaVoIP, Meta Cloud API) — padrão Strategy
+      aplicado a integração, permitindo trocar de gateway sem tocar na aplicação — além de ingestão de
+      e-mail por IMAP com a mesma abordagem, motor de automação conversacional com estado, RBAC
+      multi-tenant de 4 níveis e jobs assíncronos de IA (Groq, Llama 3.1 70B/8B) para análise de
+      sentimento e qualidade de atendimento sem bloquear a operação. 41 migrations e 23 suítes PHPUnit.
+      A versão anterior (React 18/TypeScript, Express, Drizzle ORM, PostgreSQL) já incluía videochamada
+      WebRTC (LiveKit/mediasoup), webphone SIP embarcado e segmentação de fundo por IA no navegador
+      (TensorFlow.js/MediaPipe), com testes E2E em Cypress.
+    </p>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Sistema de Retaguarda para Pedágio Eletrônico <span class="item-org">— freelance, setor de mobilidade/rodovias</span></span>
+      <span class="item-when">12/2025 – 01/2026</span>
+    </div>
+    <p>
+      Contratado para arquitetar e desenvolver a retaguarda de leitura de transponder RFID em pedágio
+      eletrônico, atuando como arquiteto hands-on: defini a arquitetura de integração e a implementei.
+      Entreguei o parser do protocolo da antena CIR, decriptação AES do payload do chip com suporte
+      configurável a 10 combinações de algoritmo e modo (AES-128/256 em CBC, ECB, CFB, OFB e CTR via
+      biblioteca cryptography), API assíncrona em FastAPI, publicação em fila JMS/STOMP no broker
+      ActiveMQ da concessionária e três serializadores intercambiáveis de saída (Protobuf, JSON e
+      SOAP/XML) para atender formatos impostos por sistemas legados. Sistema aderente às normas
+      ISO/IEC 18000-63 e ISO/IEC 29167-10 e à Resolução ARTESP 001/2014. Implementei licenciamento
+      próprio de software com assinatura RSA-2048, vínculo por hash de hardware e níveis de licença,
+      distribuído como binário único via PyInstaller com instaladores para Rocky Linux, Ubuntu e
+      Windows. Qualidade garantida por pytest (incluindo testes assíncronos e cobertura), teste de
+      carga com Locust e checagem estática de tipos com mypy.
+    </p>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Análise de Qualidade de Chamadas por Processamento de Sinais <span class="item-org">— projeto próprio/freelance</span></span>
+      <span class="item-when">07/2026 – atual</span>
+    </div>
+    <p>
+      Desenvolvi um analisador de qualidade de áudio de telefonia que detecta picote (dropout por perda
+      de pacote), clipping, dead-air, one-way e nível/SNR baixo diretamente do sinal, em Python/NumPy —
+      energia por frame, análise espectral (FFT: flatness, flux, centroide) e estimativa de ruído de
+      fundo por percentil para separar perda de pacote de pausa natural da conversa. Implementei o
+      E-model (ITU-T G.107) do zero, convertendo as detecções em R-factor e MOS, e avaliei modelos
+      neurais no-reference (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real
+      rotulado, com decisão de arquitetura documentada por eixo de discriminação e por licenciamento
+      comercial. Camada de IA 100% local em CPU (faster-whisper int8 + LLM GGUF via llama.cpp)
+      classifica a transcrição — caixa postal, URA, reclamação de qualidade — com prompt few-shot de
+      saída JSON e fallback determinístico. Painel Flask multi-tenant com isolamento físico de dados
+      por cliente, SQLite, autenticação PBKDF2 e SPA sem framework/build; empacotado em Docker e
+      implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de
+      classificador AMD (Answering Machine Detection) de terceiros, que cruza a classificação da API do
+      cliente com a análise independente do áudio para achar falso positivo nas duas direções
+      (121 testes automatizados em pytest).
+    </p>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">SIP Proxy / SBC para FusionPBX <span class="item-org">— projeto próprio/freelance</span></span>
+      <span class="item-when">07/2026 – atual</span>
+    </div>
+    <p>
+      Desenvolvo um proxy SIP baseado em Kamailio + rtpengine com foco em NAT traversal e modo
+      transparent, como alternativa enxuta ao dSIPRouter para integração com FusionPBX. Roteamento
+      dinâmico (drouting), controle de acesso por origem (permissions), estado em htable e registro
+      remoto via path; painel de administração em Flask com blueprints e SQLAlchemy 2.0 por reflection
+      sobre as tabelas do motor (MariaDB/PyMySQL), comandando o Kamailio por JSON-RPC. Validação por 13
+      cenários SIPp de conformidade de protocolo — negociação de G.729 com payload type dinâmico e
+      estático, AVPF sem rtpmap, REGISTER de ramal remoto e rejeição 403/404. Migrations SQL
+      versionadas e stack inteira containerizada (Kamailio, rtpengine, FusionPBX e painel).
+    </p>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Motor de Automação Autônoma de Interação Web (RPA) com IA Multi-provedor <span class="item-org">— projeto próprio</span></span>
+      <span class="item-when">06/2026 – atual</span>
+    </div>
+    <p>
+      Projetei um motor genérico de automação de navegador (Node.js/Puppeteer) que opera portais web de
+      forma autônoma e não supervisionada: adaptadores por site sobre um núcleo compartilhado, motor de
+      regras próprio, preenchimento de formulários dinâmicos, detecção de página e de estado de sessão
+      com re-login automático, controle de ritmo por ação, rede de segurança e trava de concorrência
+      entre execuções. Persistência em Prisma/SQLite, painel web de operação e evidência auditável por
+      captura de tela a cada etapa. Camada de decisão por IA com cadeia de fallback entre provedores
+      (OpenRouter, OpenAI, Anthropic, NVIDIA NIM) sobre dois formatos de API distintos, degradando para
+      regra determinística quando todos falham. Suíte de 716 testes automatizados.
+    </p>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Plataforma Própria de Hospedagem Git <span class="item-org">— projeto pessoal, uso profissional contínuo</span></span>
+      <span class="item-when">08/2025 – atual</span>
+    </div>
+    <p>
+      Desenvolvi e mantenho uma plataforma própria de hospedagem Git (alternativa self-hosted a
+      GitHub/GitLab) em PHP, sem nenhuma dependência de runtime. Implementei do zero o servidor WebDAV
+      (RFC 4918 — PROPFIND, MKCOL, COPY, MOVE, LOCK/UNLOCK) com mutex FIFO por caminho, o protocolo git
+      smart HTTP (upload-pack/receive-pack) e um esquema de autenticação por desafio criptográfico com
+      chave SSH. Pipeline de CI/CD com disparo assinado por HMAC-SHA256 e validação anti-SSRF do
+      endpoint, credenciais cifradas em AES-256-GCM, controle de acesso via gitolite, rate limiting,
+      bloqueio de IP, CSRF e cabeçalhos de segurança, interface internacionalizada em 4 idiomas.
+      129 commits ao longo de quase 1 ano de operação contínua, hospedando +30 repositórios.
+    </p>
+  </div>
+  </div>
+
+  <h2>Formação Acadêmica</h2>
+  <ul class="two-col">
+    <li><b>Pós-Graduação em Data Warehouse e Business Intelligence</b> — UniBF Centro Universitário (2025 – atual)</li>
+    <li><b>Bacharelado em Ciências de Inteligência Artificial</b> — UniBF Centro Universitário (2025 – atual)</li>
+    <li><b>Pós-Graduação (Especialização) em Banco de Dados</b> — Faculdade Play (2020 – 2024)</li>
+    <li><b>Bacharelado em Sistemas de Informação</b> — ESAB, Escola Superior Aberta do Brasil (2016 – 2020)</li>
+    <li><b>Gestão da Tecnologia da Informação</b> — Faculdade Sumaré (2009 – 2012)</li>
+  </ul>
+
+  <h2>Certificações e Treinamentos</h2>
+  <ul>
+    <li>Digium Certified Asterisk Administrator (dCAA) — Sangoma University (2019)</li>
+    <li>Asterisk Certified Essentials (ACE) — Sangoma University (2021)</li>
+    <li>FreePBX Certified Essentials — Sangoma University (2022)</li>
+    <li>LPIC-1 — Linux Professional Institute (2016)</li>
+    <li>Red Hat Certified System Administrator (RHCSA) (2022)</li>
+    <li><b>VoIP &amp; Telefonia:</b> Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations</li>
+    <li><b>Linux &amp; DevOps:</b> LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios</li>
+    <li><b>Cloud &amp; Infraestrutura:</b> OpenStack Infrastructure, AWS Foundations, Mikrotik</li>
+    <li><b>Segurança &amp; Redes:</b> Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy</li>
+    <li><b>Desenvolvimento &amp; DB:</b> PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9</li>
+  </ul>
+
+  <h2>Idiomas</h2>
+  <ul class="two-col">
+    <li><b>Português:</b> nativo / fluente</li>
+    <li><b>Italiano:</b> fluente (proficiência profissional)</li>
+    <li><b>Espanhol:</b> avançado</li>
+    <li><b>Inglês:</b> intermediário (foco em leitura técnica)</li>
+  </ul>
+
+  <h2>Interesses</h2>
+  <ul class="two-col">
+    <li>Entusiasta de Home Lab (cluster K8s &amp; VoIP)</li>
+    <li>Projetos com Raspberry Pi &amp; mini-PCs</li>
+    <li>Cervejaria artesanal &amp; cafés especiais</li>
+  </ul>
+
+</div>
+
+<script>
+  const body = document.body;
+  const btnMark = document.getElementById('mark');
+  const btnTheme = document.getElementById('theme');
+
+  body.classList.add('mark');
+  btnMark.addEventListener('click', () => {
+    const on = body.classList.toggle('mark');
+    btnMark.setAttribute('aria-pressed', String(on));
+  });
+
+  btnTheme.addEventListener('click', () => {
+    const root = document.documentElement;
+    const atual = root.getAttribute('data-theme');
+    const escuroPorPadrao = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const proximo = atual ? (atual === 'dark' ? 'light' : 'dark')
+                          : (escuroPorPadrao ? 'light' : 'dark');
+    root.setAttribute('data-theme', proximo);
+  });
+</script>

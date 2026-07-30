@@ -1,0 +1,9 @@
+# Artefatos temporários
+*.tmp
+*.bak
+*~
+.DS_Store
+
+# Saídas de conversão
+/cv/*.docx
+/cv/*.odt
