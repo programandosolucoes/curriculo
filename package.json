@@ -7,7 +7,8 @@
     "gerar": "node ferramentas/gerar-cv.js",
     "aderencia": "node ferramentas/aderencia.js",
     "snapshot": "node ferramentas/exportar-snapshot.js",
-    "test": "node --test 'ferramentas/**/*.test.js'"
+    "test": "node --test 'ferramentas/**/*.test.js'",
+    "ats": "node ferramentas/simular-ats.js"
   },
   "engines": {
     "node": ">=18"
