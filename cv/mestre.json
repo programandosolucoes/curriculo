@@ -1,0 +1,748 @@
+{
+  "pessoal": {
+    "nome": "Carlos Alberto",
+    "local": "São Paulo, SP, Brasil",
+    "telefone": "+55 11 2615-2880",
+    "email": "carlosalberto4ti@gmail.com",
+    "links": ["linkedin.com/in/carlosalberto4ti", "programandosolucoes.com.br"]
+  },
+
+  "resumos": {
+    "voip": "Arquiteto de Soluções e Engenheiro VoIP Sênior com mais de 10 anos de experiência, focado em projetar e implementar sistemas de comunicação em nuvem de alta disponibilidade. Especialista em arquitetar ecossistemas VoIP complexos (Asterisk, Kamailio, OpenSIPS), integrar plataformas de telefonia a sistemas de negócio e desenvolver os componentes que faltam: appliances de roteamento, engines de URA/IVR, proxies SIP e APIs de integração. Certificado dCAA, com histórico de 99,99% de uptime em operação internacional e migrações sem indisponibilidade.",
+    "dev": "Desenvolvedor Backend Sênior com mais de 10 anos construindo sistemas de missão crítica em Node.js, Python e PHP. Projetei APIs REST que processam mais de 1 milhão de eventos diários, liderei squad de 11 desenvolvedores como referência técnica de CI/CD, e mantenho um portfólio de sete plataformas autorais em produção, de discador para call center a análise de áudio por processamento de sinais. Trabalho com PostgreSQL, Laravel, FastAPI, Prisma e Docker, com suítes automatizadas que somam mais de 850 testes.",
+    "frontend": "Desenvolvedor Frontend Sênior com experiência em React 18, TypeScript e Next.js, construindo desde plataformas SaaS completas com design system próprio até interfaces em JavaScript puro sem framework nem build. Trabalhei com TailwindCSS, Radix UI, TanStack e Vite, testes end-to-end em Cypress, videochamada WebRTC e segmentação de imagem por Inteligência Artificial (IA) executando no navegador com TensorFlow.js. Base sólida de HTML, CSS e JavaScript, com mais de 10 anos de engenharia de backend por trás.",
+    "ia": "Engenheiro de Inteligência Artificial (IA) com experiência prática em integrar modelos de linguagem (LLM) a produtos em produção. Construí cadeia de fallback entre cinco provedores sobre dois formatos de API distintos, inferência local em CPU com modelos quantizados para dados que não podem sair da máquina, e avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento comercial. Mais de 10 anos de engenharia de sistemas dão a base para colocar IA em produção, não só prototipar. Bacharelado em Ciências de Inteligência Artificial em curso.",
+    "devops": "Engenheiro DevOps e SRE Sênior com mais de 10 anos em infraestrutura de missão crítica. Reduzi o tempo médio de detecção de falhas em 40% modernizando a observabilidade, garanti 99,99% de uptime em operação internacional e mantive capacidade de disaster recovery para mais de 100 clientes. Trabalho com Kubernetes, Docker, Proxmox, LXC, pipelines de CI/CD e automação de provisionamento via API, com experiência de plantão N3 em ambientes onde a indisponibilidade custa dinheiro por minuto.",
+    "dados": "Profissional de Dados e Business Intelligence com base sólida em engenharia de sistemas. Construí pipelines processando mais de 1 milhão de eventos diários, dashboards usados por gestores em mais de 25 empresas clientes, e sistemas analíticos que vão de modelagem relacional e tuning de PostgreSQL até processamento digital de sinais e Inteligência Artificial (IA) aplicada. Pós-graduação em Data Warehouse e Business Intelligence e Bacharelado em Ciências de Inteligência Artificial em curso.",
+    "seguranca": "Analista de Segurança da Informação Sênior com experiência em proteção de aplicação, criptografia aplicada e resposta a incidentes. Implementei arquitetura WAF com ModSecurity e regras OWASP em ambiente financeiro, reduzi o tempo de resposta a incidentes em mais de 99% com análise automatizada de logs em nível de SOC, e desenvolvi sistemas com criptografia AES, assinatura digital RSA-2048 e isolamento físico de dados entre clientes. Experiência com pfSense, OpenVPN, hardening de Linux e conformidade regulatória (normas ISO/IEC).",
+    "qa": "Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.",
+    "rpa": "Especialista em Automação de Processos (RPA, Robotic Process Automation) e Integração de Sistemas. Construí um motor de automação de navegador que opera portais web de forma autônoma e não supervisionada, bots de processamento de e-mail com decisão por Inteligência Artificial (IA), e chatbots que automatizaram até 25% do volume operacional de atendimento. Integração de API é especialidade recorrente: cinco gateways de mensageria atrás de uma única interface, clientes próprios de seis APIs distintas, mensageria assíncrona JMS/STOMP e webhooks substituindo polling."
+  },
+
+  "conquistas": [
+    { "id": "onboarding", "texto": "Otimização do onboarding de clientes: reduzi o tempo de onboarding em 60% com provisionamento zero-touch." },
+    { "id": "campanha", "texto": "Eficiência de campanha aprimorada: melhorei a eficiência das campanhas em 30% usando Inteligência Artificial (IA) para detecção de caixa postal." },
+    { "id": "uptime", "texto": "Garantia de uptime de serviço: garanti 99,99% de uptime para serviços críticos no mercado de telefonia italiano." },
+    { "id": "mttd", "texto": "Detecção de falhas aprimorada: reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade." }
+  ],
+
+  "competencias": {
+    "voip": {
+      "titulo": "VoIP e Telecomunicações",
+      "itens": [
+        "Arquitetura de soluções VoIP e plataformas de call center",
+        "Asterisk (dCAA Certified), Kamailio, OpenSIPS, FreeSWITCH",
+        "SBC (Session Border Controller), rtpengine, NAT traversal",
+        "WebRTC, SIP/TLS, PJSIP, SRTP, DTLS",
+        "ARI (Asterisk REST Interface), dialplan JSON-driven, AGI, DTMF",
+        "URA/IVR, CDR, CEL, ODBC realtime (unixODBC)",
+        "FusionPBX, FreePBX, VitalPBX, Issabel, Elastix, Yeastar",
+        "SIPp para teste de conformidade de protocolo SIP",
+        "Codecs G.711, G.729, G.723.1, Opus; TTS, STT e ASR"
+      ]
+    },
+    "desenvolvimento": {
+      "titulo": "Desenvolvimento e Banco de Dados",
+      "itens": [
+        "JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)",
+        "Python (FastAPI, Flask, AGI, asyncio)",
+        "PHP e Laravel 12",
+        "SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional",
+        "Prisma, Drizzle ORM, SQLAlchemy",
+        "API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket",
+        "Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis",
+        "Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)"
+      ]
+    },
+    "frontend": {
+      "titulo": "Frontend",
+      "itens": [
+        "HTML, CSS e JavaScript (ES6+)",
+        "React 18, TypeScript, Next.js",
+        "TailwindCSS, Radix UI, shadcn/ui, design system com tokens de tema",
+        "TanStack (Query, Router, Table, Form), React Hook Form, Recharts",
+        "Vite, esbuild, PostCSS",
+        "Angular",
+        "SPA sem framework nem build, Canvas, tema claro/escuro",
+        "Testes end-to-end com Cypress e Testing Library",
+        "WebRTC (LiveKit, mediasoup) e TensorFlow.js no navegador"
+      ]
+    },
+    "cloud": {
+      "titulo": "Cloud e DevOps",
+      "itens": [
+        "Kubernetes (K8s), Docker e Docker Compose",
+        "AWS e GCP; AWS S3 com presigned URL",
+        "Proxmox, KVM, VMware vSphere, OpenStack, LXC",
+        "Infraestrutura como Código (IaC) e runbooks versionados",
+        "CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git",
+        "Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)",
+        "systemd, gunicorn, Nginx, Apache, healthcheck",
+        "Automação de provisionamento via API do Proxmox VE",
+        "Backup automatizado e disaster recovery (DR)"
+      ]
+    },
+    "ia-llm": {
+      "titulo": "Inteligência Artificial (IA) e LLM",
+      "itens": [
+        "Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic, NVIDIA NIM, Groq/Llama 3, Ollama)",
+        "Inferência local em CPU para dados sensíveis: LLM quantizado GGUF via llama.cpp e ONNX Runtime",
+        "Reconhecimento de fala (ASR) local com faster-whisper",
+        "Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico",
+        "Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento",
+        "IA generativa, agentes de IA, MCP (Model Context Protocol), RAG",
+        "Machine learning aplicado, NLP e processamento de linguagem natural",
+        "Engenharia assistida por IA com metodologia spec-driven"
+      ]
+    },
+    "sinais": {
+      "titulo": "Processamento de Sinais e Áudio",
+      "itens": [
+        "Processamento Digital de Sinais (DSP) em Python e NumPy",
+        "FFT e features espectrais (flatness, flux, centroide)",
+        "Qualidade de voz por norma ITU-T: E-model G.107 (R-factor para MOS), P.862.1, P.835",
+        "Detecção de perda de pacote, clipping, dead-air, one-way, SNR e jitter",
+        "AMD (Answering Machine Detection) e auditoria de classificador",
+        "ffmpeg e ffprobe"
+      ]
+    },
+    "python": {
+      "titulo": "Ecossistema Python",
+      "itens": [
+        "NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy",
+        "cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio",
+        "Concorrência: threading, jobs assíncronos em background, asyncio",
+        "pytest, pytest-asyncio, cobertura de testes, Locust",
+        "mypy, black, flake8, PyInstaller"
+      ]
+    },
+    "seguranca": {
+      "titulo": "Segurança Aplicada",
+      "itens": [
+        "WAF (ModSecurity, regras OWASP), pfSense, OpenVPN, Squid Proxy",
+        "Análise de logs em nível de SOC, Fail2ban, resposta a incidentes",
+        "Criptografia AES-128 e AES-256 (CBC, ECB, CFB, OFB, CTR) e AES-256-GCM",
+        "RSA-2048, HMAC-SHA256, PBKDF2, assinatura digital",
+        "OAuth2, JWT, TLS/SSL, autenticação por desafio criptográfico com chave SSH",
+        "Multi-tenancy com isolamento físico de dados, RBAC granular",
+        "Proteção contra SSRF, CSRF, XSS e SQL Injection; rate limiting e hardening",
+        "Conformidade regulatória: normas ISO/IEC, homologação técnica"
+      ]
+    },
+    "dados": {
+      "titulo": "Dados e Business Intelligence",
+      "itens": [
+        "SQL avançado, modelagem relacional e tuning de PostgreSQL",
+        "Power BI, dashboards e relatórios operacionais",
+        "Pipelines de mais de 1 milhão de eventos diários",
+        "CDR e CEL: extração, correlação e análise de registros de chamada",
+        "Pandas, NumPy e análise estatística",
+        "Data Warehouse e Business Intelligence (pós-graduação em curso)"
+      ]
+    },
+    "qa": {
+      "titulo": "Qualidade e Testes",
+      "itens": [
+        "pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library",
+        "Testes end-to-end com Cypress",
+        "Teste de carga e performance com Locust",
+        "Teste de conformidade de protocolo com SIPp",
+        "Mock de HTTP, geração de dados sintéticos, cobertura de testes",
+        "Checagem estática de tipos com mypy e TypeScript",
+        "Suporte N3: reprodução e isolamento de defeito em produção"
+      ]
+    }
+  },
+
+  "experiencia": [
+    {
+      "id": "akiva",
+      "empresa": "Akiva Software",
+      "cargo": "Engenheiro VoIP",
+      "periodo": "09/2025 - 11/2025",
+      "local": "São Paulo, Brasil",
+      "bullets": {
+        "base": [
+          "Resolvi incidentes críticos de suporte (N3) e gerenciei dois sistemas distintos de classificação de chamadas: o módulo proprietário Asterisk da Akiva e o classificador Flow da Khomp.",
+          "Implantei e configurei novos fluxos de call center de ponta a ponta, desde filas de atendimento até discadores automáticos.",
+          "Otimizei o processo de deploy da aplicação, desenvolvendo novos scripts de autoinstalação do codec G.729 e modernizando o sistema operacional de telefonia subjacente.",
+          "Melhorei o desempenho do classificador Khomp gerenciando atualizações de licenças e implantando novos servidores dedicados para escalar o recurso."
+        ],
+        "devops": [
+          "Otimizei o processo de deploy da aplicação desenvolvendo scripts de autoinstalação de dependências e modernizando o sistema operacional base.",
+          "Escalei a capacidade de um serviço de classificação implantando e configurando novos servidores dedicados.",
+          "Atuei em suporte N3, depurando incidentes críticos de arquitetura e performance em produção."
+        ],
+        "qa": [
+          "Gerenciei e comparei dois sistemas distintos de classificação de chamadas, avaliando acurácia e comportamento de cada um em produção.",
+          "Atuei em suporte N3, reproduzindo e isolando defeitos críticos de arquitetura e performance antes da correção.",
+          "Validei fluxos de atendimento de ponta a ponta após cada implantação, das filas aos discadores automáticos."
+        ]
+      }
+    },
+    {
+      "id": "onvox",
+      "empresa": "On Vox",
+      "cargo": "Arquiteto de Soluções VoIP Sênior",
+      "periodo": "09/2024 - 11/2025",
+      "local": "São Paulo, Brasil",
+      "bullets": {
+        "base": [
+          "Liderei a arquitetura e o desenvolvimento de uma plataforma de call center ativo (power dialer) projetada para suportar mais de 500 agentes concorrentes.",
+          "Aumentei a eficiência das campanhas em 30% ao desenvolver uma solução em Python que integra billing (Nextbilling) e Inteligência Artificial (IA) para detecção de caixa postal (Sippulse).",
+          "Projetei e implementei a infraestrutura IaaS em nuvem da solução usando Proxmox e Kubernetes (K8s) para orquestração de contêineres.",
+          "Garanti zero downtime para operações críticas ao conduzir projetos de migração de clientes da plataforma GoTo para Yeastar PBX."
+        ],
+        "dev": [
+          "Desenvolvi em Python a integração entre o sistema de billing e o serviço de classificação por Inteligência Artificial (IA), aumentando a eficiência das campanhas em 30%.",
+          "Liderei a arquitetura e o desenvolvimento de uma plataforma projetada para mais de 500 usuários concorrentes.",
+          "Conduzi migração de plataforma entre fornecedores com zero downtime para as operações críticas."
+        ],
+        "devops": [
+          "Projetei e implementei a infraestrutura IaaS em nuvem usando Proxmox e Kubernetes (K8s) para orquestração de contêineres.",
+          "Garanti zero downtime em migrações de clientes entre plataformas distintas.",
+          "Dimensionei a arquitetura para suportar mais de 500 sessões concorrentes."
+        ],
+        "ia": [
+          "Aumentei a eficiência das campanhas em 30% integrando um serviço de Inteligência Artificial (IA) de classificação de áudio ao fluxo de discagem, em solução Python própria.",
+          "Liderei a arquitetura de uma plataforma de alto volume, definindo onde a classificação automática entra no ciclo de vida da chamada."
+        ],
+        "dados": [
+          "Integrei o sistema de billing à plataforma operacional em Python, consolidando dados de consumo e de resultado de campanha.",
+          "Aumentei a eficiência das campanhas em 30% ao usar classificação automática de chamadas para descartar contatos improdutivos.",
+          "Dimensionei a arquitetura de dados para mais de 500 agentes concorrentes."
+        ]
+      }
+    },
+    {
+      "id": "open-new",
+      "empresa": "Open New",
+      "cargo": "Analista SRE DevOps",
+      "periodo": "08/2024 - 11/2025",
+      "local": "Brasília, Brasil",
+      "bullets": {
+        "base": [
+          "Resolvi escalonamentos complexos de N3 para projetos de PBX Asterisk, depurando incidentes críticos de arquitetura e performance.",
+          "Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% ao modernizar o sistema de monitoramento Zabbix com novos templates de observabilidade.",
+          "Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes."
+        ],
+        "devops": [
+          "Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% ao modernizar o sistema de monitoramento Zabbix com novos templates de observabilidade.",
+          "Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.",
+          "Atuei como último nível de escalonamento (N3), depurando incidentes críticos de arquitetura e performance em produção."
+        ],
+        "seguranca": [
+          "Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.",
+          "Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade, encurtando a janela de exposição a incidentes.",
+          "Investiguei e resolvi escalonamentos de N3 envolvendo comportamento anômalo de arquitetura e performance."
+        ],
+        "qa": [
+          "Atuei como último nível de escalonamento (N3), reproduzindo e isolando incidentes críticos de arquitetura e performance antes da correção.",
+          "Modernizei o monitoramento com novos templates de observabilidade, reduzindo em 40% o tempo até a detecção de uma falha.",
+          "Validei rotinas de backup e recuperação, garantindo capacidade de disaster recovery para mais de 100 clientes."
+        ]
+      }
+    },
+    {
+      "id": "ip-telecom",
+      "empresa": "Ip Telecom",
+      "cargo": "Engenheiro VoIP Sênior",
+      "periodo": "01/2023 - 11/2025",
+      "local": "Itália",
+      "bullets": {
+        "base": [
+          "Gerenciei a plataforma de telefonia COMMUNI5/PORTSIP como arquiteto de soluções, garantindo 99,99% de uptime para serviços críticos no mercado italiano.",
+          "Reduzi o tempo de onboarding de novos clientes em 60% ao liderar a padronização de provisionamento de dispositivos VoIP (Snom, Fanvil), criando um sistema de zero-touch provisioning."
+        ],
+        "devops": [
+          "Garanti 99,99% de uptime para serviços críticos em operação internacional, atuando como arquiteto de soluções da plataforma.",
+          "Reduzi o tempo de onboarding de novos clientes em 60% ao criar um sistema de provisionamento automatizado zero-touch para dispositivos de rede."
+        ]
+      }
+    },
+    {
+      "id": "tw-solutions",
+      "empresa": "TW-Solutions Telecomunicações",
+      "cargo": "Analista de Desenvolvimento Sênior",
+      "periodo": "06/2022 - 08/2024",
+      "local": "São Paulo, Brasil",
+      "bullets": {
+        "base": [
+          "Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.",
+          "Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).",
+          "Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket."
+        ],
+        "dev": [
+          "Projetei e integrei APIs RESTful em Node.js que processam mais de 1 milhão de eventos diários, integrando um sistema omnichannel a uma plataforma de comunicação.",
+          "Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.",
+          "Arquitetei solução clusterizada multi-tenant com escalabilidade horizontal e balanceamento de carga."
+        ],
+        "devops": [
+          "Arquitetei solução clusterizada multi-tenant com escalabilidade horizontal e balanceamento de carga, dimensionada para mais de 1 milhão de eventos diários.",
+          "Atuei como referência técnica dos pipelines de CI/CD no Bitbucket para todo o esquadrão de desenvolvimento.",
+          "Integrei sistemas distintos por API RESTful, substituindo acoplamento direto entre plataformas."
+        ],
+        "dados": [
+          "Modelei e integrei o pipeline de mais de 1 milhão de eventos de chamadas diários, consumido por relatórios e painéis operacionais.",
+          "Projetei APIs RESTful (Node.js) que consolidam dados de um sistema omnichannel em uma base única.",
+          "Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA)."
+        ],
+        "rpa": [
+          "Integrei um sistema de call center omnichannel a plataformas externas por APIs RESTful em Node.js, processando mais de 1 milhão de eventos diários.",
+          "Arquitetei solução multi-tenant com escalabilidade horizontal, eliminando trabalho manual de provisionamento por cliente.",
+          "Liderei o esquadrão de desenvolvimento em metodologia ágil, como referência técnica de CI/CD."
+        ],
+        "qa": [
+          "Atuei como referência técnica de CI/CD no Bitbucket para o esquadrão de desenvolvimento, definindo o que roda em cada estágio do pipeline.",
+          "Projetei e integrei APIs RESTful de alto volume (mais de 1 milhão de eventos diários), com validação de contrato entre os sistemas.",
+          "Liderei o esquadrão em metodologia ágil (Scrum/JIRA)."
+        ]
+      }
+    },
+    {
+      "id": "55pbx",
+      "empresa": "55PBX",
+      "cargo": "Arquiteto Sênior (Desenvolvimento e Telecom)",
+      "periodo": "11/2021 - 06/2022",
+      "local": "São Paulo, Brasil",
+      "bullets": {
+        "base": [
+          "Projetei e implementei a arquitetura de borda (SBC) de alta disponibilidade da empresa, combinando Asterisk, OpenSIPS e Kamailio.",
+          "Reduzi os custos de telefonia em mais de 300% ao criar APIs de microsserviços (Node.js) que eliminaram novas taxas de licença através da modernização.",
+          "Desenvolvi um appliance de roteamento (Node.js/Drachtio) para integração e roteamento dinâmico de chamadas com o Microsoft Teams.",
+          "Desenvolvi uma URA dinâmica com AGI em Python, utilizando TTS/STT e ASR para reconhecimento de voz."
+        ],
+        "dev": [
+          "Reduzi custos em mais de 300% ao criar APIs de microsserviços em Node.js que substituíram software licenciado de terceiros.",
+          "Desenvolvi um appliance de roteamento em Node.js para integração com o Microsoft Teams, com roteamento dinâmico por regra.",
+          "Desenvolvi uma URA dinâmica em Python com TTS/STT e reconhecimento de voz (ASR).",
+          "Projetei arquitetura de borda de alta disponibilidade."
+        ],
+        "ia": [
+          "Desenvolvi uma URA dinâmica em Python usando reconhecimento de voz (ASR) e síntese de fala (TTS/STT), substituindo menus fixos por interação em linguagem natural.",
+          "Criei APIs de microsserviços em Node.js que reduziram custos em mais de 300% ao substituir software licenciado."
+        ],
+        "rpa": [
+          "Desenvolvi um appliance de integração e roteamento dinâmico (Node.js/Drachtio) conectando a plataforma interna ao Microsoft Teams.",
+          "Criei APIs de microsserviços em Node.js que automatizaram o que antes exigia software licenciado de terceiros, reduzindo custos em mais de 300%.",
+          "Desenvolvi uma URA dinâmica em Python com reconhecimento de voz, automatizando triagem de chamadas."
+        ]
+      }
+    },
+    {
+      "id": "elev",
+      "empresa": "ELEV Tecnologia",
+      "cargo": "Desenvolvedor Sênior e Tech Leader",
+      "periodo": "04/2020 - 03/2022",
+      "local": "São Paulo, Brasil",
+      "bullets": {
+        "base": [
+          "Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores.",
+          "Desenvolvi o backend completo (REST APIs em Node.js, PHP) e o frontend (Angular) para a plataforma de gerenciamento de call center.",
+          "Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Zendesk e Power BI, criando um novo produto para a equipe de vendas."
+        ],
+        "dev": [
+          "Liderei a arquitetura técnica de todos os projetos fullstack da empresa, supervisionando 11 desenvolvedores.",
+          "Desenvolvi o backend completo em Node.js e PHP e o frontend em Angular de uma plataforma de gerenciamento.",
+          "Impulsionei um ganho de 200% em novas receitas ao projetar a integração com Zendesk e Power BI, transformando-a em um novo produto."
+        ],
+        "frontend": [
+          "Desenvolvi o frontend em Angular de uma plataforma completa de gerenciamento, junto do backend em Node.js e PHP que o alimenta.",
+          "Liderei a arquitetura técnica de todos os projetos fullstack, supervisionando 11 desenvolvedores.",
+          "Projetei a integração com Zendesk e Power BI que virou um novo produto, com ganho de 200% em novas receitas."
+        ],
+        "dados": [
+          "Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
+          "Desenvolvi o backend completo (Node.js, PHP) que consolida os dados operacionais consumidos pelos painéis.",
+          "Liderei a arquitetura técnica supervisionando 11 desenvolvedores."
+        ],
+        "qa": [
+          "Liderei a arquitetura técnica de todos os projetos da empresa, supervisionando 11 desenvolvedores e definindo o padrão de qualidade do código entregue.",
+          "Desenvolvi backend (Node.js, PHP) e frontend (Angular) de uma plataforma completa, respondendo pela integridade das duas pontas.",
+          "Projetei integração com Zendesk e Power BI que se tornou um novo produto."
+        ],
+        "rpa": [
+          "Projetei a integração entre a plataforma interna, o Zendesk e o Power BI, eliminando repasse manual de dados entre as ferramentas e gerando 200% de novas receitas.",
+          "Desenvolvi backend completo em Node.js e PHP com as APIs REST que sustentam essas integrações.",
+          "Liderei a arquitetura técnica supervisionando 11 desenvolvedores."
+        ]
+      }
+    },
+    {
+      "id": "tld",
+      "empresa": "TLD Teledata Tecnologia",
+      "cargo": "Desenvolvedor Pleno",
+      "periodo": "12/2019 - 05/2020",
+      "local": "São Paulo, Brasil",
+      "bullets": {
+        "base": [
+          "Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes para operações de call center.",
+          "Desenvolvi e mantive múltiplas plataformas Asterisk (FreePBX, Xcally, Xorcom) suportando mais de 200 agentes concorrentes em mais de 100 empresas clientes.",
+          "Construí um chatbot de voz (CPQD) do zero como um novo produto, automatizando com sucesso 10% do volume de chamadas operacionais para seus clientes iniciais."
+        ],
+        "dados": [
+          "Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes.",
+          "Modelei e extraí os dados operacionais de mais de 100 empresas clientes que alimentam esses painéis.",
+          "Construí um chatbot de voz do zero como novo produto, automatizando 10% do volume de chamadas."
+        ],
+        "frontend": [
+          "Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados diariamente por gerentes em mais de 25 empresas clientes.",
+          "Construí um chatbot de voz do zero como novo produto, automatizando 10% do volume de chamadas operacionais."
+        ],
+        "ia": [
+          "Construí do zero um chatbot de voz (CPQD) como novo produto, automatizando 10% do volume de chamadas operacionais dos clientes iniciais.",
+          "Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes."
+        ],
+        "rpa": [
+          "Construí do zero um chatbot de voz (CPQD) que automatizou 10% do volume de chamadas operacionais, entregue como novo produto comercial.",
+          "Desenvolvi relatórios e dashboards de Business Intelligence (BI) que substituíram levantamento manual em mais de 25 empresas clientes.",
+          "Mantive plataformas suportando mais de 200 usuários concorrentes em mais de 100 empresas."
+        ]
+      }
+    },
+    {
+      "id": "sothis",
+      "empresa": "Sothis Telecom",
+      "cargo": "Analista de Telecom Pleno",
+      "periodo": "05/2017 - 08/2019",
+      "bullets": {
+        "base": [
+          "Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux, mantendo 99,99% de uptime para todos os serviços de telefonia IP.",
+          "Administrei plataformas de nuvem (VMware vSphere, OpenStack) e Sippulse (STFC) para um ambiente de mais de 400 servidores.",
+          "Desenvolvi um novo chatbot em Asterisk e Node.js que automatizou 25% das chamadas de triagem inicial de clientes, liberando o tempo dos agentes para problemas complexos."
+        ],
+        "dev": [
+          "Desenvolvi um chatbot em Asterisk e Node.js que automatizou 25% das chamadas de triagem inicial de clientes.",
+          "Administrei plataformas de nuvem (VMware vSphere, OpenStack) em um ambiente de mais de 400 servidores.",
+          "Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux."
+        ],
+        "devops": [
+          "Administrei plataformas de nuvem (VMware vSphere, OpenStack) em ambiente de mais de 400 servidores, mantendo 99,99% de uptime.",
+          "Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux.",
+          "Automatizei 25% das chamadas de triagem inicial desenvolvendo um chatbot em Asterisk e Node.js."
+        ],
+        "rpa": [
+          "Desenvolvi um chatbot em Asterisk e Node.js que automatizou 25% das chamadas de triagem inicial, liberando os agentes para os casos complexos.",
+          "Administrei plataformas de nuvem em ambiente de mais de 400 servidores.",
+          "Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux."
+        ],
+        "qa": [
+          "Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux, mantendo 99,99% de uptime em todos os serviços.",
+          "Validei e mantive plataformas de nuvem em ambiente de mais de 400 servidores.",
+          "Desenvolvi um chatbot que automatizou 25% das chamadas de triagem inicial."
+        ]
+      }
+    },
+    {
+      "id": "ez-security",
+      "empresa": "EZ-Security",
+      "cargo": "Analista de Infraestrutura e Redes de TI",
+      "periodo": "01/2018 - 08/2018",
+      "bullets": {
+        "base": [
+          "Automatizei a resposta a incidentes implantando VMs e configurando Zabbix (SNMP) para monitorar métricas vitais de aplicativos de segurança (Symantec, OTP), criando tickets automaticamente para as equipes responsáveis."
+        ],
+        "seguranca": [
+          "Monitorei métricas vitais de aplicações de segurança (Symantec, OTP) configurando Zabbix com SNMP, com abertura automática de ticket para a equipe responsável.",
+          "Automatizei a resposta a incidentes de segurança, encurtando o tempo entre a detecção e o início do tratamento."
+        ],
+        "devops": [
+          "Automatizei a resposta a incidentes implantando VMs e configurando Zabbix (SNMP) para monitorar métricas vitais, com abertura automática de ticket para as equipes responsáveis."
+        ],
+        "rpa": [
+          "Automatizei a resposta a incidentes: configurei o monitoramento para abrir ticket sozinho na equipe responsável ao detectar métrica fora do esperado, eliminando o repasse manual."
+        ]
+      }
+    },
+    {
+      "id": "e-prepag",
+      "empresa": "E-Prepag Fintech",
+      "cargo": "Analista de Infraestrutura e Redes de TI",
+      "periodo": "03/2015 - 12/2017",
+      "bullets": {
+        "base": [
+          "Garanti 100% de continuidade dos negócios ao elaborar o plano completo de disaster recovery (DR) e gerenciar todas as rotinas de backup off-site.",
+          "Gerei economias anuais significativas ao liderar o projeto de modernização da telefonia, migrando um PBX Elastix legado para uma solução FreePBX.",
+          "Reduzi o tempo de resposta a incidentes de segurança em mais de 99% (de minutos para tempo real) ao desenvolver um sistema automatizado de análise de logs em nível de SOC usando Fail2ban.",
+          "Implementei a arquitetura de segurança web (WAF) da fintech usando ModSecurity e regras OWASP para proteger contra SQL Injection, XSS e ataques de força bruta."
+        ],
+        "seguranca": [
+          "Implementei a arquitetura de segurança web (WAF) da fintech com ModSecurity e regras OWASP, protegendo contra SQL Injection, XSS e força bruta.",
+          "Reduzi o tempo de resposta a incidentes de segurança em mais de 99%, de minutos para tempo real, desenvolvendo análise automatizada de logs em nível de SOC com Fail2ban.",
+          "Garanti 100% de continuidade dos negócios elaborando o plano completo de disaster recovery (DR) e gerenciando as rotinas de backup off-site.",
+          "Atuei em ambiente financeiro, onde indisponibilidade e vazamento têm consequência regulatória direta."
+        ],
+        "devops": [
+          "Garanti 100% de continuidade dos negócios elaborando o plano completo de disaster recovery (DR) e gerenciando todas as rotinas de backup off-site.",
+          "Liderei o projeto de modernização da telefonia, migrando plataforma legada e gerando economia anual significativa.",
+          "Desenvolvi análise automatizada de logs em nível de SOC com Fail2ban, reduzindo em mais de 99% o tempo de resposta a incidentes."
+        ]
+      }
+    },
+    {
+      "id": "all-net",
+      "empresa": "All Net Group",
+      "cargo": "Analista de Infraestrutura",
+      "periodo": "04/2013 - 02/2015",
+      "bullets": {
+        "base": [
+          "Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows e Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes."
+        ]
+      }
+    }
+  ],
+
+  "projetos": [
+    {
+      "id": "discador",
+      "nome": "Plataforma de Discador VoIP para Call Center",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "01/2025 - 07/2026",
+      "bullets": {
+        "base": [
+          "Arquitetei e mantive uma suite completa de discador para call center: painel web de gestão (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (Asterisk ARI/PJSIP) e engine de URA/IVR JSON-driven com 16 primitivas interpretadas pelo dialplan, com backend realtime via ODBC (unixODBC, func_odbc, CDR/CEL sobre PostgreSQL) e editor visual de fluxo em React.",
+          "Provisionei a infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling.",
+          "Modelei 17 tabelas com tuning manual de PostgreSQL e escrevi 15 suítes pytest cobrindo cada primitiva da URA ponta a ponta."
+        ],
+        "dev": [
+          "Arquitetei uma plataforma completa em Python/Flask sobre PostgreSQL 17: painel web de gestão, motor de processamento paralelo com controle de concorrência multi-nível (concurrent.futures e threading) e uma linguagem de fluxo própria com 16 primitivas, interpretada em tempo de execução.",
+          "Desenvolvi o editor visual de fluxo em React com conversão bidirecional entre grafo e passos executáveis.",
+          "Modelei 17 tabelas com tuning manual de PostgreSQL; 15 suítes pytest cobrem cada primitiva ponta a ponta.",
+          "Substituí polling por webhooks assíncronos e empacotei tudo com Docker Compose e healthcheck."
+        ],
+        "devops": [
+          "Provisionei a infraestrutura por LXC e Docker, com comparação arquitetural documentada entre as duas abordagens, e escrevi um cliente próprio da API do Proxmox VE para criar containers direto pelo painel.",
+          "Configurei NAT e iptables multi-tenant, isolando clientes na mesma infraestrutura.",
+          "Empacotei a stack com Docker Compose e healthcheck, sobre PostgreSQL 17 com tuning manual de configuração.",
+          "Substituí polling por webhooks assíncronos, reduzindo carga constante sobre o banco."
+        ],
+        "dados": [
+          "Modelei 17 tabelas em PostgreSQL 17 com tuning manual de configuração, sustentando registros de chamada (CDR/CEL), log de operação e o schema completo de fluxos de URA.",
+          "Integrei o banco ao motor de telefonia por ODBC realtime, com consultas executadas dentro do plano de discagem.",
+          "Construí o painel web (Python/Flask) que expõe os relatórios operacionais sobre esses dados."
+        ],
+        "frontend": [
+          "Desenvolvi um editor visual de fluxo de URA em React e TailwindCSS, com conversão bidirecional entre o grafo desenhado na tela e os passos executáveis do motor.",
+          "Construí o painel web de gestão que expõe campanhas, contatos, registros de chamada e execuções em tempo real."
+        ]
+      }
+    },
+    {
+      "id": "omnichannel",
+      "nome": "Plataforma de Atendimento Omnichannel Multi-tenant",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "02/2026 - 07/2026",
+      "bullets": {
+        "base": [
+          "Liderei a reescrita completa de uma plataforma SaaS de atendimento (originalmente Node.js/React/Drizzle) para Laravel 12/PHP, mantendo paridade de funcionalidades para viabilizar hospedagem própria.",
+          "Integrei 5 gateways de WhatsApp atrás de uma única interface de driver (Evolution, WAHA, Whaticket, WaVoIP, Meta Cloud API), padrão Strategy aplicado a integração, além de ingestão de e-mail por IMAP com a mesma abordagem.",
+          "Desenvolvi motor de automação conversacional com estado, RBAC multi-tenant de 4 níveis e jobs assíncronos de Inteligência Artificial (IA) com Groq e Llama 3.1 para análise de sentimento e qualidade de atendimento.",
+          "A versão anterior incluía videochamada WebRTC (LiveKit/mediasoup), webphone SIP embarcado e segmentação de fundo por IA no navegador com TensorFlow.js. 41 migrations e 23 suítes PHPUnit."
+        ],
+        "dev": [
+          "Liderei a reescrita completa de uma plataforma SaaS de Node.js/React/Drizzle para Laravel 12/PHP, mantendo paridade de funcionalidades para eliminar a dependência de infraestrutura Node dedicada.",
+          "Apliquei o padrão Strategy a integração: 5 gateways de mensageria atrás de uma única interface de driver, permitindo trocar de fornecedor sem tocar na aplicação. A mesma abordagem cobre a ingestão de e-mail por IMAP.",
+          "Desenvolvi motor de automação conversacional com estado, RBAC multi-tenant de 4 níveis e jobs assíncronos de Inteligência Artificial (IA) que não bloqueiam a operação.",
+          "41 migrations e 23 suítes PHPUnit."
+        ],
+        "frontend": [
+          "Na versão React 18/TypeScript, construí a interface completa de atendimento com Radix UI, TailwindCSS e TanStack Query, incluindo videochamada WebRTC (LiveKit/mediasoup) e webphone SIP embarcado no navegador.",
+          "Implementei segmentação de fundo por Inteligência Artificial (IA) executando no cliente com TensorFlow.js e MediaPipe.",
+          "Cobri os fluxos críticos com testes end-to-end em Cypress.",
+          "Na reescrita para Laravel 12, mantive a paridade de interface com Blade, Vite e TailwindCSS."
+        ],
+        "ia": [
+          "Desenvolvi jobs assíncronos de Inteligência Artificial (IA) com Groq e Llama 3.1 (70B e 8B) para análise de sentimento e de qualidade de atendimento, executados fora do caminho crítico para não bloquear a operação.",
+          "Implementei segmentação de fundo por IA no navegador com TensorFlow.js e MediaPipe na videochamada WebRTC.",
+          "Construí motor de automação conversacional com estado, decidindo quando escalar para humano."
+        ],
+        "rpa": [
+          "Integrei 5 gateways de mensageria atrás de uma única interface de driver (Evolution, WAHA, Whaticket, WaVoIP, Meta Cloud API), permitindo trocar de fornecedor sem alterar a aplicação.",
+          "Automatizei o atendimento com um motor de automação conversacional com estado e ingestão automática de e-mail por IMAP.",
+          "Desenvolvi jobs assíncronos de Inteligência Artificial (IA) para análise de sentimento e qualidade, substituindo revisão manual de atendimento."
+        ],
+        "qa": [
+          "Escrevi 23 suítes PHPUnit cobrindo a reescrita completa da plataforma, garantindo paridade de funcionalidades com a versão anterior.",
+          "Cobri os fluxos críticos da versão React/TypeScript com testes end-to-end em Cypress.",
+          "Projetei a camada de drivers de integração de forma isolável, permitindo testar cada gateway de mensageria sem depender do fornecedor."
+        ]
+      }
+    },
+    {
+      "id": "pedagio",
+      "nome": "Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico",
+      "contexto": "freelance, setor de mobilidade e rodovias",
+      "periodo": "12/2025 - 01/2026",
+      "bullets": {
+        "base": [
+          "Contratado para arquitetar e desenvolver a retaguarda de leitura de transponder RFID em pedágio eletrônico: defini a arquitetura de integração e a implementei.",
+          "Entreguei o parser do protocolo da antena CIR, decriptação AES do payload do chip com suporte configurável a 10 combinações de algoritmo e modo (AES-128 e AES-256 em CBC, ECB, CFB, OFB e CTR), API assíncrona em FastAPI e publicação em fila JMS/STOMP no broker ActiveMQ da concessionária.",
+          "Implementei três serializadores intercambiáveis de saída (Protobuf, JSON e SOAP/XML) para atender formatos impostos por sistemas legados, com aderência às normas ISO/IEC 18000-63 e ISO/IEC 29167-10.",
+          "Desenvolvi licenciamento próprio de software com assinatura RSA-2048 e vínculo por hash de hardware, distribuído como binário único via PyInstaller. Qualidade garantida por pytest, teste de carga com Locust e checagem estática de tipos com mypy."
+        ],
+        "seguranca": [
+          "Implementei a camada criptográfica de um sistema de arrecadação: decriptação AES do payload do chip RFID com suporte configurável a 10 combinações de algoritmo e modo (AES-128 e AES-256 em CBC, ECB, CFB, OFB e CTR).",
+          "Desenvolvi licenciamento próprio de software com assinatura digital RSA-2048, vínculo por hash de hardware e controle de expiração, impedindo execução não autorizada.",
+          "Garanti aderência às normas ISO/IEC 18000-63 e ISO/IEC 29167-10 e à regulamentação do órgão certificador, em contexto de homologação regulatória.",
+          "Atuei como arquiteto hands-on, definindo a arquitetura de integração segura entre a antena, o backend e o broker da concessionária."
+        ],
+        "dev": [
+          "Atuei como arquiteto hands-on: defini a arquitetura de integração e a implementei em Python.",
+          "Desenvolvi API assíncrona em FastAPI, parser de protocolo binário e três serializadores intercambiáveis de saída (Protobuf, JSON e SOAP/XML) para atender formatos impostos por sistemas legados.",
+          "Integrei o sistema ao broker de mensageria da concessionária por JMS/STOMP sobre ActiveMQ, com cliente thread-safe.",
+          "Distribuí como binário único via PyInstaller, com instaladores para Rocky Linux, Ubuntu e Windows. Qualidade por pytest com testes assíncronos, teste de carga com Locust e mypy."
+        ]
+      }
+    },
+    {
+      "id": "analise-audio",
+      "nome": "Análise de Qualidade de Chamadas por Processamento de Sinais",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "07/2026 - atual",
+      "bullets": {
+        "base": [
+          "Desenvolvi um analisador de qualidade de áudio de telefonia que detecta perda de pacote, clipping, dead-air, one-way e nível/SNR baixo diretamente do sinal, em Python e NumPy: energia por frame, análise espectral (FFT) e estimativa de ruído de fundo por percentil para separar perda de pacote de pausa natural da conversa.",
+          "Implementei o E-model (ITU-T G.107) do zero, convertendo as detecções em R-factor e MOS, e avaliei modelos neurais no-reference (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, com decisão de arquitetura documentada por eixo de discriminação e por licenciamento comercial.",
+          "Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.",
+          "Painel Flask multi-tenant com isolamento físico de dados por cliente, SQLite, autenticação PBKDF2 e SPA sem framework nem build; empacotado em Docker e implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) com 121 testes automatizados."
+        ],
+        "ia": [
+          "Construí uma camada de Inteligência Artificial (IA) 100% local em CPU, sem nuvem, porque os áudios são de clientes e não podem sair da máquina: reconhecimento de fala com faster-whisper quantizado em int8 e classificação por LLM quantizado GGUF via llama.cpp.",
+          "Implementei prompt engineering estruturado: system prompt com seis exemplos few-shot injetados como turnos, saída JSON forçada, coerção de schema e fallback determinístico quando o modelo falha.",
+          "Avaliei modelos neurais de qualidade percebida (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, medindo separação por eixo e correlação, com decisão de arquitetura documentada por desempenho e por licenciamento comercial.",
+          "Derivei uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) de terceiros, cruzando a classificação da API do cliente com análise independente do áudio para achar falso positivo nas duas direções."
+        ],
+        "dados": [
+          "Construí um sistema de análise que extrai métricas objetivas de qualidade a partir do sinal bruto: energia por frame, análise espectral por FFT, estimativa de ruído por percentil e razão sinal-ruído.",
+          "Implementei o modelo E-model (ITU-T G.107) do zero, convertendo detecções em R-factor e MOS, indicadores padrão da indústria de telefonia.",
+          "Avaliei modelos neurais concorrentes contra corpus rotulado, medindo poder de discriminação por categoria e correlação, com decisão documentada.",
+          "Painel Flask multi-tenant com isolamento físico de dados por cliente sobre SQLite."
+        ],
+        "qa": [
+          "Escrevi 121 testes automatizados em pytest para a ferramenta de auditoria de classificador, incluindo mock de HTTP e geração de WAV sintético para testar detecção sem depender de áudio real.",
+          "Validei o motor de detecção por autoteste que injeta defeitos conhecidos em sinal sintético e confere se cada um é apanhado, sem depender de infraestrutura externa.",
+          "Construí uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) de terceiros, que cruza a classificação do fornecedor com análise independente para achar falso positivo nas duas direções."
+        ],
+        "dev": [
+          "Desenvolvi um analisador de áudio em Python e NumPy com processamento vetorizado, implementando o modelo E-model (ITU-T G.107) a partir da norma.",
+          "Construí painel web em Flask com 31 endpoints REST, jobs assíncronos em threading, SQLite e multi-tenancy com isolamento físico de dados por cliente.",
+          "Fiz o frontend como SPA de arquivo único em JavaScript puro, sem framework nem build, com Canvas desenhando a forma de onda.",
+          "Empacotei em Docker e implantei via systemd em LXC/Proxmox. Ferramenta derivada com 121 testes em pytest."
+        ]
+      }
+    },
+    {
+      "id": "sipproxy",
+      "nome": "SIP Proxy e SBC para FusionPBX",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "07/2026 - atual",
+      "bullets": {
+        "base": [
+          "Desenvolvo um proxy SIP baseado em Kamailio e rtpengine com foco em NAT traversal e modo transparent, como alternativa enxuta ao dSIPRouter para integração com FusionPBX.",
+          "Implementei roteamento dinâmico (drouting), controle de acesso por origem (permissions), estado em htable e registro remoto via path.",
+          "Construí painel de administração em Flask com blueprints e SQLAlchemy 2.0 por reflection sobre as tabelas do motor (MariaDB/PyMySQL), comandando o Kamailio por JSON-RPC.",
+          "Validei por 13 cenários SIPp de conformidade de protocolo: negociação de G.729 com payload type dinâmico e estático, AVPF sem rtpmap, REGISTER de ramal remoto e rejeição 403/404. Stack inteira containerizada."
+        ],
+        "devops": [
+          "Containerizei uma stack de comunicação completa em quatro imagens (proxy, servidor de mídia, PBX e painel), com provisionamento automatizado por systemd e script de inicialização.",
+          "Versionei o schema do banco em migrations SQL numeradas, aplicadas na subida do container.",
+          "Construí painel de administração em Flask que comanda o motor por JSON-RPC, com SQLAlchemy 2.0 por reflection sobre as tabelas existentes.",
+          "Mantive disciplina de dependência mínima: um módulo só entra na configuração se estiver em uso ativo."
+        ],
+        "qa": [
+          "Validei o sistema por 13 cenários SIPp de conformidade de protocolo, cobrindo negociação de codec G.729 com payload type dinâmico e estático, AVPF sem rtpmap, registro de ramal remoto e rejeição 403 e 404.",
+          "Testei o caminho de mídia com verificação automatizada do relay, contando tipos de payload RTP efetivamente trafegados.",
+          "Escrevi testes de integração em pytest para o painel de administração e o cliente JSON-RPC do motor."
+        ]
+      }
+    },
+    {
+      "id": "rpa",
+      "nome": "Motor de Automação Autônoma de Interação Web (RPA)",
+      "contexto": "projeto próprio",
+      "periodo": "06/2026 - atual",
+      "bullets": {
+        "base": [
+          "Projetei um motor genérico de Automação de Processos (RPA, Robotic Process Automation) em Node.js e Puppeteer que opera portais web de forma autônoma e não supervisionada: adaptadores por site sobre um núcleo compartilhado, motor de regras próprio, preenchimento de formulários dinâmicos, detecção de página e de estado de sessão com re-login automático, controle de ritmo por ação e trava de concorrência entre execuções.",
+          "Implementei camada de decisão por Inteligência Artificial (IA) com cadeia de fallback entre provedores sobre dois formatos de API distintos, degradando para regra determinística quando todos falham.",
+          "Persistência em Prisma/SQLite, painel web de operação e evidência auditável por captura de tela a cada etapa. Suíte de 716 testes automatizados."
+        ],
+        "dev": [
+          "Projetei um motor de automação em Node.js com 46 módulos: adaptadores por site sobre núcleo compartilhado, motor de regras próprio, máquina de estado de sessão com re-login automático, rede de segurança e trava de concorrência entre execuções.",
+          "Implementei cadeia de fallback entre provedores de Inteligência Artificial (IA) sobre dois formatos de API distintos, com degradação para regra determinística.",
+          "Persistência em Prisma sobre SQLite, painel web de operação e evidência auditável por captura de tela.",
+          "Suíte de 716 testes automatizados no runner nativo do Node."
+        ],
+        "ia": [
+          "Implementei uma cadeia de fallback entre cinco provedores de Inteligência Artificial (IA) sobre dois formatos de API distintos (OpenAI-compatível e Anthropic Messages), garantindo disponibilidade mesmo com limite de cota.",
+          "Projetei a camada de decisão por IA para degradar em regra determinística quando todos os provedores falham, de modo que a automação nunca para por indisponibilidade de modelo.",
+          "Construí geração de resposta por IA a partir de documento de referência, com validação da saída antes do uso."
+        ],
+        "qa": [
+          "Construí e mantenho uma suíte de 716 testes automatizados no runner nativo do Node, cobrindo 46 módulos de um motor de automação.",
+          "Projetei o sistema para ser testável sem rede: a lógica de regras, detecção de página e estado de sessão é pura e verificável isoladamente.",
+          "Implementei evidência auditável por captura de tela a cada etapa, permitindo reconstruir o que a automação viu quando algo falha."
+        ]
+      }
+    },
+    {
+      "id": "painel-git",
+      "nome": "Plataforma Própria de Hospedagem Git",
+      "contexto": "projeto pessoal, uso profissional contínuo",
+      "periodo": "08/2025 - atual",
+      "bullets": {
+        "base": [
+          "Desenvolvi e mantenho uma plataforma própria de hospedagem Git (alternativa self-hosted a GitHub e GitLab) em PHP, sem nenhuma dependência de runtime.",
+          "Implementei do zero o servidor WebDAV (RFC 4918: PROPFIND, MKCOL, COPY, MOVE, LOCK e UNLOCK) com mutex FIFO por caminho, o protocolo git smart HTTP (upload-pack e receive-pack) e autenticação por desafio criptográfico com chave SSH.",
+          "Construí pipeline de CI/CD com disparo assinado por HMAC-SHA256 e validação anti-SSRF do endpoint, credenciais cifradas em AES-256-GCM, controle de acesso via gitolite, rate limiting, bloqueio de IP, CSRF e cabeçalhos de segurança, com interface internacionalizada em 4 idiomas.",
+          "129 commits ao longo de quase um ano de operação contínua, hospedando mais de 30 repositórios."
+        ],
+        "seguranca": [
+          "Implementei autenticação por desafio criptográfico com chave SSH: o servidor gera um nonce, o cliente assina e o servidor verifica contra o authorized_keys, com tratamento explícito de replay porque uma operação git reenvia o mesmo cabeçalho em requisições sucessivas.",
+          "Cifrei credenciais de integração em AES-256-GCM e assinei o disparo de automação com HMAC-SHA256, incluindo validação anti-SSRF do endpoint de destino.",
+          "Implementei rate limiting, bloqueio de IP, token CSRF, cabeçalhos de segurança e sanitização de entrada, com log de segurança auditável.",
+          "Controle de acesso a repositórios via gitolite, em plataforma sem nenhuma dependência de runtime — menos superfície de ataque herdada."
+        ],
+        "devops": [
+          "Construí um pipeline de CI/CD com modelo despachante: a plataforma nunca executa script, apenas dispara ações assinadas por HMAC-SHA256 com validação anti-SSRF do destino.",
+          "Implementei o protocolo git smart HTTP (upload-pack e receive-pack) e hooks de política que se auto-sincronizam a cada acesso, sem depender de intervenção após deploy.",
+          "Mantenho a plataforma em operação contínua há quase um ano, hospedando mais de 30 repositórios, empacotada em Docker sobre PHP e Apache."
+        ],
+        "dev": [
+          "Implementei do zero o servidor WebDAV conforme a RFC 4918 (PROPFIND, MKCOL, COPY, MOVE, LOCK e UNLOCK), com mutex FIFO por caminho para serializar escritas concorrentes.",
+          "Implementei o protocolo git smart HTTP (upload-pack e receive-pack) e um esquema de autenticação por desafio criptográfico com chave SSH.",
+          "Construí a plataforma inteira em PHP sem nenhuma dependência de runtime, com interface internacionalizada em 4 idiomas.",
+          "129 commits ao longo de quase um ano de operação contínua."
+        ]
+      }
+    }
+  ],
+
+  "formacao": [
+    { "curso": "Pós-Graduação em Data Warehouse e Business Intelligence", "instituicao": "UniBF Centro Universitário", "periodo": "2025 - atual" },
+    { "curso": "Bacharelado em Ciências de Inteligência Artificial", "instituicao": "UniBF Centro Universitário", "periodo": "2025 - atual" },
+    { "curso": "Pós-Graduação (Especialização) em Banco de Dados", "instituicao": "Faculdade Play", "periodo": "2020 - 2024" },
+    { "curso": "Bacharelado em Sistemas de Informação", "instituicao": "ESAB - Escola Superior Aberta do Brasil", "periodo": "2016 - 2020" },
+    { "curso": "Gestão da Tecnologia da Informação", "instituicao": "Faculdade Sumaré", "periodo": "2009 - 2012" }
+  ],
+
+  "certificacoes": [
+    "Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)",
+    "Asterisk Certified Essentials (ACE) - Sangoma University (2021)",
+    "FreePBX Certified Essentials - Sangoma University (2022)",
+    "LPIC-1 - Linux Professional Institute (2016)",
+    "Red Hat Certified System Administrator (RHCSA) (2022)",
+    "VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations",
+    "Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios",
+    "Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik",
+    "Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy",
+    "Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9"
+  ],
+
+  "idiomas": [
+    "Português: nativo / fluente",
+    "Italiano: fluente (proficiência profissional)",
+    "Espanhol: avançado",
+    "Inglês: intermediário (foco em leitura técnica)"
+  ]
+}
