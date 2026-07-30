@@ -79,6 +79,20 @@ Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasil
 - Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% ao modernizar o sistema de monitoramento Zabbix com novos templates de observabilidade.
 - Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.
 
+Engenheiro VoIP | Akiva Software | 09/2025 - 11/2025 | São Paulo, Brasil
+
+Engenheiro VoIP Sênior | Ip Telecom | 01/2023 - 11/2025 | Itália
+
+Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil
+
+Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019
+
+Analista de Infraestrutura e Redes de TI | EZ-Security | 01/2018 - 08/2018
+
+Analista de Infraestrutura e Redes de TI | E-Prepag Fintech | 03/2015 - 12/2017
+
+Analista de Infraestrutura | All Net Group | 04/2013 - 02/2015
+
 PROJETOS
 Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
 - Construí um sistema de análise que extrai métricas objetivas de qualidade a partir do sinal bruto: energia por frame, análise espectral por FFT, estimativa de ruído por percentil e razão sinal-ruído.

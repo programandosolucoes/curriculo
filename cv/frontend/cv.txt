@@ -92,6 +92,22 @@ Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São
 - Desenvolvi um appliance de roteamento (Node.js/Drachtio) para integração e roteamento dinâmico de chamadas com o Microsoft Teams.
 - Desenvolvi uma URA dinâmica com AGI em Python, utilizando TTS/STT e ASR para reconhecimento de voz.
 
+Engenheiro VoIP | Akiva Software | 09/2025 - 11/2025 | São Paulo, Brasil
+
+Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil
+
+Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasil
+
+Engenheiro VoIP Sênior | Ip Telecom | 01/2023 - 11/2025 | Itália
+
+Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019
+
+Analista de Infraestrutura e Redes de TI | EZ-Security | 01/2018 - 08/2018
+
+Analista de Infraestrutura e Redes de TI | E-Prepag Fintech | 03/2015 - 12/2017
+
+Analista de Infraestrutura | All Net Group | 04/2013 - 02/2015
+
 FORMAÇÃO ACADÊMICA
 - Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
 - Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual

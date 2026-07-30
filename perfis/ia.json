@@ -2,10 +2,59 @@
   "id": "ia",
   "titulo": "Engenheiro de Inteligência Artificial (IA) Sênior",
   "padrao": false,
-  "ordem": ["resumo", "conquistas", "competencias", "projetos", "experiencia", "formacao", "certificacoes", "idiomas"],
-  "competencias": ["ia-llm", "python", "sinais", "desenvolvimento", "dados"],
-  "incluir_conquistas": ["campanha"],
-  "incluir_experiencia": ["onvox", "tw-solutions", "55pbx", "elev", "tld"],
-  "incluir_projetos": ["analise-audio", "rpa", "omnichannel", "discador"],
-  "filtro_termos": ["inteligência artificial", "ia generativa", "machine learning", "llm", "deep learning", "redes neurais", "data science", "nlp", "agentes de ia", "rag", "prompt engineering"]
+  "ordem": [
+    "resumo",
+    "conquistas",
+    "competencias",
+    "projetos",
+    "experiencia",
+    "formacao",
+    "certificacoes",
+    "idiomas"
+  ],
+  "competencias": [
+    "ia-llm",
+    "python",
+    "sinais",
+    "desenvolvimento",
+    "dados"
+  ],
+  "incluir_conquistas": [
+    "campanha"
+  ],
+  "incluir_experiencia": [
+    "onvox",
+    "tw-solutions",
+    "55pbx",
+    "elev",
+    "tld"
+  ],
+  "incluir_projetos": [
+    "analise-audio",
+    "rpa",
+    "omnichannel",
+    "discador"
+  ],
+  "filtro_termos": [
+    "inteligência artificial",
+    "ia generativa",
+    "machine learning",
+    "llm",
+    "deep learning",
+    "redes neurais",
+    "data science",
+    "nlp",
+    "agentes de ia",
+    "rag",
+    "prompt engineering"
+  ],
+  "incluir_experiencia_compacta": [
+    "akiva",
+    "open-new",
+    "ip-telecom",
+    "sothis",
+    "ez-security",
+    "e-prepag",
+    "all-net"
+  ]
 }

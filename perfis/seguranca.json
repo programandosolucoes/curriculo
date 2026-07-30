@@ -40,5 +40,13 @@
   ],
   "categorias_alvo": [
     "Segurança da Informação"
+  ],
+  "incluir_experiencia_compacta": [
+    "akiva",
+    "onvox",
+    "ip-telecom",
+    "55pbx",
+    "elev",
+    "tld"
   ]
 }

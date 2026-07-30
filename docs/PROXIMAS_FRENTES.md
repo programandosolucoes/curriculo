@@ -5,60 +5,12 @@ raciocínio. Frentes concluídas saem daqui e viram entrada no [DIARIO.md](DIARI
 
 ---
 
-## 1. Simulador de ATS
+## ~~1. Simulador de ATS~~ — CONCLUÍDO
 
-**Pedido pelo usuário duas vezes.** Prioridade da fila.
-
-### O que já existe e por que não basta
-
-`ferramentas/aderencia.js` mede **sobreposição de palavras-chave** entre o
-currículo e um conjunto de vagas. É útil para responder "o que o mercado pede
-que não está escrito no meu CV", e foi o que orientou os nove perfis.
-
-Mas não é o que um ATS faz. O ATS de verdade:
-
-1. **Extrai** o texto do PDF ou DOC e tenta reconstruir a estrutura — nome,
-   contato, seções, empregos, datas, formação.
-2. **Descarta** currículos onde essa extração falha, antes de qualquer
-   pontuação. Layout de duas colunas, texto em imagem e cabeçalho de seção
-   criativo derrubam aqui.
-3. **Pontua** contra uma vaga específica, não contra o mercado inteiro.
-4. **Filtra** por critério eliminatório: anos de experiência, formação, palavra
-   obrigatória.
-
-A ferramenta atual só faz o passo 3, e de forma agregada.
-
-### O que o simulador precisa entregar
-
-- **Parser de currículo**: recebe o `cv.txt` de um perfil e devolve a estrutura
-  que um ATS extrairia — contato, seções reconhecidas, lista de empregos com
-  cargo/empresa/período, formação. Relatar o que **não** conseguiu extrair é
-  tão importante quanto o que conseguiu.
-- **Extração de palavras-chave por vaga**: dado o texto de uma vaga, separar o
-  que é requisito obrigatório do que é desejável. As vagas coletadas trazem o
-  campo `requisitos`; vale investigar se dá para distinguir os dois.
-- **Pontuação vaga a vaga**, não agregada: para cada uma das 1.129 vagas, dizer
-  se este currículo passaria da triagem e por quê.
-- **Motivo da reprovação**: a saída mais valiosa. "Reprovado: a vaga exige
-  Azure em requisito obrigatório" é acionável; "45% de aderência" não é.
-- **Ranking inverso**: quais vagas do banco este currículo passaria, ordenadas
-  por probabilidade. Isso transforma o simulador em ferramenta de busca.
-
-### Restrições herdadas
-
-- Zero dependências npm: precisa rodar após o clone com `node` puro.
-- Casamento de termo sempre com fronteira de palavra, nunca substring — ver o
-  caso do `ios` no [DIARIO.md](DIARIO.md#um-defeito-de-ferramenta-que-a-medição-expôs).
-- "Nenhuma vaga no alvo" nunca deve ser reportado como 0%.
-
-### Perguntas em aberto
-
-- Testar contra o `cv.txt` (texto puro) ou simular a extração a partir do PDF?
-  Extrair de PDF exigiria dependência; a alternativa honesta é testar o `.txt`
-  e verificar as regras de layout separadamente, sobre o HTML.
-- Quantos anos de experiência o simulador infere, e a partir de quê? O CV tem
-  as datas, mas somar períodos sobrepostos (o usuário é PJ e atua em paralelo)
-  daria número inflado.
+Construído em `ferramentas/simular-ats.js`. Ver a seção 13 do
+[DIARIO.md](DIARIO.md#13-simulador-de-ats), inclusive os dois defeitos que ele
+encontrou: o currículo antigo era ilegível para um ATS, e o recorte por perfil
+estava destruindo anos de carreira.
 
 ---
 

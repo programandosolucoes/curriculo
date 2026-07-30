@@ -103,6 +103,14 @@ Analista de Infraestrutura e Redes de TI | EZ-Security | 01/2018 - 08/2018
 Analista de Infraestrutura | All Net Group | 04/2013 - 02/2015
 - Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows e Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.
 
+Engenheiro VoIP | Akiva Software | 09/2025 - 11/2025 | São Paulo, Brasil
+
+Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil
+
+Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
+
+Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
+
 PROJETOS
 Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026
 - Provisionei a infraestrutura por LXC e Docker, com comparação arquitetural documentada entre as duas abordagens, e escrevi um cliente próprio da API do Proxmox VE para criar containers direto pelo painel.

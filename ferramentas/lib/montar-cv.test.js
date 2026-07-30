@@ -98,3 +98,22 @@ test('datas fora do formato MM/AAAA são rejeitadas', () => {
   mestre.experiencia[0].periodo = '2020-2022';
   assert.throws(() => montarCv(mestre, RECEITA), /emp1[\s\S]*2020-2022/);
 });
+
+test('emprego compacto entra sem bullets, só com a cronologia', () => {
+  const receita = { ...RECEITA, incluir_experiencia: ['emp1'], incluir_experiencia_compacta: ['emp2'] };
+  const cv = montarCv(MESTRE, receita);
+  const exp = cv.secoes.find(s => s.tipo === 'experiencia');
+  assert.equal(exp.itens.length, 2);
+  assert.equal(exp.itens[0].compacto, false);
+  assert.ok(exp.itens[0].bullets.length > 0);
+  assert.equal(exp.itens[1].compacto, true);
+  assert.deepEqual(exp.itens[1].bullets, []);
+  // A cronologia é o motivo de existir: cargo, empresa e período continuam lá.
+  assert.equal(exp.itens[1].empresa, 'Empresa Dois');
+  assert.equal(exp.itens[1].periodo, '01/2023 - atual');
+});
+
+test('o mesmo emprego nas duas listas é rejeitado', () => {
+  const receita = { ...RECEITA, incluir_experiencia: ['emp1'], incluir_experiencia_compacta: ['emp1'] };
+  assert.throws(() => montarCv(MESTRE, receita), /emp1[\s\S]*duplicado/);
+});

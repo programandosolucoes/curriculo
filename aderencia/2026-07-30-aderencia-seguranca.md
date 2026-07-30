@@ -1,7 +1,7 @@
 # Aderência do CV às vagas coletadas — 2026-07-30
 
 33 vaga(s) analisada(s) (categorias do perfil, com requisitos reais coletados).
-Aderência média: **25%**.
+Aderência média: **27%**.
 
 > ⚠️ **Como ler o "% de aderência" por vaga:** é sobreposição de
 > palavras-chave (core/termos-mercado.js), não um julgamento real da
@@ -27,6 +27,12 @@ Aderência média: **25%**.
 - Termos que batem: python, sql
 - Termos que faltam no CV: (nenhum)
 
+### Vaga de emprego de ADMINISTRADOR EM SEGURANÇA DA INFORMAÇÃO SÊNIOR em Todo Brasil — 67%
+- Empresa: não informada | Plataforma: infojobs | Senioridade: Sênior
+- Link: https://www.infojobs.com.br/vaga-de-administrador-seguranca-da-informacao-senior-em-__11835504.aspx
+- Termos que batem: alta disponibilidade, hardening
+- Termos que faltam no CV: pentest
+
 ### Vaga de emprego de Especialista De Segurança Da Informação E Infraestrutura em Santo André,- SP — 50%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: Especialista
 - Link: https://www.infojobs.com.br/vaga-de-especialista-seguranca-da-informacao-infraestrutura-em-sao-paulo__11811364.aspx
@@ -50,12 +56,6 @@ Aderência média: **25%**.
 - Link: https://www.infojobs.com.br/vaga-de-analista-seguranca-da-informacao-sr-em-minas-gerais__11841952.aspx
 - Termos que batem: waf, soc
 - Termos que faltam no CV: firewall, lgpd, telemetria
-
-### Vaga de emprego de ADMINISTRADOR EM SEGURANÇA DA INFORMAÇÃO SÊNIOR em Todo Brasil — 33%
-- Empresa: não informada | Plataforma: infojobs | Senioridade: Sênior
-- Link: https://www.infojobs.com.br/vaga-de-administrador-seguranca-da-informacao-senior-em-__11835504.aspx
-- Termos que batem: hardening
-- Termos que faltam no CV: pentest, alta disponibilidade
 
 ### Vaga de emprego de Analista De Segurança Da Informação Jr - Processos E Documentações. em São Paulo,- SP — 33%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
@@ -112,6 +112,7 @@ Aderência média: **25%**.
 - **linux** — pedido em 2 vaga(s)
 - **owasp** — pedido em 2 vaga(s)
 - **criptografia** — pedido em 2 vaga(s)
+- **alta disponibilidade** — pedido em 1 vaga(s)
 - **hardening** — pedido em 1 vaga(s)
 - **ssl** — pedido em 1 vaga(s)
 - **python** — pedido em 1 vaga(s)
@@ -128,7 +129,6 @@ Aderência média: **25%**.
 - **pentest** — pedido em 2 vaga(s)
 - **documentação técnica** — pedido em 2 vaga(s)
 - **telemetria** — pedido em 1 vaga(s)
-- **alta disponibilidade** — pedido em 1 vaga(s)
 - **cdn** — pedido em 1 vaga(s)
 - **azure** — pedido em 1 vaga(s)
 - **crm** — pedido em 1 vaga(s)

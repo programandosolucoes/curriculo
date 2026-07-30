@@ -2,10 +2,46 @@
   "id": "dados",
   "titulo": "Engenheiro de Dados / Business Intelligence",
   "padrao": false,
-  "ordem": ["resumo", "competencias", "experiencia", "projetos", "formacao", "certificacoes", "idiomas"],
-  "competencias": ["dados", "python", "ia-llm", "desenvolvimento", "cloud"],
+  "ordem": [
+    "resumo",
+    "competencias",
+    "experiencia",
+    "projetos",
+    "formacao",
+    "certificacoes",
+    "idiomas"
+  ],
+  "competencias": [
+    "dados",
+    "python",
+    "ia-llm",
+    "desenvolvimento",
+    "cloud"
+  ],
   "incluir_conquistas": [],
-  "incluir_experiencia": ["tld", "elev", "tw-solutions", "onvox", "open-new"],
-  "incluir_projetos": ["analise-audio", "discador", "omnichannel", "rpa"],
-  "categorias_alvo": ["Analista de Dados"]
+  "incluir_experiencia": [
+    "tld",
+    "elev",
+    "tw-solutions",
+    "onvox",
+    "open-new"
+  ],
+  "incluir_projetos": [
+    "analise-audio",
+    "discador",
+    "omnichannel",
+    "rpa"
+  ],
+  "categorias_alvo": [
+    "Analista de Dados"
+  ],
+  "incluir_experiencia_compacta": [
+    "akiva",
+    "ip-telecom",
+    "55pbx",
+    "sothis",
+    "ez-security",
+    "e-prepag",
+    "all-net"
+  ]
 }

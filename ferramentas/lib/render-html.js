@@ -128,7 +128,10 @@ const RENDERIZADORES = {
   experiencia: secao => secao.itens.map(item => {
     const cabecalho = [item.cargo, item.empresa, item.periodo, item.local]
       .filter(Boolean).map(escapar).join(' | ');
-    return `<h3>${cabecalho}</h3>\n${lista(item.bullets)}`;
+    // Emprego compacto sai só com o cabeçalho: sem bullets, e sem <ul> vazio.
+    return item.bullets.length
+      ? `<h3>${cabecalho}</h3>\n${lista(item.bullets)}`
+      : `<h3>${cabecalho}</h3>`;
   }).join('\n'),
 
   projetos: secao => secao.itens.map(item => {

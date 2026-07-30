@@ -32,7 +32,8 @@ const RENDERIZADORES = {
 
   experiencia: secao => secao.itens.flatMap(item => [
     // Cargo, empresa e período numa linha só e sempre na mesma ordem: é assim
-    // que o parser de ATS reconhece o bloco de emprego.
+    // que o parser de ATS reconhece o bloco de emprego. Vale igual para o
+    // emprego compacto — ele existe justamente para o sistema contar a data.
     `${limpar(item.cargo)} | ${limpar(item.empresa)} | ${limpar(item.periodo)}${item.local ? ` | ${limpar(item.local)}` : ''}`,
     ...lista(item.bullets),
     '',

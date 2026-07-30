@@ -322,11 +322,95 @@ Branch `feat/cv-multi-perfil`. **45 testes passando.**
 
 ---
 
+## 13. Simulador de ATS
+
+**Pedido pelo usuário três vezes.** Construído em `ferramentas/simular-ats.js`,
+com `lib/parser-cv.js` e `lib/triagem.js`.
+
+Responde o que a aderência não respondia: **quais vagas me chamariam, e por que
+as outras não.** Simula as duas etapas na ordem em que um ATS faz — primeiro
+extrai a estrutura e descarta o que não consegue ler, só então compara
+palavras-chave.
+
+```bash
+node ferramentas/simular-ats.js --perfil=dev
+node ferramentas/simular-ats.js --perfil=dev --todas --limiar=0.5
+```
+
+### Três decisões contra número enganoso
+
+- Vaga com menos de 3 termos reconhecidos vira **indeterminado**, não
+  reprovação: aprovar ou reprovar por um termo é ruído apresentado como
+  resultado.
+- As indeterminadas ficam **fora do denominador** da taxa de aprovação, senão
+  inventariam reprovação que não houve.
+- Tempo de carreira pela **união** dos períodos, nunca pela soma: quem atua
+  como PJ em contratos paralelos teria o dobro de experiência inventado.
+
+### Taxa de aprovação simulada
+
+| Perfil | Taxa | Base |
+|---|---|---|
+| `ia` | 86% | 6 de 7 |
+| `qa` | 75% | 3 de 4 |
+| `dados` | 71% | 10 de 14 |
+| `dev` | 68% | 15 de 22 |
+| `frontend` | 68% | 13 de 19 |
+| `rpa` | 60% | 12 de 20 |
+| `devops` | 43% | 10 de 23 |
+| `seguranca` | 14% | 1 de 7 |
+
+O `seguranca` confirma pela terceira métrica: 14% não se resolve escrevendo
+melhor. A maioria das vagas cai em indeterminado (40 de 62 no `dev`), porque
+tem poucos termos reconhecidos no campo de requisitos.
+
+### Achado 1 — o CV antigo é ilegível para um ATS
+
+O simulador extraiu **zero empregos** de `cv/cv.txt`, que é a versão que está
+nos bots hoje. O formato antigo é `- Cargo (Empresa) | 09/2024 - 11/2025
+(Local)`: com empresa e local entre parênteses, os campos não se separam. Mais
+três títulos de seção não reconhecidos (`COMPETÊNCIAS PRINCIPAIS`, `PROJETOS
+FREELANCE / PORTFÓLIO TÉCNICO`, `INTERESSES`).
+
+O formato novo — `Cargo | Empresa | período | Local` — extrai os 12 sem erro.
+
+Ressalva: o parser é uma simulação e um ATS comercial pode ser mais tolerante.
+Mas empresa entre parênteses é problema conhecido de triagem, e o formato novo
+é objetivamente mais parseável.
+
+### Achado 2 — focar o currículo destruía a senioridade
+
+Este foi **defeito do desenho, encontrado pelo próprio simulador**. Ao incluir
+só os empregos relevantes, os perfis perdiam anos de carreira:
+
+| Perfil | Antes | Depois |
+|---|---|---|
+| `voip` | 12,2 anos | 12,2 |
+| `devops`, `seguranca` | 9,7 | 12,2 |
+| `dev` | 8,1 | 12,2 |
+| `qa` | 7,6 | 12,2 |
+| `rpa` | 6,9 | 12,2 |
+| `ia` | 5,8 | 12,2 |
+| `dados` | 5,7 | 12,2 |
+| `frontend` | **4,7** | 12,2 |
+
+Um filtro de "10+ anos de experiência" reprovaria 7 dos 9 perfis.
+
+**Correção aplicada:** a receita ganhou `incluir_experiencia_compacta`. Os
+empregos fora do foco entram só com cargo, empresa e período, sem bullets — a
+cronologia fica inteira, e o foco acontece nos bullets, não em apagar história.
+Custo em tamanho pequeno: o `frontend` foi de 1.329 para 1.435 palavras.
+
+A regra que eu tinha seguido estava errada: currículo com cronologia truncada
+levanta suspeita de lacuna, e o ATS conta anos pela data mais antiga.
+
+---
+
 ## 12. Pendências
 
 | Item | Situação |
 |---|---|
-| **Simulador de ATS** | Pedido duas vezes pelo usuário. Próxima frente — ver [PROXIMAS_FRENTES.md](PROXIMAS_FRENTES.md) |
+| ~~Simulador de ATS~~ | **Feito** — ver seção 13 |
 | **`cv/cv.pdf` desatualizado** | É o PDF que vai anexado; ainda é a versão de 25/07, anterior a tudo |
 | **Arquivos antigos em `cv/`** | `cv.txt`, `cv.pdf` e `cv-2026-07.html` convivem com a estrutura nova; decidir se apaga ou mantém |
 | **Perfil `padrao`** | `dev` por ora; revisar com os números finais (`dados` e `ia` têm aderência maior) |

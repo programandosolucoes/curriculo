@@ -44,5 +44,11 @@
   "categorias_alvo": [
     "DevOps",
     "Analista de Sistemas"
+  ],
+  "incluir_experiencia_compacta": [
+    "akiva",
+    "55pbx",
+    "elev",
+    "tld"
   ]
 }

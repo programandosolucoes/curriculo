@@ -12,9 +12,10 @@ automação; aqui é **conteúdo de carreira**.
 Sem `npm install`, banco, chave de API ou rede. Só Node.js 18+:
 
 ```bash
-node ferramentas/gerar-cv.js              # gera os 9 currículos (18 arquivos)
-node ferramentas/aderencia.js --perfil=dev  # mede um perfil contra o alvo dele
-node --test 'ferramentas/**/*.test.js'    # 50 testes
+node ferramentas/gerar-cv.js                # gera os 9 currículos (18 arquivos)
+node ferramentas/aderencia.js --perfil=dev  # o que o mercado pede e falta no CV
+node ferramentas/simular-ats.js --perfil=dev  # quais vagas chamariam, e por quê
+node --test 'ferramentas/**/*.test.js'      # 70 testes
 ```
 
 Para ver um currículo, abra o HTML no navegador:
@@ -93,6 +94,34 @@ docs/
   CV_ESTRATEGIA.md     inventário técnico dos projetos, com evidência
   superpowers/         spec e plano do multi-perfil
 ```
+
+## O simulador de ATS
+
+`ferramentas/simular-ats.js` responde o que a aderência não responde: **quais
+vagas chamariam este currículo, e por que as outras não.**
+
+Simula as duas etapas na ordem em que um ATS faz:
+
+1. **Estrutura** — extrai contato, seções, empregos, datas e tempo de carreira,
+   e relata o que não conseguiu ler. Currículo que falha aqui é descartado
+   antes de qualquer comparação com a vaga: é assim que candidato bom cai por
+   causa de layout.
+2. **Palavra-chave** — só então compara os termos exigidos, com limiar
+   configurável (`--limiar=0.5`).
+
+A saída de maior valor é o **ranking de termos que mais bloqueiam**: diz quais
+poucas lacunas destravariam mais vagas.
+
+```bash
+node ferramentas/simular-ats.js --perfil=dev          # contra o alvo do perfil
+node ferramentas/simular-ats.js --perfil=dev --todas  # contra as 1.129 vagas
+```
+
+Vaga com menos de 3 termos reconhecidos vira *indeterminado*, e as
+indeterminadas ficam fora do denominador da taxa de aprovação — contá-las
+inventaria reprovação que não houve. O tempo de carreira é contado pela
+**união** dos períodos, não pela soma: contratos paralelos não viram o dobro
+de experiência.
 
 ## A ferramenta de aderência
 

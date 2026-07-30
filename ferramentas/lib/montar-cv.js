@@ -98,13 +98,30 @@ const MONTADORES = {
   },
 
   experiencia(mestre, receita) {
-    const itens = selecionarPorId(mestre.experiencia, receita.incluir_experiencia, 'incluir_experiencia', receita.id);
-    return {
-      itens: itens.map(e => ({
-        empresa: e.empresa, cargo: e.cargo, periodo: e.periodo, local: e.local,
-        bullets: resolverBullets(e, receita.id),
-      })),
-    };
+    const detalhados = selecionarPorId(
+      mestre.experiencia, receita.incluir_experiencia, 'incluir_experiencia', receita.id,
+    ).map(e => ({
+      empresa: e.empresa, cargo: e.cargo, periodo: e.periodo, local: e.local,
+      compacto: false,
+      bullets: resolverBullets(e, receita.id),
+    }));
+
+    // Empregos compactos entram só com cargo, empresa e período, sem bullets.
+    //
+    // Existem para preservar a CRONOLOGIA. Um currículo focado que apaga os
+    // empregos antigos perde anos de carreira aos olhos do sistema: medido na
+    // prática, o perfil de frontend caía de 12 para 4,7 anos e seria cortado
+    // por qualquer filtro de "10+ anos". A história completa fica; o foco
+    // acontece nos bullets, não em apagar emprego.
+    const compactos = selecionarPorId(
+      mestre.experiencia, receita.incluir_experiencia_compacta, 'incluir_experiencia_compacta', receita.id,
+    ).map(e => ({
+      empresa: e.empresa, cargo: e.cargo, periodo: e.periodo, local: e.local,
+      compacto: true,
+      bullets: [],
+    }));
+
+    return { itens: [...detalhados, ...compactos] };
   },
 
   projetos(mestre, receita) {
@@ -137,6 +154,16 @@ const MONTADORES = {
  */
 function montarCv(mestre, receita) {
   validarReceita(receita);
+
+  // O mesmo emprego nas duas listas sairia duplicado no currículo.
+  const repetidos = (receita.incluir_experiencia || [])
+    .filter(id => (receita.incluir_experiencia_compacta || []).includes(id));
+  if (repetidos.length) {
+    throw new Error(
+      `Perfil "${receita.id}": ${repetidos.join(', ')} aparece(m) em incluir_experiencia ` +
+      `E em incluir_experiencia_compacta — sairia duplicado.`,
+    );
+  }
 
   const secoes = (receita.ordem || []).map(tipo => {
     const montador = MONTADORES[tipo];

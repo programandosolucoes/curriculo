@@ -2,10 +2,50 @@
   "id": "dev",
   "titulo": "Desenvolvedor Backend Sênior",
   "padrao": true,
-  "ordem": ["resumo", "competencias", "projetos", "experiencia", "formacao", "certificacoes", "idiomas"],
-  "competencias": ["desenvolvimento", "frontend", "python", "ia-llm", "cloud", "qa"],
+  "ordem": [
+    "resumo",
+    "competencias",
+    "projetos",
+    "experiencia",
+    "formacao",
+    "certificacoes",
+    "idiomas"
+  ],
+  "competencias": [
+    "desenvolvimento",
+    "frontend",
+    "python",
+    "ia-llm",
+    "cloud",
+    "qa"
+  ],
   "incluir_conquistas": [],
-  "incluir_experiencia": ["tw-solutions", "elev", "55pbx", "tld", "onvox", "akiva", "sothis"],
-  "incluir_projetos": ["omnichannel", "rpa", "discador", "analise-audio", "pedagio", "painel-git"],
-  "categorias_alvo": ["Desenvolvedor", "Engenheiro de Software"]
+  "incluir_experiencia": [
+    "tw-solutions",
+    "elev",
+    "55pbx",
+    "tld",
+    "onvox",
+    "akiva",
+    "sothis"
+  ],
+  "incluir_projetos": [
+    "omnichannel",
+    "rpa",
+    "discador",
+    "analise-audio",
+    "pedagio",
+    "painel-git"
+  ],
+  "categorias_alvo": [
+    "Desenvolvedor",
+    "Engenheiro de Software"
+  ],
+  "incluir_experiencia_compacta": [
+    "open-new",
+    "ip-telecom",
+    "ez-security",
+    "e-prepag",
+    "all-net"
+  ]
 }

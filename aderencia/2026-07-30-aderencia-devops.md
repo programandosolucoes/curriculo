@@ -1,7 +1,7 @@
 # Aderência do CV às vagas coletadas — 2026-07-30
 
 53 vaga(s) analisada(s) (categorias do perfil, com requisitos reais coletados).
-Aderência média: **40%**.
+Aderência média: **46%**.
 
 > ⚠️ **Como ler o "% de aderência" por vaga:** é sobreposição de
 > palavras-chave (core/termos-mercado.js), não um julgamento real da
@@ -21,6 +21,12 @@ Aderência média: **40%**.
 - Termos que batem: homologação
 - Termos que faltam no CV: (nenhum)
 
+### Vaga de emprego de Arquiteto De Software em Taboão da Serra,- SP — 100%
+- Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
+- Link: https://www.infojobs.com.br/vaga-de-arquiteto-software-em-sao-paulo__11805942.aspx
+- Termos que batem: microsserviços
+- Termos que faltam no CV: (nenhum)
+
 ### Vaga de emprego de Analista De Sistemas Junior em Bauru,- SP — 100%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
 - Link: https://www.infojobs.com.br/vaga-de-analista-sistemas-junior-em-sao-paulo__11847692.aspx
@@ -31,6 +37,12 @@ Aderência média: **40%**.
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
 - Link: https://www.infojobs.com.br/vaga-de-analista-sistemas-junior-em-minas-gerais__11838140.aspx
 - Termos que batem: homologação
+- Termos que faltam no CV: (nenhum)
+
+### Analista de Sistemas de Automação — 100%
+- Empresa: Lyon Engenharia | Plataforma: vagas | Senioridade: não informada
+- Link: https://www.vagas.com.br/vagas/v2826955/analista-de-sistemas-de-automacao
+- Termos que batem: sql, power bi
 - Termos que faltam no CV: (nenhum)
 
 ### Coordenador de Processos e Sistemas — 100%
@@ -44,6 +56,12 @@ Aderência média: **40%**.
 - Link: https://www.infojobs.com.br/vaga-de-tech-lead-em-minas-gerais__11841904.aspx
 - Termos que batem: php, laravel, aws, docker, git, scrum, kanban, devops
 - Termos que faltam no CV: vue
+
+### Especialista Soluções — 86%
+- Empresa: Confidencial | Plataforma: vagas | Senioridade: Especialista
+- Link: https://www.vagas.com.br/vagas/v2823434/especialista-solucoes
+- Termos que batem: aws, docker, kubernetes, devops, microsserviços, mensageria
+- Termos que faltam no CV: azure
 
 ### Vaga de emprego de # 1231 Devops Kubernetes & Gitops - SRE | Especialista Em Infraestrutura em São Paulo,- SP — 80%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: Especialista
@@ -69,12 +87,6 @@ Aderência média: **40%**.
 - Termos que batem: php, python, sql, aws, gcp, docker, git, linux, devops, apache, nginx
 - Termos que faltam no CV: java, go, ruby, azure
 
-### Especialista Soluções — 71%
-- Empresa: Confidencial | Plataforma: vagas | Senioridade: Especialista
-- Link: https://www.vagas.com.br/vagas/v2823434/especialista-solucoes
-- Termos que batem: aws, docker, kubernetes, devops, mensageria
-- Termos que faltam no CV: azure, microsserviços
-
 ### Vaga de emprego de Desenvolvedora Devops Backend Sênior em Todo Brasil — 69%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: Sênior
 - Link: https://www.infojobs.com.br/vaga-de-desenvolvedora-devops-backend-senior-em-__11619325.aspx
@@ -87,23 +99,11 @@ Aderência média: **40%**.
 - Termos que batem: python, aws, docker, kubernetes, ci/cd, jenkins, git, linux, observabilidade, devops
 - Termos que faltam no CV: azure, terraform, gitlab, ansible, versionamento
 
-### Vaga de emprego de Analista De Sistemas Mobile (React Native) em Juiz de Fora,- MG — 60%
+### Vaga de emprego de Analista De Sistemas SR | Linx ERP VTEX em São Paulo,- SP — 67%
 - Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: https://www.infojobs.com.br/vaga-de-analista-sistemas-mobile-react-native-em-minas-gerais__11841827.aspx
-- Termos que batem: git, scrum, kanban
-- Termos que faltam no CV: react, react native
-
-### Analista de Sistemas Jr — 53%
-- Empresa: FFM | Plataforma: vagas | Senioridade: não informada
-- Link: https://www.vagas.com.br/vagas/v2826631/analista-de-sistemas-jr
-- Termos que batem: javascript, sql, mysql, postgresql, aws, scrum, soap, xml
-- Termos que faltam no CV: c#, react, react native, sql server, azure, qa, documentação técnica
-
-### Vaga de emprego de ADMINISTRADOR DE REDE SENIOR [Devops] em Florianópolis,- SC — 50%
-- Empresa: não informada | Plataforma: infojobs | Senioridade: não informada
-- Link: https://www.infojobs.com.br/vaga-de-administrador-rede-senior-devops-em-santa-catarina__11568565.aspx
-- Termos que batem: devops
-- Termos que faltam no CV: automação de processos
+- Link: https://www.infojobs.com.br/vaga-de-analista-sistemas-sr-linx-erp-vtex-em-sao-paulo__11842009.aspx
+- Termos que batem: sql, power bi
+- Termos que faltam no CV: omnichannel
 
 ## Termos que o mercado mais pede e que JÁ estão no seu CV (pontos fortes confirmados)
 
@@ -113,11 +113,13 @@ Aderência média: **40%**.
 - **docker** — pedido em 6 vaga(s)
 - **git** — pedido em 6 vaga(s)
 - **kubernetes** — pedido em 6 vaga(s)
+- **power bi** — pedido em 6 vaga(s)
 - **python** — pedido em 4 vaga(s)
 - **ci/cd** — pedido em 4 vaga(s)
 - **observabilidade** — pedido em 4 vaga(s)
 - **linux** — pedido em 3 vaga(s)
 - **homologação** — pedido em 3 vaga(s)
+- **microsserviços** — pedido em 3 vaga(s)
 - **scrum** — pedido em 3 vaga(s)
 - **php** — pedido em 2 vaga(s)
 - **jenkins** — pedido em 2 vaga(s)
@@ -125,14 +127,11 @@ Aderência média: **40%**.
 - **postgresql** — pedido em 2 vaga(s)
 - **kanban** — pedido em 2 vaga(s)
 - **gcp** — pedido em 1 vaga(s)
-- **apache** — pedido em 1 vaga(s)
-- **nginx** — pedido em 1 vaga(s)
 
 ## Termos que o mercado mais pede e que NÃO estão no seu CV (candidatos a estudar/incluir)
 
 - **azure** — pedido em 8 vaga(s)
 - **sql server** — pedido em 7 vaga(s)
-- **power bi** — pedido em 6 vaga(s)
 - **totvs** — pedido em 6 vaga(s)
 - **automação de processos** — pedido em 5 vaga(s)
 - **etl** — pedido em 5 vaga(s)
@@ -141,7 +140,6 @@ Aderência média: **40%**.
 - **sap** — pedido em 4 vaga(s)
 - **documentação técnica** — pedido em 4 vaga(s)
 - **versionamento** — pedido em 3 vaga(s)
-- **microsserviços** — pedido em 3 vaga(s)
 - **terraform** — pedido em 2 vaga(s)
 - **gitlab** — pedido em 2 vaga(s)
 - **.net** — pedido em 2 vaga(s)
@@ -150,3 +148,5 @@ Aderência média: **40%**.
 - **rpa** — pedido em 2 vaga(s)
 - **advpl** — pedido em 2 vaga(s)
 - **java** — pedido em 1 vaga(s)
+- **go** — pedido em 1 vaga(s)
+- **ruby** — pedido em 1 vaga(s)
