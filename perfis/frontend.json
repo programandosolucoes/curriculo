@@ -1,0 +1,11 @@
+{
+  "id": "frontend",
+  "titulo": "Desenvolvedor Frontend Sênior",
+  "padrao": false,
+  "ordem": ["resumo", "competencias", "projetos", "experiencia", "formacao", "certificacoes", "idiomas"],
+  "competencias": ["frontend", "desenvolvimento", "qa", "cloud"],
+  "incluir_conquistas": [],
+  "incluir_experiencia": ["elev", "tld", "tw-solutions", "55pbx"],
+  "incluir_projetos": ["omnichannel", "discador", "analise-audio", "painel-git"],
+  "filtro_termos": ["front-end", "frontend", "react", "angular", "vue", "javascript", "typescript", "css", "html", "next.js", "tailwind"]
+}

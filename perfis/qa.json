@@ -1,0 +1,11 @@
+{
+  "id": "qa",
+  "titulo": "Analista de QA / Automação de Testes Sênior",
+  "padrao": false,
+  "ordem": ["resumo", "competencias", "projetos", "experiencia", "formacao", "certificacoes", "idiomas"],
+  "competencias": ["qa", "desenvolvimento", "python", "cloud"],
+  "incluir_conquistas": [],
+  "incluir_experiencia": ["akiva", "open-new", "tw-solutions", "elev", "sothis"],
+  "incluir_projetos": ["rpa", "analise-audio", "sipproxy", "omnichannel"],
+  "categorias_alvo": ["QA"]
+}

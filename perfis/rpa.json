@@ -1,0 +1,11 @@
+{
+  "id": "rpa",
+  "titulo": "Especialista em Automação de Processos (RPA) e Integração",
+  "padrao": false,
+  "ordem": ["resumo", "conquistas", "competencias", "projetos", "experiencia", "formacao", "certificacoes", "idiomas"],
+  "competencias": ["desenvolvimento", "python", "ia-llm", "qa", "cloud"],
+  "incluir_conquistas": ["campanha"],
+  "incluir_experiencia": ["tw-solutions", "55pbx", "elev", "tld", "sothis", "ez-security"],
+  "incluir_projetos": ["rpa", "omnichannel", "discador", "analise-audio"],
+  "filtro_termos": ["rpa", "uipath", "power automate", "blue prism", "automation anywhere", "robotic process", "automação de processos", "automação"]
+}

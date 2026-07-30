@@ -1,0 +1,11 @@
+{
+  "id": "voip",
+  "titulo": "Arquiteto de Soluções VoIP Sênior",
+  "padrao": false,
+  "ordem": ["resumo", "conquistas", "competencias", "experiencia", "projetos", "formacao", "certificacoes", "idiomas"],
+  "competencias": ["voip", "cloud", "desenvolvimento", "seguranca"],
+  "incluir_conquistas": ["onboarding", "campanha", "uptime", "mttd"],
+  "incluir_experiencia": ["akiva", "onvox", "open-new", "ip-telecom", "tw-solutions", "55pbx", "elev", "tld", "sothis", "ez-security", "e-prepag", "all-net"],
+  "incluir_projetos": ["discador", "sipproxy", "analise-audio", "omnichannel", "pedagio"],
+  "filtro_termos": ["voip", "asterisk", "kamailio", "opensips", "sip", "pabx", "pbx", "telefonia", "telecom", "call center", "ura", "freeswitch"]
+}

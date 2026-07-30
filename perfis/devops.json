@@ -1,0 +1,11 @@
+{
+  "id": "devops",
+  "titulo": "Engenheiro DevOps / SRE Sênior",
+  "padrao": false,
+  "ordem": ["resumo", "conquistas", "competencias", "experiencia", "projetos", "formacao", "certificacoes", "idiomas"],
+  "competencias": ["cloud", "seguranca", "python", "desenvolvimento"],
+  "incluir_conquistas": ["mttd", "uptime", "onboarding"],
+  "incluir_experiencia": ["open-new", "onvox", "ip-telecom", "tw-solutions", "sothis", "e-prepag", "ez-security", "all-net"],
+  "incluir_projetos": ["discador", "sipproxy", "painel-git", "analise-audio"],
+  "categorias_alvo": ["DevOps", "Analista de Sistemas"]
+}
