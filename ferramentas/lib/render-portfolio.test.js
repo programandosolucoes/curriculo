@@ -5,6 +5,7 @@ const { renderIndice, renderProjeto, escapar } = require('./render-portfolio');
 const config = {
   gitBase: 'https://git.exemplo.com/git/repos',
   prefixoSlug: 'portfolio-',
+  basePagina: '/index.php/',
   baseImagens: 'https://exemplo.com/wp-content/uploads/portfolio',
   indices: [{ area: 'frontend', slug: 'portfolio-frontend', titulo: 'Portfólio — Frontend', chamada: 'Interfaces.' }],
   avisoRepo: 'Código-fonte privado.',
@@ -31,8 +32,8 @@ const projeto = {
 test('o índice lista o projeto e aponta para o slug real da página', () => {
   const html = renderIndice([projeto], 'frontend', config);
   assert.match(html, /Plataforma Própria de Hospedagem Git/);
-  // tem que casar com o post_name que o publicador cria: portfolio-<id>
-  assert.match(html, /href="\/portfolio-painel-git"/);
+  // tem que casar com o post_name E com a estrutura de permalinks do site
+  assert.match(html, /href="\/index\.php\/portfolio-painel-git\//);
   assert.match(html, /Alternativa self-hosted a GitHub\./);
 });
 

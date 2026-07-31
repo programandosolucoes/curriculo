@@ -1,6 +1,7 @@
 {
   "gitBase": "https://git.programandosolucoes.com.br/git/repos",
   "prefixoSlug": "portfolio-",
+  "basePagina": "/index.php/",
   "baseImagens": "https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio",
   "indices": [
     {

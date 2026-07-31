@@ -418,3 +418,62 @@ levanta suspeita de lacuna, e o ATS conta anos pela data mais antiga.
 | **Remoto da suite em sintaxe scp** | `git push origin` falha por causa da porta; um `git remote set-url` resolve |
 | **Contas múltiplas nas plataformas** | Usuário mencionou a intenção; risco de violação de termos e de perder a conta principal foi apontado, sem resposta ainda |
 | **Chaves versionadas no `slt`** | `chave.aes` e `iv.aes` no repositório |
+
+---
+
+## 14. Portfólio publicado no WordPress (2026-07-31)
+
+Spec em `docs/superpowers/specs/2026-07-31-portfolio-wordpress-design.md`,
+plano em `docs/superpowers/plans/2026-07-31-portfolio-wordpress.md`.
+
+**No ar:** 14 páginas em `https://carloslopes.programandosolucoes.com.br/`
+(IDs 566 a 579), com o menu `Portfólio > Frontend / Backend`.
+
+### Comandos executados no servidor
+
+```bash
+# painel Git — criação dos bare repos que faltavam
+ssh -p 65002 u560021660@git.programandosolucoes.com.br \
+  'cd ~/domains/git.programandosolucoes.com.br/public_html/git/repos && \
+   git init --bare --initial-branch=master asterisk-media-server-lab.git && \
+   git init --bare --initial-branch=main   vitalpbx-whatsapp-calling.git'
+
+# leitura: conferir que o acesso de convidado está desligado (estava)
+ssh … 'grep -o "\"guest_enabled\":[^,}]*" …/git/_private/config.json'
+
+# WordPress — publicação (ferramentas/publicar-wp.sh)
+wp export --dir=/tmp --post_type=page      # backup antes de escrever
+scp portfolio/img/* …/wp-content/uploads/portfolio/
+wp post create|update …                    # 14 páginas, casadas por slug
+wp --skip-plugins menu create "Principal"
+wp --skip-plugins menu item add-custom|add-post 107 …
+wp --skip-plugins menu location assign 107 primary
+```
+
+### Três armadilhas que só apareceram no ar
+
+1. **O tema não tinha menu registrado.** O Newsup caía no fallback que lista
+   *todas* as páginas, então as 14 páginas novas invadiram a navegação em
+   ordem alfabética. Resolvido criando o menu `Principal` (term 107) e
+   atribuindo ao local `primary` — o fallback só desliga quando existe menu.
+2. **Permalink é `/index.php/<slug>/`, não `/<slug>`.** Todos os cards
+   apontavam para 404. Corrigido no gerador (`basePagina` em
+   `portfolio/config.json`), sem mexer na configuração do site.
+3. **O LiteSpeed Cache polui a saída do WP-CLI** com "Purged all caches
+   successfully", o que quebra `--porcelain`. Usar `wp --skip-plugins`.
+   Atenção: `--skip-themes` junto derruba os locais de menu do tema.
+
+### Verificado
+
+- `git clone` sem credencial nas URLs publicadas → **401**, em todos os repos.
+- Rodar `publicar-wp.sh` duas vezes → 14 "atualizada", nenhuma duplicada.
+- As 5 imagens do índice carregam (`complete: true`); o branco na captura de
+  página inteira era artefato do `loading="lazy"`, não 404.
+- `gerar-cv.js` continua produzindo os 9 CVs sem uma linha de diferença.
+
+### Em aberto
+
+- Clone **com** credencial válida não foi testado (exige a senha do usuário).
+- EvoluAI e o painel do SIP proxy não subiram com dados; ficaram com diagrama.
+  Se o banco de dev do EvoluAI for semeado, dá para recapturar e republicar —
+  o publicador é idempotente.

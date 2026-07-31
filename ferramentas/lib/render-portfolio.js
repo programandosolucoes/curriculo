@@ -57,10 +57,15 @@ function urlImagem(arquivo, config) {
   return config.baseImagens.replace(/\/+$/, '') + '/' + arquivo;
 }
 
-// O slug tem que ser o MESMO que o publicador usa como post_name, senão o
-// card aponta para uma página que não existe.
+// O slug tem que ser o MESMO que o publicador usa como post_name, e o caminho
+// tem que respeitar a estrutura de permalinks do site — que aqui é
+// `/index.php/<slug>/`, não `/<slug>`. Errar isso dá 404 em todo card.
+function urlPagina(slug, config) {
+  return config.basePagina + slug + '/';
+}
+
 function slugProjeto(id, config) {
-  return '/' + config.prefixoSlug + id;
+  return urlPagina(config.prefixoSlug + id, config);
 }
 
 function renderIndice(projetos, area, config) {
@@ -119,11 +124,14 @@ function renderProjeto(projeto, pessoal, config) {
   </div>`
     : '';
 
-  const voltar = projeto.areas.includes('frontend') ? 'portfolio-frontend' : 'portfolio-backend';
+  const voltar = urlPagina(
+    projeto.areas.includes('frontend') ? 'portfolio-frontend' : 'portfolio-backend',
+    config,
+  );
 
   return `${CSS}
 <div class="pf-wrap">
-  <a class="pf-voltar" href="/${escapar(voltar)}">← voltar ao portfólio</a>
+  <a class="pf-voltar" href="${escapar(voltar)}">← voltar ao portfólio</a>
 
   <header class="pf-hero">
     <p class="pf-meta">${escapar(projeto.periodo)} · ${escapar(projeto.duracao)}</p>
