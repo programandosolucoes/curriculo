@@ -564,11 +564,15 @@
       "imagens": [
         {
           "arquivo": "discador-01-painel.png",
-          "legenda": "Painel de operação: campanhas, mailing e controle de discagem"
+          "legenda": "Painel de operação: campanhas, mailing e estado do discador"
         },
         {
           "arquivo": "discador-02-ivr.png",
-          "legenda": "Editor visual de fluxo de IVR, que gera os passos executados pelo motor"
+          "legenda": "Fluxos de IVR cadastrados, cada um ligado a um DID"
+        },
+        {
+          "arquivo": "discador-03-designer.png",
+          "legenda": "Editor visual de fluxo em React: os nós viram os passos que o motor executa"
         }
       ]
     },
@@ -828,12 +832,12 @@
       "repo": "sipproxy-fusionpbx.git",
       "imagens": [
         {
-          "arquivo": "sipproxy-01-painel.png",
-          "legenda": "Painel de operadoras, domínios e registros"
+          "arquivo": "sipproxy-01-arquitetura.png",
+          "legenda": "Sinalização e mídia atravessando o NAT"
         },
         {
-          "arquivo": "sipproxy-02-arquitetura.png",
-          "legenda": "Caminho da sinalização e da mídia através do proxy"
+          "arquivo": "sipproxy-02-sipp.png",
+          "legenda": "Os 13 cenários de conformidade SIP em SIPp"
         }
       ]
     },
@@ -886,8 +890,8 @@
       "repo": "vagas-automation-suite.git",
       "imagens": [
         {
-          "arquivo": "rpa-01-painel.png",
-          "legenda": "Painel de operação: ciclos, adaptadores e evidências"
+          "arquivo": "rpa-01-arquitetura.png",
+          "legenda": "Um núcleo comum, um adaptador por site"
         }
       ]
     },
@@ -995,8 +999,8 @@
       "repo": null,
       "imagens": [
         {
-          "arquivo": "evoluai-01-analise.png",
-          "legenda": "Análise de uma interação, com transcrição e pontuação"
+          "arquivo": "evoluai-01-arquitetura.png",
+          "legenda": "Da gravação no PABX à análise de qualidade"
         }
       ]
     },

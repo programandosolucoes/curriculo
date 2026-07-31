@@ -1,0 +1,77 @@
+<style>
+.pf-wrap{max-width:1100px;margin:0 auto;font-size:16px;line-height:1.65}
+.pf-chamada{font-size:1.15rem;opacity:.85;margin:0 0 2rem}
+.pf-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.pf-card{border:1px solid rgba(128,128,128,.3);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
+.pf-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.pf-card img{width:100%;height:180px;object-fit:cover;display:block;background:rgba(128,128,128,.12)}
+.pf-card-corpo{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.pf-card h3{margin:0;font-size:1.05rem;line-height:1.35}
+.pf-card p{margin:0;font-size:.92rem;opacity:.85;flex:1}
+.pf-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.pf-chip{font-size:.75rem;padding:.18rem .55rem;border-radius:999px;border:1px solid rgba(128,128,128,.35);opacity:.9}
+.pf-meta{font-size:.8rem;opacity:.7}
+.pf-cadeado{font-size:.8rem;opacity:.75}
+.pf-hero{margin:0 0 1.5rem}
+.pf-hero h1{margin:0 0 .4rem;line-height:1.2}
+.pf-secao{margin:2rem 0}
+.pf-secao h2{font-size:1.15rem;margin:0 0 .6rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.pf-galeria{display:grid;gap:1.2rem;margin:2rem 0}
+.pf-galeria figure{margin:0}
+.pf-galeria img{width:100%;border:1px solid rgba(128,128,128,.3);border-radius:8px;display:block}
+.pf-galeria figcaption{font-size:.85rem;opacity:.75;margin-top:.4rem}
+.pf-repo{border:1px solid rgba(128,128,128,.35);border-left-width:4px;border-radius:8px;padding:1rem 1.2rem;margin:2rem 0}
+.pf-repo h2{margin:0 0 .5rem;font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+.pf-repo pre{background:rgba(128,128,128,.12);padding:.7rem .9rem;border-radius:6px;overflow-x:auto;margin:.6rem 0;font-size:.85rem}
+.pf-contato{margin:2rem 0;padding-top:1.2rem;border-top:1px solid rgba(128,128,128,.3);font-size:.95rem}
+.pf-voltar{display:inline-block;margin-bottom:1rem;font-size:.9rem}
+@media (max-width:600px){.pf-card img{height:150px}}
+</style>
+<div class="pf-wrap">
+  <a class="pf-voltar" href="/portfolio-backend">← voltar ao portfólio</a>
+
+  <header class="pf-hero">
+    <p class="pf-meta">12/2025 - 01/2026 · 2 meses</p>
+    <p>Retaguarda de pedágio eletrônico free-flow: lê o transponder do veículo, decifra o payload e entrega para a concessionária em três formatos diferentes.</p>
+    <div class="pf-chips"><span class="pf-chip">Python</span><span class="pf-chip">FastAPI</span><span class="pf-chip">uvicorn</span><span class="pf-chip">cryptography</span><span class="pf-chip">Protobuf</span><span class="pf-chip">SOAP/XML</span><span class="pf-chip">JMS/STOMP</span><span class="pf-chip">ActiveMQ</span><span class="pf-chip">RSA-2048</span><span class="pf-chip">PyInstaller</span><span class="pf-chip">pytest</span><span class="pf-chip">Locust</span><span class="pf-chip">mypy</span></div>
+  </header>
+
+  <section class="pf-secao">
+    <h2>O problema</h2>
+    <p>A concessionária recebe leituras de antenas RFID na pista e precisa transformá-las em passagens válidas, com criptografia conforme norma e no formato que o sistema legado dela aceita — que não é o mesmo em toda integração. E tudo isso sob regulamentação: a Resolução ARTESP 001/2014 define até o formato de serialização.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>A arquitetura</h2>
+    <p>API assíncrona em FastAPI com uvicorn. O parser do protocolo da antena CIR decompõe a stringtag no formato [OBUID]_[PayloadHex] em identificador do transponder e payload cifrado; a decriptação AES suporta dez combinações (AES-128 e AES-256 nos modos CBC, ECB, CFB, OFB e CTR), com o modo escolhido por configuração. O mesmo dado sai por três serializadores selecionáveis — Protobuf, JSON e SOAP/XML — porque em integração com sistema legado quem dita o formato é o outro lado. A publicação é em fila JMS/STOMP no broker ActiveMQ da concessionária. O sistema tem licenciamento próprio: assinatura RSA-2048, hash de hardware como identificador de máquina e três níveis de licença, sem a qual não opera. Distribuição em binário único por PyInstaller, com instaladores para Rocky Linux, Ubuntu e Windows.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>O resultado</h2>
+    <p>Sistema entregue no papel de arquiteto de software hands-on para a AstraMobi, implementando as normas ISO/IEC 18000-63, ISO/IEC 29167-10 e a Resolução ARTESP 001/2014. Nove documentos de lições aprendidas foram escritos durante o desenvolvimento, e o projeto é o único do portfólio com teste de carga em Locust e checagem estática de tipos com mypy.</p>
+  </section>
+
+  <div class="pf-galeria">
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/pedagio-01-api.png" alt="API de processamento de leitura, documentada em OpenAPI" loading="lazy">
+      <figcaption>API de processamento de leitura, documentada em OpenAPI</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/pedagio-02-arquitetura.png" alt="Do transponder na pista à fila da concessionária" loading="lazy">
+      <figcaption>Do transponder na pista à fila da concessionária</figcaption>
+    </figure>
+  </div>
+
+  <div class="pf-repo">
+    <h2>🔒 Código-fonte</h2>
+    <pre><code>git clone https://git.programandosolucoes.com.br/git/repos/slt.git</code></pre>
+    <p>Código-fonte privado. As credenciais de leitura são liberadas sob solicitação — me chame para conversar sobre o projeto.</p>
+  </div>
+  
+
+  <div class="pf-contato">
+    <strong>Carlos Alberto</strong> — carlosalberto4ti@gmail.com · +55 11 2615-2880
+  </div>
+</div>

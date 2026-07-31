@@ -1,0 +1,72 @@
+<style>
+.pf-wrap{max-width:1100px;margin:0 auto;font-size:16px;line-height:1.65}
+.pf-chamada{font-size:1.15rem;opacity:.85;margin:0 0 2rem}
+.pf-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.pf-card{border:1px solid rgba(128,128,128,.3);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
+.pf-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.pf-card img{width:100%;height:180px;object-fit:cover;display:block;background:rgba(128,128,128,.12)}
+.pf-card-corpo{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.pf-card h3{margin:0;font-size:1.05rem;line-height:1.35}
+.pf-card p{margin:0;font-size:.92rem;opacity:.85;flex:1}
+.pf-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.pf-chip{font-size:.75rem;padding:.18rem .55rem;border-radius:999px;border:1px solid rgba(128,128,128,.35);opacity:.9}
+.pf-meta{font-size:.8rem;opacity:.7}
+.pf-cadeado{font-size:.8rem;opacity:.75}
+.pf-hero{margin:0 0 1.5rem}
+.pf-hero h1{margin:0 0 .4rem;line-height:1.2}
+.pf-secao{margin:2rem 0}
+.pf-secao h2{font-size:1.15rem;margin:0 0 .6rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.pf-galeria{display:grid;gap:1.2rem;margin:2rem 0}
+.pf-galeria figure{margin:0}
+.pf-galeria img{width:100%;border:1px solid rgba(128,128,128,.3);border-radius:8px;display:block}
+.pf-galeria figcaption{font-size:.85rem;opacity:.75;margin-top:.4rem}
+.pf-repo{border:1px solid rgba(128,128,128,.35);border-left-width:4px;border-radius:8px;padding:1rem 1.2rem;margin:2rem 0}
+.pf-repo h2{margin:0 0 .5rem;font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+.pf-repo pre{background:rgba(128,128,128,.12);padding:.7rem .9rem;border-radius:6px;overflow-x:auto;margin:.6rem 0;font-size:.85rem}
+.pf-contato{margin:2rem 0;padding-top:1.2rem;border-top:1px solid rgba(128,128,128,.3);font-size:.95rem}
+.pf-voltar{display:inline-block;margin-bottom:1rem;font-size:.9rem}
+@media (max-width:600px){.pf-card img{height:150px}}
+</style>
+<div class="pf-wrap">
+  <a class="pf-voltar" href="/portfolio-backend">← voltar ao portfólio</a>
+
+  <header class="pf-hero">
+    <p class="pf-meta">07/2026 · 1 mês</p>
+    <p>Laboratório que avalia o Asterisk como servidor de mídia — relay, NAT, gravação e transcodificação — para decidir uma troca de arquitetura.</p>
+    <div class="pf-chips"><span class="pf-chip">Asterisk</span><span class="pf-chip">Docker Compose</span><span class="pf-chip">SIPp</span><span class="pf-chip">RTP</span><span class="pf-chip">captura de pacotes</span><span class="pf-chip">transcodificação</span></div>
+  </header>
+
+  <section class="pf-secao">
+    <h2>O problema</h2>
+    <p>Trocar o componente de mídia de uma plataforma de voz é uma decisão cara e difícil de desfazer. A pergunta era se o Asterisk ou o FreeSWITCH poderiam substituir o rtpengine no proxy SIP, e responder isso por opinião não serve.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>A arquitetura</h2>
+    <p>Ambiente reproduzível em Docker Compose, com o Asterisk configurado como media server. A carga e os cenários vêm do SIPp, e a verificação é por captura de pacotes — olhando o fluxo RTP real, não o log da aplicação. Foram medidos relay com NAT, gravação de chamada e transcodificação.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>O resultado</h2>
+    <p>O estudo concluiu que o rtpengine não deve ser substituído por FreeSWITCH nem por Asterisk no proxy SIP, e a decisão ficou documentada com a evidência que a sustenta. É um laboratório de decisão de arquitetura, não um produto.</p>
+  </section>
+
+  <div class="pf-galeria">
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/asterisk-lab-01-arquitetura.png" alt="Topologia do laboratório e o caminho da mídia" loading="lazy">
+      <figcaption>Topologia do laboratório e o caminho da mídia</figcaption>
+    </figure>
+  </div>
+
+  <div class="pf-repo">
+    <h2>🔒 Código-fonte</h2>
+    <pre><code>git clone https://git.programandosolucoes.com.br/git/repos/asterisk-media-server-lab.git</code></pre>
+    <p>Código-fonte privado. As credenciais de leitura são liberadas sob solicitação — me chame para conversar sobre o projeto.</p>
+  </div>
+  
+
+  <div class="pf-contato">
+    <strong>Carlos Alberto</strong> — carlosalberto4ti@gmail.com · +55 11 2615-2880
+  </div>
+</div>

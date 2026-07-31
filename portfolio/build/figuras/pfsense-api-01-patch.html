@@ -1,0 +1,37 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  .term{background:#0b1120;border:1px solid #334155;border-radius:10px;
+    overflow:hidden}
+  .term-barra{background:#1e293b;padding:10px 14px;display:flex;
+    align-items:center;gap:8px;border-bottom:1px solid #334155}
+  .bolha{width:11px;height:11px;border-radius:50%}
+  .b1{background:#f87171}.b2{background:#fbbf24}.b3{background:#34d399}
+  .term-nome{font-size:12px;color:#94a3b8;margin-left:8px}
+  .term-corpo{padding:18px 20px;font-family:'DejaVu Sans Mono',ui-monospace,monospace;
+    font-size:13.5px;line-height:1.75}
+  .ln{white-space:pre-wrap;word-break:break-word}
+  .cmd{color:#e2e8f0;margin-top:6px}
+  .pr{color:#34d399;font-weight:700}
+  .dst{color:#38bdf8;font-weight:600}
+  .term-corpo .ln:not(.cmd):not(.dst){color:#94a3b8}
+  </style></head><body>
+    <div class="fig-titulo">A correção, em 94 linhas</div>
+    <div class="fig-sub">Falso positivo de conflito ao criar reserva DHCP dentro do pool primário</div>
+    <div class="term">
+      <div class="term-barra">
+        <span class="bolha b1"></span><span class="bolha b2"></span><span class="bolha b3"></span>
+        <span class="term-nome">git show 550f8750</span>
+      </div>
+      <div class="term-corpo"><div class="ln cmd"><span class="pr">$</span> git show 550f8750 --stat</div><div class="ln">Models/DHCPServerStaticMapping.inc                  | 10 +++++---</div><div class="ln">APIModelsDHCPServerStaticMappingTestCase.inc        | 30 ++++++++++------</div><div class="ln">2 files changed, 22 insertions(+), 18 deletions(-)</div><div class="ln"></div><div class="ln dst">- if (is_inrange_v4($ipaddr, $this-&gt;parent_model-&gt;range_from-&gt;value, ...)) {</div><div class="ln dst">-     return $this;</div><div class="ln dst">- }</div><div class="ln">+ # Reserva dentro do pool dinâmico NÃO é conflito: sempre foi a forma padrão</div><div class="ln">+ # do pfSense reservar endereço para um cliente. A checagem anterior comparava</div><div class="ln">+ # o registro com ele mesmo e, como o novo ainda não tem id, relatava um</div><div class="ln">+ # conflito fantasma com &quot;ID 0&quot;.</div></div>
+    </div>
+    <div class="fig-nota">Achar isso exigiu ler a validação de sobreposição dentro de uma base de mais de três mil commits e corrigir sem afrouxar as checagens que existem por bom motivo. O teste do projeto, que codificava o comportamento errado, foi ajustado junto.</div>
+  </body></html>

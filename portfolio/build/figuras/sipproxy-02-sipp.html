@@ -1,0 +1,37 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  .term{background:#0b1120;border:1px solid #334155;border-radius:10px;
+    overflow:hidden}
+  .term-barra{background:#1e293b;padding:10px 14px;display:flex;
+    align-items:center;gap:8px;border-bottom:1px solid #334155}
+  .bolha{width:11px;height:11px;border-radius:50%}
+  .b1{background:#f87171}.b2{background:#fbbf24}.b3{background:#34d399}
+  .term-nome{font-size:12px;color:#94a3b8;margin-left:8px}
+  .term-corpo{padding:18px 20px;font-family:'DejaVu Sans Mono',ui-monospace,monospace;
+    font-size:13.5px;line-height:1.75}
+  .ln{white-space:pre-wrap;word-break:break-word}
+  .cmd{color:#e2e8f0;margin-top:6px}
+  .pr{color:#34d399;font-weight:700}
+  .dst{color:#38bdf8;font-weight:600}
+  .term-corpo .ln:not(.cmd):not(.dst){color:#94a3b8}
+  </style></head><body>
+    <div class="fig-titulo">Teste de conformidade de sinalização SIP</div>
+    <div class="fig-sub">13 cenários em SIPp, não teste de aplicação</div>
+    <div class="term">
+      <div class="term-barra">
+        <span class="bolha b1"></span><span class="bolha b2"></span><span class="bolha b3"></span>
+        <span class="term-nome">tests/scenarios</span>
+      </div>
+      <div class="term-corpo"><div class="ln cmd"><span class="pr">$</span> ls tests/scenarios/</div><div class="ln">g729-conformant-uas.xml          invite-inbound.xml</div><div class="ln">g729-inbound-uac.xml             invite-outbound.xml</div><div class="ln">g729-inbound-uas.xml             register-ramal-remoto.xml</div><div class="ln">g729-outbound-uac.xml            reject-403-unauthorized-source.xml</div><div class="ln">g729-outbound-uas.xml            reject-404-no-route.xml</div><div class="ln">g729-uas-avpf-no-rtpmap.xml      g729-uas-dynamic-pt-rtpmap.xml</div><div class="ln">g729-uas-static-pt-no-rtpmap.xml</div><div class="ln dst">13 cenários — negociação G.729, INVITE, REGISTER e rejeição</div></div>
+    </div>
+    <div class="fig-nota">Os três cenários de G.729 sem rtpmap existem porque payload type estático, dinâmico e AVPF são negociados de formas diferentes, e é aí que a interoperabilidade entre fabricantes quebra.</div>
+  </body></html>

@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "portfolio-frontend",
+    "titulo": "Portfólio — Frontend",
+    "arquivo": "portfolio-frontend.html"
+  },
+  {
+    "slug": "portfolio-backend",
+    "titulo": "Portfólio — Backend",
+    "arquivo": "portfolio-backend.html"
+  },
+  {
+    "slug": "portfolio-discador",
+    "titulo": "Plataforma de Discador VoIP para Call Center",
+    "arquivo": "portfolio-discador.html"
+  },
+  {
+    "slug": "portfolio-omnichannel",
+    "titulo": "Plataforma de Atendimento Omnichannel Multi-tenant",
+    "arquivo": "portfolio-omnichannel.html"
+  },
+  {
+    "slug": "portfolio-pedagio",
+    "titulo": "Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico",
+    "arquivo": "portfolio-pedagio.html"
+  },
+  {
+    "slug": "portfolio-analise-audio",
+    "titulo": "Análise de Qualidade de Chamadas por Processamento de Sinais",
+    "arquivo": "portfolio-analise-audio.html"
+  },
+  {
+    "slug": "portfolio-sipproxy",
+    "titulo": "SIP Proxy e SBC para FusionPBX",
+    "arquivo": "portfolio-sipproxy.html"
+  },
+  {
+    "slug": "portfolio-rpa",
+    "titulo": "Motor de Automação Autônoma de Interação Web (RPA)",
+    "arquivo": "portfolio-rpa.html"
+  },
+  {
+    "slug": "portfolio-painel-git",
+    "titulo": "Plataforma Própria de Hospedagem Git",
+    "arquivo": "portfolio-painel-git.html"
+  },
+  {
+    "slug": "portfolio-evoluai",
+    "titulo": "Plataforma de Análise de Interações com IA",
+    "arquivo": "portfolio-evoluai.html"
+  },
+  {
+    "slug": "portfolio-email-cleanup",
+    "titulo": "Bot Autônomo de Limpeza de Caixa Postal",
+    "arquivo": "portfolio-email-cleanup.html"
+  },
+  {
+    "slug": "portfolio-asterisk-lab",
+    "titulo": "Laboratório de Asterisk como Servidor de Mídia",
+    "arquivo": "portfolio-asterisk-lab.html"
+  },
+  {
+    "slug": "portfolio-vitalpbx-whatsapp",
+    "titulo": "WhatsApp Calling da Meta integrado a PBX",
+    "arquivo": "portfolio-vitalpbx-whatsapp.html"
+  },
+  {
+    "slug": "portfolio-pfsense-api",
+    "titulo": "Correção na API REST do pfSense",
+    "arquivo": "portfolio-pfsense-api.html"
+  }
+]
