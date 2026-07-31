@@ -7,6 +7,8 @@
     "gerar": "node ferramentas/gerar-cv.js",
     "aderencia": "node ferramentas/aderencia.js",
     "snapshot": "node ferramentas/exportar-snapshot.js",
+    "portfolio": "node ferramentas/gerar-portfolio.js",
+    "publicar": "bash ferramentas/publicar-wp.sh",
     "test": "node --test 'ferramentas/**/*.test.js'",
     "ats": "node ferramentas/simular-ats.js"
   },
