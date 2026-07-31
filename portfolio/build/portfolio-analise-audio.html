@@ -33,7 +33,7 @@
   <header class="pf-hero">
     <p class="pf-meta">07/2026 - atual · 3 meses</p>
     <p>Detecta picote, dropout e falha de áudio em gravações de chamadas por processamento de sinais — sem depender de transcrição.</p>
-    <div class="pf-chips"><span class="pf-chip">Python 3.14</span><span class="pf-chip">NumPy</span><span class="pf-chip">FFT</span><span class="pf-chip">ITU-T G.107</span><span class="pf-chip">Flask</span><span class="pf-chip">SQLite WAL</span><span class="pf-chip">faster-whisper</span><span class="pf-chip">llama.cpp</span><span class="pf-chip">ONNX Runtime</span><span class="pf-chip">ffmpeg</span><span class="pf-chip">Docker</span><span class="pf-chip">gunicorn</span></div>
+    <div class="pf-chips"><span class="pf-chip">Python 3.14</span><span class="pf-chip">NumPy</span><span class="pf-chip">FFT</span><span class="pf-chip">ITU-T G.107</span><span class="pf-chip">Flask</span><span class="pf-chip">SQLite WAL</span><span class="pf-chip">faster-whisper</span><span class="pf-chip">llama.cpp</span><span class="pf-chip">ONNX Runtime</span><span class="pf-chip">ffmpeg</span><span class="pf-chip">Docker</span><span class="pf-chip">gunicorn</span><span class="pf-chip">DNSMOS P.835</span><span class="pf-chip">NISQA</span><span class="pf-chip">SQUIM</span></div>
   </header>
 
   <section class="pf-secao">
@@ -43,12 +43,12 @@
 
   <section class="pf-secao">
     <h2>A arquitetura</h2>
-    <p>Todo o DSP é NumPy: energia RMS por frame de 20 ms com hop de 10 ms convertida em dBFS, janelas deslizantes vetorizadas, e estimativa de ruído de fundo por percentil — que é o discriminador que separa picote de pausa natural na conversa. A análise espectral usa FFT para spectral flatness. O E-model da ITU-T G.107, que converte fator R em MOS, foi implementado do zero. O decodificador de áudio é o ffmpeg, escolhido em vez da libsndfile por preservar os canais separados, o que é essencial para detectar áudio em uma via só. Onde há IA, ela roda local em CPU: faster-whisper em int8 e um LLM GGUF via llama.cpp, sem mandar áudio de cliente para fora. Os modelos SQUIM, NISQA e DNSMOS passaram por avaliação comparativa com corpus rotulado e ficaram desligados por decisão documentada de arquitetura. O painel é Flask com SQLite em modo WAL e uma SPA em JavaScript puro, sem build.</p>
+    <p>Todo o DSP é NumPy: energia RMS por frame de 20 ms com hop de 10 ms convertida em dBFS, janelas deslizantes vetorizadas, e estimativa de ruído de fundo por percentil — que é o discriminador que separa picote de pausa natural na conversa. A análise espectral usa FFT para spectral flatness. O E-model da ITU-T G.107, que converte fator R em MOS, foi implementado do zero. O decodificador de áudio é o ffmpeg, escolhido em vez da libsndfile por preservar os canais separados, o que é essencial para detectar áudio em uma via só. Onde há IA, ela roda local em CPU: faster-whisper em int8 e um LLM GGUF via llama.cpp, sem mandar áudio de cliente para fora. A decisão de não usar rede neural para a nota de qualidade não foi por preferência: foi medida. Um corpus real de telefonia em 8 kHz foi rotulado em quatro categorias — chamada boa, picote, queda e ruído — e quatro modelos foram comparados pela separação que cada um produz entre a categoria boa e cada categoria ruim. O painel é Flask com SQLite em modo WAL e uma SPA em JavaScript puro, sem build.</p>
   </section>
 
   <section class="pf-secao">
     <h2>O resultado</h2>
-    <p>Ferramenta multi-tenant com isolamento físico por cliente, rodando em Docker com gunicorn e systemd. A validação é por injeção: o selftest insere picote e clipping em sinal sintético e confere se a detecção pega, o que testa o DSP sem depender do PABX.</p>
+    <p>Ferramenta multi-tenant com isolamento físico por cliente, rodando em Docker com gunicorn e systemd. A validação é por injeção: o selftest insere picote e clipping em sinal sintético e confere se a detecção pega, o que testa o DSP sem depender do PABX. O comparativo de modelos neurais expôs duas coisas. A primeira é técnica: os modelos neurais são cegos a silêncio, porque avaliam a qualidade da fala presente e não penalizam um trecho mudo — por isso o E-model próprio separa queda por 3,39 contra 0,17 do melhor neural. A segunda é de licenciamento: o NISQA é o melhor detector de picote medido, com separação 1,00, e mesmo assim não pode entrar no produto porque os pesos são CC BY-NC. Escolher modelo aqui foi decisão técnica e jurídica ao mesmo tempo, e ficou registrada.</p>
   </section>
 
   <div class="pf-galeria">
@@ -61,6 +61,11 @@
     <figure>
       <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/analise-audio-02-detalhe.png" alt="Detalhe da chamada, com as métricas de sinal" loading="lazy">
       <figcaption>Detalhe da chamada, com as métricas de sinal</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/analise-audio-03-comparativo.png" alt="O comparativo que decidiu a arquitetura: qual modelo detecta o quê, e qual pode ir para o produto" loading="lazy">
+      <figcaption>O comparativo que decidiu a arquitetura: qual modelo detecta o quê, e qual pode ir para o produto</figcaption>
     </figure>
   </div>
 

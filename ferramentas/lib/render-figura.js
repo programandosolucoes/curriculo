@@ -115,10 +115,58 @@ function renderTerminal(spec) {
   </body></html>`;
 }
 
+/**
+ * Tabela: comparação com números medidos.
+ * spec = { titulo, subtitulo, colunas: [...], nota,
+ *          linhas: [{ celulas: [...], melhores: [i], licenca, alerta }] }
+ *
+ * `melhores` marca em qual coluna aquela linha vence; `alerta` sinaliza a
+ * linha cuja licença impede uso comercial — que é metade do argumento aqui.
+ */
+function renderTabela(spec) {
+  const cabecalho = spec.colunas.map(c => `<th>${escapar(c)}</th>`).join('');
+
+  const corpo = spec.linhas.map(linha => {
+    const melhores = new Set(linha.melhores || []);
+    const celulas = linha.celulas.map((celula, i) => {
+      const classe = melhores.has(i) ? ' class="melhor"' : '';
+      const licenca = i === 0 && linha.licenca
+        ? `<span class="lic">${escapar(linha.licenca)}</span>` : '';
+      return `<td${classe}>${escapar(celula)}${licenca}</td>`;
+    }).join('');
+    return `<tr class="ln${linha.alerta ? ' alerta' : ''}">${celulas}</tr>`;
+  }).join('\n');
+
+  return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  ${BASE}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;padding:10px 14px;font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em;color:${PALETA.destaque};border-bottom:1px solid ${PALETA.borda}}
+  th:not(:first-child),td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+  td{padding:12px 14px;border-bottom:1px solid rgba(51,65,85,.5)}
+  tr.ln:hover{background:rgba(148,163,184,.05)}
+  td:first-child{font-weight:600}
+  .lic{display:block;font-weight:400;font-size:11.5px;color:${PALETA.apagado};margin-top:3px}
+  .melhor{color:${PALETA.ok};font-weight:700}
+  tr.alerta td:first-child .lic{color:#fbbf24}
+  /* o aviso fica DENTRO da linha da licença; no ::after do <td> ele cairia
+     abaixo do .lic, que é bloco, e sobraria solto no meio da tabela */
+  tr.alerta td:first-child .lic::after{content:' ⚠'}
+  </style></head><body>
+    <div class="fig-titulo">${escapar(spec.titulo)}</div>
+    <div class="fig-sub">${escapar(spec.subtitulo || '')}</div>
+    <table><thead><tr>${cabecalho}</tr></thead><tbody>
+${corpo}
+    </tbody></table>
+    ${spec.nota ? `<div class="fig-nota">${escapar(spec.nota)}</div>` : ''}
+  </body></html>`;
+}
+
 function renderFigura(spec) {
   if (spec.tipo === 'diagrama') return renderDiagrama(spec);
   if (spec.tipo === 'terminal') return renderTerminal(spec);
+  if (spec.tipo === 'tabela') return renderTabela(spec);
   throw new Error(`Figura "${spec.arquivo}": tipo desconhecido "${spec.tipo}".`);
 }
 
-module.exports = { renderFigura, renderDiagrama, renderTerminal };
+module.exports = { renderFigura, renderDiagrama, renderTerminal, renderTabela };

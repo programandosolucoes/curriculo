@@ -45,6 +45,36 @@ test('terminal marca comando, saída e destaque de forma distinta', () => {
   assert.match(html, /13 cenários/);
 });
 
+test('tabela monta cabeçalho, linhas e marca o melhor de cada coluna', () => {
+  const html = renderFigura({
+    tipo: 'tabela',
+    titulo: 'Qual modelo detecta o quê',
+    colunas: ['Modelo', 'Picote', 'Queda'],
+    linhas: [
+      { celulas: ['DSP próprio', '0,44', '3,39'], melhores: [2], licenca: 'próprio' },
+      { celulas: ['NISQA', '1,0', '−0,31'], melhores: [1], licenca: 'CC BY-NC', alerta: true },
+    ],
+    nota: 'Separação por eixo.',
+  });
+  assert.match(html, /<th[^>]*>Picote<\/th>/);
+  assert.match(html, /DSP próprio/);
+  assert.match(html, /CC BY-NC/);
+  assert.match(html, /class="melhor"/);
+  assert.match(html, /class="[^"]*alerta/);
+  assert.match(html, /Separação por eixo\./);
+});
+
+test('tabela escapa o conteúdo das células', () => {
+  const html = renderFigura({
+    tipo: 'tabela',
+    titulo: 'x',
+    colunas: ['a'],
+    linhas: [{ celulas: ['<img onerror=x>'] }],
+  });
+  assert.doesNotMatch(html, /<img onerror/);
+  assert.match(html, /&lt;img/);
+});
+
 test('tipo desconhecido falha com o nome do arquivo na mensagem', () => {
   assert.throws(
     () => renderFigura({ tipo: 'pintura', arquivo: 'x.png' }),

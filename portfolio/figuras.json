@@ -8,29 +8,53 @@
       {
         "rotulo": "Pista",
         "caixas": [
-          { "nome": "Antena CIR", "detalhe": "RFID UHF em 915 MHz, ISO/IEC 18000-63" },
-          { "nome": "stringtag", "detalhe": "[OBUID]_[PayloadHex]" }
+          {
+            "nome": "Antena CIR",
+            "detalhe": "RFID UHF em 915 MHz, ISO/IEC 18000-63"
+          },
+          {
+            "nome": "stringtag",
+            "detalhe": "[OBUID]_[PayloadHex]"
+          }
         ]
       },
       {
         "rotulo": "Processamento",
         "caixas": [
-          { "nome": "Parser do protocolo", "detalhe": "separa transponder do payload cifrado" },
-          { "nome": "Decriptação AES", "detalhe": "128 ou 256 bits, 5 modos, escolhido em slt.ini" }
+          {
+            "nome": "Parser do protocolo",
+            "detalhe": "separa transponder do payload cifrado"
+          },
+          {
+            "nome": "Decriptação AES",
+            "detalhe": "128 ou 256 bits, 5 modos, escolhido em slt.ini"
+          }
         ]
       },
       {
         "rotulo": "Serialização",
         "caixas": [
-          { "nome": "Protobuf", "detalhe": "padrão da Resolução ARTESP 001/2014" },
-          { "nome": "JSON e SOAP/XML", "detalhe": "compatibilidade com sistema legado" }
+          {
+            "nome": "Protobuf",
+            "detalhe": "padrão da Resolução ARTESP 001/2014"
+          },
+          {
+            "nome": "JSON e SOAP/XML",
+            "detalhe": "compatibilidade com sistema legado"
+          }
         ]
       },
       {
         "rotulo": "Entrega",
         "caixas": [
-          { "nome": "Fila JMS/STOMP", "detalhe": "broker ActiveMQ da concessionária" },
-          { "nome": "Licença RSA-2048", "detalhe": "sem licença válida o sistema não opera" }
+          {
+            "nome": "Fila JMS/STOMP",
+            "detalhe": "broker ActiveMQ da concessionária"
+          },
+          {
+            "nome": "Licença RSA-2048",
+            "detalhe": "sem licença válida o sistema não opera"
+          }
         ]
       }
     ],
@@ -45,29 +69,53 @@
       {
         "rotulo": "Externo",
         "caixas": [
-          { "nome": "Operadora SIP", "detalhe": "tronco de entrada e saída" },
-          { "nome": "Ramal remoto", "detalhe": "atrás de NAT, REGISTER com path" }
+          {
+            "nome": "Operadora SIP",
+            "detalhe": "tronco de entrada e saída"
+          },
+          {
+            "nome": "Ramal remoto",
+            "detalhe": "atrás de NAT, REGISTER com path"
+          }
         ]
       },
       {
         "rotulo": "Borda",
         "caixas": [
-          { "nome": "Kamailio", "detalhe": "20 módulos em uso deliberado: drouting, permissions, htable, nathelper" },
-          { "nome": "rtpengine", "detalhe": "relay de mídia em modo transparent" }
+          {
+            "nome": "Kamailio",
+            "detalhe": "20 módulos em uso deliberado: drouting, permissions, htable, nathelper"
+          },
+          {
+            "nome": "rtpengine",
+            "detalhe": "relay de mídia em modo transparent"
+          }
         ]
       },
       {
         "rotulo": "Controle",
         "caixas": [
-          { "nome": "Painel Flask", "detalhe": "blueprints, SQLAlchemy 2.0 por reflection" },
-          { "nome": "JSON-RPC", "detalhe": "cliente próprio sobre HTTP, porta dedicada" }
+          {
+            "nome": "Painel Flask",
+            "detalhe": "blueprints, SQLAlchemy 2.0 por reflection"
+          },
+          {
+            "nome": "JSON-RPC",
+            "detalhe": "cliente próprio sobre HTTP, porta dedicada"
+          }
         ]
       },
       {
         "rotulo": "Interno",
         "caixas": [
-          { "nome": "FusionPBX", "detalhe": "provisionado por unit systemd" },
-          { "nome": "MariaDB", "detalhe": "migrations SQL versionadas" }
+          {
+            "nome": "FusionPBX",
+            "detalhe": "provisionado por unit systemd"
+          },
+          {
+            "nome": "MariaDB",
+            "detalhe": "migrations SQL versionadas"
+          }
         ]
       }
     ],
@@ -80,15 +128,42 @@
     "titulo": "Teste de conformidade de sinalização SIP",
     "subtitulo": "13 cenários em SIPp, não teste de aplicação",
     "linhas": [
-      { "tipo": "cmd", "texto": "ls tests/scenarios/" },
-      { "tipo": "saida", "texto": "g729-conformant-uas.xml          invite-inbound.xml" },
-      { "tipo": "saida", "texto": "g729-inbound-uac.xml             invite-outbound.xml" },
-      { "tipo": "saida", "texto": "g729-inbound-uas.xml             register-ramal-remoto.xml" },
-      { "tipo": "saida", "texto": "g729-outbound-uac.xml            reject-403-unauthorized-source.xml" },
-      { "tipo": "saida", "texto": "g729-outbound-uas.xml            reject-404-no-route.xml" },
-      { "tipo": "saida", "texto": "g729-uas-avpf-no-rtpmap.xml      g729-uas-dynamic-pt-rtpmap.xml" },
-      { "tipo": "saida", "texto": "g729-uas-static-pt-no-rtpmap.xml" },
-      { "tipo": "destaque", "texto": "13 cenários — negociação G.729, INVITE, REGISTER e rejeição" }
+      {
+        "tipo": "cmd",
+        "texto": "ls tests/scenarios/"
+      },
+      {
+        "tipo": "saida",
+        "texto": "g729-conformant-uas.xml          invite-inbound.xml"
+      },
+      {
+        "tipo": "saida",
+        "texto": "g729-inbound-uac.xml             invite-outbound.xml"
+      },
+      {
+        "tipo": "saida",
+        "texto": "g729-inbound-uas.xml             register-ramal-remoto.xml"
+      },
+      {
+        "tipo": "saida",
+        "texto": "g729-outbound-uac.xml            reject-403-unauthorized-source.xml"
+      },
+      {
+        "tipo": "saida",
+        "texto": "g729-outbound-uas.xml            reject-404-no-route.xml"
+      },
+      {
+        "tipo": "saida",
+        "texto": "g729-uas-avpf-no-rtpmap.xml      g729-uas-dynamic-pt-rtpmap.xml"
+      },
+      {
+        "tipo": "saida",
+        "texto": "g729-uas-static-pt-no-rtpmap.xml"
+      },
+      {
+        "tipo": "destaque",
+        "texto": "13 cenários — negociação G.729, INVITE, REGISTER e rejeição"
+      }
     ],
     "nota": "Os três cenários de G.729 sem rtpmap existem porque payload type estático, dinâmico e AVPF são negociados de formas diferentes, e é aí que a interoperabilidade entre fabricantes quebra."
   },
@@ -101,29 +176,53 @@
       {
         "rotulo": "Entrada",
         "caixas": [
-          { "nome": "Adaptador por site", "detalhe": "o que é específico fica aqui, e só aqui" },
-          { "nome": "Puppeteer 25", "detalhe": "navegador controlado, com ritmo por ação" }
+          {
+            "nome": "Adaptador por site",
+            "detalhe": "o que é específico fica aqui, e só aqui"
+          },
+          {
+            "nome": "Puppeteer 25",
+            "detalhe": "navegador controlado, com ritmo por ação"
+          }
         ]
       },
       {
         "rotulo": "Núcleo",
         "caixas": [
-          { "nome": "Motor de regras", "detalhe": "46 módulos comuns a todos os sites" },
-          { "nome": "Trava de concorrência", "detalhe": "rede de segurança e controle de ritmo" }
+          {
+            "nome": "Motor de regras",
+            "detalhe": "46 módulos comuns a todos os sites"
+          },
+          {
+            "nome": "Trava de concorrência",
+            "detalhe": "rede de segurança e controle de ritmo"
+          }
         ]
       },
       {
         "rotulo": "Decisão",
         "caixas": [
-          { "nome": "Cadeia de IA", "detalhe": "OpenRouter, OpenAI, Anthropic, NVIDIA NIM, OpenCode Zen" },
-          { "nome": "Fallback determinístico", "detalhe": "quando todos os provedores falham" }
+          {
+            "nome": "Cadeia de IA",
+            "detalhe": "OpenRouter, OpenAI, Anthropic, NVIDIA NIM, OpenCode Zen"
+          },
+          {
+            "nome": "Fallback determinístico",
+            "detalhe": "quando todos os provedores falham"
+          }
         ]
       },
       {
         "rotulo": "Prova",
         "caixas": [
-          { "nome": "Evidência por imagem", "detalhe": "captura de tela a cada ação" },
-          { "nome": "Prisma sobre SQLite", "detalhe": "716 testes no runner nativo do Node" }
+          {
+            "nome": "Evidência por imagem",
+            "detalhe": "captura de tela a cada ação"
+          },
+          {
+            "nome": "Prisma sobre SQLite",
+            "detalhe": "716 testes no runner nativo do Node"
+          }
         ]
       }
     ],
@@ -138,29 +237,53 @@
       {
         "rotulo": "Origem",
         "caixas": [
-          { "nome": "PABX Yeastar", "detalhe": "API com token compartilhado: o appliance limita 8 tokens a cada 30 min" },
-          { "nome": "Google Meet", "detalhe": "OAuth, com conexão self-service por usuário" }
+          {
+            "nome": "PABX Yeastar",
+            "detalhe": "API com token compartilhado: o appliance limita 8 tokens a cada 30 min"
+          },
+          {
+            "nome": "Google Meet",
+            "detalhe": "OAuth, com conexão self-service por usuário"
+          }
         ]
       },
       {
         "rotulo": "Coleta",
         "caixas": [
-          { "nome": "Filas BullMQ", "detalhe": "Redis, para reprocessar sem travar a interface" },
-          { "nome": "S3", "detalhe": "áudio por URL pré-assinada" }
+          {
+            "nome": "Filas BullMQ",
+            "detalhe": "Redis, para reprocessar sem travar a interface"
+          },
+          {
+            "nome": "S3",
+            "detalhe": "áudio por URL pré-assinada"
+          }
         ]
       },
       {
         "rotulo": "Análise",
         "caixas": [
-          { "nome": "Transcrição e IA", "detalhe": "pontuação por tipo de interação" },
-          { "nome": "Atribuição por ramal", "detalhe": "com coleta retroativa e opt-in" }
+          {
+            "nome": "Transcrição e IA",
+            "detalhe": "pontuação por tipo de interação"
+          },
+          {
+            "nome": "Atribuição por ramal",
+            "detalhe": "com coleta retroativa e opt-in"
+          }
         ]
       },
       {
         "rotulo": "Interface",
         "caixas": [
-          { "nome": "tRPC 11 e Drizzle", "detalhe": "tipos compartilhados ponta a ponta" },
-          { "nome": "Next.js e TanStack", "detalhe": "monorepo Bun com Turborepo" }
+          {
+            "nome": "tRPC 11 e Drizzle",
+            "detalhe": "tipos compartilhados ponta a ponta"
+          },
+          {
+            "nome": "Next.js e TanStack",
+            "detalhe": "monorepo Bun com Turborepo"
+          }
         ]
       }
     ],
@@ -173,14 +296,38 @@
     "titulo": "Ciclo autônomo de limpeza",
     "subtitulo": "Classificação por IA sobre IMAP, com fallback entre provedores",
     "linhas": [
-      { "tipo": "cmd", "texto": "node autonomous_cycle.js --interval=30m" },
-      { "tipo": "saida", "texto": "[ciclo] conectado por IMAP — INBOX e Spam" },
-      { "tipo": "saida", "texto": "[ia] provedor local (Ollama) respondeu em 1.2s" },
-      { "tipo": "saida", "texto": "[lote] 500 mensagens classificadas: 486 descarte, 14 mantidas" },
-      { "tipo": "saida", "texto": "[ia] provedor local indisponível — caindo para o próximo da cadeia" },
-      { "tipo": "saida", "texto": "[lote] 500 mensagens classificadas: 492 descarte, 8 mantidas" },
-      { "tipo": "saida", "texto": "[backup] mbox gravado antes de qualquer remoção" },
-      { "tipo": "destaque", "texto": "acumulado: ~98.800 mensagens removidas e conferidas na caixa" }
+      {
+        "tipo": "cmd",
+        "texto": "node autonomous_cycle.js --interval=30m"
+      },
+      {
+        "tipo": "saida",
+        "texto": "[ciclo] conectado por IMAP — INBOX e Spam"
+      },
+      {
+        "tipo": "saida",
+        "texto": "[ia] provedor local (Ollama) respondeu em 1.2s"
+      },
+      {
+        "tipo": "saida",
+        "texto": "[lote] 500 mensagens classificadas: 486 descarte, 14 mantidas"
+      },
+      {
+        "tipo": "saida",
+        "texto": "[ia] provedor local indisponível — caindo para o próximo da cadeia"
+      },
+      {
+        "tipo": "saida",
+        "texto": "[lote] 500 mensagens classificadas: 492 descarte, 8 mantidas"
+      },
+      {
+        "tipo": "saida",
+        "texto": "[backup] mbox gravado antes de qualquer remoção"
+      },
+      {
+        "tipo": "destaque",
+        "texto": "acumulado: ~98.800 mensagens removidas e conferidas na caixa"
+      }
     ],
     "nota": "A cadeia de fallback existe porque o ciclo é autônomo: se o provedor de IA cair no meio da madrugada, o trabalho não pode parar até alguém perceber."
   },
@@ -193,26 +340,41 @@
       {
         "rotulo": "Carga",
         "caixas": [
-          { "nome": "SIPp", "detalhe": "cenários de chamada reproduzíveis" },
-          { "nome": "Docker Compose", "detalhe": "ambiente idêntico a cada execução" }
+          {
+            "nome": "SIPp",
+            "detalhe": "cenários de chamada reproduzíveis"
+          },
+          {
+            "nome": "Docker Compose",
+            "detalhe": "ambiente idêntico a cada execução"
+          }
         ]
       },
       {
         "rotulo": "Sob teste",
         "caixas": [
-          { "nome": "Asterisk como media server", "detalhe": "relay com NAT, gravação, transcodificação" }
+          {
+            "nome": "Asterisk como media server",
+            "detalhe": "relay com NAT, gravação, transcodificação"
+          }
         ]
       },
       {
         "rotulo": "Medição",
         "caixas": [
-          { "nome": "Captura de pacotes", "detalhe": "o fluxo RTP real, não o log da aplicação" }
+          {
+            "nome": "Captura de pacotes",
+            "detalhe": "o fluxo RTP real, não o log da aplicação"
+          }
         ]
       },
       {
         "rotulo": "Decisão",
         "caixas": [
-          { "nome": "Manter o rtpengine", "detalhe": "nem Asterisk nem FreeSWITCH o substituem no proxy SIP" }
+          {
+            "nome": "Manter o rtpengine",
+            "detalhe": "nem Asterisk nem FreeSWITCH o substituem no proxy SIP"
+          }
         ]
       }
     ],
@@ -227,26 +389,41 @@
       {
         "rotulo": "Cliente",
         "caixas": [
-          { "nome": "WhatsApp", "detalhe": "chamada de voz iniciada pelo aplicativo" }
+          {
+            "nome": "WhatsApp",
+            "detalhe": "chamada de voz iniciada pelo aplicativo"
+          }
         ]
       },
       {
         "rotulo": "Sinalização",
         "caixas": [
-          { "nome": "Meta Graph API", "detalhe": "HTTP, não SIP — aqui está a virada da arquitetura" }
+          {
+            "nome": "Meta Graph API",
+            "detalhe": "HTTP, não SIP — aqui está a virada da arquitetura"
+          }
         ]
       },
       {
         "rotulo": "Mídia",
         "caixas": [
-          { "nome": "SIP e RTP", "detalhe": "criptografia DTLS-SRTP" },
-          { "nome": "dtls_auto_generate_cert", "detalhe": "configurado errado, a chamada completa e fica sem áudio" }
+          {
+            "nome": "SIP e RTP",
+            "detalhe": "criptografia DTLS-SRTP"
+          },
+          {
+            "nome": "dtls_auto_generate_cert",
+            "detalhe": "configurado errado, a chamada completa e fica sem áudio"
+          }
         ]
       },
       {
         "rotulo": "Destino",
         "caixas": [
-          { "nome": "Asterisk / VitalPBX", "detalhe": "mesma fila de atendimento dos demais canais" }
+          {
+            "nome": "Asterisk / VitalPBX",
+            "detalhe": "mesma fila de atendimento dos demais canais"
+          }
         ]
       }
     ],
@@ -259,19 +436,126 @@
     "titulo": "A correção, em 94 linhas",
     "subtitulo": "Falso positivo de conflito ao criar reserva DHCP dentro do pool primário",
     "linhas": [
-      { "tipo": "cmd", "texto": "git show 550f8750 --stat" },
-      { "tipo": "saida", "texto": "Models/DHCPServerStaticMapping.inc                  | 10 +++++---" },
-      { "tipo": "saida", "texto": "APIModelsDHCPServerStaticMappingTestCase.inc        | 30 ++++++++++------" },
-      { "tipo": "saida", "texto": "2 files changed, 22 insertions(+), 18 deletions(-)" },
-      { "tipo": "saida", "texto": "" },
-      { "tipo": "destaque", "texto": "- if (is_inrange_v4($ipaddr, $this->parent_model->range_from->value, ...)) {" },
-      { "tipo": "destaque", "texto": "-     return $this;" },
-      { "tipo": "destaque", "texto": "- }" },
-      { "tipo": "saida", "texto": "+ # Reserva dentro do pool dinâmico NÃO é conflito: sempre foi a forma padrão" },
-      { "tipo": "saida", "texto": "+ # do pfSense reservar endereço para um cliente. A checagem anterior comparava" },
-      { "tipo": "saida", "texto": "+ # o registro com ele mesmo e, como o novo ainda não tem id, relatava um" },
-      { "tipo": "saida", "texto": "+ # conflito fantasma com \"ID 0\"." }
+      {
+        "tipo": "cmd",
+        "texto": "git show 550f8750 --stat"
+      },
+      {
+        "tipo": "saida",
+        "texto": "Models/DHCPServerStaticMapping.inc                  | 10 +++++---"
+      },
+      {
+        "tipo": "saida",
+        "texto": "APIModelsDHCPServerStaticMappingTestCase.inc        | 30 ++++++++++------"
+      },
+      {
+        "tipo": "saida",
+        "texto": "2 files changed, 22 insertions(+), 18 deletions(-)"
+      },
+      {
+        "tipo": "saida",
+        "texto": ""
+      },
+      {
+        "tipo": "destaque",
+        "texto": "- if (is_inrange_v4($ipaddr, $this->parent_model->range_from->value, ...)) {"
+      },
+      {
+        "tipo": "destaque",
+        "texto": "-     return $this;"
+      },
+      {
+        "tipo": "destaque",
+        "texto": "- }"
+      },
+      {
+        "tipo": "saida",
+        "texto": "+ # Reserva dentro do pool dinâmico NÃO é conflito: sempre foi a forma padrão"
+      },
+      {
+        "tipo": "saida",
+        "texto": "+ # do pfSense reservar endereço para um cliente. A checagem anterior comparava"
+      },
+      {
+        "tipo": "saida",
+        "texto": "+ # o registro com ele mesmo e, como o novo ainda não tem id, relatava um"
+      },
+      {
+        "tipo": "saida",
+        "texto": "+ # conflito fantasma com \"ID 0\"."
+      }
     ],
     "nota": "Achar isso exigiu ler a validação de sobreposição dentro de uma base de mais de três mil commits e corrigir sem afrouxar as checagens que existem por bom motivo. O teste do projeto, que codificava o comportamento errado, foi ajustado junto."
+  },
+  {
+    "arquivo": "analise-audio-03-comparativo.png",
+    "tipo": "tabela",
+    "titulo": "Qual modelo detecta o quê — e qual pode ir para o produto",
+    "subtitulo": "Separação por eixo em corpus real de telefonia 8 kHz, rotulado em bom, picote, queda e ruído. Quanto maior, melhor o modelo distingue chamada ruim de chamada boa; negativo significa que ele erra o sentido.",
+    "colunas": [
+      "Modelo (licença)",
+      "Picote",
+      "Queda / dead-air",
+      "Ruído"
+    ],
+    "linhas": [
+      {
+        "celulas": [
+          "DSP + E-model próprio",
+          "0,44",
+          "3,39",
+          "0,58"
+        ],
+        "melhores": [
+          2
+        ],
+        "licenca": "implementado do zero a partir da ITU-T G.107"
+      },
+      {
+        "celulas": [
+          "DNSMOS P.835 (OVRL)",
+          "0,24",
+          "0,17",
+          "0,77"
+        ],
+        "melhores": [
+          3
+        ],
+        "licenca": "MIT — uso comercial liberado"
+      },
+      {
+        "celulas": [
+          "SQUIM subjective",
+          "0,59",
+          "−0,40",
+          "−0,44"
+        ],
+        "licenca": "BSD"
+      },
+      {
+        "celulas": [
+          "NISQA mos",
+          "0,79",
+          "−0,31",
+          "−0,02"
+        ],
+        "licenca": "código MIT, pesos CC BY-NC",
+        "alerta": true
+      },
+      {
+        "celulas": [
+          "NISQA discontinuity",
+          "1,00",
+          "−0,27",
+          "0,05"
+        ],
+        "melhores": [
+          1
+        ],
+        "licenca": "pesos CC BY-NC — não comercial",
+        "alerta": true
+      }
+    ],
+    "nota": "Duas conclusões decidiram a arquitetura. A primeira é técnica: os modelos neurais são cegos a silêncio — avaliam a qualidade da fala presente, então não penalizam um trecho mudo, e é justamente por isso que o E-model próprio ganha em queda por uma margem de 3,39 contra 0,17. A segunda é de licenciamento: o NISQA é o melhor detector de picote que existe aqui, e mesmo assim não pode entrar no produto, porque os pesos são CC BY-NC. Decisão registrada em 2026-07-10: manter só o DSP, com o módulo neural experimental e desligado."
   }
 ]

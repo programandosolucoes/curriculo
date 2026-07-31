@@ -32,9 +32,10 @@ senha de produção trafega, nenhum dado de cliente aparece, e nada é
 inventado. É o mesmo princípio do `post-linkedin-analisador`, que já existia
 no portfólio justamente para isso.
 
-**Resultado:** 13 imagens são prints reais; 9 são figuras declaradamente
-geradas (diagramas e blocos de terminal), para os projetos que não têm
-interface.
+**Resultado:** 13 imagens são prints reais; 10 são figuras declaradamente
+geradas (diagramas, blocos de terminal e uma tabela de números medidos),
+para os projetos que não têm interface e para o que não cabe em captura de
+tela.
 
 ---
 
@@ -209,9 +210,11 @@ A régua importa: sem ela, um projeto difícil consome o tempo dos outros onze.
 
 Em vez de nove imagens desenhadas à mão, foi escrito um gerador:
 
-- `ferramentas/lib/render-figura.js` — dois tipos, `diagrama` (caixas em
-  etapas ligadas por setas) e `terminal` (bloco com comando, saída e
-  destaque), com a mesma paleta e a mesma tipografia.
+- `ferramentas/lib/render-figura.js` — três tipos: `diagrama` (caixas em
+  etapas ligadas por setas), `terminal` (bloco com comando, saída e destaque)
+  e `tabela` (comparação com números medidos, marcando o melhor de cada
+  coluna e sinalizando licença restritiva), com a mesma paleta e a mesma
+  tipografia.
 - `portfolio/figuras.json` — a especificação de cada figura, em texto.
 - `ferramentas/gerar-figuras.js` — escreve um HTML por figura.
 
@@ -399,11 +402,6 @@ curl -s -o /dev/null -w '%{http_code}\n' \
 - **Clone com credencial válida nunca foi testado.** Sabemos que sem
   credencial é negado (401 em todos os repositórios, confirmado). Que a senha
   correta **passa** é suposição até alguém rodar `git clone` com ela.
-- **Comparativo de modelos neurais de MOS** (DNSMOS × SQUIM × NISQA ×
-  E-model próprio, com a conclusão de que os neurais são cegos a silêncio e
-  que os pesos do NISQA são CC BY-NC, inviável comercialmente) continua fora
-  do card de análise de chamadas. É material forte, decidido ficar para
-  depois.
 - **EvoluAI e painel do SIP proxy** estão com diagrama. Semeando o banco de
   desenvolvimento do primeiro, dá para recapturar e republicar.
 - **Acesso de convidado do painel Git** estava desligado no dia da
