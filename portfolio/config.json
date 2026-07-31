@@ -1,0 +1,21 @@
+{
+  "gitBase": "https://git.programandosolucoes.com.br/git/repos",
+  "prefixoSlug": "portfolio-",
+  "baseImagens": "https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio",
+  "indices": [
+    {
+      "area": "frontend",
+      "slug": "portfolio-frontend",
+      "titulo": "Portfólio — Frontend",
+      "chamada": "Interfaces que eu projetei e construí: painéis de operação, editores visuais e aplicações de tempo real."
+    },
+    {
+      "area": "backend",
+      "slug": "portfolio-backend",
+      "titulo": "Portfólio — Backend",
+      "chamada": "Sistemas que rodam por baixo: telefonia, processamento de sinais, integrações e infraestrutura."
+    }
+  ],
+  "avisoRepo": "Código-fonte privado. As credenciais de leitura são liberadas sob solicitação — me chame para conversar sobre o projeto.",
+  "avisoSemRepo": "Código-fonte não disponível."
+}
