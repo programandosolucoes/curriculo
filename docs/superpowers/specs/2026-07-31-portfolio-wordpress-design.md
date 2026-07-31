@@ -56,9 +56,9 @@ acrescentados por este trabalho.
 | 7 | `painel-git` | Plataforma Própria de Hospedagem Git | backend, frontend, infra | `painel-git.git` |
 | 8 | `evoluai` | Plataforma de Análise de Interações com IA (EvoluAI v2) | frontend, backend, ia | — (ver abaixo) |
 | 9 | `email-cleanup` | Bot Autônomo de Limpeza de Caixa Postal | backend, ia | `email_cleanup_bot.git` |
-| 10 | `asterisk-lab` | Laboratório de Asterisk como Media Server | infra, backend | a criar |
-| 11 | `vitalpbx-whatsapp` | WhatsApp Calling da Meta integrado a PBX | backend, infra | a criar |
-| 12 | `pfsense-api` | Correções na API REST de firewall pfSense | backend, infra | a criar |
+| 10 | `asterisk-lab` | Laboratório de Asterisk como Media Server | infra, backend | `asterisk-media-server-lab.git` |
+| 11 | `vitalpbx-whatsapp` | WhatsApp Calling da Meta integrado a PBX | backend, infra | `vitalpbx-whatsapp-calling.git` |
+| 12 | `pfsense-api` | Correções na API REST de firewall pfSense | backend, infra | **card aberto**, sem repo privado |
 
 **Regra das áreas:** `frontend` e `backend` decidem em qual índice o projeto
 aparece, e todo projeto precisa de pelo menos um dos dois. `infra` e `ia` são
@@ -210,17 +210,60 @@ FastAPI), sipproxy-fusionpbx (painel Flask + Kamailio).
 - Playwright **não** entra no contrato "roda sem `npm install`": a captura é
   passo manual e ocasional; gerar e publicar consomem só os PNG commitados.
 
-## Projetos sem repositório no painel
+## Projetos sem repositório no painel — resolvido em 2026-07-31
 
 | Projeto | Situação | Decisão |
 |---|---|---|
-| asterisk-media-server-lab | só local | criar bare repo no painel |
-| vitalpbx-whatsapp-calling | só local | criar bare repo no painel |
-| pfsense-restapi-fixes | só local | criar bare repo no painel |
+| asterisk-media-server-lab | só local, 17 commits | **criado e publicado** (`asterisk-media-server-lab.git`, HEAD `master`) |
+| vitalpbx-whatsapp-calling | sem `.git`, 3 arquivos de documentação | **criado e publicado** (`vitalpbx-whatsapp-calling.git`, HEAD `main`, commit inicial) |
+| pfsense-restapi-fixes | fork de terceiros | **card aberto, sem repo privado** — ver abaixo |
 | EvoluAI v2 | repo da Apex no GitHub | **sem link** — não é do usuário para expor; o card informa "código proprietário do cliente" |
 
-Criar os bare repos exige OK explícito do usuário no momento (é escrita em
-produção).
+### O caso do pfSense
+
+`pfsense-restapi-fixes` é um fork do `pfrest/pfSense-pkg-RESTAPI` (Apache
+2.0, 3052 commits de terceiros). A autoria do usuário são 5 commits, sendo
+um o fix técnico — `550f8750 Fix false conflict when creating DHCP static
+mapping inside primary pool`, 4 arquivos e 94 linhas, com o teste do upstream
+ajustado junto.
+
+Espelhar o fork inteiro num repositório privado seria hospedar código alheio
+e pôr cadeado em cima de código público. **Decisão do usuário (2026-07-31):
+este card é aberto** — aponta para o projeto upstream público e exibe o diff
+na própria página. O contraste com os demais cards é intencional e vira
+argumento: ler uma base de três mil commits, identificar um falso positivo e
+corrigir ajustando o teste.
+
+### Comandos executados no servidor (registro)
+
+```bash
+# criação dos bare repos, com HEAD casando a branch local (evita o bug de
+# "remote HEAD refers to nonexistent ref" já visto em outros repos do painel)
+ssh -p 65002 u560021660@git.programandosolucoes.com.br \
+  'cd ~/domains/git.programandosolucoes.com.br/public_html/git/repos && \
+   git init --bare --initial-branch=master asterisk-media-server-lab.git && \
+   git init --bare --initial-branch=main   vitalpbx-whatsapp-calling.git'
+
+# push local (ssh:// carrega a porta 65002)
+git push -u origin master   # asterisk-media-server-lab
+git push -u origin main     # vitalpbx-whatsapp-calling
+```
+
+Não foi preciso registrar permissão: `can_access_repo()` em `lib/auth.php`
+dá acesso total ao `admin_user` e nega todo o resto por ausência de entrada
+em `permissions.json` — exatamente o comportamento que o portfólio quer.
+
+### Portão verificado na prática
+
+```
+GET /git/repos/asterisk-media-server-lab.git/info/refs?service=git-upload-pack
+→ HTTP 401, WWW-Authenticate: Basic realm="Git Server Access"
+```
+
+Vale para as duas formas de URL aceitas pelo `.htaccess`
+(`/git/<repo>.git` e `/git/repos/<repo>.git`). **Falta verificar o caminho
+positivo** — clone com credencial válida — o que exige a senha e fica como
+verificação manual do usuário.
 
 ## Riscos e restrições
 
