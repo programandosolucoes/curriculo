@@ -535,7 +535,42 @@
           "Desenvolvi um editor visual de fluxo de URA em React e TailwindCSS, com conversão bidirecional entre o grafo desenhado na tela e os passos executáveis do motor.",
           "Construí o painel web de gestão que expõe campanhas, contatos, registros de chamada e execuções em tempo real."
         ]
-      }
+      },
+      "areas": [
+        "backend",
+        "frontend",
+        "infra"
+      ],
+      "resumo": "Plataforma completa de discagem para call center: painel de operação, motor de discagem horizontal e uma linguagem própria de fluxo de IVR.",
+      "problema": "Operações de call center precisam discar em escala controlada, respeitar regras por campanha e montar fluxos de URA sem depender de um programador para cada alteração. As soluções de mercado ou eram caixas-pretas caras ou exigiam editar dialplan do Asterisk à mão a cada mudança.",
+      "arquitetura": "O painel é Flask 3.1 sobre PostgreSQL 17, com cerca de 45 rotas REST e cliente próprio da API do Proxmox VE (autenticação por ticket PVEAuthCookie mais CSRFPreventionToken) para provisionar containers direto da interface. O motor de discagem usa concurrent.futures e threading para discagem horizontal, recebendo os eventos do Asterisk por webhook em vez de polling. O banco tem 13 tabelas e 12 índices, com postgresql.conf e pg_hba.conf tunados à mão. O Asterisk conversa com o PostgreSQL por ODBC realtime (res_odbc, func_odbc, cdr_adaptive_odbc, cel_odbc) sobre unixODBC, com SQL escrito direto no dialplan. O IVR não é um menu fixo: são 16 contextos que interpretam um fluxo descrito em JSON, e um editor em React 18 converte bidirecionalmente entre o grafo visual e os passos que o motor executa.",
+      "resultado": "Evolução real de protótipo em CSV até arquitetura MVC com discagem horizontal multinível e motor de IVR completo, com 15 arquivos de teste pytest só do motor de IVR. É o maior projeto do portfólio.",
+      "stack": [
+        "Python",
+        "Flask 3.1",
+        "PostgreSQL 17",
+        "Asterisk PJSIP",
+        "ARI",
+        "ODBC realtime",
+        "React 18",
+        "TailwindCSS",
+        "Docker Compose",
+        "LXC",
+        "Proxmox VE",
+        "pytest"
+      ],
+      "duracao": "12 a 18 meses",
+      "repo": "painel-discador.git",
+      "imagens": [
+        {
+          "arquivo": "discador-01-painel.png",
+          "legenda": "Painel de operação: campanhas, mailing e controle de discagem"
+        },
+        {
+          "arquivo": "discador-02-ivr.png",
+          "legenda": "Editor visual de fluxo de IVR, que gera os passos executados pelo motor"
+        }
+      ]
     },
     {
       "id": "omnichannel",
@@ -576,7 +611,42 @@
           "Cobri os fluxos críticos da versão React/TypeScript com testes end-to-end em Cypress.",
           "Projetei a camada de drivers de integração de forma isolável, permitindo testar cada gateway de mensageria sem depender do fornecedor."
         ]
-      }
+      },
+      "areas": [
+        "backend",
+        "frontend"
+      ],
+      "resumo": "Plataforma de atendimento omnichannel multi-tenant, implementada duas vezes: primeiro em Node e TypeScript, depois reescrita inteira em Laravel.",
+      "problema": "Atendimento espalhado por WhatsApp, e-mail e vídeo, cada canal com sua ferramenta e nenhuma visão única do cliente. E, do lado técnico, um produto preso a um único provedor de WhatsApp — trocar de fornecedor significaria reescrever o núcleo.",
+      "arquitetura": "A primeira implementação usa React 18 com TypeScript, Vite, Express e Drizzle ORM sobre PostgreSQL, com LiveKit e mediasoup para vídeo e segmentação de fundo rodando no navegador com TensorFlow.js e MediaPipe. A reescrita em Laravel 12 resolveu o acoplamento de fornecedor com o padrão Strategy: cinco drivers de WhatsApp (Evolution, Native, WaVoIP, Waha, Whaticket) atrás de uma única WhatsAppDriverInterface, o que torna a troca de provedor uma decisão de configuração. Análise de sentimento e resumo de qualidade rodam como jobs assíncronos contra a API da Groq com Llama 3.1, para não travar o atendimento. O produto tem 41 migrations, 23 arquivos de teste e módulos separados de Analytics, Automação, Chat, Conexão, Mail, Pipeline, Tenant, Vídeo, Webhook e Widget.",
+      "resultado": "Duas implementações completas do mesmo domínio, com paridade de funcionalidades — é o projeto de maior complexidade técnica do portfólio.",
+      "stack": [
+        "PHP 8.2",
+        "Laravel 12",
+        "React 18",
+        "TypeScript",
+        "Drizzle ORM",
+        "PostgreSQL",
+        "LiveKit",
+        "mediasoup",
+        "TensorFlow.js",
+        "Groq",
+        "Llama 3.1",
+        "PHPUnit",
+        "Cypress"
+      ],
+      "duracao": "5 a 6 meses",
+      "repo": "conversio.git",
+      "imagens": [
+        {
+          "arquivo": "omnichannel-01-chat.png",
+          "legenda": "Atendimento unificado: WhatsApp, e-mail e vídeo na mesma caixa"
+        },
+        {
+          "arquivo": "omnichannel-02-automacao.png",
+          "legenda": "Motor de automação e fluxos de bot"
+        }
+      ]
     },
     {
       "id": "pedagio",
@@ -602,7 +672,41 @@
           "Integrei o sistema ao broker de mensageria da concessionária por JMS/STOMP sobre ActiveMQ, com cliente thread-safe.",
           "Distribuí como binário único via PyInstaller, com instaladores para Rocky Linux, Ubuntu e Windows. Qualidade por pytest com testes assíncronos, teste de carga com Locust e mypy."
         ]
-      }
+      },
+      "areas": [
+        "backend"
+      ],
+      "resumo": "Retaguarda de pedágio eletrônico free-flow: lê o transponder do veículo, decifra o payload e entrega para a concessionária em três formatos diferentes.",
+      "problema": "A concessionária recebe leituras de antenas RFID na pista e precisa transformá-las em passagens válidas, com criptografia conforme norma e no formato que o sistema legado dela aceita — que não é o mesmo em toda integração. E tudo isso sob regulamentação: a Resolução ARTESP 001/2014 define até o formato de serialização.",
+      "arquitetura": "API assíncrona em FastAPI com uvicorn. O parser do protocolo da antena CIR decompõe a stringtag no formato [OBUID]_[PayloadHex] em identificador do transponder e payload cifrado; a decriptação AES suporta dez combinações (AES-128 e AES-256 nos modos CBC, ECB, CFB, OFB e CTR), com o modo escolhido por configuração. O mesmo dado sai por três serializadores selecionáveis — Protobuf, JSON e SOAP/XML — porque em integração com sistema legado quem dita o formato é o outro lado. A publicação é em fila JMS/STOMP no broker ActiveMQ da concessionária. O sistema tem licenciamento próprio: assinatura RSA-2048, hash de hardware como identificador de máquina e três níveis de licença, sem a qual não opera. Distribuição em binário único por PyInstaller, com instaladores para Rocky Linux, Ubuntu e Windows.",
+      "resultado": "Sistema entregue no papel de arquiteto de software hands-on para a AstraMobi, implementando as normas ISO/IEC 18000-63, ISO/IEC 29167-10 e a Resolução ARTESP 001/2014. Nove documentos de lições aprendidas foram escritos durante o desenvolvimento, e o projeto é o único do portfólio com teste de carga em Locust e checagem estática de tipos com mypy.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "uvicorn",
+        "cryptography",
+        "Protobuf",
+        "SOAP/XML",
+        "JMS/STOMP",
+        "ActiveMQ",
+        "RSA-2048",
+        "PyInstaller",
+        "pytest",
+        "Locust",
+        "mypy"
+      ],
+      "duracao": "2 meses",
+      "repo": "slt.git",
+      "imagens": [
+        {
+          "arquivo": "pedagio-01-api.png",
+          "legenda": "API de processamento de leitura, documentada em OpenAPI"
+        },
+        {
+          "arquivo": "pedagio-02-arquitetura.png",
+          "legenda": "Do transponder na pista à fila da concessionária"
+        }
+      ]
     },
     {
       "id": "analise-audio",
@@ -639,7 +743,42 @@
           "Fiz o frontend como SPA de arquivo único em JavaScript puro, sem framework nem build, com Canvas desenhando a forma de onda.",
           "Empacotei em Docker e implantei via systemd em LXC/Proxmox. Ferramenta derivada com 121 testes em pytest."
         ]
-      }
+      },
+      "areas": [
+        "backend",
+        "frontend",
+        "ia"
+      ],
+      "resumo": "Detecta picote, dropout e falha de áudio em gravações de chamadas por processamento de sinais — sem depender de transcrição.",
+      "problema": "Quando o cliente reclama que \"a ligação estava picotando\", não há prova: a operação só tem a gravação e a percepção de quem ouviu. Transcrever tudo com IA é caro, lento e não mede qualidade de áudio, mede palavra.",
+      "arquitetura": "Todo o DSP é NumPy: energia RMS por frame de 20 ms com hop de 10 ms convertida em dBFS, janelas deslizantes vetorizadas, e estimativa de ruído de fundo por percentil — que é o discriminador que separa picote de pausa natural na conversa. A análise espectral usa FFT para spectral flatness. O E-model da ITU-T G.107, que converte fator R em MOS, foi implementado do zero. O decodificador de áudio é o ffmpeg, escolhido em vez da libsndfile por preservar os canais separados, o que é essencial para detectar áudio em uma via só. Onde há IA, ela roda local em CPU: faster-whisper em int8 e um LLM GGUF via llama.cpp, sem mandar áudio de cliente para fora. Os modelos SQUIM, NISQA e DNSMOS passaram por avaliação comparativa com corpus rotulado e ficaram desligados por decisão documentada de arquitetura. O painel é Flask com SQLite em modo WAL e uma SPA em JavaScript puro, sem build.",
+      "resultado": "Ferramenta multi-tenant com isolamento físico por cliente, rodando em Docker com gunicorn e systemd. A validação é por injeção: o selftest insere picote e clipping em sinal sintético e confere se a detecção pega, o que testa o DSP sem depender do PABX.",
+      "stack": [
+        "Python 3.14",
+        "NumPy",
+        "FFT",
+        "ITU-T G.107",
+        "Flask",
+        "SQLite WAL",
+        "faster-whisper",
+        "llama.cpp",
+        "ONNX Runtime",
+        "ffmpeg",
+        "Docker",
+        "gunicorn"
+      ],
+      "duracao": "3 meses",
+      "repo": "analisador-chamadas.git",
+      "imagens": [
+        {
+          "arquivo": "analise-audio-01-relatorio.png",
+          "legenda": "Relatório de análise: eventos de picote e dropout por chamada"
+        },
+        {
+          "arquivo": "analise-audio-02-detalhe.png",
+          "legenda": "Detalhe da chamada, com as métricas de sinal"
+        }
+      ]
     },
     {
       "id": "sipproxy",
@@ -664,7 +803,39 @@
           "Testei o caminho de mídia com verificação automatizada do relay, contando tipos de payload RTP efetivamente trafegados.",
           "Escrevi testes de integração em pytest para o painel de administração e o cliente JSON-RPC do motor."
         ]
-      }
+      },
+      "areas": [
+        "backend",
+        "infra"
+      ],
+      "resumo": "SIP proxy e SBC em Kamailio para FusionPBX, com foco em atravessar NAT sem quebrar a mídia.",
+      "problema": "PBX atrás de NAT é a fonte clássica de chamada muda: a sinalização passa, o áudio não. As soluções prontas ou trazem dezenas de módulos que ninguém entende, ou não expõem o modo transparent que o cenário exige.",
+      "arquitetura": "Kamailio com vinte módulos em uso deliberado — a disciplina declarada do projeto é que módulo só entra se estiver em uso ativo. O relay de mídia e o NAT traversal ficam com o rtpengine em modo transparent. O painel é Flask 3.1 organizado em blueprints, com SQLAlchemy 2.0 usando reflection e mapeamento imperativo sobre as tabelas do próprio motor, e um cliente JSON-RPC sobre HTTP conversa com o Kamailio em porta dedicada. A infraestrutura tem quatro Dockerfiles (kamailio, rtpengine, fusionpbx e painel), migrations SQL versionadas e provisionamento do FusionPBX por unit systemd.",
+      "resultado": "Treze cenários de teste em SIPp cobrindo negociação G.729 (incluindo payload type dinâmico contra estático e AVPF sem rtpmap), INVITE de entrada e saída, REGISTER de ramal remoto e rejeição 403 e 404. Isso é teste de conformidade de sinalização SIP, não teste de aplicação.",
+      "stack": [
+        "Kamailio",
+        "rtpengine",
+        "SIP",
+        "SIPp",
+        "Python",
+        "Flask 3.1",
+        "SQLAlchemy 2.0",
+        "MariaDB",
+        "Docker",
+        "systemd"
+      ],
+      "duracao": "3 meses",
+      "repo": "sipproxy-fusionpbx.git",
+      "imagens": [
+        {
+          "arquivo": "sipproxy-01-painel.png",
+          "legenda": "Painel de operadoras, domínios e registros"
+        },
+        {
+          "arquivo": "sipproxy-02-arquitetura.png",
+          "legenda": "Caminho da sinalização e da mídia através do proxy"
+        }
+      ]
     },
     {
       "id": "rpa",
@@ -693,7 +864,32 @@
           "Projetei o sistema para ser testável sem rede: a lógica de regras, detecção de página e estado de sessão é pura e verificável isoladamente.",
           "Implementei evidência auditável por captura de tela a cada etapa, permitindo reconstruir o que a automação viu quando algo falha."
         ]
-      }
+      },
+      "areas": [
+        "backend",
+        "ia"
+      ],
+      "resumo": "Motor genérico de automação de interação web: adaptadores por site sobre um núcleo único, com decisão assistida por IA e evidência em imagem.",
+      "problema": "Automação de navegador costuma nascer como script preso a um site: muda o HTML, quebra tudo, e cada novo site vira um projeto do zero. Além disso, quando a automação erra, não sobra prova do que aconteceu na tela.",
+      "arquitetura": "Node.js com Puppeteer 25 e Prisma 5.22 sobre SQLite, com 46 módulos no núcleo e adaptadores por site — o que é específico de cada site fica no adaptador, o motor de regras é comum. A decisão assistida por IA tem cadeia de fallback multi-provedor (OpenRouter, OpenAI, Anthropic, NVIDIA NIM e OpenCode Zen) sobre dois formatos de API distintos, o compatível com OpenAI e o Anthropic Messages, com fallback determinístico para quando todos falharem. Cada ação registra evidência em captura de tela, e há controle de ritmo, rede de segurança e trava de concorrência. O painel web inicia e para os ciclos.",
+      "resultado": "716 testes passando no runner nativo do Node, sem framework de teste externo.",
+      "stack": [
+        "Node.js",
+        "Puppeteer 25",
+        "Prisma 5.22",
+        "SQLite",
+        "node --test",
+        "OpenRouter",
+        "Anthropic Messages API"
+      ],
+      "duracao": "3 meses",
+      "repo": "vagas-automation-suite.git",
+      "imagens": [
+        {
+          "arquivo": "rpa-01-painel.png",
+          "legenda": "Painel de operação: ciclos, adaptadores e evidências"
+        }
+      ]
     },
     {
       "id": "painel-git",
@@ -724,7 +920,236 @@
           "Construí a plataforma inteira em PHP sem nenhuma dependência de runtime, com interface internacionalizada em 4 idiomas.",
           "129 commits ao longo de quase um ano de operação contínua."
         ]
-      }
+      },
+      "areas": [
+        "backend",
+        "frontend",
+        "infra"
+      ],
+      "resumo": "Alternativa self-hosted a GitHub e GitLab, escrita em PHP puro, sem nenhuma dependência de runtime.",
+      "problema": "Hospedar repositórios privados custa por usuário e por repositório, e um plano de hospedagem compartilhada não dá acesso root ao Apache para instalar GitLab ou Gitea. Sem root, as soluções prontas simplesmente não sobem.",
+      "arquitetura": "O protocolo Git Smart HTTP (upload-pack e receive-pack) é implementado como proxy CGI em PHP, o que dispensa root e funciona em LiteSpeed. O servidor WebDAV segue a RFC 4918 e foi escrito à mão — OPTIONS, PROPFIND, MKCOL, PUT, DELETE, COPY, MOVE, LOCK e UNLOCK — com mutex FIFO por caminho e detecção de sobreposição de escopo de lock. A autenticação aceita Basic e um desafio criptográfico assinado com chave SSH, em que o servidor gera um nonce, o cliente assina com ssh-keygen -Y sign e o servidor verifica contra o authorized_keys; o tratamento de replay é explícito, porque uma operação git manda o mesmo cabeçalho em duas requisições e um desafio de uso único ingênuo quebraria clone e push. O CI/CD dispara por webhook assinado em HMAC-SHA256, com validação anti-SSRF do endpoint e credenciais cifradas em AES-256-GCM. Há ainda rate limiting, ban de IP, log de segurança, token CSRF e interface em quatro idiomas.",
+      "resultado": "32 repositórios privados em produção, com clone por HTTP e por SSH, painel de administração, gerenciador WebDAV e pipeline de deploy. São cerca de 10.800 linhas de PHP, e o composer só traz PHPUnit em desenvolvimento.",
+      "stack": [
+        "PHP 8.2",
+        "Git Smart HTTP",
+        "WebDAV RFC 4918",
+        "AES-256-GCM",
+        "HMAC-SHA256",
+        "gitolite",
+        "PHPUnit",
+        "Docker"
+      ],
+      "duracao": "9 a 11 meses",
+      "repo": "painel-git.git",
+      "imagens": [
+        {
+          "arquivo": "painel-git-01-repos.png",
+          "legenda": "Painel de administração com os repositórios hospedados"
+        },
+        {
+          "arquivo": "painel-git-02-webdav.png",
+          "legenda": "Gerenciador web do servidor WebDAV"
+        }
+      ]
+    },
+    {
+      "id": "evoluai",
+      "nome": "Plataforma de Análise de Interações com IA",
+      "contexto": "produto de cliente",
+      "periodo": "05/2026 - atual",
+      "bullets": {
+        "base": [
+          "Desenvolvo uma plataforma que coleta gravações de PABX e de reuniões, transcreve e produz análise de qualidade assistida por IA, em monorepo Bun com Turborepo.",
+          "Implementei coleta assíncrona com filas BullMQ e Redis, integração OAuth com Google Meet e integração com PABX Yeastar por API, incluindo token compartilhado para respeitar o limite do appliance.",
+          "Trabalho com tRPC 11 e Drizzle ORM ponta a ponta, com tipos compartilhados entre servidor e interface Next.js."
+        ]
+      },
+      "areas": [
+        "frontend",
+        "backend",
+        "ia"
+      ],
+      "resumo": "Coleta gravações de PABX e de reuniões, transcreve e gera análise de qualidade de atendimento assistida por IA.",
+      "problema": "A qualidade do atendimento é avaliada por amostragem manual: um supervisor ouve algumas ligações por mês e preenche uma planilha. O que não foi ouvido não existe, e o critério muda conforme quem ouviu.",
+      "arquitetura": "Monorepo em Bun com Turborepo, servidor Hono com tRPC 11 e Drizzle ORM sobre PostgreSQL, autenticação com better-auth e validação com Zod 4. A coleta é assíncrona em filas BullMQ sobre Redis, o que permite reprocessar sem travar a interface. As integrações são duas: Google Meet por OAuth, com conexão self-service por usuário, e PABX Yeastar por API, com token compartilhado entre processos porque o appliance limita a oito tokens a cada trinta minutos. A interface é Next.js com a stack TanStack completa, shadcn/ui e TailwindCSS 4. Áudio vai para S3 com URL pré-assinada, observabilidade em Sentry e pino, documentação em fumadocs.",
+      "resultado": "Análise de todas as interações coletadas em vez de amostra, com atribuição por ramal, coleta retroativa e opt-in por usuário. O código-fonte é proprietário do cliente e por isso não está disponível.",
+      "stack": [
+        "Bun",
+        "Turborepo",
+        "Hono",
+        "tRPC 11",
+        "Drizzle ORM",
+        "PostgreSQL",
+        "BullMQ",
+        "Redis",
+        "Next.js",
+        "TanStack",
+        "shadcn/ui",
+        "TailwindCSS 4",
+        "OpenAI",
+        "AWS S3",
+        "Vitest"
+      ],
+      "duracao": "3 meses",
+      "repo": null,
+      "imagens": [
+        {
+          "arquivo": "evoluai-01-analise.png",
+          "legenda": "Análise de uma interação, com transcrição e pontuação"
+        }
+      ]
+    },
+    {
+      "id": "email-cleanup",
+      "nome": "Bot Autônomo de Limpeza de Caixa Postal",
+      "contexto": "projeto próprio",
+      "periodo": "06/2026 - atual",
+      "bullets": {
+        "base": [
+          "Construí um bot que classifica e remove e-mail em massa por IA, operando em ciclo autônomo sobre IMAP.",
+          "Implementei cadeia de fallback entre modelo local (Ollama) e provedores externos, para o ciclo não parar quando um provedor falha."
+        ]
+      },
+      "areas": [
+        "backend",
+        "ia"
+      ],
+      "resumo": "Bot que classifica e limpa caixa postal em massa por IA, em ciclo autônomo sobre IMAP.",
+      "problema": "Uma caixa postal com dezenas de milhares de mensagens acumuladas não se resolve por regra de filtro: as regras precisam ser escritas uma a uma, e não entendem contexto. Fazer à mão é inviável pelo volume.",
+      "arquitetura": "Node.js falando IMAP direto com imap-simple e mailparser, com a classificação feita por IA em cadeia de fallback: primeiro um modelo local em Ollama, depois provedores externos em cascata, para o ciclo não parar quando um deles falha. O modo autônomo roda a cada trinta minutos sobre a caixa de entrada e o spam. Onde o provedor não oferece API, a automação de navegador entra com Puppeteer e Playwright.",
+      "resultado": "Cerca de 98.800 mensagens processadas e removidas, com o resultado conferido na própria caixa.",
+      "stack": [
+        "Node.js",
+        "IMAP",
+        "imap-simple",
+        "mailparser",
+        "Ollama",
+        "Puppeteer",
+        "Playwright"
+      ],
+      "duracao": "2 meses",
+      "repo": "email_cleanup_bot.git",
+      "imagens": [
+        {
+          "arquivo": "email-cleanup-01-ciclo.png",
+          "legenda": "Ciclo autônomo em execução, com a classificação por mensagem"
+        }
+      ]
+    },
+    {
+      "id": "asterisk-lab",
+      "nome": "Laboratório de Asterisk como Servidor de Mídia",
+      "contexto": "estudo técnico próprio",
+      "periodo": "07/2026",
+      "bullets": {
+        "base": [
+          "Montei um laboratório para avaliar o Asterisk no papel de servidor de mídia (relay, NAT, gravação e transcodificação) e comparar com a solução em uso.",
+          "Conduzi o estudo com SIPp e captura de pacotes, concluindo por manter o rtpengine em vez de substituí-lo."
+        ]
+      },
+      "areas": [
+        "backend",
+        "infra"
+      ],
+      "resumo": "Laboratório que avalia o Asterisk como servidor de mídia — relay, NAT, gravação e transcodificação — para decidir uma troca de arquitetura.",
+      "problema": "Trocar o componente de mídia de uma plataforma de voz é uma decisão cara e difícil de desfazer. A pergunta era se o Asterisk ou o FreeSWITCH poderiam substituir o rtpengine no proxy SIP, e responder isso por opinião não serve.",
+      "arquitetura": "Ambiente reproduzível em Docker Compose, com o Asterisk configurado como media server. A carga e os cenários vêm do SIPp, e a verificação é por captura de pacotes — olhando o fluxo RTP real, não o log da aplicação. Foram medidos relay com NAT, gravação de chamada e transcodificação.",
+      "resultado": "O estudo concluiu que o rtpengine não deve ser substituído por FreeSWITCH nem por Asterisk no proxy SIP, e a decisão ficou documentada com a evidência que a sustenta. É um laboratório de decisão de arquitetura, não um produto.",
+      "stack": [
+        "Asterisk",
+        "Docker Compose",
+        "SIPp",
+        "RTP",
+        "captura de pacotes",
+        "transcodificação"
+      ],
+      "duracao": "1 mês",
+      "repo": "asterisk-media-server-lab.git",
+      "imagens": [
+        {
+          "arquivo": "asterisk-lab-01-arquitetura.png",
+          "legenda": "Topologia do laboratório e o caminho da mídia"
+        }
+      ]
+    },
+    {
+      "id": "vitalpbx-whatsapp",
+      "nome": "WhatsApp Calling da Meta integrado a PBX",
+      "contexto": "projeto de cliente",
+      "periodo": "07/2026",
+      "bullets": {
+        "base": [
+          "Integrei a chamada de voz do WhatsApp (WhatsApp Calling da Meta) a um PBX Asterisk/VitalPBX, documentando o processo em diário de bordo.",
+          "Identifiquei que a Meta não usa REGISTER SIP e sim a Graph API, o que muda a arquitetura da integração."
+        ]
+      },
+      "areas": [
+        "backend",
+        "infra"
+      ],
+      "resumo": "Integração da chamada de voz do WhatsApp com um PBX Asterisk/VitalPBX, incluindo o levantamento de como a Meta realmente sinaliza.",
+      "problema": "A empresa queria receber chamadas de voz do WhatsApp na mesma fila de atendimento do PBX. A documentação disponível assume que a integração é um tronco SIP comum, e não é.",
+      "arquitetura": "O achado que define o projeto é que a Meta não faz REGISTER SIP: a sinalização passa pela Graph API, e só a mídia é SIP/RTP. Isso muda a integração de \"cadastrar um tronco\" para \"manter uma ponte entre a API e o PBX\". Do lado da mídia, a criptografia é DTLS-SRTP, e o parâmetro dtls_auto_generate_cert exige atenção — configurado errado, a chamada completa a sinalização e fica sem áudio.",
+      "resultado": "Integração levantada e documentada em diário de bordo, com as configurações que funcionaram e as armadilhas encontradas registradas para quem repetir o processo.",
+      "stack": [
+        "Asterisk",
+        "VitalPBX",
+        "WhatsApp Calling",
+        "Meta Graph API",
+        "DTLS-SRTP",
+        "SIP"
+      ],
+      "duracao": "1 mês",
+      "repo": "vitalpbx-whatsapp-calling.git",
+      "imagens": [
+        {
+          "arquivo": "vitalpbx-whatsapp-01-arquitetura.png",
+          "legenda": "Sinalização pela Graph API e mídia por SIP/RTP"
+        }
+      ]
+    },
+    {
+      "id": "pfsense-api",
+      "nome": "Correção na API REST do pfSense",
+      "contexto": "contribuição a projeto open source",
+      "periodo": "07/2026",
+      "bullets": {
+        "base": [
+          "Diagnostiquei e corrigi um falso positivo de conflito na criação de reserva DHCP estática da API REST do pfSense, ajustando o teste do projeto junto."
+        ]
+      },
+      "areas": [
+        "backend",
+        "infra"
+      ],
+      "resumo": "Correção de um falso positivo de conflito ao criar reserva DHCP estática dentro do pool principal, na API REST do pfSense.",
+      "problema": "Criar uma reserva DHCP estática com endereço dentro do pool primário era recusado pela API como conflito de endereço. O comportamento é legítimo em rede — reservar um IP que pertence ao pool é prática comum — e a validação estava rígida demais.",
+      "arquitetura": "O trabalho foi de leitura antes de escrita: entender a validação de sobreposição dentro de uma base de mais de três mil commits, isolar a condição que gerava o falso positivo e corrigir sem afrouxar as checagens que existem por bom motivo. O teste do próprio projeto, que codificava o comportamento errado, foi ajustado junto.",
+      "resultado": "Correção aplicada e validada em produção no firewall onde o problema apareceu. A correção é pública: o projeto é open source sob Apache 2.0 e a contribuição está no fork.",
+      "stack": [
+        "PHP",
+        "pfSense",
+        "API REST",
+        "DHCP",
+        "Vagrant",
+        "mkdocs"
+      ],
+      "duracao": "pontual",
+      "repo": null,
+      "patch": {
+        "commit": "550f8750",
+        "titulo": "Fix false conflict when creating DHCP static mapping inside primary pool",
+        "upstream": "https://github.com/pfrest/pfSense-pkg-RESTAPI",
+        "arquivos": 4,
+        "linhas": 94
+      },
+      "imagens": [
+        {
+          "arquivo": "pfsense-api-01-patch.png",
+          "legenda": "O diff da correção, com o teste do projeto ajustado junto"
+        }
+      ]
     }
   ],
   "formacao": [
