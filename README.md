@@ -92,6 +92,8 @@ docs/
   DIARIO.md            decisões e achados, em ordem — comece por aqui
   PROXIMAS_FRENTES.md  o que está enfileirado
   CV_ESTRATEGIA.md     inventário técnico dos projetos, com evidência
+  PORTFOLIO_COMO_FOI_FEITO.md  como cada projeto foi levantado e fotografado,
+                       e as armadilhas de publicar no WordPress (runbook)
   superpowers/         spec e plano do multi-perfil
 ```
 
