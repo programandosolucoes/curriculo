@@ -214,14 +214,61 @@ pfSense saiu de `git show 550f8750`.
 
 ---
 
-## 4. Publicar no WordPress: três defeitos que só apareceram no ar
+## 4. Publicar no WordPress sem a senha do WordPress
 
-O ambiente foi levantado antes de escrever qualquer coisa: WordPress e painel
-Git estão **no mesmo Hostinger e na mesma conta SSH**, e o servidor já tem
-**WP-CLI** em `/usr/local/bin/wp`. Isso permitiu publicar por script, de
-forma repetível, em vez de arrastar blocos no editor.
+**Nenhuma credencial do WordPress foi usada — nem pedida.** Vale entender por
+quê, porque isso é tanto a explicação do método quanto um fato de segurança
+sobre este servidor.
 
-### 4.1 O tema não tinha menu registrado
+### 4.1 A cadeia de acesso
+
+1. A chave `~/.ssh/id_ed25519` já estava autorizada em
+   `u560021660@git.programandosolucoes.com.br`, porta 65002 — acesso
+   concedido antes, para o trabalho no painel Git.
+2. `ls ~/domains/` no começo da sessão revelou o elo: **os dois sites moram
+   na mesma conta de hospedagem**. O WordPress fica em
+   `~/domains/carloslopes.programandosolucoes.com.br/public_html/`, vizinho
+   do `~/domains/git.programandosolucoes.com.br/`.
+3. O servidor tem **WP-CLI** em `/usr/local/bin/wp`.
+
+### 4.2 Por que o WP-CLI dispensa login
+
+O WP-CLI não é um cliente que conversa com o site pela web. Ele é PHP rodando
+**dentro** do servidor: lê o `wp-config.php`, pega dali as credenciais do
+MySQL e carrega o WordPress inteiro em memória, já com privilégio total. Não
+existe tela de login no caminho.
+
+A consequência é direta e vale registrar:
+
+> **Quem tem SSH nesta conta tem controle total do WordPress, sem nunca
+> precisar da senha de administrador.** Publicar página, trocar tema, criar
+> usuário, ler o banco — tudo. A senha do WordPress protege a porta da frente;
+> o SSH entra pelos fundos, e os fundos são a mesma casa.
+
+Isso não é falha do Hostinger nem deste site — é como hospedagem compartilhada
+funciona em qualquer lugar. Mas significa que **a chave SSH desta conta é uma
+credencial de nível mais alto que a senha do WordPress**, e merece o cuidado
+correspondente.
+
+### 4.3 Autor 0: o defeito que passou
+
+`wp post create` **não assume um autor** quando não recebe `--post_author`.
+As 14 páginas foram criadas com `post_author = 0`, ou seja, sem autor — o que
+aparece vazio no site e na listagem do admin.
+
+Corrigido depois (`--post_author=1`, o usuário `carlosalberto4ti`), e o
+`publicar-wp.sh` passou a passar o autor sempre, nos dois caminhos: criação e
+atualização.
+
+**A lição é sobre verificação:** "14 páginas criadas com sucesso" era verdade
+e mesmo assim o resultado estava errado. Só apareceu quando os campos foram
+conferidos um a um, e não quando o comando retornou sucesso.
+
+---
+
+## 5. Três defeitos do WordPress que só apareceram no ar
+
+### 5.1 O tema não tinha menu registrado
 
 `wp menu list` voltou **vazio**. O tema Newsup então caía no comportamento
 padrão do WordPress: sem menu atribuído, ele **lista todas as páginas
@@ -241,7 +288,7 @@ wp --skip-plugins menu location assign 107 primary
 página nova criada aqui entra sozinha no menu enquanto não houver menu
 atribuído — e agora há.
 
-### 4.2 O permalink não é `/slug`
+### 5.2 O permalink não é `/slug`
 
 ```bash
 wp option get permalink_structure
@@ -253,7 +300,7 @@ apontando para `/<slug>` e **davam 404, todos**. A correção foi no gerador
 (`basePagina` em `portfolio/config.json`), não na configuração do site —
 mudar a estrutura de permalinks quebraria os links antigos, indexados.
 
-### 4.3 O LiteSpeed Cache polui a saída do WP-CLI
+### 5.3 O LiteSpeed Cache polui a saída do WP-CLI
 
 Cada comando imprime `Success: Purged all caches successfully.`, que se
 mistura ao valor de `--porcelain`. O primeiro `menu create` devolveu a
@@ -266,7 +313,7 @@ falha com "Invalid location primary".
 
 ---
 
-## 5. Decisões de conteúdo tomadas durante a captura
+## 6. Decisões de conteúdo tomadas durante a captura
 
 - **Um print do IVR foi descartado.** Mostrava os fluxos reais com nomes de
   campanha de cliente (CLARO URA, CLARO MOVEL, VIVO URA) e os DIDs. Citar
@@ -284,7 +331,7 @@ falha com "Invalid location primary".
 
 ---
 
-## 6. Runbook
+## 7. Runbook
 
 **Mudar texto de um projeto:** edite `cv/mestre.json` (nunca a página no
 WordPress — o próximo publish sobrescreve), depois:
@@ -315,7 +362,7 @@ curl -s -o /dev/null -w '%{http_code}\n' \
 
 ---
 
-## 7. Em aberto
+## 8. Em aberto
 
 - **Clone com credencial válida nunca foi testado.** Sabemos que sem
   credencial é negado (401 em todos os repositórios, confirmado). Que a senha

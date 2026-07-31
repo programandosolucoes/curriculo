@@ -11,6 +11,9 @@ set -euo pipefail
 SSH_ALVO="u560021660@git.programandosolucoes.com.br"
 SSH_PORTA=65002
 WP_PATH="~/domains/carloslopes.programandosolucoes.com.br/public_html"
+# Sem --post_author o WP-CLI grava autor 0 (nenhum), e a página sai sem autor
+# no site e na listagem do admin. 1 = carlosalberto4ti, o administrador.
+AUTOR_WP=1
 DESTINO_IMG="$WP_PATH/wp-content/uploads/portfolio"
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BUILD="$RAIZ/portfolio/build"
@@ -20,7 +23,7 @@ DRY_RUN=""
 
 wp_remoto() {
   # shellcheck disable=SC2029
-  ssh -p "$SSH_PORTA" "$SSH_ALVO" "cd $WP_PATH && wp $*"
+  ssh -p "$SSH_PORTA" "$SSH_ALVO" "cd $WP_PATH && wp --skip-plugins $*"
 }
 
 campo() { node -e "console.log(require('$BUILD/paginas.json')[$1].$2)"; }
@@ -60,17 +63,20 @@ for ((i = 0; i < total; i++)); do
   existente="$(wp_remoto "post list --post_type=page --name=$slug --field=ID --format=ids" | tr -d '\r')"
 
   if [[ -n "$existente" ]]; then
-    wp_remoto "post update $existente /tmp/pagina.html --post_title='$titulo'" > /dev/null
+    wp_remoto "post update $existente /tmp/pagina.html --post_title='$titulo' --post_author=$AUTOR_WP" > /dev/null
     echo "  atualizada: $slug (ID $existente)"
   else
-    novo="$(wp_remoto "post create /tmp/pagina.html --post_type=page --post_status=publish --post_name=$slug --post_title='$titulo' --porcelain" | tr -d '\r')"
+    novo="$(wp_remoto "post create /tmp/pagina.html --post_type=page --post_status=publish --post_name=$slug --post_title='$titulo' --post_author=$AUTOR_WP --porcelain" | tr -d '\r')"
     echo "  criada: $slug (ID $novo)"
   fi
 done
 
 if [[ -z "$DRY_RUN" ]]; then
   echo "==> Passo 3: limpar cache"
-  wp_remoto "litespeed-purge all" > /dev/null 2>&1 || echo "  (LiteSpeed não respondeu; siga)"
+  # Sem --skip-plugins aqui, porque este comando É do plugin LiteSpeed.
+  # shellcheck disable=SC2029
+  ssh -p "$SSH_PORTA" "$SSH_ALVO" "cd $WP_PATH && wp litespeed-purge all" > /dev/null 2>&1 \
+    || echo "  (LiteSpeed não respondeu; siga)"
 fi
 
 echo "==> Pronto."
