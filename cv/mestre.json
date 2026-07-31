@@ -1154,6 +1154,52 @@
           "legenda": "O diff da correção, com o teste do projeto ajustado junto"
         }
       ]
+    },
+    {
+      "id": "auditor-amd",
+      "nome": "Auditoria de Classificador de Secretária Eletrônica (AMD)",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "07/2026 - atual",
+      "bullets": {
+        "base": [
+          "Construí uma ferramenta que audita o classificador de secretária eletrônica (AMD) de uma plataforma de discagem de terceiro, apontando os falsos positivos dela com evidência por chamada.",
+          "Reaproveitei sem alteração o motor DSP + Whisper + LLM local do projeto irmão de análise de qualidade, para que o veredito da auditoria fosse independente do sistema auditado.",
+          "Classifiquei a divergência em cinco categorias e implementei registro de reclamação com exportação em CSV para alimentar o faturamento."
+        ]
+      },
+      "areas": [
+        "backend",
+        "frontend",
+        "ia"
+      ],
+      "resumo": "Audita o classificador de secretária eletrônica de uma plataforma de discagem e mostra, chamada a chamada, onde ele erra.",
+      "problema": "Um discador classifica cada chamada atendida como humano ou secretária eletrônica, e cobra por isso. Quando a classificação erra, o cliente paga por chamada que não virou conversa — e não tem como provar, porque a única fonte da verdade é o próprio sistema que errou. Reclamar sem evidência não leva a lugar nenhum.",
+      "arquitetura": "A ferramenta não substitui o classificador do fornecedor: ela audita. Para cada chamada do período, baixa a gravação e roda um motor de análise independente — DSP para picote, robotização, clipping, one-way e nível, transcrição por Whisper e classificação por um LLM Qwen2.5 local — e compara o veredito próprio com o amd_reason original. O motor é o mesmo do projeto irmão de análise de qualidade, portado sem alteração de lógica, justamente para que a auditoria não dependa do sistema auditado. A divergência cai em cinco categorias: falso positivo de máquina para humano, o inverso, defeito técnico, concordante e indeterminado. A regra central é que defeito sempre vence máquina — uma chamada com áudio quebrado não é secretária eletrônica, é falha. O job roda em background com cursor de continuidade, e a correlação com empresa e tronco é feita por uid no CDR, nunca por id bruto, porque ids se repetem entre espaços diferentes e atribuiriam o tronco errado.",
+      "resultado": "Painel Flask com as cinco categorias, filtro por empresa e por tronco, registro de reclamação por chamada e exportação em CSV das confirmadas, para alimentar o faturamento. São 121 testes. Foi construído com implementador e revisor separados por tarefa, mais uma revisão final do conjunto — processo que achou defeitos reais antes da produção, entre eles um job sem cursor que reprocessaria a mesma janela para sempre e um filtro que quebrava em silêncio por comparar texto do formulário com número da API.",
+      "stack": [
+        "Python",
+        "Flask",
+        "SQLite",
+        "NumPy",
+        "faster-whisper",
+        "llama.cpp",
+        "Qwen2.5",
+        "pytest",
+        "Docker",
+        "systemd"
+      ],
+      "duracao": "1 mês",
+      "repo": "nextqualify-auditor.git",
+      "imagens": [
+        {
+          "arquivo": "auditor-amd-01-painel.png",
+          "legenda": "As cinco categorias de divergência, com filtro por empresa e por tronco"
+        },
+        {
+          "arquivo": "auditor-amd-02-regras.png",
+          "legenda": "O manual do sistema: o fluxo da auditoria e a regra de veredito"
+        }
+      ]
     }
   ],
   "formacao": [

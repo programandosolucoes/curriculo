@@ -32,7 +32,7 @@ senha de produção trafega, nenhum dado de cliente aparece, e nada é
 inventado. É o mesmo princípio do `post-linkedin-analisador`, que já existia
 no portfólio justamente para isso.
 
-**Resultado:** 11 imagens são prints reais; 9 são figuras declaradamente
+**Resultado:** 13 imagens são prints reais; 9 são figuras declaradamente
 geradas (diagramas e blocos de terminal), para os projetos que não têm
 interface.
 
@@ -162,7 +162,39 @@ docker compose -p demo-discador -f docker-compose.yml -f override.yml up -d --bu
   Playback + DTMF, Case Switch, Transferir) para a captura mostrar o editor
   em uso, e não uma tela em branco.
 
-### 2.6 O que não subiu, e a régua usada
+### 2.6 nextqualify-auditor — o projeto que eu tinha esquecido
+
+**Este card não existia na primeira publicação.** O usuário notou a falta.
+
+A causa foi de leitura, não de execução: o `CV_ESTRATEGIA.md` consolida
+`analisador-chamadas` **e** `nextqualify-auditor` como um único projeto (o #5),
+porque para efeito de currículo eles são uma linha só. Eu li a linha, escrevi
+o card sobre a primeira ferramenta e a segunda evaporou — sem o AMD, sem as
+cinco categorias de divergência, sem os 121 testes.
+
+A lição: **num currículo, consolidar projetos economiza espaço; num
+portfólio, consolidar apaga trabalho.** São formatos com regras opostas, e
+usar o inventário do CV como fonte sem reexpandir as fusões perde exatamente
+os projetos que foram agrupados.
+
+Como subiu, já com o padrão dos outros:
+
+```bash
+cd ~/ide/nextqualify-auditor
+PANEL_HOST=127.0.0.1 PANEL_PORT=18300 .venv/bin/python server.py
+```
+
+O projeto já tinha `.venv` própria — nada a instalar. Login padrão de fábrica
+`admin`/`admin` (registrado como pendência no próprio projeto: ninguém trocou
+em produção ainda). Capturados o painel, com as cinco categorias e os filtros
+por empresa e tronco, e a aba Manual, que explica o fluxo e a regra de
+veredito.
+
+Havia a alternativa de fotografar a instância publicada em
+`178.92.192.254:8090`, que respondia. Rodar local foi preferido: não encosta
+no servidor de teste e não corre o risco de capturar dado de auditoria real.
+
+### 2.7 O que não subiu, e a régua usada
 
 `sipproxy-fusionpbx` precisa de Flask (não instalado no sistema) e de
 MariaDB, além de Kamailio e rtpengine. Passou do limite que o plano
@@ -367,6 +399,11 @@ curl -s -o /dev/null -w '%{http_code}\n' \
 - **Clone com credencial válida nunca foi testado.** Sabemos que sem
   credencial é negado (401 em todos os repositórios, confirmado). Que a senha
   correta **passa** é suposição até alguém rodar `git clone` com ela.
+- **Comparativo de modelos neurais de MOS** (DNSMOS × SQUIM × NISQA ×
+  E-model próprio, com a conclusão de que os neurais são cegos a silêncio e
+  que os pesos do NISQA são CC BY-NC, inviável comercialmente) continua fora
+  do card de análise de chamadas. É material forte, decidido ficar para
+  depois.
 - **EvoluAI e painel do SIP proxy** estão com diagrama. Semeando o banco de
   desenvolvimento do primeiro, dá para recapturar e republicar.
 - **Acesso de convidado do painel Git** estava desligado no dia da

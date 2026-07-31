@@ -68,5 +68,10 @@
     "slug": "portfolio-pfsense-api",
     "titulo": "Correção na API REST do pfSense",
     "arquivo": "portfolio-pfsense-api.html"
+  },
+  {
+    "slug": "portfolio-auditor-amd",
+    "titulo": "Auditoria de Classificador de Secretária Eletrônica (AMD)",
+    "arquivo": "portfolio-auditor-amd.html"
   }
 ]

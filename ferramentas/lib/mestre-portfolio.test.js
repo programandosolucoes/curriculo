@@ -8,8 +8,16 @@ const mestre = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', '..', 'cv', 'mestre.json'), 'utf8'),
 );
 
-test('o mestre tem os 12 projetos do portfólio', () => {
-  assert.strictEqual(mestre.projetos.length, 12);
+test('o mestre tem os 13 projetos do portfólio', () => {
+  assert.strictEqual(mestre.projetos.length, 13);
+});
+
+test('a auditoria de AMD é projeto próprio, com repositório', () => {
+  const auditor = mestre.projetos.find(p => p.id === 'auditor-amd');
+  assert.ok(auditor, 'o auditor de AMD sumiu do mestre');
+  assert.strictEqual(auditor.repo, 'nextqualify-auditor.git');
+  // o motor é portado do projeto irmão; os dois precisam continuar existindo
+  assert.ok(mestre.projetos.find(p => p.id === 'analise-audio'));
 });
 
 test('todos os projetos do mestre passam na validação', () => {
