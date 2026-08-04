@@ -34,7 +34,10 @@
     "rpa",
     "omnichannel",
     "discador",
-    "analise-audio"
+    "analise-audio",
+    "vtiger-eventos-discador",
+    "migrador-email",
+    "email-cleanup"
   ],
   "filtro_termos": [
     "rpa",

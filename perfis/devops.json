@@ -39,7 +39,11 @@
     "discador",
     "sipproxy",
     "painel-git",
-    "analise-audio"
+    "analise-audio",
+    "airllm",
+    "skills-hub",
+    "vtiger-crm",
+    "pfsense-api"
   ],
   "categorias_alvo": [
     "DevOps",

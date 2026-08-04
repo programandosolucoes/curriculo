@@ -33,7 +33,13 @@
     "analise-audio",
     "rpa",
     "omnichannel",
-    "discador"
+    "discador",
+    "amd-dsp",
+    "vtiger-assistente-ia",
+    "transcricao-diarizacao",
+    "airllm",
+    "auditor-amd",
+    "evoluai"
   ],
   "filtro_termos": [
     "inteligência artificial",

@@ -35,7 +35,10 @@
     "discador",
     "analise-audio",
     "pedagio",
-    "painel-git"
+    "painel-git",
+    "migrador-email",
+    "latex-resume-builder",
+    "touchtypingtrainer"
   ],
   "categorias_alvo": [
     "Desenvolvedor",

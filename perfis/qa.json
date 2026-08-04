@@ -29,7 +29,8 @@
     "rpa",
     "analise-audio",
     "sipproxy",
-    "omnichannel"
+    "omnichannel",
+    "migrador-email"
   ],
   "categorias_alvo": [
     "QA"

@@ -36,7 +36,9 @@
     "painel-git",
     "pedagio",
     "sipproxy",
-    "analise-audio"
+    "analise-audio",
+    "vtiger-assistente-ia",
+    "pfsense-api"
   ],
   "categorias_alvo": [
     "Segurança da Informação"

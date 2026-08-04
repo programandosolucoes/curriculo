@@ -30,7 +30,8 @@
     "analise-audio",
     "discador",
     "omnichannel",
-    "rpa"
+    "rpa",
+    "transcricao-diarizacao"
   ],
   "categorias_alvo": [
     "Analista de Dados"

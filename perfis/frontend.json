@@ -28,7 +28,9 @@
     "omnichannel",
     "discador",
     "analise-audio",
-    "painel-git"
+    "painel-git",
+    "latex-resume-builder",
+    "touchtypingtrainer"
   ],
   "filtro_termos": [
     "front-end",

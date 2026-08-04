@@ -43,7 +43,11 @@
     "sipproxy",
     "analise-audio",
     "omnichannel",
-    "pedagio"
+    "pedagio",
+    "amd-dsp",
+    "vtiger-eventos-discador",
+    "vitalpbx-whatsapp",
+    "asterisk-lab"
   ],
   "filtro_termos": [
     "voip",

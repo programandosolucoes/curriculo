@@ -1207,6 +1207,505 @@
           "legenda": "O manual do sistema: o fluxo da auditoria e a regra de veredito"
         }
       ]
+    },
+    {
+      "id": "amd-dsp",
+      "nome": "Detector de Secretária Eletrônica por Processamento de Sinais",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026",
+      "bullets": {
+        "base": [
+          "Portei o algoritmo de detecção de secretária eletrônica do Asterisk (app_amd.c, em C) para Python/NumPy, preservando os nomes e os defaults do amd.conf para que quem já ajustou o original reaproveite a configuração.",
+          "Medi o resultado em 80 gravações reais de discador em vez de estimar: 100% de recall em máquina (37/37) e 78% de acurácia global, com a análise de por que os falsos positivos aparecem naquela amostra.",
+          "Documentei os limites do algoritmo antes do uso, incluindo a armadilha de VAD que quase produziu a conclusão errada de que o método não funcionava."
+        ],
+        "ia": [
+          "Resolvi por processamento de sinais um problema que o mercado trata como caso de IA: detecção de secretária eletrônica sem modelo, sem treino e sem inferência, decidindo por cadência de fala (silêncio inicial, duração do bloco contínuo e número de blocos).",
+          "Medi contra 80 gravações reais rotuladas por transcrição: 100% de recall em máquina, o que habilita o uso como pré-filtro barato antes da etapa cara — na amostra medida, 34% das chamadas nunca precisariam de transcrição ou LLM.",
+          "Escrevi a documentação de quando o algoritmo serve e quando não serve, com a origem de cada falso positivo classificada por causa (LONGGREETING, MAXWORDS, INITIALSILENCE)."
+        ],
+        "voip": [
+          "Portei o app_amd.c do Asterisk para Python/NumPy mantendo o contrato de AMDSTATUS e AMDCAUSE, para que o resultado seja lido pelo mesmo dialplan e pelas mesmas integrações que já consomem o AMD nativo.",
+          "Acrescentei detecção de bipe por algoritmo de Goertzel, que o AMD original não faz, permitindo saber quando a saudação da caixa postal terminou.",
+          "Medi em 80 gravações reais de discador: 100% de recall em máquina, sem nenhuma dependência além de NumPy e ffmpeg — roda offline, em CPU modesta, sem chamada de rede."
+        ]
+      },
+      "areas": [
+        "backend",
+        "ia"
+      ],
+      "resumo": "Detecta secretária eletrônica por cadência de fala, sem IA, sem modelo e sem treino — com o resultado medido em 80 chamadas reais.",
+      "problema": "Discador que não distingue pessoa de caixa postal desperdiça o tempo mais caro da operação: o do agente. A resposta usual hoje é transcrever a chamada e perguntar a um modelo de linguagem, o que custa segundos de GPU por ligação e não roda offline. O algoritmo clássico do Asterisk resolve isso em C, dentro do dialplan, mas fica preso lá: não dá para usar sobre gravação, em lote, ou dentro de um pipeline de análise.",
+      "arquitetura": "Porte fiel do app_amd.c para Python/NumPy, decidindo apenas por cadência: quanto tempo houve silêncio antes da fala, quanto durou o bloco contínuo de fala e quantos blocos existiram. A intuição é velha e sólida — quem atende diz alô e espera resposta, enquanto a secretária eletrônica emenda uma saudação longa sem pausa. Os nomes de status e causa são os mesmos do Asterisk (MACHINE/LONGGREETING, MAXWORDS, INITIALSILENCE, MAXWORDLENGTH; HUMAN; NOTSURE/TOOLONG), assim como os parâmetros do amd.conf, para que a configuração já ajustada em produção seja reaproveitada sem tradução. A detecção de bipe usa o algoritmo de Goertzel, mais barato que uma FFT completa quando se procura uma frequência conhecida. As dependências são NumPy e ffmpeg, e nada mais: sem rede, sem GPU, sem modelo em disco.",
+      "resultado": "Em 80 gravações reais de discador no pior cenário para o método — áudio pós-atendimento com as duas pernas misturadas — obteve 100% de recall em máquina (37 de 37) e 78% de acurácia global. O erro é conservador na direção certa: nenhuma máquina escapa, mas 37% dos humanos são marcados como máquina, e a análise mostra que isso vem de o áudio conter a URA de oferta, não de falha do algoritmo. Serve como pré-filtro: tudo classificado como HUMAN pode ser aceito sem segunda opinião, o que corta 34% do trabalho antes de qualquer etapa cara. São 428 linhas de teste para 584 de código, e a documentação registra a armadilha de VAD que quase produziu a conclusão falsa de que AMD sem IA não funciona.",
+      "stack": [
+        "Python",
+        "NumPy",
+        "ffmpeg",
+        "Goertzel",
+        "pytest",
+        "Asterisk"
+      ],
+      "duracao": "1 semana",
+      "repo": "amd-dsp.git",
+      "imagens": [
+        {
+          "arquivo": "amd-dsp-01-cadencia.png",
+          "legenda": "A decisão por cadência: o que separa um alô de uma saudação de caixa postal"
+        },
+        {
+          "arquivo": "amd-dsp-02-resultado.png",
+          "legenda": "Resultado medido em 80 chamadas reais, com a leitura de cada número"
+        }
+      ]
+    },
+    {
+      "id": "vtiger-crm",
+      "nome": "Recuperação e Operação de CRM vtiger em Produção",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026",
+      "bullets": {
+        "base": [
+          "Diagnostiquei por que a instalação padrão do vtiger CRM 8.4 sobe com o menu quebrado: a tabela vtiger_app2tab tinha 11 vínculos em vez de 38, e os módulos continuavam ativos mas invisíveis, sem recuperação possível pela interface.",
+          "Escrevi scripts PHP idempotentes que encontram a instalação sozinhos, corrigem o que dá para corrigir e explicam o que exige ação manual, saindo com código de retorno próprio para uso em monitoramento.",
+          "Construí um ambiente de demonstração com 3 usuários, papéis distintos e 49 registros interligados, incluindo o papel de Suporte que o vtiger não traz de fábrica."
+        ],
+        "dev": [
+          "Diagnostiquei e corrigi uma instalação de vtiger CRM 8.4 cujo menu subiu quebrado: a origem era a tabela vtiger_app2tab incompleta (11 de 38 vínculos), e o Menu Editor da interface só faz UPDATE, nunca INSERT — não havia caminho de recuperação pela aplicação.",
+          "Escrevi 3.291 linhas de PHP em scripts idempotentes e auto-descobríveis: backup antes de qualquer escrita, modo dry-run, verificação de integridade de menu, módulos órfãos, cron e permissões, com código de saída distinto quando sobra pendência manual.",
+          "Corrigi o schema do dashboard, que tinha três colunas usadas pelo código e ausentes na tabela, e consolidei tudo em um patch único de pós-instalação."
+        ]
+      },
+      "areas": [
+        "backend"
+      ],
+      "resumo": "Diagnóstico e correção de uma instalação de vtiger CRM que sobe com o menu quebrado — com scripts idempotentes e ambiente de demonstração.",
+      "problema": "A instalação padrão do vtiger CRM 8.4 sobe com o menu lateral mutilado. O sintoma engana: os módulos continuam ativos e funcionando por URL direta, mas somem da navegação — Contatos, Organizações, Leads, Oportunidades, Campanhas, Produtos, Faturas, Cotações, Tickets e Relatórios. E não há recuperação pela interface, porque o Menu Editor só atualiza vínculos existentes, nunca cria os que faltam. Quem não conhece a origem conclui que o sistema perdeu os módulos.",
+      "arquitetura": "O menu do vtiger é montado exclusivamente pela tabela vtiger_app2tab, e nela estava a falha: 11 vínculos em vez de 38, sem os apps MARKETING, SALES e PROJECT. A correção é em banco, não em código, o que exigiu um conjunto de scripts com disciplina de produção: backup obrigatório antes de qualquer escrita, dry-run para ver o efeito antes de aplicar, e descoberta automática do caminho da instalação para que o mesmo script sirva em qualquer host. O verificador cobre menu, módulos órfãos, integridade da tabela, usuários, cron e permissões, e sai com código 0 ou 1 conforme sobre pendência — o que permite pendurá-lo em monitoramento. O ambiente de demonstração cria três usuários com papéis distintos e ramais reais no campo phone_crm_extension, que é de onde o PBXManager tira a origem ao disparar uma chamada, e monta 49 registros interligados para que relatórios e dashboards tenham o que mostrar.",
+      "resultado": "CRM em produção com os 38 vínculos de menu, dashboard corrigido (o schema tinha três colunas que o código usava e a tabela não tinha) e um patch único de pós-instalação que reconstrói tudo em banco novo ou restaurado. Seis documentos cobrem diagnóstico, instalação, cron na hospedagem compartilhada, operação diária, ambiente de demonstração e o patch consolidado. Os scripts de demonstração são idempotentes e auto-corretivos: rodar de novo não duplica, e quem já existe tem papel e ramal conferidos e ajustados.",
+      "stack": [
+        "PHP",
+        "MySQL",
+        "vtiger CRM 8.4",
+        "Apache",
+        "Bash",
+        "cron"
+      ],
+      "duracao": "1 semana",
+      "repo": "vtiger-crmweb.git",
+      "imagens": [
+        {
+          "arquivo": "vtiger-crm-01-diagnostico.png",
+          "legenda": "O diagnóstico: 11 vínculos de menu onde deveriam existir 38"
+        },
+        {
+          "arquivo": "vtiger-crm-02-verificador.png",
+          "legenda": "O verificador de integridade, que sai com código próprio para monitoramento"
+        }
+      ]
+    },
+    {
+      "id": "vtiger-assistente-ia",
+      "nome": "Assistente de IA com Acesso aos Dados do CRM",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026",
+      "bullets": {
+        "base": [
+          "Desenvolvi um addon de vtiger CRM que adiciona conversa com IA capaz de consultar os dados do próprio CRM por chamada de função, decidindo sozinha quando precisa consultar e quando é só conversa.",
+          "Desenhei a fronteira de segurança em quatro travas: lista branca de módulos que exclui Usuários e Configurações, nenhum caminho para SQL arbitrário, execução com a permissão do usuário logado e auditoria de tudo que a IA escreve.",
+          "Empacotei como módulo instalável pela própria interface do vtiger, com a chave de API lida por entrada padrão — nunca por argumento, que apareceria em ps e no histórico do shell."
+        ],
+        "ia": [
+          "Implementei chamada de função (function calling) sobre um provedor compatível com a API da OpenAI, com quatro ferramentas expostas ao modelo — buscar, contar, descrever módulo e criar registro — deixando a decisão de consultar ou não com o próprio modelo.",
+          "Tratei a defesa contra injeção de instrução como problema de arquitetura, não de prompt: a lista branca de módulos impede que uma instrução hostil no meio da conversa alcance dados administrativos, e não existe caminho de código para consulta bruta ao banco.",
+          "Diagnostiquei duas armadilhas da API que custaram tempo: o Cloudflare à frente do provedor responde 403 sem User-Agent e não menciona isso na mensagem, e os modelos gratuitos gastam o orçamento de tokens raciocinando antes de responder, devolvendo conteúdo vazio com finish_reason length quando max_tokens é baixo."
+        ],
+        "seguranca": [
+          "Desenhei a fronteira de segurança de um assistente de IA com acesso a dados de CRM concentrando as quatro travas em um único arquivo: lista branca de módulos (sem Usuários nem Configurações), ausência de caminho para SQL arbitrário, execução sob a permissão do usuário logado e auditoria de toda escrita.",
+          "Deixei a criação de registros desligada por padrão, para que autorizar uma IA a escrever no CRM seja decisão consciente do administrador e não efeito colateral da instalação.",
+          "Tratei a credencial fora do código e fora do argumento de linha de comando: a chave é lida da entrada padrão e vive no banco da instalação, sem ser versionada."
+        ]
+      },
+      "areas": [
+        "backend",
+        "frontend",
+        "ia"
+      ],
+      "resumo": "Addon de vtiger que responde perguntas consultando os dados do próprio CRM, com a fronteira de segurança desenhada antes da funcionalidade.",
+      "problema": "Colocar IA sobre um CRM é fácil de fazer errado. O caminho ingênuo é dar ao modelo uma conexão de banco e pedir que ele escreva a consulta, o que transforma qualquer instrução hostil no meio de uma conversa em acesso administrativo. E responder \"quantos contatos existem\" sem consultar os dados produz um número inventado, que é pior que não responder.",
+      "arquitetura": "A IA não fala com o banco: fala com quatro ferramentas declaradas — buscar registros, contar registros, descrever módulo e criar registro — e decide sozinha quando invocá-las. Toda a fronteira de segurança vive em um arquivo único, propositalmente, para que revisar a superfície de risco seja ler um arquivo. São quatro travas: lista branca de módulos, que alcança Contatos, Organizações, Leads, Oportunidades, Chamados, Produtos, Serviços e Atividades e nunca Usuários ou Configurações; ausência de qualquer caminho para SQL arbitrário, com toda leitura e escrita passando pelas APIs do vtiger que já aplicam permissão; execução com a permissão do usuário logado, de modo que quem não vê Oportunidades pela interface também não vê pela IA; e auditoria em tabela própria de tudo que a IA cria, com quem pediu e quais campos. A criação de registros nasce desligada. O provedor padrão é compatível com a API da OpenAI e oferece modelos gratuitos, então o addon funciona sem custo de inferência.",
+      "resultado": "Módulo instalável pela interface do vtiger (Configurações → Módulos → Importar módulo) ou por linha de comando, com instalador que encontra a instalação sozinho, teste de ponta a ponta e manual dentro da própria aplicação. Duas armadilhas do provedor ficaram tratadas no código e documentadas: o User-Agent obrigatório, sem o qual o Cloudflare responde 403 com um código de erro que não explica a causa, e o mínimo de tokens de 300, porque os modelos gratuitos raciocinam antes de responder e com orçamento baixo devolvem resposta vazia parecendo travamento.",
+      "stack": [
+        "PHP",
+        "MySQL",
+        "vtiger CRM",
+        "JavaScript",
+        "function calling",
+        "API compatível com OpenAI"
+      ],
+      "duracao": "3 dias",
+      "repo": "vtiger-addon-assistente-ia.git",
+      "imagens": [
+        {
+          "arquivo": "vtiger-ia-01-ferramentas.png",
+          "legenda": "As quatro ferramentas expostas ao modelo e as quatro travas de segurança"
+        }
+      ]
+    },
+    {
+      "id": "vtiger-eventos-discador",
+      "nome": "Integração Bidirecional entre CRM e PABX",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026",
+      "bullets": {
+        "base": [
+          "Liguei CRM e PABX nos dois sentidos: callback do discador para o CRM, que transforma cada chamada em registro vinculado ao contato, e Click2Call, que origina a chamada no PABX a partir de um clique no telefone dentro do CRM.",
+          "Escrevi um middleware que traduz o HTTP do CRM em Originate na interface AMI do Asterisk, validado contra um PABX simulado em Docker que fala o mesmo contrato.",
+          "Fiz o match de telefone comparar apenas os últimos 8 dígitos, que é o que sobrevive às variações reais de DDI, DDD, nono dígito e pontuação."
+        ],
+        "voip": [
+          "Integrei Asterisk/Issabel a um CRM nos dois sentidos: eventos de chamada viram registro no CRM por callback, e o Click2Call origina a chamada por Originate na AMI, casando o ramal do agente com o usuário do CRM pelo campo phone_crm_extension.",
+          "Projetei o callback para responder 202 imediatamente e enfileirar, porque o PABX não pode ficar esperando o CRM processar; o cron é a rede de segurança e o payload cru fica guardado, o que permite reprocessar depois de corrigir uma regra.",
+          "Validei os sete cenários contra a instalação real, incluindo reenvio do mesmo uuid (atualiza, não duplica), token inválido recusado e Click2Call por túnel com as três fases da chamada voltando no mesmo registro."
+        ],
+        "rpa": [
+          "Automatizei o registro de chamadas no CRM por webhook, com motor de regras configurável: condições em JSON, estratégia de match (telefone, id externo ou ambos), módulo de destino e política para quando não encontra — registrar solto, criar lead ou descartar.",
+          "Deixei desligada por padrão a regra que cria Lead a partir de número desconhecido, porque criar um Lead a cada engano de discagem enche o CRM de lixo.",
+          "Guardei o payload cru de cada evento, o que responde a pergunta que sempre aparece na operação — o evento chegou? — e permite reprocessar a fila depois de ajustar uma regra."
+        ]
+      },
+      "areas": [
+        "backend",
+        "infra"
+      ],
+      "resumo": "Callback de chamadas e Click2Call ligando CRM e PABX nos dois sentidos, com motor de regras e PABX simulado para teste.",
+      "problema": "Operação que usa CRM e telefonia separados obriga o agente a registrar a chamada na mão, e o que não é registrado não existe no relatório. A integração ingênua tem dois defeitos previsíveis: o PABX fica esperando o CRM responder, o que atrasa a própria telefonia, e o casamento entre número discado e contato falha porque nenhum banco guarda telefone no mesmo formato que o PABX entrega.",
+      "arquitetura": "O callback responde 202 na hora e enfileira, de propósito: o PABX não pode ficar bloqueado esperando o CRM, então o processamento acontece logo depois e o cron serve de rede de segurança. O payload cru é guardado, o que permite reprocessar depois de corrigir uma regra e responder se o evento chegou. O match por telefone compara apenas dígitos e apenas os últimos 8 — a comparação de string inteira erraria quase sempre, porque um número gravado como (11) 3214-5566 nunca casaria com 551132145566 vindo do tronco. As regras são configuráveis em condições JSON, com estratégia de match e política de destino para quando não há vínculo. No sentido inverso, um middleware traduz o HTTP do CRM em Originate na AMI do Asterisk. A segurança do callback tem token comparado com hash_equals, allowlist de IP com CIDR, e X-Forwarded-For só é considerado quando o proxy é declarado confiável — ligá-lo sem proxy à frente tornaria a lista de IPs burlável.",
+      "resultado": "Sete cenários validados contra a instalação real, incluindo o reenvio do mesmo uuid, que atualiza em vez de duplicar, e o Click2Call por túnel com as três fases da chamada voltando no mesmo registro. Os testes revelaram dois defeitos que valem para qualquer código que toque o vtiger e ficaram documentados: fetchByAssoc faz HTML-encode por padrão, o que transforma as aspas de um JSON guardado em &quot; e faz o json_decode falhar em silêncio; e a tabela vtiger_pbxmanager não tem coluna callid — o campo de uuid chama-se sourceuuid, e o INSERT falhava calado enquanto o código reportava sucesso. As tabelas são preservadas na desinstalação, porque jogar fora o histórico de chamadas seria destrutivo.",
+      "stack": [
+        "PHP",
+        "MySQL",
+        "Asterisk AMI",
+        "Docker",
+        "Python",
+        "vtiger CRM",
+        "webhooks"
+      ],
+      "duracao": "1 semana",
+      "repo": "vtiger-addon-eventos-discador.git",
+      "imagens": [
+        {
+          "arquivo": "vtiger-eventos-01-fluxo.png",
+          "legenda": "Os dois sentidos: callback do PABX para o CRM e Click2Call do CRM para o PABX"
+        },
+        {
+          "arquivo": "vtiger-eventos-02-cenarios.png",
+          "legenda": "Os sete cenários validados contra a instalação real"
+        }
+      ]
+    },
+    {
+      "id": "migrador-email",
+      "nome": "Migrador de Caixa Postal IMAP para Outlook",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026",
+      "bullets": {
+        "base": [
+          "Desenvolvi um aplicativo gráfico de mesa que migra uma conta IMAP inteira para uma conta Outlook, deixando pelo caminho um backup local em mbox, usando somente a biblioteca padrão do Python — sem pip install de nada.",
+          "Separei a migração em duas etapas retomáveis: se o envio falha no meio, o reenvio não baixa nada de novo, e rodar duas vezes não duplica mensagem.",
+          "Implementei autenticação por OAuth2 no fluxo device code, porque a Microsoft desligou senha no IMAP para contas 365, mantendo usuário e senha para servidores locais."
+        ],
+        "dev": [
+          "Escrevi 5.630 linhas de Python usando exclusivamente a biblioteca padrão, decisão que elimina a etapa de instalação de dependências para o usuário final — o programa roda com o Python oficial recém-instalado, no Windows e no Linux.",
+          "Organizei em módulos com fronteira explícita: o cliente IMAP não conhece mbox nem Outlook, o repositório mbox não conhece IMAP, e a interface só chama os módulos abaixo dela — o que permitiu testar o motor sem Tkinter.",
+          "Preservei a data original de cada mensagem, os nomes de pasta em UTF-7 modificado do IMAP e as flags de lido, respondido e sinalizado; sem isso a caixa migrada apareceria toda com a data da migração e perderia a ordem cronológica."
+        ],
+        "qa": [
+          "Montei a suíte contra dois servidores Dovecot de verdade em contêineres, não contra simulações de IMAP: são 2.054 linhas de teste para 3.576 de código, e sem os contêineres no ar os testes de integração são pulados com instrução em vez de falharem por ambiente.",
+          "Verifiquei a interface gráfica de verdade em tela virtual dentro de um contêiner — a janela é construída, as abas percorridas e os controles acionados — sem precisar de monitor e sem instalar nada na máquina do desenvolvedor.",
+          "Acrescentei uma variável de ambiente que faz a verificação salvar um PNG de cada aba, transformando o teste de interface em evidência visual revisável."
+        ]
+      },
+      "areas": [
+        "backend",
+        "frontend"
+      ],
+      "resumo": "Aplicativo de mesa que migra uma conta IMAP inteira para o Outlook com backup em mbox, retomável, só com a biblioteca padrão do Python.",
+      "problema": "Migrar caixa postal entre provedores é trabalho que costuma acabar em ferramenta paga, script frágil de uso único ou arrastar pasta no cliente de e-mail. Os três perdem o que mais importa: a data original das mensagens. Sem ela a caixa migrada aparece inteira com a data da migração e a ordem cronológica se perde. E a Microsoft desligou autenticação por senha no IMAP das contas 365, o que quebra a maioria dos scripts existentes.",
+      "arquitetura": "Duas etapas separadas e retomáveis — do servidor de origem para mbox no disco, e do mbox para a conta de destino — com um índice JSON ao lado de cada arquivo mbox registrando onde cada mensagem está, suas flags e a data original. É esse índice que permite retomada exata sem varrer o arquivo inteiro e garante que rodar duas vezes não duplique mensagem. A autenticação cobre os dois mundos: OAuth2 no fluxo device code para Microsoft 365 e Outlook.com, onde a senha no IMAP foi desligada, e usuário e senha para Exchange local, cPanel, Dovecot e Zimbra. A restrição autoimposta de usar apenas a biblioteca padrão do Python eliminou a etapa de instalação de dependências para quem recebe o programa. Os módulos têm fronteira explícita: o cliente IMAP não conhece mbox nem destino, o repositório mbox não conhece IMAP, e a interface apenas chama os módulos — por isso o motor é testável sem Tkinter. Há ainda um conversor opcional de PST para mbox, que lê mas não escreve o formato, porque não existe biblioteca livre confiável que escreva PST em nenhuma linguagem.",
+      "resultado": "Aplicativo que roda no Windows e no Linux com o Python oficial, sem instalar dependência. A suíte roda contra dois servidores Dovecot reais em contêineres, com 2.054 linhas de teste, e a interface gráfica é verificada de verdade em tela virtual dentro de um contêiner — janela construída, abas percorridas, controles acionados — opcionalmente salvando um PNG de cada aba como evidência. O que não é migrado está dito na documentação em vez de descoberto no uso: contatos e agenda não trafegam por IMAP e precisam ser exportados pela interface do provedor.",
+      "stack": [
+        "Python",
+        "Tkinter",
+        "IMAP",
+        "OAuth2",
+        "mbox",
+        "Docker",
+        "Dovecot",
+        "Xvfb",
+        "unittest"
+      ],
+      "duracao": "1 semana",
+      "repo": "migrador-email.git",
+      "imagens": [
+        {
+          "arquivo": "migrador-email-01-etapas.png",
+          "legenda": "As duas etapas retomáveis e o índice que impede duplicar mensagem"
+        },
+        {
+          "arquivo": "migrador-email-02-testes.png",
+          "legenda": "A suíte contra Dovecot real e a verificação de interface em tela virtual"
+        }
+      ]
+    },
+    {
+      "id": "airllm",
+      "nome": "Servidor de LLM de 235B em GPU de 6 GB",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "07/2026",
+      "bullets": {
+        "base": [
+          "Montei um servidor compatível com a API da OpenAI que roda modelos de linguagem de até 235 bilhões de parâmetros em uma GPU de 6 GB, carregando uma camada por vez em vez do modelo inteiro.",
+          "Empacotei como projeto portátil com Python embarcado, scripts de setup, download paralelo dos shards e monitor de saúde que testa a API periodicamente.",
+          "Documentei os limites e as armadilhas medidas, incluindo a incompatibilidade de versão que trava o carregamento e a corrupção da instalação embarcada ao atualizar o torch."
+        ],
+        "ia": [
+          "Implementei um servidor FastAPI compatível com a API da OpenAI (/v1/models, /v1/chat/completions, /health) sobre offloading camada a camada: o modelo é carregado no dispositivo meta, cada camada sobe para a GPU, computa e volta para CPU ou disco, mantendo o pico de VRAM em 2 a 3 GB independentemente do tamanho total.",
+          "Fiz o servidor detectar o porte do modelo pelo identificador e escolher sozinho a estratégia — compressão 4bit para os grandes, fp16 para os pequenos — porque a configuração errada não falha, apenas estoura a memória no meio da inferência.",
+          "Registrei os números reais de custo: o Qwen3-235B ocupa 1.556 GB crus em disco e cerca de 438 GB depois do split em 4 bits, o que torna a restrição de armazenamento mais séria que a de VRAM."
+        ],
+        "devops": [
+          "Empacotei o servidor como projeto portátil para Windows: Python embarcável preparado por script, dependências instaladas e patch aplicado automaticamente, sem exigir instalação de Python na máquina.",
+          "Escrevi o download paralelo dos shards do modelo e um monitor de saúde que consulta a API periodicamente, mais scripts de limpeza dos shards crus após o split.",
+          "Documentei as armadilhas de ambiente que quebram a instalação: atualizar o torch dentro do Python embarcável corrompe a instalação com arquivos de prefixo temporário que causam travamento, e a versão da biblioteca de transformers precisa ser pinada para o modelo MoE carregar."
+        ]
+      },
+      "areas": [
+        "backend",
+        "ia"
+      ],
+      "resumo": "Servidor local compatível com a API da OpenAI que roda modelos de 235B em GPU modesta, carregando uma camada por vez.",
+      "problema": "Rodar um modelo de linguagem grande localmente esbarra na VRAM: um modelo de 235 bilhões de parâmetros não cabe em GPU de consumo, e a resposta padrão é alugar GPU na nuvem — o que significa mandar o texto para fora e pagar por token. Para quem quer inferência local por privacidade ou custo, a alternativa costuma ser aceitar um modelo muito menor.",
+      "arquitetura": "O truque é não carregar o modelo. As camadas são registradas no dispositivo meta, sem peso em memória, e a inferência sobe uma camada por vez para a GPU, computa e devolve para CPU ou disco. O pico de VRAM fica em 2 a 3 GB independentemente do tamanho total do modelo, trocando memória por tempo e por leitura de disco. Em volta disso há um servidor FastAPI que fala o protocolo da OpenAI, o que permite apontar qualquer cliente existente para ele sem alterar código. O servidor detecta o porte do modelo pelo identificador e escolhe a estratégia sozinho — compressão em 4 bits e prefetching para os grandes, fp16 para os pequenos — porque a configuração errada não falha de imediato, apenas estoura a memória no meio da inferência. Todo o conjunto é portátil: o Python embarcável é preparado por script, as dependências e o patch são aplicados sem intervenção, e o menu de inicialização escolhe o modelo.",
+      "resultado": "Servidor local que responde no protocolo da OpenAI rodando modelos que não caberiam na GPU, com monitor de saúde, download paralelo de shards e limpeza dos arquivos crus após o split. A documentação registra os números que decidem a viabilidade — 1.556 GB crus em disco para o Qwen3-235B, cerca de 438 GB depois do split em 4 bits — e as armadilhas de ambiente que custaram tempo: a versão da biblioteca de transformers precisa ser pinada para o modelo MoE carregar, e atualizar o torch dentro do Python embarcável corrompe a instalação de um jeito que se manifesta como travamento, não como erro.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "PyTorch",
+        "AirLLM",
+        "Transformers",
+        "CUDA",
+        "Qwen3",
+        "DeepSeek"
+      ],
+      "duracao": "2 semanas",
+      "repo": "airllm.git",
+      "imagens": [
+        {
+          "arquivo": "airllm-01-offloading.png",
+          "legenda": "Uma camada por vez: como um modelo de 235B roda em 6 GB de VRAM"
+        },
+        {
+          "arquivo": "airllm-02-custo.png",
+          "legenda": "O custo real em disco e VRAM de cada modelo configurado"
+        }
+      ]
+    },
+    {
+      "id": "skills-hub",
+      "nome": "Acervo de Skills de Agentes de IA Multi-CLI",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026",
+      "bullets": {
+        "base": [
+          "Construí um instalador que baixa skills de agentes de IA de várias fontes públicas, consolida em um acervo único sem duplicata nem conflito de nome, e distribui para quatro ferramentas de linha de comando diferentes de uma vez.",
+          "Fiz a desinstalação remover apenas o que o próprio hub instalou, sem encostar no que o usuário instalou por fora.",
+          "Medi o custo escondido do acervo completo — cerca de 121 mil tokens de catálogo fixo em toda sessão — e criei perfis de instalação enxuta para quem não quer pagar isso."
+        ],
+        "ia": [
+          "Consolidei cerca de 2.060 skills de agentes de IA vindas de fontes públicas distintas em um acervo único, resolvendo duplicata e conflito de nome, e distribuí para quatro CLIs que leem skills de diretórios diferentes.",
+          "Medi o que ninguém mede nesse tipo de acervo: cada skill publica nome e descrição no contexto de toda sessão, o que dá cerca de 121 mil tokens fixos por sessão com o acervo completo — e criei perfis de instalação reduzida a partir dessa medição.",
+          "Escrevi um gerador de mapa de repositório em Python puro que extrai símbolos por linguagem, monta o grafo de importações e ranqueia os arquivos por PageRank, entregando ao agente um índice dentro de um orçamento de tokens em vez de deixá-lo varrer o código."
+        ],
+        "devops": [
+          "Escrevi um instalador em shell e Python padrão que sincroniza fontes externas, consolida um acervo único e o distribui para quatro destinos distintos, com estado declarado em arquivos de texto editáveis (fontes, alvos e perfis).",
+          "Implementei desinstalação segura por rastreio do que foi instalado, para que remover o acervo não apague o que o usuário colocou lá por conta própria.",
+          "Mantive a dependência em zero: só Python padrão e git, sem serviço rodando e sem banco, para que replicar em outra máquina seja clonar e rodar um comando."
+        ]
+      },
+      "areas": [
+        "backend"
+      ],
+      "resumo": "Acervo consolidado de ~2.060 skills de agentes de IA instalado em quatro CLIs de uma vez, com o custo de contexto medido.",
+      "problema": "Cada ferramenta de agente de IA lê skills de um diretório próprio, então quem usa mais de uma acaba com cópias divergentes ou reinstala tudo à mão a cada máquina. As fontes públicas se sobrepõem e usam o mesmo nome para coisas diferentes, o que produz conflito silencioso. E há um custo que quase ninguém mede: cada skill publica nome e descrição no contexto de toda sessão, então um acervo grande cobra caro antes de o trabalho começar.",
+      "arquitetura": "Três etapas separadas — baixar, consolidar e instalar — com o estado declarado em arquivos de texto que o usuário edita: de onde vêm as skills, para onde vão, e quais subconjuntos existem. A consolidação resolve duplicata e conflito de nome, dando prioridade às skills escritas no próprio repositório sobre as externas, e gera um catálogo com a fonte e a descrição de cada uma. A desinstalação rastreia o que o hub instalou e remove apenas isso, para não apagar o que o usuário colocou no mesmo diretório por conta própria. Junto vai um gerador de mapa de repositório sem dependência externa: lista os arquivos versionados, extrai símbolos por linguagem, monta o grafo de importações e ranqueia com PageRank por iteração de potência, emitindo um mapa dentro de um orçamento de tokens — o índice que o agente lê em vez de varrer o código.",
+      "resultado": "Um comando instala o acervo em quatro CLIs; outro mostra onde ficou. A medição do custo de contexto do acervo completo (cerca de 121 mil tokens fixos por sessão) motivou os perfis de instalação enxuta, que reduzem de cerca de 2.060 para cerca de 33 skills. A documentação compara as abordagens existentes de mapa de repositório e grafo de código, com os números divulgados por cada projeto tratados como ordem de grandeza e não como promessa.",
+      "stack": [
+        "Python",
+        "Bash",
+        "Git",
+        "PageRank",
+        "Mermaid"
+      ],
+      "duracao": "3 dias",
+      "repo": "skills-hub.git",
+      "imagens": [
+        {
+          "arquivo": "skills-hub-01-fluxo.png",
+          "legenda": "Baixar, consolidar e instalar: um acervo, quatro destinos"
+        },
+        {
+          "arquivo": "skills-hub-02-custo.png",
+          "legenda": "O custo de contexto medido e o que os perfis enxutos economizam"
+        }
+      ]
+    },
+    {
+      "id": "touchtypingtrainer",
+      "nome": "Recuperação de Código-Fonte a partir de Executável",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026",
+      "bullets": {
+        "base": [
+          "Recuperei o código-fonte perdido de um programa de treino de digitação a partir dos executáveis empacotados, com verificação objetiva: as 3.512 instruções de bytecode conferidas caem na mesma linha do original, e recompilar o fonte recuperado produz bytecode idêntico ao extraído.",
+          "Reorganizei o arquivo único de 507 linhas em módulos comentados sem mudança de comportamento, mantendo a cópia fiel ao lado para comparação.",
+          "Acrescentei geração de exercícios por IA sem embutir credencial no executável, com banco de frases pré-gerado para funcionar na primeira execução e sem internet."
+        ],
+        "dev": [
+          "Recuperei o fonte de um programa Python empacotado com PyInstaller e verifiquei a recuperação por comparação de bytecode em vez de leitura: 3.316 instruções conferidas semanticamente, 3.512 de 3.512 na mesma linha do original, e o arquivo com as mesmas 507 linhas.",
+          "Separei o arquivo único em seis módulos com responsabilidade declarada, preservando a cópia fiel do original em pasta própria — a prova de que a reorganização não mudou comportamento.",
+          "Implementei duas edições geradas do mesmo código, trocando apenas a biblioteca de interface no empacotamento, depois de provar por comparação de bytecode que essa era a única diferença entre os dois binários distribuídos originalmente."
+        ],
+        "frontend": [
+          "Reconstruí a interface de um treinador de digitação com correção caractere a caractere ao vivo — cinza para não digitado, verde para certo, vermelho para errado — e duas medidas distintas de erro: a do texto final e a de cada posição em que o usuário tropeçou mesmo tendo corrigido depois.",
+          "Implementei internacionalização em três idiomas com desenho ASCII do teclado correspondente (ABNT2, US QWERTY e QWERTY italiano) e legenda de qual dedo usa qual tecla.",
+          "Recriei a janela inteira na troca de idioma em vez de atualizar rótulo por rótulo, porque os textos mudam de largura entre idiomas e os frames não se redimensionam depois de criados — a alternativa rápida entregava texto cortado."
+        ]
+      },
+      "areas": [
+        "backend",
+        "frontend"
+      ],
+      "resumo": "Fonte de um programa recuperado do executável com verificação por bytecode, reorganizado em módulos e estendido com exercícios por IA.",
+      "problema": "O código-fonte de um programa em uso tinha se perdido; restavam apenas os dois executáveis distribuídos. Sem fonte não há correção, não há tradução nova e não há funcionalidade nova — e a recuperação por descompilação tem um risco próprio: produzir um código que parece certo, roda parecido e diverge em silêncio do original em algum ponto que ninguém testou.",
+      "arquitetura": "A recuperação foi tratada como problema de verificação, não de leitura. O passo decisivo é identificar a versão exata do Python embutido, porque o formato do bytecode muda a cada versão menor e todas as ferramentas seguintes dependem disso. Extraído o pacote e descompilado o módulo, a conferência não foi visual: uma ferramenta compara instrução a instrução o bytecode do fonte recuperado contra o extraído do executável, ignorando apenas as instruções que não mudam comportamento. Comentários e docstrings não sobrevivem à compilação e por isso não foram recuperados; todo o resto foi, inclusive a distribuição do código em linhas. Só depois de verificado o arquivo foi dividido em seis módulos, com a cópia fiel preservada ao lado como prova. A extensão veio depois: geração de exercícios por IA usando modelos gratuitos que respondem sem credencial, o que evita embutir chave no executável, com banco de frases pré-gerado para a funcionalidade existir na primeira execução e sem internet, e a chamada em thread separada para a janela não congelar.",
+      "resultado": "Fonte recuperado e verificado — 3.512 de 3.512 instruções na mesma linha do original, e recompilar produz bytecode idêntico ao extraído. A comparação também respondeu a uma pergunta de produto: o bytecode dos dois binários distribuídos era idêntico exceto por uma instrução, a importação da biblioteca de interface, provando que a única diferença entre as edições era essa. Hoje o mesmo código gera as duas edições, trocando a biblioteca no empacotamento. O programa ganhou três idiomas, desenho do teclado por layout, duas medidas de erro e exercícios por IA sem credencial embutida.",
+      "stack": [
+        "Python",
+        "PyInstaller",
+        "bytecode",
+        "engenharia reversa",
+        "FreeSimpleGUI",
+        "Tkinter",
+        "i18n"
+      ],
+      "duracao": "1 semana",
+      "repo": "touchtypingtrainer.git",
+      "imagens": [
+        {
+          "arquivo": "touchtyping-01-recuperacao.png",
+          "legenda": "Do executável ao fonte verificado, com a conferência instrução a instrução"
+        }
+      ]
+    },
+    {
+      "id": "transcricao-diarizacao",
+      "nome": "Pipeline de Transcrição e Separação de Falantes",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "07/2026",
+      "bullets": {
+        "base": [
+          "Montei um pipeline que transcreve reuniões e vídeos em português e separa quem falou o quê, entregando texto legível, legenda e JSON com início, fim e falante de cada trecho.",
+          "Implementei dois métodos de separação de falantes com trocas diferentes: um por referência de voz, offline e sem token, e outro de alta precisão que trata sobreposição de vozes.",
+          "Fiz o pipeline usar GPU quando existe e cair para CPU quando não existe, sem exigir mudança de comando."
+        ],
+        "ia": [
+          "Montei um pipeline de transcrição com Whisper large-v3 em float16 na GPU, com queda automática para int8 em CPU, somado a diarização por embeddings de voz e agrupamento hierárquico.",
+          "Implementei dois caminhos de diarização com trocas explícitas: embeddings de voz com similaridade de cosseno a partir de amostras de referência — offline, sem token e sem enviar áudio para fora — e um modelo de estado da arte que separa automaticamente e trata sobreposição, ao custo de exigir token e aceite de licença.",
+          "Registrei no próprio projeto o que degrada o resultado: áudio de reunião com vozes sobrepostas e ruído reduz a precisão dos dois estágios, e o rótulo de falante é arbitrário — o sistema separa vozes, não sabe nomes."
+        ],
+        "dados": [
+          "Entreguei a saída em quatro formatos derivados da mesma execução — áudio normalizado, JSON com início, fim, texto e falante por segmento, transcrição legível com marcação de tempo e legenda — para que o mesmo processamento sirva a consumo humano e a processamento posterior.",
+          "Normalizei a entrada com extração de áudio em 16 kHz mono, condição do modelo de transcrição, aceitando qualquer formato de vídeo ou áudio na entrada.",
+          "Organizei a saída por nome do arquivo de origem, de modo que o processamento em lote não misture resultados."
+        ]
+      },
+      "areas": [
+        "backend",
+        "ia"
+      ],
+      "resumo": "Transcreve reuniões em português e separa os falantes, com dois métodos de diarização e queda automática para CPU.",
+      "problema": "Transcrever uma reunião resolve metade do problema: um bloco de texto sem indicação de quem falou não permite atribuir decisão, compromisso ou objeção a ninguém. Os serviços que fazem as duas coisas exigem enviar o áudio para fora, o que nem sempre é aceitável para conversa de trabalho.",
+      "arquitetura": "O áudio é extraído em 16 kHz mono, que é a condição do modelo de transcrição, e passa por Whisper large-v3 em float16 na GPU, com queda automática para int8 em CPU quando não há placa. A separação de falantes tem dois caminhos, escolhidos por troca explícita. O primeiro usa embeddings de voz com agrupamento hierárquico, ou similaridade de cosseno contra amostras de referência de cada pessoa: roda offline, não exige token e não envia áudio para lugar nenhum. O segundo usa um modelo de estado da arte que separa automaticamente e trata sobreposição de vozes, ao custo de exigir token e aceite de licença. A saída sai em quatro formatos da mesma execução — áudio normalizado, JSON por segmento com início, fim, texto e falante, transcrição legível com marcação de tempo, e legenda — para servir tanto a leitura humana quanto a processamento posterior.",
+      "resultado": "Pipeline reutilizável que processa vídeo ou áudio de reunião e entrega transcrição com falante identificado, aplicado a uma conferência real de 31 minutos. O projeto documenta o que degrada o resultado em vez de esconder: sobreposição de vozes e ruído reduzem a precisão dos dois estágios, e o rótulo de falante é arbitrário — o sistema separa vozes, não sabe nomes, e a nomeação é do operador.",
+      "stack": [
+        "Python",
+        "faster-whisper",
+        "pyannote.audio",
+        "Resemblyzer",
+        "scikit-learn",
+        "CUDA",
+        "ffmpeg"
+      ],
+      "duracao": "1 semana",
+      "repo": "transcricao-diarizacao.git",
+      "imagens": [
+        {
+          "arquivo": "transcricao-01-pipeline.png",
+          "legenda": "Do vídeo à legenda com falante, com os dois caminhos de diarização"
+        }
+      ]
+    },
+    {
+      "id": "latex-resume-builder",
+      "nome": "Editor Web de Currículos em LaTeX",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026",
+      "bullets": {
+        "base": [
+          "Desenvolvi um editor web de currículos em LaTeX com preview em tempo real, salvamento automático e exportação para PDF e Word, com a compilação acontecendo no navegador.",
+          "Entreguei duas variantes do mesmo produto: a completa com backend em Node e uma somente PHP, que instala em hospedagem compartilhada como um WordPress instala.",
+          "Dispensei o servidor de compilação, que é o componente caro e frágil desse tipo de aplicação, movendo o LaTeX para o cliente."
+        ],
+        "frontend": [
+          "Construí a interface em React com editor dividido e preview em tempo real, salvamento automático a cada dois segundos, barra de comandos LaTeX comuns e suporte a múltiplos documentos por usuário, responsiva de celular a desktop.",
+          "Movi a compilação inteira para o navegador — LaTeX para PDF por SwiftLaTeX e LaTeX para Word por Pandoc — com renderização do resultado por PDF.js, o que faz a aplicação continuar funcionando offline depois do primeiro carregamento.",
+          "Distribuí o frontend como build estático, para que a mesma interface sirva à variante com backend em Node e à variante somente PHP."
+        ],
+        "dev": [
+          "Escrevi as duas pontas de uma aplicação de 12.386 linhas: frontend React com TypeScript e backend REST, mais uma segunda variante do backend em PHP puro com SQLite para rodar em hospedagem compartilhada sem Node no servidor.",
+          "Implementei autenticação com bcrypt, consultas parametrizadas contra injeção de SQL e configuração de Apache com regras de segurança, mantendo o banco em SQLite para dispensar servidor de banco.",
+          "Tirei do servidor a parte cara: compilar LaTeX exige uma distribuição TeX completa e é o que costuma inviabilizar esse tipo de aplicação em hospedagem barata — no navegador, o custo de compilação é zero para quem hospeda."
+        ]
+      },
+      "areas": [
+        "frontend",
+        "backend"
+      ],
+      "resumo": "Editor de currículos em LaTeX com compilação no navegador, entregue também em variante PHP para hospedagem compartilhada.",
+      "problema": "Editar currículo em LaTeX exige instalar uma distribuição TeX de vários gigabytes, e as alternativas na web dependem de um servidor de compilação — o componente que consome CPU, exige manutenção e não cabe em hospedagem compartilhada. É por isso que serviços do tipo cobram assinatura ou limitam compilações.",
+      "arquitetura": "A decisão central é onde o LaTeX compila. Movendo a compilação para o navegador, com SwiftLaTeX gerando o PDF e Pandoc convertendo para Word, o servidor deixa de precisar de distribuição TeX, de fila de compilação e de isolamento de processo — some a parte cara e a parte perigosa de uma vez, e a aplicação passa a funcionar offline depois do primeiro carregamento. O que sobra no servidor é modesto: autenticação com bcrypt, uma API REST de documentos e um banco SQLite, que dispensa servidor de banco. Por isso a segunda variante é viável: o mesmo frontend, servido como build estático, contra um backend em PHP puro que instala em hospedagem compartilhada do jeito que um WordPress instala — enviar arquivos e apontar o domínio.",
+      "resultado": "Aplicação com dashboard de currículos, editor dividido com preview em tempo real, salvamento automático a cada dois segundos e exportação para PDF e Word, entregue em duas variantes de implantação a partir do mesmo frontend. A documentação separa o guia de instalação em hospedagem compartilhada do guia de desenvolvimento, porque são públicos diferentes com necessidades diferentes.",
+      "stack": [
+        "React",
+        "TypeScript",
+        "PHP",
+        "SQLite",
+        "Node.js",
+        "Tailwind CSS",
+        "SwiftLaTeX",
+        "Pandoc",
+        "PDF.js",
+        "Apache"
+      ],
+      "duracao": "2 semanas",
+      "repo": "latex-resume-builder.git",
+      "imagens": [
+        {
+          "arquivo": "latex-builder-01-arquitetura.png",
+          "legenda": "A compilação no navegador e as duas variantes de implantação"
+        }
+      ]
     }
   ],
   "formacao": [
