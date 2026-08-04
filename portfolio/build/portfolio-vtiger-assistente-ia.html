@@ -1,0 +1,72 @@
+<style>
+.pf-wrap{max-width:1100px;margin:0 auto;font-size:16px;line-height:1.65}
+.pf-chamada{font-size:1.15rem;opacity:.85;margin:0 0 2rem}
+.pf-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.pf-card{border:1px solid rgba(128,128,128,.3);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
+.pf-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.pf-card img{width:100%;height:180px;object-fit:cover;display:block;background:rgba(128,128,128,.12)}
+.pf-card-corpo{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.pf-card h3{margin:0;font-size:1.05rem;line-height:1.35}
+.pf-card p{margin:0;font-size:.92rem;opacity:.85;flex:1}
+.pf-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.pf-chip{font-size:.75rem;padding:.18rem .55rem;border-radius:999px;border:1px solid rgba(128,128,128,.35);opacity:.9}
+.pf-meta{font-size:.8rem;opacity:.7}
+.pf-cadeado{font-size:.8rem;opacity:.75}
+.pf-hero{margin:0 0 1.5rem}
+.pf-hero h1{margin:0 0 .4rem;line-height:1.2}
+.pf-secao{margin:2rem 0}
+.pf-secao h2{font-size:1.15rem;margin:0 0 .6rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.pf-galeria{display:grid;gap:1.2rem;margin:2rem 0}
+.pf-galeria figure{margin:0}
+.pf-galeria img{width:100%;border:1px solid rgba(128,128,128,.3);border-radius:8px;display:block}
+.pf-galeria figcaption{font-size:.85rem;opacity:.75;margin-top:.4rem}
+.pf-repo{border:1px solid rgba(128,128,128,.35);border-left-width:4px;border-radius:8px;padding:1rem 1.2rem;margin:2rem 0}
+.pf-repo h2{margin:0 0 .5rem;font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+.pf-repo pre{background:rgba(128,128,128,.12);padding:.7rem .9rem;border-radius:6px;overflow-x:auto;margin:.6rem 0;font-size:.85rem}
+.pf-contato{margin:2rem 0;padding-top:1.2rem;border-top:1px solid rgba(128,128,128,.3);font-size:.95rem}
+.pf-voltar{display:inline-block;margin-bottom:1rem;font-size:.9rem}
+@media (max-width:600px){.pf-card img{height:150px}}
+</style>
+<div class="pf-wrap">
+  <a class="pf-voltar" href="/index.php/portfolio-frontend/">← voltar ao portfólio</a>
+
+  <header class="pf-hero">
+    <p class="pf-meta">08/2026 · 3 dias</p>
+    <p>Addon de vtiger que responde perguntas consultando os dados do próprio CRM, com a fronteira de segurança desenhada antes da funcionalidade.</p>
+    <div class="pf-chips"><span class="pf-chip">PHP</span><span class="pf-chip">MySQL</span><span class="pf-chip">vtiger CRM</span><span class="pf-chip">JavaScript</span><span class="pf-chip">function calling</span><span class="pf-chip">API compatível com OpenAI</span></div>
+  </header>
+
+  <section class="pf-secao">
+    <h2>O problema</h2>
+    <p>Colocar IA sobre um CRM é fácil de fazer errado. O caminho ingênuo é dar ao modelo uma conexão de banco e pedir que ele escreva a consulta, o que transforma qualquer instrução hostil no meio de uma conversa em acesso administrativo. E responder &quot;quantos contatos existem&quot; sem consultar os dados produz um número inventado, que é pior que não responder.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>A arquitetura</h2>
+    <p>A IA não fala com o banco: fala com quatro ferramentas declaradas — buscar registros, contar registros, descrever módulo e criar registro — e decide sozinha quando invocá-las. Toda a fronteira de segurança vive em um arquivo único, propositalmente, para que revisar a superfície de risco seja ler um arquivo. São quatro travas: lista branca de módulos, que alcança Contatos, Organizações, Leads, Oportunidades, Chamados, Produtos, Serviços e Atividades e nunca Usuários ou Configurações; ausência de qualquer caminho para SQL arbitrário, com toda leitura e escrita passando pelas APIs do vtiger que já aplicam permissão; execução com a permissão do usuário logado, de modo que quem não vê Oportunidades pela interface também não vê pela IA; e auditoria em tabela própria de tudo que a IA cria, com quem pediu e quais campos. A criação de registros nasce desligada. O provedor padrão é compatível com a API da OpenAI e oferece modelos gratuitos, então o addon funciona sem custo de inferência.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>O resultado</h2>
+    <p>Módulo instalável pela interface do vtiger (Configurações → Módulos → Importar módulo) ou por linha de comando, com instalador que encontra a instalação sozinho, teste de ponta a ponta e manual dentro da própria aplicação. Duas armadilhas do provedor ficaram tratadas no código e documentadas: o User-Agent obrigatório, sem o qual o Cloudflare responde 403 com um código de erro que não explica a causa, e o mínimo de tokens de 300, porque os modelos gratuitos raciocinam antes de responder e com orçamento baixo devolvem resposta vazia parecendo travamento.</p>
+  </section>
+
+  <div class="pf-galeria">
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/vtiger-ia-01-ferramentas.png" alt="As quatro ferramentas expostas ao modelo e as quatro travas de segurança" loading="lazy">
+      <figcaption>As quatro ferramentas expostas ao modelo e as quatro travas de segurança</figcaption>
+    </figure>
+  </div>
+
+  <div class="pf-repo">
+    <h2>🔒 Código-fonte</h2>
+    <pre><code>git clone https://git.programandosolucoes.com.br/git/repos/vtiger-addon-assistente-ia.git</code></pre>
+    <p>Código-fonte privado. As credenciais de leitura são liberadas sob solicitação — me chame para conversar sobre o projeto.</p>
+  </div>
+  
+
+  <div class="pf-contato">
+    <strong>Carlos Alberto</strong> — carlosalberto4ti@gmail.com · +55 11 2615-2880
+  </div>
+</div>

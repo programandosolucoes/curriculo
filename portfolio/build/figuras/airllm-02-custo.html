@@ -1,0 +1,34 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;padding:10px 14px;font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em;color:#38bdf8;border-bottom:1px solid #334155}
+  th:not(:first-child),td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+  td{padding:12px 14px;border-bottom:1px solid rgba(51,65,85,.5)}
+  tr.ln:hover{background:rgba(148,163,184,.05)}
+  td:first-child{font-weight:600}
+  .lic{display:block;font-weight:400;font-size:11.5px;color:#94a3b8;margin-top:3px}
+  .melhor{color:#34d399;font-weight:700}
+  tr.alerta td:first-child .lic{color:#fbbf24}
+  /* o aviso fica DENTRO da linha da licença; no ::after do <td> ele cairia
+     abaixo do .lic, que é bloco, e sobraria solto no meio da tabela */
+  tr.alerta td:first-child .lic::after{content:' ⚠'}
+  </style></head><body>
+    <div class="fig-titulo">O custo real de cada modelo configurado</div>
+    <div class="fig-sub">A restrição séria é disco, não VRAM</div>
+    <table><thead><tr><th>Modelo</th><th>VRAM</th><th>Disco</th></tr></thead><tbody>
+<tr class="ln"><td>Qwen3-235B-A22B (MoE)</td><td>~2–3 GB</td><td>1.556 GB crus → ~438 GB em 4 bits</td></tr>
+<tr class="ln"><td>DeepSeek-V4-Pro</td><td>~2–3 GB</td><td>requer torch 2.7+ (FP8 UE8M0)</td></tr>
+<tr class="ln"><td>DeepSeek-R1-Distill-Qwen-1.5B</td><td>~3 GB em fp16</td><td class="melhor">cabe inteiro na GPU</td></tr>
+    </tbody></table>
+    <div class="fig-nota">Duas armadilhas de ambiente ficaram documentadas porque se manifestam como travamento, não como erro: a biblioteca de transformers precisa ser pinada para o modelo MoE carregar, e atualizar o torch dentro do Python embarcável corrompe a instalação com arquivos de prefixo temporário.</div>
+  </body></html>

@@ -1,0 +1,77 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  .fluxo{display:flex;align-items:stretch;gap:14px}
+  .etapa{flex:1;display:flex;flex-direction:column;gap:10px}
+  .et-rotulo{font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+    color:#38bdf8;font-weight:600}
+  .et-caixas{display:flex;flex-direction:column;gap:10px;flex:1}
+  .cx{background:#1e293b;border:1px solid #334155;
+    border-radius:10px;padding:14px 16px;flex:1;display:flex;
+    flex-direction:column;justify-content:center;gap:5px}
+  .cx-nome{font-size:15px;font-weight:600;line-height:1.3}
+  .cx-det{font-size:12px;color:#94a3b8;line-height:1.45}
+  .seta{display:flex;align-items:center;font-size:26px;
+    color:#38bdf8;padding-top:20px}
+  </style></head><body>
+    <div class="fig-titulo">Um acervo, quatro destinos</div>
+    <div class="fig-sub">Skills de agentes de IA consolidadas e instaladas de uma vez</div>
+    <div class="fluxo">
+    <div class="etapa">
+      <div class="et-rotulo">Baixar</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Fontes públicas</div>
+        <div class="cx-det">declaradas em fontes.txt, clonadas por git</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Consolidar</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Dedup</div>
+        <div class="cx-det">a mesma skill em duas fontes entra uma vez</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Conflito de nome</div>
+        <div class="cx-det">nomes iguais para coisas diferentes são resolvidos</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Prioridade local</div>
+        <div class="cx-det">skills próprias vencem as externas</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Instalar</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Quatro CLIs</div>
+        <div class="cx-det">cada um lê de um diretório diferente</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Perfis</div>
+        <div class="cx-det">acervo completo ou subconjunto enxuto</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Desinstalar</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Só o que o hub instalou</div>
+        <div class="cx-det">não encosta no que o usuário pôs lá por fora</div>
+      </div></div>
+    </div>
+    </div>
+    <div class="fig-nota">Zero dependência: Python padrão e git. Junto vai um gerador de mapa de repositório que extrai símbolos, monta o grafo de importações e ranqueia por PageRank — o índice que o agente lê em vez de varrer o código.</div>
+  </body></html>

@@ -557,5 +557,986 @@
       }
     ],
     "nota": "Duas conclusões decidiram a arquitetura. A primeira é técnica: os modelos neurais são cegos a silêncio — avaliam a qualidade da fala presente, então não penalizam um trecho mudo, e é justamente por isso que o E-model próprio ganha em queda por uma margem de 3,39 contra 0,17. A segunda é de licenciamento: o NISQA é o melhor detector de picote que existe aqui, e mesmo assim não pode entrar no produto, porque os pesos são CC BY-NC. Decisão registrada em 2026-07-10: manter só o DSP, com o módulo neural experimental e desligado."
+  },
+  {
+    "arquivo": "amd-dsp-01-cadencia.png",
+    "tipo": "diagrama",
+    "titulo": "A decisão é cadência, não conteúdo",
+    "subtitulo": "Detecção de secretária eletrônica sem modelo, sem treino e sem inferência",
+    "etapas": [
+      {
+        "rotulo": "Entrada",
+        "caixas": [
+          {
+            "nome": "Gravação da chamada",
+            "detalhe": "qualquer formato, normalizado por ffmpeg"
+          },
+          {
+            "nome": "Quadros de 20 ms",
+            "detalhe": "energia por quadro, em NumPy"
+          }
+        ]
+      },
+      {
+        "rotulo": "O que se mede",
+        "caixas": [
+          {
+            "nome": "Silêncio inicial",
+            "detalhe": "quanto tempo antes da primeira fala"
+          },
+          {
+            "nome": "Duração do bloco",
+            "detalhe": "quanto falou sem pausa"
+          },
+          {
+            "nome": "Número de blocos",
+            "detalhe": "quantas vezes voltou a falar"
+          }
+        ]
+      },
+      {
+        "rotulo": "Regra",
+        "caixas": [
+          {
+            "nome": "Pessoa",
+            "detalhe": "diz alô e espera resposta — bloco curto, depois silêncio"
+          },
+          {
+            "nome": "Máquina",
+            "detalhe": "emenda a saudação sem pausa — bloco longo e contínuo"
+          }
+        ]
+      },
+      {
+        "rotulo": "Saída",
+        "caixas": [
+          {
+            "nome": "AMDSTATUS",
+            "detalhe": "MACHINE, HUMAN ou NOTSURE"
+          },
+          {
+            "nome": "AMDCAUSE",
+            "detalhe": "LONGGREETING, MAXWORDS, INITIALSILENCE…"
+          },
+          {
+            "nome": "Bipe",
+            "detalhe": "detectado por Goertzel, que o AMD original não faz"
+          }
+        ]
+      }
+    ],
+    "nota": "Os nomes de status, de causa e dos parâmetros são os mesmos do app_amd.c e do amd.conf do Asterisk — quem já ajustou o original reaproveita a configuração sem tradução."
+  },
+  {
+    "arquivo": "amd-dsp-02-resultado.png",
+    "tipo": "tabela",
+    "titulo": "Resultado medido em 80 chamadas reais",
+    "subtitulo": "Gravações de discador no pior caso: pós-atendimento, duas pernas misturadas",
+    "colunas": [
+      "Métrica",
+      "Valor",
+      "Leitura"
+    ],
+    "linhas": [
+      {
+        "celulas": [
+          "Amostra",
+          "80 chamadas",
+          "37 máquina, 43 humano"
+        ]
+      },
+      {
+        "celulas": [
+          "Recall em máquina",
+          "37/37 = 100%",
+          "nenhuma máquina escapou"
+        ],
+        "melhores": [
+          1
+        ]
+      },
+      {
+        "celulas": [
+          "Falso positivo em humano",
+          "16/43 = 37%",
+          "humano marcado como máquina"
+        ]
+      },
+      {
+        "celulas": [
+          "Precisão em máquina",
+          "37/53 = 70%",
+          "—"
+        ]
+      },
+      {
+        "celulas": [
+          "Acurácia global",
+          "62/80 = 78%",
+          "—"
+        ]
+      },
+      {
+        "celulas": [
+          "Trabalho evitado como pré-filtro",
+          "27/80 = 34%",
+          "aceito como HUMAN sem segunda opinião"
+        ],
+        "melhores": [
+          1
+        ]
+      }
+    ],
+    "nota": "O erro é conservador na direção certa. Os 16 falsos positivos são pessoas que ficaram 10 segundos ou mais ouvindo a URA de oferta — fala contínua no áudio dispara LONGGREETING (9), MAXWORDS (4) e INITIALSILENCE (3). O gatilho vem de a captura conter a URA, não de falha do algoritmo."
+  },
+  {
+    "arquivo": "vtiger-crm-01-diagnostico.png",
+    "tipo": "diagrama",
+    "titulo": "Por que o menu some e a interface não resolve",
+    "subtitulo": "vtiger CRM 8.4: diagnóstico de uma instalação que sobe quebrada",
+    "etapas": [
+      {
+        "rotulo": "Sintoma",
+        "caixas": [
+          {
+            "nome": "Módulos somem do menu",
+            "detalhe": "Contatos, Leads, Oportunidades, Faturas, Tickets…"
+          },
+          {
+            "nome": "Mas continuam ativos",
+            "detalhe": "funcionam por URL direta — parece perda de dados, não é"
+          }
+        ]
+      },
+      {
+        "rotulo": "Causa",
+        "caixas": [
+          {
+            "nome": "vtiger_app2tab incompleta",
+            "detalhe": "11 vínculos onde deveriam existir 38"
+          },
+          {
+            "nome": "Apps ausentes",
+            "detalhe": "MARKETING, SALES e PROJECT não existiam"
+          }
+        ]
+      },
+      {
+        "rotulo": "Sem saída pela tela",
+        "caixas": [
+          {
+            "nome": "Menu Editor só faz UPDATE",
+            "detalhe": "nunca INSERT — não há como recriar o que falta"
+          }
+        ]
+      },
+      {
+        "rotulo": "Correção",
+        "caixas": [
+          {
+            "nome": "Backup antes de escrever",
+            "detalhe": "sempre, e o dry-run mostra o efeito antes"
+          },
+          {
+            "nome": "Scripts idempotentes",
+            "detalhe": "encontram a instalação sozinhos; rodar de novo não duplica"
+          },
+          {
+            "nome": "Código de saída próprio",
+            "detalhe": "0 sem pendência, 1 quando exige ação manual"
+          }
+        ]
+      }
+    ],
+    "nota": "A correção é em banco, não em código — por isso a disciplina de produção (backup, dry-run e verificação) importa mais que o próprio SQL."
+  },
+  {
+    "arquivo": "vtiger-crm-02-verificador.png",
+    "tipo": "tabela",
+    "titulo": "O que o verificador cobre",
+    "subtitulo": "Sai com código 0 se estiver tudo certo — serve para monitoramento",
+    "colunas": [
+      "Verificação",
+      "O que detecta"
+    ],
+    "linhas": [
+      {
+        "celulas": [
+          "Menu",
+          "vínculos ausentes em vtiger_app2tab"
+        ]
+      },
+      {
+        "celulas": [
+          "Módulos órfãos",
+          "módulo ativo sem app correspondente"
+        ]
+      },
+      {
+        "celulas": [
+          "Integridade da tabela",
+          "estrutura divergente do esperado"
+        ]
+      },
+      {
+        "celulas": [
+          "Usuários",
+          "papel e perfil inconsistentes"
+        ]
+      },
+      {
+        "celulas": [
+          "Cron",
+          "tarefa que nunca rodou"
+        ]
+      },
+      {
+        "celulas": [
+          "Permissões",
+          "diretórios sem escrita para o servidor web"
+        ]
+      },
+      {
+        "celulas": [
+          "Dashboard",
+          "colunas usadas pelo código e ausentes na tabela"
+        ]
+      }
+    ],
+    "nota": "Ambiente de demonstração à parte: 3 usuários com papéis distintos e 49 registros interligados. O papel de Suporte é criado pelo script porque a hierarquia padrão do vtiger é inteiramente comercial — sem ele, o usuário de suporte cairia no papel CEO, com perfil de administrador."
+  },
+  {
+    "arquivo": "vtiger-ia-01-ferramentas.png",
+    "tipo": "diagrama",
+    "titulo": "A IA não fala com o banco: fala com quatro ferramentas",
+    "subtitulo": "Assistente de IA com acesso aos dados do CRM",
+    "etapas": [
+      {
+        "rotulo": "Pergunta",
+        "caixas": [
+          {
+            "nome": "\"Quantos contatos existem?\"",
+            "detalhe": "o modelo decide sozinho se precisa consultar"
+          }
+        ]
+      },
+      {
+        "rotulo": "Ferramentas",
+        "caixas": [
+          {
+            "nome": "buscar_registros",
+            "detalhe": "procura por termo"
+          },
+          {
+            "nome": "contar_registros",
+            "detalhe": "conta de um módulo"
+          },
+          {
+            "nome": "descrever_modulo",
+            "detalhe": "campos e obrigatórios"
+          },
+          {
+            "nome": "criar_registro",
+            "detalhe": "desligado por padrão"
+          }
+        ]
+      },
+      {
+        "rotulo": "Fronteira",
+        "caixas": [
+          {
+            "nome": "Lista branca de módulos",
+            "detalhe": "nunca Usuários nem Configurações"
+          },
+          {
+            "nome": "Sem SQL arbitrário",
+            "detalhe": "não existe caminho no código"
+          },
+          {
+            "nome": "Permissão do usuário logado",
+            "detalhe": "não roda como admin"
+          },
+          {
+            "nome": "Escrita auditada",
+            "detalhe": "quem pediu, o quê, quais campos"
+          }
+        ]
+      },
+      {
+        "rotulo": "Dados",
+        "caixas": [
+          {
+            "nome": "APIs do vtiger",
+            "detalhe": "que já aplicam permissão por perfil"
+          }
+        ]
+      }
+    ],
+    "nota": "A defesa contra injeção de instrução é arquitetura, não prompt: uma ordem hostil no meio da conversa não alcança dados administrativos porque não existe ferramenta que chegue lá."
+  },
+  {
+    "arquivo": "vtiger-eventos-01-fluxo.png",
+    "tipo": "diagrama",
+    "titulo": "Os dois sentidos entre CRM e PABX",
+    "subtitulo": "Callback de chamadas e Click2Call",
+    "etapas": [
+      {
+        "rotulo": "PABX → CRM",
+        "caixas": [
+          {
+            "nome": "Asterisk / Issabel",
+            "detalhe": "evento de chamada"
+          },
+          {
+            "nome": "POST no webhook",
+            "detalhe": "token conferido com hash_equals + allowlist CIDR"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resposta imediata",
+        "caixas": [
+          {
+            "nome": "202 na hora",
+            "detalhe": "o PABX não pode esperar o CRM processar"
+          },
+          {
+            "nome": "Fila + payload cru",
+            "detalhe": "cron é a rede de segurança; dá para reprocessar"
+          }
+        ]
+      },
+      {
+        "rotulo": "Regras",
+        "caixas": [
+          {
+            "nome": "Match pelos últimos 8 dígitos",
+            "detalhe": "sobrevive a DDI, DDD, nono dígito e pontuação"
+          },
+          {
+            "nome": "Destino configurável",
+            "detalhe": "PBXManager, Events, Leads ou Potentials"
+          },
+          {
+            "nome": "Sem match",
+            "detalhe": "registrar solto, criar lead ou descartar"
+          }
+        ]
+      },
+      {
+        "rotulo": "CRM → PABX",
+        "caixas": [
+          {
+            "nome": "Click2Call",
+            "detalhe": "clique no telefone dentro do CRM"
+          },
+          {
+            "nome": "Middleware AMI",
+            "detalhe": "traduz HTTP em Originate no Asterisk"
+          }
+        ]
+      }
+    ],
+    "nota": "(11) 3214-5566 nunca casaria com 551132145566 por comparação de string inteira. Comparar só dígitos, e só os 8 últimos, é o que faz o vínculo funcionar no mundo real."
+  },
+  {
+    "arquivo": "vtiger-eventos-02-cenarios.png",
+    "tipo": "tabela",
+    "titulo": "Sete cenários validados contra a instalação real",
+    "subtitulo": "PABX simulado em Docker falando o mesmo contrato do Asterisk",
+    "colunas": [
+      "Cenário",
+      "Resultado"
+    ],
+    "linhas": [
+      {
+        "celulas": [
+          "Entrante de número conhecido",
+          "vinculou ao contato"
+        ]
+      },
+      {
+        "celulas": [
+          "Sainte para número conhecido",
+          "vinculou ao contato"
+        ]
+      },
+      {
+        "celulas": [
+          "Entrante de desconhecido",
+          "registrou sem vínculo"
+        ]
+      },
+      {
+        "celulas": [
+          "Não atendida",
+          "no-answer gravado"
+        ]
+      },
+      {
+        "celulas": [
+          "Mesmo uuid reenviado",
+          "atualizou, não duplicou"
+        ],
+        "melhores": [
+          1
+        ]
+      },
+      {
+        "celulas": [
+          "Token inválido",
+          "recusado (401)"
+        ],
+        "melhores": [
+          1
+        ]
+      },
+      {
+        "celulas": [
+          "Click2Call via túnel",
+          "3 fases no mesmo registro"
+        ],
+        "melhores": [
+          1
+        ]
+      }
+    ],
+    "nota": "Os testes revelaram dois defeitos que valem para qualquer código que toque o vtiger: fetchByAssoc faz HTML-encode por padrão e quebra o json_decode em silêncio, e a tabela vtiger_pbxmanager não tem coluna callid — o campo de uuid chama-se sourceuuid, e o INSERT falhava calado."
+  },
+  {
+    "arquivo": "migrador-email-01-etapas.png",
+    "tipo": "diagrama",
+    "titulo": "Duas etapas separadas, as duas retomáveis",
+    "subtitulo": "Migração de caixa postal IMAP para Outlook",
+    "etapas": [
+      {
+        "rotulo": "Origem",
+        "caixas": [
+          {
+            "nome": "Servidor IMAP",
+            "detalhe": "Exchange, cPanel, Dovecot, Zimbra — usuário e senha"
+          },
+          {
+            "nome": "Microsoft 365",
+            "detalhe": "OAuth2 device code: a senha no IMAP foi desligada"
+          }
+        ]
+      },
+      {
+        "rotulo": "Etapa 1",
+        "caixas": [
+          {
+            "nome": "mbox no disco",
+            "detalhe": "formato padrão, abre no Thunderbird"
+          },
+          {
+            "nome": "Índice JSON ao lado",
+            "detalhe": "posição, flags e data original de cada mensagem"
+          }
+        ]
+      },
+      {
+        "rotulo": "Etapa 2",
+        "caixas": [
+          {
+            "nome": "Envio ao destino",
+            "detalhe": "registro do que já foi entregue"
+          },
+          {
+            "nome": "Rodar de novo não duplica",
+            "detalhe": "e falha no meio não obriga a baixar tudo outra vez"
+          }
+        ]
+      },
+      {
+        "rotulo": "Destino",
+        "caixas": [
+          {
+            "nome": "Conta Outlook",
+            "detalhe": "hierarquia de pastas preservada"
+          },
+          {
+            "nome": "Data original mantida",
+            "detalhe": "sem isso a caixa inteira aparece com a data da migração"
+          }
+        ]
+      }
+    ],
+    "nota": "Só biblioteca padrão do Python: roda no Windows e no Linux com a instalação oficial, sem pip install. O conversor de PST lê mas não escreve o formato — não existe biblioteca livre confiável que escreva PST em nenhuma linguagem."
+  },
+  {
+    "arquivo": "migrador-email-02-testes.png",
+    "tipo": "terminal",
+    "titulo": "A suíte roda contra Dovecot de verdade",
+    "subtitulo": "Sem os contêineres no ar, a integração é pulada com instrução — não falha por ambiente",
+    "terminal": "migrador-email",
+    "linhas": [
+      {
+        "tipo": "cmd",
+        "texto": "python3 -m unittest discover -s tests"
+      },
+      {
+        "tipo": "saida",
+        "texto": ".........................................................s............sssssssssssssss........................................"
+      },
+      {
+        "tipo": "saida",
+        "texto": "----------------------------------------------------------------------"
+      },
+      {
+        "tipo": "saida",
+        "texto": "Ran 125 tests in 4.795s"
+      },
+      {
+        "tipo": "saida",
+        "texto": ""
+      },
+      {
+        "tipo": "destaque",
+        "texto": "OK (skipped=16)"
+      },
+      {
+        "tipo": "saida",
+        "texto": ""
+      },
+      {
+        "tipo": "cmd",
+        "texto": "docker compose up -d          # sobe origem e destino, e os 16 deixam de ser pulados"
+      },
+      {
+        "tipo": "cmd",
+        "texto": "DISPLAY=:99 python3 tests/verificar_gui.py    # a janela real, em tela virtual"
+      }
+    ],
+    "nota": "Saída real da suíte. A interface gráfica também é verificada de verdade — janela construída, abas percorridas, controles acionados — dentro de um contêiner com tela virtual, sem monitor e sem instalar nada na máquina. Com MIGRADOR_FOTOGRAFAR=1 cada aba vira um PNG."
+  },
+  {
+    "arquivo": "airllm-01-offloading.png",
+    "tipo": "diagrama",
+    "titulo": "Uma camada por vez: 235B em 6 GB de VRAM",
+    "subtitulo": "Servidor local compatível com a API da OpenAI",
+    "etapas": [
+      {
+        "rotulo": "Carga",
+        "caixas": [
+          {
+            "nome": "Dispositivo meta",
+            "detalhe": "as camadas são registradas sem peso em memória"
+          },
+          {
+            "nome": "Split em 4 bits",
+            "detalhe": "feito uma vez, em disco"
+          }
+        ]
+      },
+      {
+        "rotulo": "Inferência",
+        "caixas": [
+          {
+            "nome": "Sobe uma camada",
+            "detalhe": "para a GPU"
+          },
+          {
+            "nome": "Computa",
+            "detalhe": "e devolve para CPU ou disco"
+          },
+          {
+            "nome": "Repete",
+            "detalhe": "camada a camada, até o fim da rede"
+          }
+        ]
+      },
+      {
+        "rotulo": "Custo",
+        "caixas": [
+          {
+            "nome": "Pico de VRAM: 2–3 GB",
+            "detalhe": "independente do tamanho total do modelo"
+          },
+          {
+            "nome": "Troca memória por tempo",
+            "detalhe": "e por leitura de disco"
+          }
+        ]
+      },
+      {
+        "rotulo": "Interface",
+        "caixas": [
+          {
+            "nome": "FastAPI",
+            "detalhe": "/v1/models, /v1/chat/completions, /health"
+          },
+          {
+            "nome": "Protocolo da OpenAI",
+            "detalhe": "qualquer cliente existente aponta para cá sem mudar código"
+          }
+        ]
+      }
+    ],
+    "nota": "O servidor detecta o porte do modelo pelo identificador e escolhe a estratégia sozinho — 4 bits para os grandes, fp16 para os pequenos — porque a configuração errada não falha de imediato: estoura a memória no meio da inferência."
+  },
+  {
+    "arquivo": "airllm-02-custo.png",
+    "tipo": "tabela",
+    "titulo": "O custo real de cada modelo configurado",
+    "subtitulo": "A restrição séria é disco, não VRAM",
+    "colunas": [
+      "Modelo",
+      "VRAM",
+      "Disco"
+    ],
+    "linhas": [
+      {
+        "celulas": [
+          "Qwen3-235B-A22B (MoE)",
+          "~2–3 GB",
+          "1.556 GB crus → ~438 GB em 4 bits"
+        ]
+      },
+      {
+        "celulas": [
+          "DeepSeek-V4-Pro",
+          "~2–3 GB",
+          "requer torch 2.7+ (FP8 UE8M0)"
+        ]
+      },
+      {
+        "celulas": [
+          "DeepSeek-R1-Distill-Qwen-1.5B",
+          "~3 GB em fp16",
+          "cabe inteiro na GPU"
+        ],
+        "melhores": [
+          2
+        ]
+      }
+    ],
+    "nota": "Duas armadilhas de ambiente ficaram documentadas porque se manifestam como travamento, não como erro: a biblioteca de transformers precisa ser pinada para o modelo MoE carregar, e atualizar o torch dentro do Python embarcável corrompe a instalação com arquivos de prefixo temporário."
+  },
+  {
+    "arquivo": "skills-hub-01-fluxo.png",
+    "tipo": "diagrama",
+    "titulo": "Um acervo, quatro destinos",
+    "subtitulo": "Skills de agentes de IA consolidadas e instaladas de uma vez",
+    "etapas": [
+      {
+        "rotulo": "Baixar",
+        "caixas": [
+          {
+            "nome": "Fontes públicas",
+            "detalhe": "declaradas em fontes.txt, clonadas por git"
+          }
+        ]
+      },
+      {
+        "rotulo": "Consolidar",
+        "caixas": [
+          {
+            "nome": "Dedup",
+            "detalhe": "a mesma skill em duas fontes entra uma vez"
+          },
+          {
+            "nome": "Conflito de nome",
+            "detalhe": "nomes iguais para coisas diferentes são resolvidos"
+          },
+          {
+            "nome": "Prioridade local",
+            "detalhe": "skills próprias vencem as externas"
+          }
+        ]
+      },
+      {
+        "rotulo": "Instalar",
+        "caixas": [
+          {
+            "nome": "Quatro CLIs",
+            "detalhe": "cada um lê de um diretório diferente"
+          },
+          {
+            "nome": "Perfis",
+            "detalhe": "acervo completo ou subconjunto enxuto"
+          }
+        ]
+      },
+      {
+        "rotulo": "Desinstalar",
+        "caixas": [
+          {
+            "nome": "Só o que o hub instalou",
+            "detalhe": "não encosta no que o usuário pôs lá por fora"
+          }
+        ]
+      }
+    ],
+    "nota": "Zero dependência: Python padrão e git. Junto vai um gerador de mapa de repositório que extrai símbolos, monta o grafo de importações e ranqueia por PageRank — o índice que o agente lê em vez de varrer o código."
+  },
+  {
+    "arquivo": "skills-hub-02-custo.png",
+    "tipo": "terminal",
+    "titulo": "O custo que quase ninguém mede",
+    "subtitulo": "Cada skill publica nome e descrição no contexto de toda sessão",
+    "terminal": "skills-hub status",
+    "linhas": [
+      {
+        "tipo": "cmd",
+        "texto": "skills-hub status"
+      },
+      {
+        "tipo": "saida",
+        "texto": "Acervo"
+      },
+      {
+        "tipo": "destaque",
+        "texto": "  total: 2062 skills   avisos de validacao: 8"
+      },
+      {
+        "tipo": "saida",
+        "texto": "    cyberseg 817 · multiarea 422 · nvidia 323 · google 99 · trailofbits 81"
+      },
+      {
+        "tipo": "saida",
+        "texto": "    lambdatest 72 · produto 68 · gstack 59 · marketing 49 · anthropic 17"
+      },
+      {
+        "tipo": "saida",
+        "texto": "    n8n 15 · superpowers 14 · vercel 9 · proprias 8 · firecrawl 6 · cypress 3"
+      },
+      {
+        "tipo": "saida",
+        "texto": ""
+      },
+      {
+        "tipo": "saida",
+        "texto": "Alvos"
+      },
+      {
+        "tipo": "saida",
+        "texto": "  claude-code    ~/.claude/skills             hub: 2062   (207M)"
+      },
+      {
+        "tipo": "saida",
+        "texto": "  mimo           ~/.mimocode/skills           hub: 2062   (207M)"
+      },
+      {
+        "tipo": "saida",
+        "texto": "  opencode       ~/.config/opencode/skill     hub: 2062   (207M)"
+      },
+      {
+        "tipo": "saida",
+        "texto": "  openclaude     ~/.openclaude/skills         hub: 2062   (207M)"
+      },
+      {
+        "tipo": "saida",
+        "texto": ""
+      },
+      {
+        "tipo": "destaque",
+        "texto": "medido: ~121 mil tokens de catálogo fixo por sessão com o acervo completo"
+      }
+    ],
+    "nota": "Saída real do comando. Foi essa medição que motivou os perfis de instalação enxuta — o perfil núcleo reduz de 2.062 para cerca de 33 skills, e o catálogo deixa de cobrar caro antes de o trabalho começar."
+  },
+  {
+    "arquivo": "touchtyping-01-recuperacao.png",
+    "tipo": "diagrama",
+    "titulo": "Do executável ao fonte, com prova",
+    "subtitulo": "Recuperação de código-fonte perdido, verificada por bytecode",
+    "etapas": [
+      {
+        "rotulo": "Identificar",
+        "caixas": [
+          {
+            "nome": "Versão exata do Python",
+            "detalhe": "3.13.3 — o formato do bytecode muda a cada versão menor"
+          },
+          {
+            "nome": "Empacotador",
+            "detalhe": "PyInstaller, pelas strings do bootloader"
+          }
+        ]
+      },
+      {
+        "rotulo": "Extrair",
+        "caixas": [
+          {
+            "nome": "Desempacotar",
+            "detalhe": "960 arquivos, entre eles o .pyc do programa"
+          },
+          {
+            "nome": "Descompilar",
+            "detalhe": "bytecode de volta para Python legível"
+          }
+        ]
+      },
+      {
+        "rotulo": "Verificar",
+        "caixas": [
+          {
+            "nome": "3.316 instruções",
+            "detalhe": "conferidas semanticamente, todas idênticas"
+          },
+          {
+            "nome": "3.512 de 3.512",
+            "detalhe": "na mesma linha do original"
+          },
+          {
+            "nome": "507 linhas",
+            "detalhe": "o mesmo tamanho do arquivo original"
+          }
+        ]
+      },
+      {
+        "rotulo": "Só então mexer",
+        "caixas": [
+          {
+            "nome": "Seis módulos",
+            "detalhe": "divisão sem mudança de comportamento"
+          },
+          {
+            "nome": "Cópia fiel preservada",
+            "detalhe": "ao lado, como prova"
+          },
+          {
+            "nome": "Exercícios por IA",
+            "detalhe": "sem credencial embutida no executável"
+          }
+        ]
+      }
+    ],
+    "nota": "Comentários e docstrings não sobrevivem à compilação e não foram recuperados. A comparação também respondeu a uma pergunta de produto: o bytecode das duas edições distribuídas era idêntico exceto por uma instrução — a importação da biblioteca de interface."
+  },
+  {
+    "arquivo": "transcricao-01-pipeline.png",
+    "tipo": "diagrama",
+    "titulo": "Do vídeo à legenda com falante",
+    "subtitulo": "Transcrição em português e separação de quem falou o quê",
+    "etapas": [
+      {
+        "rotulo": "Entrada",
+        "caixas": [
+          {
+            "nome": "Vídeo ou áudio",
+            "detalhe": "reunião de Teams, Meet ou gravação"
+          },
+          {
+            "nome": "16 kHz mono",
+            "detalhe": "extraído por ffmpeg — condição do modelo"
+          }
+        ]
+      },
+      {
+        "rotulo": "Transcrição",
+        "caixas": [
+          {
+            "nome": "Whisper large-v3",
+            "detalhe": "float16 na GPU"
+          },
+          {
+            "nome": "Queda automática",
+            "detalhe": "int8 em CPU quando não há placa"
+          }
+        ]
+      },
+      {
+        "rotulo": "Diarização",
+        "caixas": [
+          {
+            "nome": "Por referência de voz",
+            "detalhe": "offline, sem token, sem enviar áudio para fora"
+          },
+          {
+            "nome": "Modelo de alta precisão",
+            "detalhe": "trata sobreposição; exige token e aceite de licença"
+          }
+        ]
+      },
+      {
+        "rotulo": "Saída",
+        "caixas": [
+          {
+            "nome": "JSON por segmento",
+            "detalhe": "início, fim, texto e falante"
+          },
+          {
+            "nome": "Texto legível",
+            "detalhe": "[hh:mm:ss] FALANTE_00: …"
+          },
+          {
+            "nome": "Legenda",
+            "detalhe": "com o falante marcado"
+          }
+        ]
+      }
+    ],
+    "nota": "O rótulo de falante é arbitrário: o sistema separa vozes, não sabe nomes — a nomeação é do operador. Sobreposição de vozes e ruído degradam os dois estágios, e isso está dito no projeto em vez de descoberto no uso."
+  },
+  {
+    "arquivo": "latex-builder-01-arquitetura.png",
+    "tipo": "diagrama",
+    "titulo": "A compilação saiu do servidor",
+    "subtitulo": "Editor web de currículos em LaTeX",
+    "etapas": [
+      {
+        "rotulo": "Navegador",
+        "caixas": [
+          {
+            "nome": "Editor dividido",
+            "detalhe": "React, preview em tempo real, salvamento a cada 2 s"
+          },
+          {
+            "nome": "SwiftLaTeX",
+            "detalhe": "compila o PDF aqui, não no servidor"
+          },
+          {
+            "nome": "Pandoc",
+            "detalhe": "LaTeX para Word, também no cliente"
+          }
+        ]
+      },
+      {
+        "rotulo": "O que sobra no servidor",
+        "caixas": [
+          {
+            "nome": "Autenticação",
+            "detalhe": "bcrypt"
+          },
+          {
+            "nome": "API REST de documentos",
+            "detalhe": "consultas parametrizadas"
+          },
+          {
+            "nome": "SQLite",
+            "detalhe": "sem servidor de banco"
+          }
+        ]
+      },
+      {
+        "rotulo": "Duas implantações",
+        "caixas": [
+          {
+            "nome": "Completa",
+            "detalhe": "backend Node + frontend React"
+          },
+          {
+            "nome": "Somente PHP",
+            "detalhe": "instala como um WordPress em hospedagem compartilhada"
+          }
+        ]
+      },
+      {
+        "rotulo": "Consequência",
+        "caixas": [
+          {
+            "nome": "Zero CPU de compilação",
+            "detalhe": "para quem hospeda"
+          },
+          {
+            "nome": "Funciona offline",
+            "detalhe": "depois do primeiro carregamento"
+          }
+        ]
+      }
+    ],
+    "nota": "Compilar LaTeX no servidor exige distribuição TeX completa, fila e isolamento de processo — é o que torna esse tipo de aplicação cara e o que costuma inviabilizá-la em hospedagem barata. Movendo para o cliente, some a parte cara e a parte perigosa de uma vez."
   }
 ]

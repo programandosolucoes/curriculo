@@ -1,0 +1,77 @@
+<style>
+.pf-wrap{max-width:1100px;margin:0 auto;font-size:16px;line-height:1.65}
+.pf-chamada{font-size:1.15rem;opacity:.85;margin:0 0 2rem}
+.pf-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.pf-card{border:1px solid rgba(128,128,128,.3);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
+.pf-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.pf-card img{width:100%;height:180px;object-fit:cover;display:block;background:rgba(128,128,128,.12)}
+.pf-card-corpo{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.pf-card h3{margin:0;font-size:1.05rem;line-height:1.35}
+.pf-card p{margin:0;font-size:.92rem;opacity:.85;flex:1}
+.pf-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.pf-chip{font-size:.75rem;padding:.18rem .55rem;border-radius:999px;border:1px solid rgba(128,128,128,.35);opacity:.9}
+.pf-meta{font-size:.8rem;opacity:.7}
+.pf-cadeado{font-size:.8rem;opacity:.75}
+.pf-hero{margin:0 0 1.5rem}
+.pf-hero h1{margin:0 0 .4rem;line-height:1.2}
+.pf-secao{margin:2rem 0}
+.pf-secao h2{font-size:1.15rem;margin:0 0 .6rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.pf-galeria{display:grid;gap:1.2rem;margin:2rem 0}
+.pf-galeria figure{margin:0}
+.pf-galeria img{width:100%;border:1px solid rgba(128,128,128,.3);border-radius:8px;display:block}
+.pf-galeria figcaption{font-size:.85rem;opacity:.75;margin-top:.4rem}
+.pf-repo{border:1px solid rgba(128,128,128,.35);border-left-width:4px;border-radius:8px;padding:1rem 1.2rem;margin:2rem 0}
+.pf-repo h2{margin:0 0 .5rem;font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+.pf-repo pre{background:rgba(128,128,128,.12);padding:.7rem .9rem;border-radius:6px;overflow-x:auto;margin:.6rem 0;font-size:.85rem}
+.pf-contato{margin:2rem 0;padding-top:1.2rem;border-top:1px solid rgba(128,128,128,.3);font-size:.95rem}
+.pf-voltar{display:inline-block;margin-bottom:1rem;font-size:.9rem}
+@media (max-width:600px){.pf-card img{height:150px}}
+</style>
+<div class="pf-wrap">
+  <a class="pf-voltar" href="/index.php/portfolio-backend/">← voltar ao portfólio</a>
+
+  <header class="pf-hero">
+    <p class="pf-meta">08/2026 · 1 semana</p>
+    <p>Detecta secretária eletrônica por cadência de fala, sem IA, sem modelo e sem treino — com o resultado medido em 80 chamadas reais.</p>
+    <div class="pf-chips"><span class="pf-chip">Python</span><span class="pf-chip">NumPy</span><span class="pf-chip">ffmpeg</span><span class="pf-chip">Goertzel</span><span class="pf-chip">pytest</span><span class="pf-chip">Asterisk</span></div>
+  </header>
+
+  <section class="pf-secao">
+    <h2>O problema</h2>
+    <p>Discador que não distingue pessoa de caixa postal desperdiça o tempo mais caro da operação: o do agente. A resposta usual hoje é transcrever a chamada e perguntar a um modelo de linguagem, o que custa segundos de GPU por ligação e não roda offline. O algoritmo clássico do Asterisk resolve isso em C, dentro do dialplan, mas fica preso lá: não dá para usar sobre gravação, em lote, ou dentro de um pipeline de análise.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>A arquitetura</h2>
+    <p>Porte fiel do app_amd.c para Python/NumPy, decidindo apenas por cadência: quanto tempo houve silêncio antes da fala, quanto durou o bloco contínuo de fala e quantos blocos existiram. A intuição é velha e sólida — quem atende diz alô e espera resposta, enquanto a secretária eletrônica emenda uma saudação longa sem pausa. Os nomes de status e causa são os mesmos do Asterisk (MACHINE/LONGGREETING, MAXWORDS, INITIALSILENCE, MAXWORDLENGTH; HUMAN; NOTSURE/TOOLONG), assim como os parâmetros do amd.conf, para que a configuração já ajustada em produção seja reaproveitada sem tradução. A detecção de bipe usa o algoritmo de Goertzel, mais barato que uma FFT completa quando se procura uma frequência conhecida. As dependências são NumPy e ffmpeg, e nada mais: sem rede, sem GPU, sem modelo em disco.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>O resultado</h2>
+    <p>Em 80 gravações reais de discador no pior cenário para o método — áudio pós-atendimento com as duas pernas misturadas — obteve 100% de recall em máquina (37 de 37) e 78% de acurácia global. O erro é conservador na direção certa: nenhuma máquina escapa, mas 37% dos humanos são marcados como máquina, e a análise mostra que isso vem de o áudio conter a URA de oferta, não de falha do algoritmo. Serve como pré-filtro: tudo classificado como HUMAN pode ser aceito sem segunda opinião, o que corta 34% do trabalho antes de qualquer etapa cara. São 428 linhas de teste para 584 de código, e a documentação registra a armadilha de VAD que quase produziu a conclusão falsa de que AMD sem IA não funciona.</p>
+  </section>
+
+  <div class="pf-galeria">
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/amd-dsp-01-cadencia.png" alt="A decisão por cadência: o que separa um alô de uma saudação de caixa postal" loading="lazy">
+      <figcaption>A decisão por cadência: o que separa um alô de uma saudação de caixa postal</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/amd-dsp-02-resultado.png" alt="Resultado medido em 80 chamadas reais, com a leitura de cada número" loading="lazy">
+      <figcaption>Resultado medido em 80 chamadas reais, com a leitura de cada número</figcaption>
+    </figure>
+  </div>
+
+  <div class="pf-repo">
+    <h2>🔒 Código-fonte</h2>
+    <pre><code>git clone https://git.programandosolucoes.com.br/git/repos/amd-dsp.git</code></pre>
+    <p>Código-fonte privado. As credenciais de leitura são liberadas sob solicitação — me chame para conversar sobre o projeto.</p>
+  </div>
+  
+
+  <div class="pf-contato">
+    <strong>Carlos Alberto</strong> — carlosalberto4ti@gmail.com · +55 11 2615-2880
+  </div>
+</div>

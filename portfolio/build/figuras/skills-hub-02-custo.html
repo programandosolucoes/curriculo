@@ -1,0 +1,37 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  .term{background:#0b1120;border:1px solid #334155;border-radius:10px;
+    overflow:hidden}
+  .term-barra{background:#1e293b;padding:10px 14px;display:flex;
+    align-items:center;gap:8px;border-bottom:1px solid #334155}
+  .bolha{width:11px;height:11px;border-radius:50%}
+  .b1{background:#f87171}.b2{background:#fbbf24}.b3{background:#34d399}
+  .term-nome{font-size:12px;color:#94a3b8;margin-left:8px}
+  .term-corpo{padding:18px 20px;font-family:'DejaVu Sans Mono',ui-monospace,monospace;
+    font-size:13.5px;line-height:1.75}
+  .ln{white-space:pre-wrap;word-break:break-word}
+  .cmd{color:#e2e8f0;margin-top:6px}
+  .pr{color:#34d399;font-weight:700}
+  .dst{color:#38bdf8;font-weight:600}
+  .term-corpo .ln:not(.cmd):not(.dst){color:#94a3b8}
+  </style></head><body>
+    <div class="fig-titulo">O custo que quase ninguém mede</div>
+    <div class="fig-sub">Cada skill publica nome e descrição no contexto de toda sessão</div>
+    <div class="term">
+      <div class="term-barra">
+        <span class="bolha b1"></span><span class="bolha b2"></span><span class="bolha b3"></span>
+        <span class="term-nome">skills-hub status</span>
+      </div>
+      <div class="term-corpo"><div class="ln cmd"><span class="pr">$</span> skills-hub status</div><div class="ln">Acervo</div><div class="ln dst">  total: 2062 skills   avisos de validacao: 8</div><div class="ln">    cyberseg 817 · multiarea 422 · nvidia 323 · google 99 · trailofbits 81</div><div class="ln">    lambdatest 72 · produto 68 · gstack 59 · marketing 49 · anthropic 17</div><div class="ln">    n8n 15 · superpowers 14 · vercel 9 · proprias 8 · firecrawl 6 · cypress 3</div><div class="ln"></div><div class="ln">Alvos</div><div class="ln">  claude-code    ~/.claude/skills             hub: 2062   (207M)</div><div class="ln">  mimo           ~/.mimocode/skills           hub: 2062   (207M)</div><div class="ln">  opencode       ~/.config/opencode/skill     hub: 2062   (207M)</div><div class="ln">  openclaude     ~/.openclaude/skills         hub: 2062   (207M)</div><div class="ln"></div><div class="ln dst">medido: ~121 mil tokens de catálogo fixo por sessão com o acervo completo</div></div>
+    </div>
+    <div class="fig-nota">Saída real do comando. Foi essa medição que motivou os perfis de instalação enxuta — o perfil núcleo reduz de 2.062 para cerca de 33 skills, e o catálogo deixa de cobrar caro antes de o trabalho começar.</div>
+  </body></html>

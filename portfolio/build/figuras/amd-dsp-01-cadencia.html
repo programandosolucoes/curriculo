@@ -1,0 +1,89 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  .fluxo{display:flex;align-items:stretch;gap:14px}
+  .etapa{flex:1;display:flex;flex-direction:column;gap:10px}
+  .et-rotulo{font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+    color:#38bdf8;font-weight:600}
+  .et-caixas{display:flex;flex-direction:column;gap:10px;flex:1}
+  .cx{background:#1e293b;border:1px solid #334155;
+    border-radius:10px;padding:14px 16px;flex:1;display:flex;
+    flex-direction:column;justify-content:center;gap:5px}
+  .cx-nome{font-size:15px;font-weight:600;line-height:1.3}
+  .cx-det{font-size:12px;color:#94a3b8;line-height:1.45}
+  .seta{display:flex;align-items:center;font-size:26px;
+    color:#38bdf8;padding-top:20px}
+  </style></head><body>
+    <div class="fig-titulo">A decisão é cadência, não conteúdo</div>
+    <div class="fig-sub">Detecção de secretária eletrônica sem modelo, sem treino e sem inferência</div>
+    <div class="fluxo">
+    <div class="etapa">
+      <div class="et-rotulo">Entrada</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Gravação da chamada</div>
+        <div class="cx-det">qualquer formato, normalizado por ffmpeg</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Quadros de 20 ms</div>
+        <div class="cx-det">energia por quadro, em NumPy</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">O que se mede</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Silêncio inicial</div>
+        <div class="cx-det">quanto tempo antes da primeira fala</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Duração do bloco</div>
+        <div class="cx-det">quanto falou sem pausa</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Número de blocos</div>
+        <div class="cx-det">quantas vezes voltou a falar</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Regra</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Pessoa</div>
+        <div class="cx-det">diz alô e espera resposta — bloco curto, depois silêncio</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Máquina</div>
+        <div class="cx-det">emenda a saudação sem pausa — bloco longo e contínuo</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Saída</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">AMDSTATUS</div>
+        <div class="cx-det">MACHINE, HUMAN ou NOTSURE</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">AMDCAUSE</div>
+        <div class="cx-det">LONGGREETING, MAXWORDS, INITIALSILENCE…</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Bipe</div>
+        <div class="cx-det">detectado por Goertzel, que o AMD original não faz</div>
+      </div></div>
+    </div>
+    </div>
+    <div class="fig-nota">Os nomes de status, de causa e dos parâmetros são os mesmos do app_amd.c e do amd.conf do Asterisk — quem já ajustou o original reaproveita a configuração sem tradução.</div>
+  </body></html>

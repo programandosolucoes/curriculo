@@ -73,5 +73,55 @@
     "slug": "portfolio-auditor-amd",
     "titulo": "Auditoria de Classificador de Secretária Eletrônica (AMD)",
     "arquivo": "portfolio-auditor-amd.html"
+  },
+  {
+    "slug": "portfolio-amd-dsp",
+    "titulo": "Detector de Secretária Eletrônica por Processamento de Sinais",
+    "arquivo": "portfolio-amd-dsp.html"
+  },
+  {
+    "slug": "portfolio-vtiger-crm",
+    "titulo": "Recuperação e Operação de CRM vtiger em Produção",
+    "arquivo": "portfolio-vtiger-crm.html"
+  },
+  {
+    "slug": "portfolio-vtiger-assistente-ia",
+    "titulo": "Assistente de IA com Acesso aos Dados do CRM",
+    "arquivo": "portfolio-vtiger-assistente-ia.html"
+  },
+  {
+    "slug": "portfolio-vtiger-eventos-discador",
+    "titulo": "Integração Bidirecional entre CRM e PABX",
+    "arquivo": "portfolio-vtiger-eventos-discador.html"
+  },
+  {
+    "slug": "portfolio-migrador-email",
+    "titulo": "Migrador de Caixa Postal IMAP para Outlook",
+    "arquivo": "portfolio-migrador-email.html"
+  },
+  {
+    "slug": "portfolio-airllm",
+    "titulo": "Servidor de LLM de 235B em GPU de 6 GB",
+    "arquivo": "portfolio-airllm.html"
+  },
+  {
+    "slug": "portfolio-skills-hub",
+    "titulo": "Acervo de Skills de Agentes de IA Multi-CLI",
+    "arquivo": "portfolio-skills-hub.html"
+  },
+  {
+    "slug": "portfolio-touchtypingtrainer",
+    "titulo": "Recuperação de Código-Fonte a partir de Executável",
+    "arquivo": "portfolio-touchtypingtrainer.html"
+  },
+  {
+    "slug": "portfolio-transcricao-diarizacao",
+    "titulo": "Pipeline de Transcrição e Separação de Falantes",
+    "arquivo": "portfolio-transcricao-diarizacao.html"
+  },
+  {
+    "slug": "portfolio-latex-resume-builder",
+    "titulo": "Editor Web de Currículos em LaTeX",
+    "arquivo": "portfolio-latex-resume-builder.html"
   }
 ]

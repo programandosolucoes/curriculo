@@ -1,0 +1,37 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;padding:10px 14px;font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em;color:#38bdf8;border-bottom:1px solid #334155}
+  th:not(:first-child),td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+  td{padding:12px 14px;border-bottom:1px solid rgba(51,65,85,.5)}
+  tr.ln:hover{background:rgba(148,163,184,.05)}
+  td:first-child{font-weight:600}
+  .lic{display:block;font-weight:400;font-size:11.5px;color:#94a3b8;margin-top:3px}
+  .melhor{color:#34d399;font-weight:700}
+  tr.alerta td:first-child .lic{color:#fbbf24}
+  /* o aviso fica DENTRO da linha da licença; no ::after do <td> ele cairia
+     abaixo do .lic, que é bloco, e sobraria solto no meio da tabela */
+  tr.alerta td:first-child .lic::after{content:' ⚠'}
+  </style></head><body>
+    <div class="fig-titulo">Resultado medido em 80 chamadas reais</div>
+    <div class="fig-sub">Gravações de discador no pior caso: pós-atendimento, duas pernas misturadas</div>
+    <table><thead><tr><th>Métrica</th><th>Valor</th><th>Leitura</th></tr></thead><tbody>
+<tr class="ln"><td>Amostra</td><td>80 chamadas</td><td>37 máquina, 43 humano</td></tr>
+<tr class="ln"><td>Recall em máquina</td><td class="melhor">37/37 = 100%</td><td>nenhuma máquina escapou</td></tr>
+<tr class="ln"><td>Falso positivo em humano</td><td>16/43 = 37%</td><td>humano marcado como máquina</td></tr>
+<tr class="ln"><td>Precisão em máquina</td><td>37/53 = 70%</td><td>—</td></tr>
+<tr class="ln"><td>Acurácia global</td><td>62/80 = 78%</td><td>—</td></tr>
+<tr class="ln"><td>Trabalho evitado como pré-filtro</td><td class="melhor">27/80 = 34%</td><td>aceito como HUMAN sem segunda opinião</td></tr>
+    </tbody></table>
+    <div class="fig-nota">O erro é conservador na direção certa. Os 16 falsos positivos são pessoas que ficaram 10 segundos ou mais ouvindo a URA de oferta — fala contínua no áudio dispara LONGGREETING (9), MAXWORDS (4) e INITIALSILENCE (3). O gatilho vem de a captura conter a URA, não de falha do algoritmo.</div>
+  </body></html>

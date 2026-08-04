@@ -1,0 +1,77 @@
+<style>
+.pf-wrap{max-width:1100px;margin:0 auto;font-size:16px;line-height:1.65}
+.pf-chamada{font-size:1.15rem;opacity:.85;margin:0 0 2rem}
+.pf-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.pf-card{border:1px solid rgba(128,128,128,.3);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
+.pf-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.pf-card img{width:100%;height:180px;object-fit:cover;display:block;background:rgba(128,128,128,.12)}
+.pf-card-corpo{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.pf-card h3{margin:0;font-size:1.05rem;line-height:1.35}
+.pf-card p{margin:0;font-size:.92rem;opacity:.85;flex:1}
+.pf-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.pf-chip{font-size:.75rem;padding:.18rem .55rem;border-radius:999px;border:1px solid rgba(128,128,128,.35);opacity:.9}
+.pf-meta{font-size:.8rem;opacity:.7}
+.pf-cadeado{font-size:.8rem;opacity:.75}
+.pf-hero{margin:0 0 1.5rem}
+.pf-hero h1{margin:0 0 .4rem;line-height:1.2}
+.pf-secao{margin:2rem 0}
+.pf-secao h2{font-size:1.15rem;margin:0 0 .6rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.pf-galeria{display:grid;gap:1.2rem;margin:2rem 0}
+.pf-galeria figure{margin:0}
+.pf-galeria img{width:100%;border:1px solid rgba(128,128,128,.3);border-radius:8px;display:block}
+.pf-galeria figcaption{font-size:.85rem;opacity:.75;margin-top:.4rem}
+.pf-repo{border:1px solid rgba(128,128,128,.35);border-left-width:4px;border-radius:8px;padding:1rem 1.2rem;margin:2rem 0}
+.pf-repo h2{margin:0 0 .5rem;font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+.pf-repo pre{background:rgba(128,128,128,.12);padding:.7rem .9rem;border-radius:6px;overflow-x:auto;margin:.6rem 0;font-size:.85rem}
+.pf-contato{margin:2rem 0;padding-top:1.2rem;border-top:1px solid rgba(128,128,128,.3);font-size:.95rem}
+.pf-voltar{display:inline-block;margin-bottom:1rem;font-size:.9rem}
+@media (max-width:600px){.pf-card img{height:150px}}
+</style>
+<div class="pf-wrap">
+  <a class="pf-voltar" href="/index.php/portfolio-backend/">← voltar ao portfólio</a>
+
+  <header class="pf-hero">
+    <p class="pf-meta">08/2026 · 3 dias</p>
+    <p>Acervo consolidado de ~2.060 skills de agentes de IA instalado em quatro CLIs de uma vez, com o custo de contexto medido.</p>
+    <div class="pf-chips"><span class="pf-chip">Python</span><span class="pf-chip">Bash</span><span class="pf-chip">Git</span><span class="pf-chip">PageRank</span><span class="pf-chip">Mermaid</span></div>
+  </header>
+
+  <section class="pf-secao">
+    <h2>O problema</h2>
+    <p>Cada ferramenta de agente de IA lê skills de um diretório próprio, então quem usa mais de uma acaba com cópias divergentes ou reinstala tudo à mão a cada máquina. As fontes públicas se sobrepõem e usam o mesmo nome para coisas diferentes, o que produz conflito silencioso. E há um custo que quase ninguém mede: cada skill publica nome e descrição no contexto de toda sessão, então um acervo grande cobra caro antes de o trabalho começar.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>A arquitetura</h2>
+    <p>Três etapas separadas — baixar, consolidar e instalar — com o estado declarado em arquivos de texto que o usuário edita: de onde vêm as skills, para onde vão, e quais subconjuntos existem. A consolidação resolve duplicata e conflito de nome, dando prioridade às skills escritas no próprio repositório sobre as externas, e gera um catálogo com a fonte e a descrição de cada uma. A desinstalação rastreia o que o hub instalou e remove apenas isso, para não apagar o que o usuário colocou no mesmo diretório por conta própria. Junto vai um gerador de mapa de repositório sem dependência externa: lista os arquivos versionados, extrai símbolos por linguagem, monta o grafo de importações e ranqueia com PageRank por iteração de potência, emitindo um mapa dentro de um orçamento de tokens — o índice que o agente lê em vez de varrer o código.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>O resultado</h2>
+    <p>Um comando instala o acervo em quatro CLIs; outro mostra onde ficou. A medição do custo de contexto do acervo completo (cerca de 121 mil tokens fixos por sessão) motivou os perfis de instalação enxuta, que reduzem de cerca de 2.060 para cerca de 33 skills. A documentação compara as abordagens existentes de mapa de repositório e grafo de código, com os números divulgados por cada projeto tratados como ordem de grandeza e não como promessa.</p>
+  </section>
+
+  <div class="pf-galeria">
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/skills-hub-01-fluxo.png" alt="Baixar, consolidar e instalar: um acervo, quatro destinos" loading="lazy">
+      <figcaption>Baixar, consolidar e instalar: um acervo, quatro destinos</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/skills-hub-02-custo.png" alt="O custo de contexto medido e o que os perfis enxutos economizam" loading="lazy">
+      <figcaption>O custo de contexto medido e o que os perfis enxutos economizam</figcaption>
+    </figure>
+  </div>
+
+  <div class="pf-repo">
+    <h2>🔒 Código-fonte</h2>
+    <pre><code>git clone https://git.programandosolucoes.com.br/git/repos/skills-hub.git</code></pre>
+    <p>Código-fonte privado. As credenciais de leitura são liberadas sob solicitação — me chame para conversar sobre o projeto.</p>
+  </div>
+  
+
+  <div class="pf-contato">
+    <strong>Carlos Alberto</strong> — carlosalberto4ti@gmail.com · +55 11 2615-2880
+  </div>
+</div>

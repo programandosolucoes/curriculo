@@ -1,0 +1,85 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  .fluxo{display:flex;align-items:stretch;gap:14px}
+  .etapa{flex:1;display:flex;flex-direction:column;gap:10px}
+  .et-rotulo{font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+    color:#38bdf8;font-weight:600}
+  .et-caixas{display:flex;flex-direction:column;gap:10px;flex:1}
+  .cx{background:#1e293b;border:1px solid #334155;
+    border-radius:10px;padding:14px 16px;flex:1;display:flex;
+    flex-direction:column;justify-content:center;gap:5px}
+  .cx-nome{font-size:15px;font-weight:600;line-height:1.3}
+  .cx-det{font-size:12px;color:#94a3b8;line-height:1.45}
+  .seta{display:flex;align-items:center;font-size:26px;
+    color:#38bdf8;padding-top:20px}
+  </style></head><body>
+    <div class="fig-titulo">Os dois sentidos entre CRM e PABX</div>
+    <div class="fig-sub">Callback de chamadas e Click2Call</div>
+    <div class="fluxo">
+    <div class="etapa">
+      <div class="et-rotulo">PABX → CRM</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Asterisk / Issabel</div>
+        <div class="cx-det">evento de chamada</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">POST no webhook</div>
+        <div class="cx-det">token conferido com hash_equals + allowlist CIDR</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Resposta imediata</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">202 na hora</div>
+        <div class="cx-det">o PABX não pode esperar o CRM processar</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Fila + payload cru</div>
+        <div class="cx-det">cron é a rede de segurança; dá para reprocessar</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Regras</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Match pelos últimos 8 dígitos</div>
+        <div class="cx-det">sobrevive a DDI, DDD, nono dígito e pontuação</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Destino configurável</div>
+        <div class="cx-det">PBXManager, Events, Leads ou Potentials</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Sem match</div>
+        <div class="cx-det">registrar solto, criar lead ou descartar</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">CRM → PABX</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Click2Call</div>
+        <div class="cx-det">clique no telefone dentro do CRM</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Middleware AMI</div>
+        <div class="cx-det">traduz HTTP em Originate no Asterisk</div>
+      </div></div>
+    </div>
+    </div>
+    <div class="fig-nota">(11) 3214-5566 nunca casaria com 551132145566 por comparação de string inteira. Comparar só dígitos, e só os 8 últimos, é o que faz o vínculo funcionar no mundo real.</div>
+  </body></html>

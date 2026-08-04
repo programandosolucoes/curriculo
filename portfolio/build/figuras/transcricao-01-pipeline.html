@@ -1,0 +1,85 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  .fluxo{display:flex;align-items:stretch;gap:14px}
+  .etapa{flex:1;display:flex;flex-direction:column;gap:10px}
+  .et-rotulo{font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+    color:#38bdf8;font-weight:600}
+  .et-caixas{display:flex;flex-direction:column;gap:10px;flex:1}
+  .cx{background:#1e293b;border:1px solid #334155;
+    border-radius:10px;padding:14px 16px;flex:1;display:flex;
+    flex-direction:column;justify-content:center;gap:5px}
+  .cx-nome{font-size:15px;font-weight:600;line-height:1.3}
+  .cx-det{font-size:12px;color:#94a3b8;line-height:1.45}
+  .seta{display:flex;align-items:center;font-size:26px;
+    color:#38bdf8;padding-top:20px}
+  </style></head><body>
+    <div class="fig-titulo">Do vídeo à legenda com falante</div>
+    <div class="fig-sub">Transcrição em português e separação de quem falou o quê</div>
+    <div class="fluxo">
+    <div class="etapa">
+      <div class="et-rotulo">Entrada</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Vídeo ou áudio</div>
+        <div class="cx-det">reunião de Teams, Meet ou gravação</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">16 kHz mono</div>
+        <div class="cx-det">extraído por ffmpeg — condição do modelo</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Transcrição</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Whisper large-v3</div>
+        <div class="cx-det">float16 na GPU</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Queda automática</div>
+        <div class="cx-det">int8 em CPU quando não há placa</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Diarização</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Por referência de voz</div>
+        <div class="cx-det">offline, sem token, sem enviar áudio para fora</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Modelo de alta precisão</div>
+        <div class="cx-det">trata sobreposição; exige token e aceite de licença</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Saída</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">JSON por segmento</div>
+        <div class="cx-det">início, fim, texto e falante</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Texto legível</div>
+        <div class="cx-det">[hh:mm:ss] FALANTE_00: …</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Legenda</div>
+        <div class="cx-det">com o falante marcado</div>
+      </div></div>
+    </div>
+    </div>
+    <div class="fig-nota">O rótulo de falante é arbitrário: o sistema separa vozes, não sabe nomes — a nomeação é do operador. Sobreposição de vozes e ruído degradam os dois estágios, e isso está dito no projeto em vez de descoberto no uso.</div>
+  </body></html>
