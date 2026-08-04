@@ -163,6 +163,11 @@ Laboratório de Asterisk como Servidor de Mídia | estudo técnico próprio | 07
 - Montei um laboratório para avaliar o Asterisk no papel de servidor de mídia (relay, NAT, gravação e transcodificação) e comparar com a solução em uso.
 - Conduzi o estudo com SIPp e captura de pacotes, concluindo por manter o rtpengine em vez de substituí-lo.
 
+Assistente de Suporte Guiado por Fluxo JSON, sem IA | projeto próprio/freelance | 08/2025 - 08/2026
+- Escrevi o assistente de suporte de um PABX em nuvem cobrindo os temas que mais geram chamado: login e conta, transferência, chamada em espera, estacionamento de chamada, caixa postal, filas, Caller ID, softphone, códigos de função e configuração de proxy.
+- Estruturei o conhecimento de operação do PABX como fluxo navegável de 58 nós, em vez de manual em PDF que ninguém lê até o fim.
+- Mantive tudo determinístico e offline: o assistente responde sem consultar serviço nenhum, o que o torna utilizável inclusive quando o problema do cliente é justamente de conectividade.
+
 FORMAÇÃO ACADÊMICA
 - Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
 - Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual

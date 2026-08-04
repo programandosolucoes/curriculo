@@ -1706,6 +1706,102 @@
           "legenda": "A compilação no navegador e as duas variantes de implantação"
         }
       ]
+    },
+    {
+      "id": "chat-suporte",
+      "nome": "Assistente de Suporte Guiado por Fluxo JSON, sem IA",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2025 - 08/2026",
+      "bullets": {
+        "base": [
+          "Desenvolvi um assistente de atendimento técnico que resolve as dúvidas recorrentes de um PABX em nuvem por fluxo de conversa determinístico, sem modelo de linguagem — resposta imediata, custo zero por atendimento e nenhuma chance de inventar instrução errada.",
+          "Modelei todo o diálogo como dado e não como código: 58 nós de menu e 200 opções de navegação declarados em JSON, carregáveis em tempo de execução por um painel de configuração, o que permite mudar o atendimento inteiro sem tocar no código-fonte.",
+          "Entreguei em HTML, CSS e JavaScript puros, sem framework, sem build e sem servidor: o atendimento inteiro roda de um único arquivo aberto no navegador."
+        ],
+        "frontend": [
+          "Construí a interface completa de um chat de suporte em JavaScript puro (ES6+), sem framework e sem etapa de build: renderização das mensagens, navegação por botões de opção, indicador de digitação e histórico da conversa, responsivo de celular a desktop.",
+          "Separei apresentação de conteúdo transformando o diálogo em dado: 58 nós e 200 opções vivem em JSON, e um painel lateral carrega, troca e guarda configurações — o mesmo código atende fluxos distintos de Suporte Técnico e de Vendas.",
+          "Estilizei com variáveis CSS para que trocar a identidade visual do assistente seja alterar um bloco de valores, não caçar cor espalhada pela folha de estilo."
+        ],
+        "rpa": [
+          "Automatizei a primeira linha de suporte técnico de um PABX em nuvem com uma árvore de decisão declarativa, cobrindo login e conta, chamadas, filas, Caller ID, SMS e WhatsApp, softphone, códigos de função e proxy.",
+          "Deixei o fluxo configurável por JSON carregado em tempo de execução, para que quem opera o suporte — e não quem programa — mantenha e expanda o atendimento.",
+          "Optei conscientemente por lógica programada em vez de modelo de linguagem: em instrução de configuração técnica, uma resposta inventada custa mais caro que uma pergunta não respondida."
+        ],
+        "voip": [
+          "Escrevi o assistente de suporte de um PABX em nuvem cobrindo os temas que mais geram chamado: login e conta, transferência, chamada em espera, estacionamento de chamada, caixa postal, filas, Caller ID, softphone, códigos de função e configuração de proxy.",
+          "Estruturei o conhecimento de operação do PABX como fluxo navegável de 58 nós, em vez de manual em PDF que ninguém lê até o fim.",
+          "Mantive tudo determinístico e offline: o assistente responde sem consultar serviço nenhum, o que o torna utilizável inclusive quando o problema do cliente é justamente de conectividade."
+        ]
+      },
+      "areas": [
+        "frontend"
+      ],
+      "resumo": "Primeira linha de suporte técnico de um PABX em nuvem, com o diálogo inteiro declarado em JSON e nenhuma dependência de IA.",
+      "problema": "Suporte técnico gasta a maior parte do tempo com as mesmas perguntas de configuração. A resposta da moda é colocar um modelo de linguagem na frente, mas isso traz três custos que nem sempre se justificam: cobrança por atendimento, dependência de rede e, o mais sério aqui, a possibilidade de inventar um passo de configuração que não existe. Em instrução técnica de PABX, uma resposta plausível e errada faz o cliente mexer no que estava certo.",
+      "arquitetura": "O diálogo é dado, não código. Cada nó do fluxo declara sua mensagem e suas opções, e cada opção aponta para o próximo nó — uma máquina de estados escrita em JSON, com 58 nós e 200 caminhos de navegação. O painel de configuração carrega esse JSON em tempo de execução e guarda um histórico de configurações, de modo que o mesmo aplicativo atende fluxos diferentes: um de Suporte Técnico, outro de Vendas. Quem mantém o atendimento edita texto, não JavaScript. A implementação é HTML, CSS e JavaScript puros, sem framework e sem etapa de build, e roda de um único arquivo no navegador — sem servidor, sem chave de API e sem chamada de rede. O indicador de digitação existe para dar ritmo de conversa a uma interação que, por baixo, é instantânea.",
+      "resultado": "Assistente de 1.334 linhas cobrindo oito áreas de suporte do produto — introdução, login e conta, chamadas e mensagens, filas, Caller ID, SMS e WhatsApp, softphone, códigos de função e suporte técnico — com resposta imediata e determinística. Como não há inferência, o custo por atendimento é zero e o comportamento é auditável: dado um caminho de cliques, a resposta é sempre a mesma, e conferi-la é ler o JSON.",
+      "stack": [
+        "JavaScript (ES6+)",
+        "HTML5",
+        "CSS3",
+        "JSON",
+        "máquina de estados"
+      ],
+      "duracao": "1 semana",
+      "repo": "manual-chat.git",
+      "imagens": [
+        {
+          "arquivo": "manual-chat-01-atendimento.png",
+          "legenda": "O atendimento em uso: o cliente escolhe, o assistente responde e o submenu do tema aparece"
+        },
+        {
+          "arquivo": "manual-chat-02-configuracao.png",
+          "legenda": "O diálogo é dado: o painel carrega o fluxo em JSON e guarda configurações distintas"
+        }
+      ]
+    },
+    {
+      "id": "zabbix-ptbr",
+      "nome": "Tradução dos Templates do Zabbix para Português",
+      "contexto": "contribuição para a comunidade",
+      "periodo": "12/2015",
+      "bullets": {
+        "base": [
+          "Traduzi para português o acervo de templates de monitoramento do Zabbix: 35 templates e 1.932 elementos nomeados entre itens, grupos de aplicação, gatilhos e gráficos.",
+          "Preservei intactas as chaves de coleta e as expressões dos gatilhos, que não podem ser traduzidas sem quebrar a coleta — o que muda é só o que o operador lê.",
+          "Cobri sistema operacional (Linux, Windows, FreeBSD), serviços de rede, SNMP, VMware e serviços Microsoft (Active Directory, DHCP, DNS, WSUS)."
+        ],
+        "devops": [
+          "Traduzi e mantive o acervo de templates de monitoramento do Zabbix em português — 35 templates, 1.932 elementos nomeados e cerca de 36 mil linhas de XML — para uso por equipes de operação que não trabalham em inglês.",
+          "Mantive intactas as chaves de coleta e as expressões de gatilho, traduzindo apenas o que aparece na tela: chave traduzida quebra a coleta em silêncio, e gatilho traduzido para de disparar.",
+          "Cobri a base que um NOC usa no dia a dia: SO (Linux, Windows, FreeBSD), serviços de rede (HTTP/S, FTP, SSH, SMTP, IMAP, POP, LDAP, NTP, Telnet, MySQL), SNMP (genérico, interfaces, processadores), VMware (hipervisor e convidado) e serviços Microsoft (AD, DHCP, DNS, WSUS), além de HAProxy e Sophos UTM."
+        ]
+      },
+      "areas": [
+        "backend",
+        "infra"
+      ],
+      "resumo": "Acervo de 35 templates de monitoramento do Zabbix traduzidos para português, com as chaves de coleta preservadas.",
+      "problema": "O Zabbix chega em inglês, e o time que olha o painel às três da manhã nem sempre lê inglês técnico. Traduzir parece trivial até a primeira tentativa: tradução automática atravessa a fronteira entre o que é texto e o que é código. Chave de item e expressão de gatilho parecem texto na tela, mas são a definição da coleta — traduzidas, a coleta para de funcionar e o gatilho deixa de disparar, em silêncio, que é o pior modo de falhar em monitoramento.",
+      "arquitetura": "O trabalho é feito sobre os templates exportados em XML, e a disciplina central é saber o que traduzir e o que não encostar. Traduz-se o que o operador lê: nome do item, grupo de aplicação, descrição do gatilho, título do gráfico. Não se traduz o que o Zabbix executa: a chave do item, a expressão do gatilho, os parâmetros e as unidades. A tradução também precisa ser tecnicamente correta e não literal — alternâncias de contexto por segundo diz o que a métrica mede, enquanto uma tradução ao pé da letra produziria um rótulo que o operador não reconhece. Onde o item tem parâmetro posicional, o marcador é preservado dentro da frase traduzida, para que o nome continue se montando corretamente na descoberta automática.",
+      "resultado": "Acervo de 35 templates com 1.932 elementos nomeados em português, somando cerca de 36 mil linhas de XML, importável direto no Zabbix. Cobre sistema operacional (Linux, Windows, FreeBSD), serviços de rede (HTTP, HTTPS, FTP, SSH, SMTP, IMAP, POP, NNTP, LDAP, NTP, Telnet, MySQL), a própria stack do Zabbix (agente, proxy e servidor), SNMP genérico e por componente, VMware em hipervisor e convidado, os serviços Microsoft de infraestrutura (Active Directory, DHCP, DNS, WSUS) e ainda HAProxy e Sophos UTM.",
+      "stack": [
+        "Zabbix",
+        "XML",
+        "SNMP",
+        "monitoramento",
+        "VMware",
+        "Active Directory"
+      ],
+      "duracao": "contribuição pontual",
+      "repo": "zabbix-template-pt_br.git",
+      "imagens": [
+        {
+          "arquivo": "zabbix-ptbr-01-cobertura.png",
+          "legenda": "O que foi traduzido, o que não podia ser tocado, e a cobertura do acervo"
+        }
+      ]
     }
   ],
   "formacao": [

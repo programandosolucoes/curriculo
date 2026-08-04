@@ -1538,5 +1538,82 @@
       }
     ],
     "nota": "Compilar LaTeX no servidor exige distribuição TeX completa, fila e isolamento de processo — é o que torna esse tipo de aplicação cara e o que costuma inviabilizá-la em hospedagem barata. Movendo para o cliente, some a parte cara e a parte perigosa de uma vez."
+  },
+  {
+    "arquivo": "zabbix-ptbr-01-cobertura.png",
+    "tipo": "tabela",
+    "titulo": "O que se traduz e o que não se pode tocar",
+    "subtitulo": "35 templates · 1.932 elementos nomeados · ~36 mil linhas de XML",
+    "colunas": [
+      "Elemento do template",
+      "Traduzir?",
+      "Por quê"
+    ],
+    "linhas": [
+      {
+        "celulas": [
+          "Nome do item",
+          "sim",
+          "é o que o operador lê no painel"
+        ],
+        "melhores": [
+          1
+        ]
+      },
+      {
+        "celulas": [
+          "Grupo de aplicação",
+          "sim",
+          "organiza a navegação"
+        ],
+        "melhores": [
+          1
+        ]
+      },
+      {
+        "celulas": [
+          "Descrição do gatilho",
+          "sim",
+          "é o texto do alarme"
+        ],
+        "melhores": [
+          1
+        ]
+      },
+      {
+        "celulas": [
+          "Título do gráfico",
+          "sim",
+          "aparece no relatório"
+        ],
+        "melhores": [
+          1
+        ]
+      },
+      {
+        "celulas": [
+          "Chave do item",
+          "NÃO",
+          "é a definição da coleta — traduzida, para de coletar"
+        ],
+        "alerta": true
+      },
+      {
+        "celulas": [
+          "Expressão do gatilho",
+          "NÃO",
+          "traduzida, o alarme nunca dispara"
+        ],
+        "alerta": true
+      },
+      {
+        "celulas": [
+          "Parâmetro posicional ($1)",
+          "preservar",
+          "o nome se monta na descoberta automática"
+        ]
+      }
+    ],
+    "nota": "Cobertura: SO (Linux, Windows, FreeBSD), serviços de rede (HTTP, HTTPS, FTP, SSH, SMTP, IMAP, POP, NNTP, LDAP, NTP, Telnet, MySQL), a stack do próprio Zabbix (agente, proxy, servidor), SNMP genérico e por componente, VMware (hipervisor e convidado), serviços Microsoft (Active Directory, DHCP, DNS, WSUS), HAProxy e Sophos UTM. A tradução é técnica e não literal: \"alternâncias de contexto por segundo\" diz o que a métrica mede; o equivalente ao pé da letra produziria um rótulo que o operador não reconhece."
   }
 ]

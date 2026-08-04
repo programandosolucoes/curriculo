@@ -43,7 +43,8 @@
     "airllm",
     "skills-hub",
     "vtiger-crm",
-    "pfsense-api"
+    "pfsense-api",
+    "zabbix-ptbr"
   ],
   "categorias_alvo": [
     "DevOps",

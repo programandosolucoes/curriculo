@@ -153,6 +153,11 @@ Recuperação e Operação de CRM vtiger em Produção | projeto próprio/freela
 Correção na API REST do pfSense | contribuição a projeto open source | 07/2026
 - Diagnostiquei e corrigi um falso positivo de conflito na criação de reserva DHCP estática da API REST do pfSense, ajustando o teste do projeto junto.
 
+Tradução dos Templates do Zabbix para Português | contribuição para a comunidade | 12/2015
+- Traduzi e mantive o acervo de templates de monitoramento do Zabbix em português - 35 templates, 1.932 elementos nomeados e cerca de 36 mil linhas de XML - para uso por equipes de operação que não trabalham em inglês.
+- Mantive intactas as chaves de coleta e as expressões de gatilho, traduzindo apenas o que aparece na tela: chave traduzida quebra a coleta em silêncio, e gatilho traduzido para de disparar.
+- Cobri a base que um NOC usa no dia a dia: SO (Linux, Windows, FreeBSD), serviços de rede (HTTP/S, FTP, SSH, SMTP, IMAP, POP, LDAP, NTP, Telnet, MySQL), SNMP (genérico, interfaces, processadores), VMware (hipervisor e convidado) e serviços Microsoft (AD, DHCP, DNS, WSUS), além de HAProxy e Sophos UTM.
+
 FORMAÇÃO ACADÊMICA
 - Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
 - Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual

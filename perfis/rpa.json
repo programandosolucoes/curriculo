@@ -37,7 +37,8 @@
     "analise-audio",
     "vtiger-eventos-discador",
     "migrador-email",
-    "email-cleanup"
+    "email-cleanup",
+    "chat-suporte"
   ],
   "filtro_termos": [
     "rpa",

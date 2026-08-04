@@ -123,5 +123,15 @@
     "slug": "portfolio-latex-resume-builder",
     "titulo": "Editor Web de Currículos em LaTeX",
     "arquivo": "portfolio-latex-resume-builder.html"
+  },
+  {
+    "slug": "portfolio-chat-suporte",
+    "titulo": "Assistente de Suporte Guiado por Fluxo JSON, sem IA",
+    "arquivo": "portfolio-chat-suporte.html"
+  },
+  {
+    "slug": "portfolio-zabbix-ptbr",
+    "titulo": "Tradução dos Templates do Zabbix para Português",
+    "arquivo": "portfolio-zabbix-ptbr.html"
   }
 ]

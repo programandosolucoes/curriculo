@@ -47,7 +47,8 @@
     "amd-dsp",
     "vtiger-eventos-discador",
     "vitalpbx-whatsapp",
-    "asterisk-lab"
+    "asterisk-lab",
+    "chat-suporte"
   ],
   "filtro_termos": [
     "voip",

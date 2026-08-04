@@ -1,0 +1,38 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;padding:10px 14px;font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em;color:#38bdf8;border-bottom:1px solid #334155}
+  th:not(:first-child),td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+  td{padding:12px 14px;border-bottom:1px solid rgba(51,65,85,.5)}
+  tr.ln:hover{background:rgba(148,163,184,.05)}
+  td:first-child{font-weight:600}
+  .lic{display:block;font-weight:400;font-size:11.5px;color:#94a3b8;margin-top:3px}
+  .melhor{color:#34d399;font-weight:700}
+  tr.alerta td:first-child .lic{color:#fbbf24}
+  /* o aviso fica DENTRO da linha da licença; no ::after do <td> ele cairia
+     abaixo do .lic, que é bloco, e sobraria solto no meio da tabela */
+  tr.alerta td:first-child .lic::after{content:' ⚠'}
+  </style></head><body>
+    <div class="fig-titulo">O que se traduz e o que não se pode tocar</div>
+    <div class="fig-sub">35 templates · 1.932 elementos nomeados · ~36 mil linhas de XML</div>
+    <table><thead><tr><th>Elemento do template</th><th>Traduzir?</th><th>Por quê</th></tr></thead><tbody>
+<tr class="ln"><td>Nome do item</td><td class="melhor">sim</td><td>é o que o operador lê no painel</td></tr>
+<tr class="ln"><td>Grupo de aplicação</td><td class="melhor">sim</td><td>organiza a navegação</td></tr>
+<tr class="ln"><td>Descrição do gatilho</td><td class="melhor">sim</td><td>é o texto do alarme</td></tr>
+<tr class="ln"><td>Título do gráfico</td><td class="melhor">sim</td><td>aparece no relatório</td></tr>
+<tr class="ln alerta"><td>Chave do item</td><td>NÃO</td><td>é a definição da coleta — traduzida, para de coletar</td></tr>
+<tr class="ln alerta"><td>Expressão do gatilho</td><td>NÃO</td><td>traduzida, o alarme nunca dispara</td></tr>
+<tr class="ln"><td>Parâmetro posicional ($1)</td><td>preservar</td><td>o nome se monta na descoberta automática</td></tr>
+    </tbody></table>
+    <div class="fig-nota">Cobertura: SO (Linux, Windows, FreeBSD), serviços de rede (HTTP, HTTPS, FTP, SSH, SMTP, IMAP, POP, NNTP, LDAP, NTP, Telnet, MySQL), a stack do próprio Zabbix (agente, proxy, servidor), SNMP genérico e por componente, VMware (hipervisor e convidado), serviços Microsoft (Active Directory, DHCP, DNS, WSUS), HAProxy e Sophos UTM. A tradução é técnica e não literal: &quot;alternâncias de contexto por segundo&quot; diz o que a métrica mede; o equivalente ao pé da letra produziria um rótulo que o operador não reconhece.</div>
+  </body></html>
