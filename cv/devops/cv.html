@@ -207,6 +207,28 @@
   <li>Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.</li>
   <li>Painel Flask multi-tenant com isolamento físico de dados por cliente, SQLite, autenticação PBKDF2 e SPA sem framework nem build; empacotado em Docker e implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) com 121 testes automatizados.</li>
 </ul>
+<h3>Servidor de LLM de 235B em GPU de 6 GB | projeto próprio/freelance | 07/2026</h3>
+<ul>
+  <li>Empacotei o servidor como projeto portátil para Windows: Python embarcável preparado por script, dependências instaladas e patch aplicado automaticamente, sem exigir instalação de Python na máquina.</li>
+  <li>Escrevi o download paralelo dos shards do modelo e um monitor de saúde que consulta a API periodicamente, mais scripts de limpeza dos shards crus após o split.</li>
+  <li>Documentei as armadilhas de ambiente que quebram a instalação: atualizar o torch dentro do Python embarcável corrompe a instalação com arquivos de prefixo temporário que causam travamento, e a versão da biblioteca de transformers precisa ser pinada para o modelo MoE carregar.</li>
+</ul>
+<h3>Acervo de Skills de Agentes de IA Multi-CLI | projeto próprio/freelance | 08/2026</h3>
+<ul>
+  <li>Escrevi um instalador em shell e Python padrão que sincroniza fontes externas, consolida um acervo único e o distribui para quatro destinos distintos, com estado declarado em arquivos de texto editáveis (fontes, alvos e perfis).</li>
+  <li>Implementei desinstalação segura por rastreio do que foi instalado, para que remover o acervo não apague o que o usuário colocou lá por conta própria.</li>
+  <li>Mantive a dependência em zero: só Python padrão e git, sem serviço rodando e sem banco, para que replicar em outra máquina seja clonar e rodar um comando.</li>
+</ul>
+<h3>Recuperação e Operação de CRM vtiger em Produção | projeto próprio/freelance | 08/2026</h3>
+<ul>
+  <li>Diagnostiquei por que a instalação padrão do vtiger CRM 8.4 sobe com o menu quebrado: a tabela vtiger_app2tab tinha 11 vínculos em vez de 38, e os módulos continuavam ativos mas invisíveis, sem recuperação possível pela interface.</li>
+  <li>Escrevi scripts PHP idempotentes que encontram a instalação sozinhos, corrigem o que dá para corrigir e explicam o que exige ação manual, saindo com código de retorno próprio para uso em monitoramento.</li>
+  <li>Construí um ambiente de demonstração com 3 usuários, papéis distintos e 49 registros interligados, incluindo o papel de Suporte que o vtiger não traz de fábrica.</li>
+</ul>
+<h3>Correção na API REST do pfSense | contribuição a projeto open source | 07/2026</h3>
+<ul>
+  <li>Diagnostiquei e corrigi um falso positivo de conflito na criação de reserva DHCP estática da API REST do pfSense, ajustando o teste do projeto junto.</li>
+</ul>
 
 <h2>FORMAÇÃO ACADÊMICA</h2>
 <ul>

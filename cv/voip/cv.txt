@@ -145,6 +145,24 @@ Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | freelanc
 - Implementei três serializadores intercambiáveis de saída (Protobuf, JSON e SOAP/XML) para atender formatos impostos por sistemas legados, com aderência às normas ISO/IEC 18000-63 e ISO/IEC 29167-10.
 - Desenvolvi licenciamento próprio de software com assinatura RSA-2048 e vínculo por hash de hardware, distribuído como binário único via PyInstaller. Qualidade garantida por pytest, teste de carga com Locust e checagem estática de tipos com mypy.
 
+Detector de Secretária Eletrônica por Processamento de Sinais | projeto próprio/freelance | 08/2026
+- Portei o app_amd.c do Asterisk para Python/NumPy mantendo o contrato de AMDSTATUS e AMDCAUSE, para que o resultado seja lido pelo mesmo dialplan e pelas mesmas integrações que já consomem o AMD nativo.
+- Acrescentei detecção de bipe por algoritmo de Goertzel, que o AMD original não faz, permitindo saber quando a saudação da caixa postal terminou.
+- Medi em 80 gravações reais de discador: 100% de recall em máquina, sem nenhuma dependência além de NumPy e ffmpeg - roda offline, em CPU modesta, sem chamada de rede.
+
+Integração Bidirecional entre CRM e PABX | projeto próprio/freelance | 08/2026
+- Integrei Asterisk/Issabel a um CRM nos dois sentidos: eventos de chamada viram registro no CRM por callback, e o Click2Call origina a chamada por Originate na AMI, casando o ramal do agente com o usuário do CRM pelo campo phone_crm_extension.
+- Projetei o callback para responder 202 imediatamente e enfileirar, porque o PABX não pode ficar esperando o CRM processar; o cron é a rede de segurança e o payload cru fica guardado, o que permite reprocessar depois de corrigir uma regra.
+- Validei os sete cenários contra a instalação real, incluindo reenvio do mesmo uuid (atualiza, não duplica), token inválido recusado e Click2Call por túnel com as três fases da chamada voltando no mesmo registro.
+
+WhatsApp Calling da Meta integrado a PBX | projeto de cliente | 07/2026
+- Integrei a chamada de voz do WhatsApp (WhatsApp Calling da Meta) a um PBX Asterisk/VitalPBX, documentando o processo em diário de bordo.
+- Identifiquei que a Meta não usa REGISTER SIP e sim a Graph API, o que muda a arquitetura da integração.
+
+Laboratório de Asterisk como Servidor de Mídia | estudo técnico próprio | 07/2026
+- Montei um laboratório para avaliar o Asterisk no papel de servidor de mídia (relay, NAT, gravação e transcodificação) e comparar com a solução em uso.
+- Conduzi o estudo com SIPp e captura de pacotes, concluindo por manter o rtpengine em vez de substituí-lo.
+
 FORMAÇÃO ACADÊMICA
 - Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
 - Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual

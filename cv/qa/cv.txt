@@ -65,6 +65,11 @@ Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance 
 - Cobri os fluxos críticos da versão React/TypeScript com testes end-to-end em Cypress.
 - Projetei a camada de drivers de integração de forma isolável, permitindo testar cada gateway de mensageria sem depender do fornecedor.
 
+Migrador de Caixa Postal IMAP para Outlook | projeto próprio/freelance | 08/2026
+- Montei a suíte contra dois servidores Dovecot de verdade em contêineres, não contra simulações de IMAP: são 2.054 linhas de teste para 3.576 de código, e sem os contêineres no ar os testes de integração são pulados com instrução em vez de falharem por ambiente.
+- Verifiquei a interface gráfica de verdade em tela virtual dentro de um contêiner - a janela é construída, as abas percorridas e os controles acionados - sem precisar de monitor e sem instalar nada na máquina do desenvolvedor.
+- Acrescentei uma variável de ambiente que faz a verificação salvar um PNG de cada aba, transformando o teste de interface em evidência visual revisável.
+
 EXPERIÊNCIA PROFISSIONAL
 Engenheiro VoIP | Akiva Software | 09/2025 - 11/2025 | São Paulo, Brasil
 - Gerenciei e comparei dois sistemas distintos de classificação de chamadas, avaliando acurácia e comportamento de cada um em produção.

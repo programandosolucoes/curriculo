@@ -132,6 +132,14 @@ Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio
 - Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.
 - Painel Flask multi-tenant com isolamento físico de dados por cliente, SQLite, autenticação PBKDF2 e SPA sem framework nem build; empacotado em Docker e implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) com 121 testes automatizados.
 
+Assistente de IA com Acesso aos Dados do CRM | projeto próprio/freelance | 08/2026
+- Desenhei a fronteira de segurança de um assistente de IA com acesso a dados de CRM concentrando as quatro travas em um único arquivo: lista branca de módulos (sem Usuários nem Configurações), ausência de caminho para SQL arbitrário, execução sob a permissão do usuário logado e auditoria de toda escrita.
+- Deixei a criação de registros desligada por padrão, para que autorizar uma IA a escrever no CRM seja decisão consciente do administrador e não efeito colateral da instalação.
+- Tratei a credencial fora do código e fora do argumento de linha de comando: a chave é lida da entrada padrão e vive no banco da instalação, sem ser versionada.
+
+Correção na API REST do pfSense | contribuição a projeto open source | 07/2026
+- Diagnostiquei e corrigi um falso positivo de conflito na criação de reserva DHCP estática da API REST do pfSense, ajustando o teste do projeto junto.
+
 FORMAÇÃO ACADÊMICA
 - Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
 - Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual

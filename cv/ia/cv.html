@@ -141,6 +141,42 @@
   <li>Provisionei a infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling.</li>
   <li>Modelei 17 tabelas com tuning manual de PostgreSQL e escrevi 15 suítes pytest cobrindo cada primitiva da URA ponta a ponta.</li>
 </ul>
+<h3>Detector de Secretária Eletrônica por Processamento de Sinais | projeto próprio/freelance | 08/2026</h3>
+<ul>
+  <li>Resolvi por processamento de sinais um problema que o mercado trata como caso de IA: detecção de secretária eletrônica sem modelo, sem treino e sem inferência, decidindo por cadência de fala (silêncio inicial, duração do bloco contínuo e número de blocos).</li>
+  <li>Medi contra 80 gravações reais rotuladas por transcrição: 100% de recall em máquina, o que habilita o uso como pré-filtro barato antes da etapa cara — na amostra medida, 34% das chamadas nunca precisariam de transcrição ou LLM.</li>
+  <li>Escrevi a documentação de quando o algoritmo serve e quando não serve, com a origem de cada falso positivo classificada por causa (LONGGREETING, MAXWORDS, INITIALSILENCE).</li>
+</ul>
+<h3>Assistente de IA com Acesso aos Dados do CRM | projeto próprio/freelance | 08/2026</h3>
+<ul>
+  <li>Implementei chamada de função (function calling) sobre um provedor compatível com a API da OpenAI, com quatro ferramentas expostas ao modelo — buscar, contar, descrever módulo e criar registro — deixando a decisão de consultar ou não com o próprio modelo.</li>
+  <li>Tratei a defesa contra injeção de instrução como problema de arquitetura, não de prompt: a lista branca de módulos impede que uma instrução hostil no meio da conversa alcance dados administrativos, e não existe caminho de código para consulta bruta ao banco.</li>
+  <li>Diagnostiquei duas armadilhas da API que custaram tempo: o Cloudflare à frente do provedor responde 403 sem User-Agent e não menciona isso na mensagem, e os modelos gratuitos gastam o orçamento de tokens raciocinando antes de responder, devolvendo conteúdo vazio com finish_reason length quando max_tokens é baixo.</li>
+</ul>
+<h3>Pipeline de Transcrição e Separação de Falantes | projeto próprio/freelance | 07/2026</h3>
+<ul>
+  <li>Montei um pipeline de transcrição com Whisper large-v3 em float16 na GPU, com queda automática para int8 em CPU, somado a diarização por embeddings de voz e agrupamento hierárquico.</li>
+  <li>Implementei dois caminhos de diarização com trocas explícitas: embeddings de voz com similaridade de cosseno a partir de amostras de referência — offline, sem token e sem enviar áudio para fora — e um modelo de estado da arte que separa automaticamente e trata sobreposição, ao custo de exigir token e aceite de licença.</li>
+  <li>Registrei no próprio projeto o que degrada o resultado: áudio de reunião com vozes sobrepostas e ruído reduz a precisão dos dois estágios, e o rótulo de falante é arbitrário — o sistema separa vozes, não sabe nomes.</li>
+</ul>
+<h3>Servidor de LLM de 235B em GPU de 6 GB | projeto próprio/freelance | 07/2026</h3>
+<ul>
+  <li>Implementei um servidor FastAPI compatível com a API da OpenAI (/v1/models, /v1/chat/completions, /health) sobre offloading camada a camada: o modelo é carregado no dispositivo meta, cada camada sobe para a GPU, computa e volta para CPU ou disco, mantendo o pico de VRAM em 2 a 3 GB independentemente do tamanho total.</li>
+  <li>Fiz o servidor detectar o porte do modelo pelo identificador e escolher sozinho a estratégia — compressão 4bit para os grandes, fp16 para os pequenos — porque a configuração errada não falha, apenas estoura a memória no meio da inferência.</li>
+  <li>Registrei os números reais de custo: o Qwen3-235B ocupa 1.556 GB crus em disco e cerca de 438 GB depois do split em 4 bits, o que torna a restrição de armazenamento mais séria que a de VRAM.</li>
+</ul>
+<h3>Auditoria de Classificador de Secretária Eletrônica (AMD) | projeto próprio/freelance | 07/2026 - atual</h3>
+<ul>
+  <li>Construí uma ferramenta que audita o classificador de secretária eletrônica (AMD) de uma plataforma de discagem de terceiro, apontando os falsos positivos dela com evidência por chamada.</li>
+  <li>Reaproveitei sem alteração o motor DSP + Whisper + LLM local do projeto irmão de análise de qualidade, para que o veredito da auditoria fosse independente do sistema auditado.</li>
+  <li>Classifiquei a divergência em cinco categorias e implementei registro de reclamação com exportação em CSV para alimentar o faturamento.</li>
+</ul>
+<h3>Plataforma de Análise de Interações com IA | produto de cliente | 05/2026 - atual</h3>
+<ul>
+  <li>Desenvolvo uma plataforma que coleta gravações de PABX e de reuniões, transcreve e produz análise de qualidade assistida por IA, em monorepo Bun com Turborepo.</li>
+  <li>Implementei coleta assíncrona com filas BullMQ e Redis, integração OAuth com Google Meet e integração com PABX Yeastar por API, incluindo token compartilhado para respeitar o limite do appliance.</li>
+  <li>Trabalho com tRPC 11 e Drizzle ORM ponta a ponta, com tipos compartilhados entre servidor e interface Next.js.</li>
+</ul>
 
 <h2>EXPERIÊNCIA PROFISSIONAL</h2>
 <h3>Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil</h3>

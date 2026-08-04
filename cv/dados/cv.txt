@@ -116,6 +116,11 @@ Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/
 - Implementei camada de decisão por Inteligência Artificial (IA) com cadeia de fallback entre provedores sobre dois formatos de API distintos, degradando para regra determinística quando todos falham.
 - Persistência em Prisma/SQLite, painel web de operação e evidência auditável por captura de tela a cada etapa. Suíte de 716 testes automatizados.
 
+Pipeline de Transcrição e Separação de Falantes | projeto próprio/freelance | 07/2026
+- Entreguei a saída em quatro formatos derivados da mesma execução - áudio normalizado, JSON com início, fim, texto e falante por segmento, transcrição legível com marcação de tempo e legenda - para que o mesmo processamento sirva a consumo humano e a processamento posterior.
+- Normalizei a entrada com extração de áudio em 16 kHz mono, condição do modelo de transcrição, aceitando qualquer formato de vídeo ou áudio na entrada.
+- Organizei a saída por nome do arquivo de origem, de modo que o processamento em lote não misture resultados.
+
 FORMAÇÃO ACADÊMICA
 - Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
 - Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual

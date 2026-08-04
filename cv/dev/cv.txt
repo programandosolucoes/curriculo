@@ -102,6 +102,21 @@ Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contí
 - Construí a plataforma inteira em PHP sem nenhuma dependência de runtime, com interface internacionalizada em 4 idiomas.
 - 129 commits ao longo de quase um ano de operação contínua.
 
+Migrador de Caixa Postal IMAP para Outlook | projeto próprio/freelance | 08/2026
+- Escrevi 5.630 linhas de Python usando exclusivamente a biblioteca padrão, decisão que elimina a etapa de instalação de dependências para o usuário final - o programa roda com o Python oficial recém-instalado, no Windows e no Linux.
+- Organizei em módulos com fronteira explícita: o cliente IMAP não conhece mbox nem Outlook, o repositório mbox não conhece IMAP, e a interface só chama os módulos abaixo dela - o que permitiu testar o motor sem Tkinter.
+- Preservei a data original de cada mensagem, os nomes de pasta em UTF-7 modificado do IMAP e as flags de lido, respondido e sinalizado; sem isso a caixa migrada apareceria toda com a data da migração e perderia a ordem cronológica.
+
+Editor Web de Currículos em LaTeX | projeto próprio/freelance | 08/2026
+- Escrevi as duas pontas de uma aplicação de 12.386 linhas: frontend React com TypeScript e backend REST, mais uma segunda variante do backend em PHP puro com SQLite para rodar em hospedagem compartilhada sem Node no servidor.
+- Implementei autenticação com bcrypt, consultas parametrizadas contra injeção de SQL e configuração de Apache com regras de segurança, mantendo o banco em SQLite para dispensar servidor de banco.
+- Tirei do servidor a parte cara: compilar LaTeX exige uma distribuição TeX completa e é o que costuma inviabilizar esse tipo de aplicação em hospedagem barata - no navegador, o custo de compilação é zero para quem hospeda.
+
+Recuperação de Código-Fonte a partir de Executável | projeto próprio/freelance | 08/2026
+- Recuperei o fonte de um programa Python empacotado com PyInstaller e verifiquei a recuperação por comparação de bytecode em vez de leitura: 3.316 instruções conferidas semanticamente, 3.512 de 3.512 na mesma linha do original, e o arquivo com as mesmas 507 linhas.
+- Separei o arquivo único em seis módulos com responsabilidade declarada, preservando a cópia fiel do original em pasta própria - a prova de que a reorganização não mudou comportamento.
+- Implementei duas edições geradas do mesmo código, trocando apenas a biblioteca de interface no empacotamento, depois de provar por comparação de bytecode que essa era a única diferença entre os dois binários distribuídos originalmente.
+
 EXPERIÊNCIA PROFISSIONAL
 Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
 - Projetei e integrei APIs RESTful em Node.js que processam mais de 1 milhão de eventos diários, integrando um sistema omnichannel a uma plataforma de comunicação.

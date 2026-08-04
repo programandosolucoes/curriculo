@@ -79,6 +79,20 @@ Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio
 - Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.
 - Painel Flask multi-tenant com isolamento físico de dados por cliente, SQLite, autenticação PBKDF2 e SPA sem framework nem build; empacotado em Docker e implantado via systemd em LXC/Proxmox. Derivei do mesmo motor uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) com 121 testes automatizados.
 
+Integração Bidirecional entre CRM e PABX | projeto próprio/freelance | 08/2026
+- Automatizei o registro de chamadas no CRM por webhook, com motor de regras configurável: condições em JSON, estratégia de match (telefone, id externo ou ambos), módulo de destino e política para quando não encontra - registrar solto, criar lead ou descartar.
+- Deixei desligada por padrão a regra que cria Lead a partir de número desconhecido, porque criar um Lead a cada engano de discagem enche o CRM de lixo.
+- Guardei o payload cru de cada evento, o que responde a pergunta que sempre aparece na operação - o evento chegou? - e permite reprocessar a fila depois de ajustar uma regra.
+
+Migrador de Caixa Postal IMAP para Outlook | projeto próprio/freelance | 08/2026
+- Desenvolvi um aplicativo gráfico de mesa que migra uma conta IMAP inteira para uma conta Outlook, deixando pelo caminho um backup local em mbox, usando somente a biblioteca padrão do Python - sem pip install de nada.
+- Separei a migração em duas etapas retomáveis: se o envio falha no meio, o reenvio não baixa nada de novo, e rodar duas vezes não duplica mensagem.
+- Implementei autenticação por OAuth2 no fluxo device code, porque a Microsoft desligou senha no IMAP para contas 365, mantendo usuário e senha para servidores locais.
+
+Bot Autônomo de Limpeza de Caixa Postal | projeto próprio | 06/2026 - atual
+- Construí um bot que classifica e remove e-mail em massa por IA, operando em ciclo autônomo sobre IMAP.
+- Implementei cadeia de fallback entre modelo local (Ollama) e provedores externos, para o ciclo não parar quando um provedor falha.
+
 EXPERIÊNCIA PROFISSIONAL
 Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
 - Integrei um sistema de call center omnichannel a plataformas externas por APIs RESTful em Node.js, processando mais de 1 milhão de eventos diários.
