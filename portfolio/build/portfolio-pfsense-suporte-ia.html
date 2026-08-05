@@ -1,0 +1,77 @@
+<style>
+.pf-wrap{max-width:1100px;margin:0 auto;font-size:16px;line-height:1.65}
+.pf-chamada{font-size:1.15rem;opacity:.85;margin:0 0 2rem}
+.pf-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.pf-card{border:1px solid rgba(128,128,128,.3);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
+.pf-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.pf-card img{width:100%;height:180px;object-fit:cover;display:block;background:rgba(128,128,128,.12)}
+.pf-card-corpo{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.pf-card h3{margin:0;font-size:1.05rem;line-height:1.35}
+.pf-card p{margin:0;font-size:.92rem;opacity:.85;flex:1}
+.pf-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.pf-chip{font-size:.75rem;padding:.18rem .55rem;border-radius:999px;border:1px solid rgba(128,128,128,.35);opacity:.9}
+.pf-meta{font-size:.8rem;opacity:.7}
+.pf-cadeado{font-size:.8rem;opacity:.75}
+.pf-hero{margin:0 0 1.5rem}
+.pf-hero h1{margin:0 0 .4rem;line-height:1.2}
+.pf-secao{margin:2rem 0}
+.pf-secao h2{font-size:1.15rem;margin:0 0 .6rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.pf-galeria{display:grid;gap:1.2rem;margin:2rem 0}
+.pf-galeria figure{margin:0}
+.pf-galeria img{width:100%;border:1px solid rgba(128,128,128,.3);border-radius:8px;display:block}
+.pf-galeria figcaption{font-size:.85rem;opacity:.75;margin-top:.4rem}
+.pf-repo{border:1px solid rgba(128,128,128,.35);border-left-width:4px;border-radius:8px;padding:1rem 1.2rem;margin:2rem 0}
+.pf-repo h2{margin:0 0 .5rem;font-size:1rem;text-transform:uppercase;letter-spacing:.06em}
+.pf-repo pre{background:rgba(128,128,128,.12);padding:.7rem .9rem;border-radius:6px;overflow-x:auto;margin:.6rem 0;font-size:.85rem}
+.pf-contato{margin:2rem 0;padding-top:1.2rem;border-top:1px solid rgba(128,128,128,.3);font-size:.95rem}
+.pf-voltar{display:inline-block;margin-bottom:1rem;font-size:.9rem}
+@media (max-width:600px){.pf-card img{height:150px}}
+</style>
+<div class="pf-wrap">
+  <a class="pf-voltar" href="/index.php/portfolio-backend/">← voltar ao portfólio</a>
+
+  <header class="pf-hero">
+    <p class="pf-meta">07/2026 - atual · em andamento</p>
+    <p>Suporte de primeiro nível com IA instalado dentro do pfSense: responde em português, executa o diagnóstico no próprio firewall e mostra o que executou.</p>
+    <div class="pf-chips"><span class="pf-chip">PHP 8.3</span><span class="pf-chip">pfSense</span><span class="pf-chip">FreeBSD</span><span class="pf-chip">API REST</span><span class="pf-chip">LLM (tool calling)</span><span class="pf-chip">PHPUnit</span><span class="pf-chip">Docker</span></div>
+  </header>
+
+  <section class="pf-secao">
+    <h2>O problema</h2>
+    <p>Quem opera a rede precisa de resposta de suporte antes de conseguir falar com alguém que conheça o firewall. Um assistente que apenas lê a configuração salva não resolve: metade das perguntas reais é sobre o que está acontecendo agora — se o destino responde, quem está na rede, por onde o tráfego sai — e isso não está no arquivo de configuração, está no equipamento em execução.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>A arquitetura</h2>
+    <p>Páginas PHP servidas pelo próprio nginx do pfSense, autenticação herdada da WebGUI, sem instalar interpretador nem dependência. O assistente opera num laço de ferramentas: pede, o addon executa, o resultado volta e ele responde. O acesso ao firewall tem duas vias — a API REST local para o que ela cobre, e o binário de diagnóstico, chamado igual à página gráfica correspondente, para traceroute, DNS, rotas, teste de porta, sockets, NDP e pfctl, que a API não expõe. A execução vive num arquivo só, e a suíte reprova se uma primitiva de execução aparecer em qualquer outro.</p>
+  </section>
+
+  <section class="pf-secao">
+    <h2>O resultado</h2>
+    <p>O assistente deixou de responder &quot;não consigo executar comandos no firewall&quot; e passa a medir antes de concluir, mostrando ao operador a saída completa de cada comando que rodou — a conclusão fica conferível, não só confiável. Dados persistentes ficam em /conf, e não em /var, porque o equipamento roda com disco em RAM e um log de auditoria que some no reboot não é registro de auditoria.</p>
+  </section>
+
+  <div class="pf-galeria">
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/pfsense-ia-01-execucao.png" alt="Da pergunta à resposta: lista de permissão fechada, execução e saída completa na conversa" loading="lazy">
+      <figcaption>Da pergunta à resposta: lista de permissão fechada, execução e saída completa na conversa</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/pfsense-ia-02-vias.png" alt="As duas vias de acesso ao firewall e o que cada uma cobre" loading="lazy">
+      <figcaption>As duas vias de acesso ao firewall e o que cada uma cobre</figcaption>
+    </figure>
+  </div>
+
+  <div class="pf-repo">
+    <h2>🔒 Código-fonte</h2>
+    <pre><code>git clone https://git.programandosolucoes.com.br/git/repos/pfsense-suporte-ia.git</code></pre>
+    <p>Código-fonte privado. As credenciais de leitura são liberadas sob solicitação — me chame para conversar sobre o projeto.</p>
+  </div>
+  
+
+  <div class="pf-contato">
+    <strong>Carlos Alberto</strong> — carlosalberto4ti@gmail.com · +55 11 2615-2880
+  </div>
+</div>

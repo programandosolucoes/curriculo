@@ -38,7 +38,8 @@
     "sipproxy",
     "analise-audio",
     "vtiger-assistente-ia",
-    "pfsense-api"
+    "pfsense-api",
+    "pfsense-suporte-ia"
   ],
   "categorias_alvo": [
     "Segurança da Informação"

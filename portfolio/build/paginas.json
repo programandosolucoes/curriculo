@@ -70,6 +70,11 @@
     "arquivo": "portfolio-pfsense-api.html"
   },
   {
+    "slug": "portfolio-pfsense-suporte-ia",
+    "titulo": "Addon de Suporte com IA para pfSense",
+    "arquivo": "portfolio-pfsense-suporte-ia.html"
+  },
+  {
     "slug": "portfolio-auditor-amd",
     "titulo": "Auditoria de Classificador de Secretária Eletrônica (AMD)",
     "arquivo": "portfolio-auditor-amd.html"

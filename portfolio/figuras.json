@@ -1615,5 +1615,105 @@
       }
     ],
     "nota": "Cobertura: SO (Linux, Windows, FreeBSD), serviços de rede (HTTP, HTTPS, FTP, SSH, SMTP, IMAP, POP, NNTP, LDAP, NTP, Telnet, MySQL), a stack do próprio Zabbix (agente, proxy, servidor), SNMP genérico e por componente, VMware (hipervisor e convidado), serviços Microsoft (Active Directory, DHCP, DNS, WSUS), HAProxy e Sophos UTM. A tradução é técnica e não literal: \"alternâncias de contexto por segundo\" diz o que a métrica mede; o equivalente ao pé da letra produziria um rótulo que o operador não reconhece."
+  },
+  {
+    "arquivo": "pfsense-ia-01-execucao.png",
+    "tipo": "diagrama",
+    "titulo": "O modelo escolhe o nome, nunca a linha de comando",
+    "subtitulo": "Addon de suporte com IA instalado dentro do pfSense",
+    "etapas": [
+      {
+        "rotulo": "Pergunta",
+        "caixas": [
+          {
+            "nome": "Operador, em português",
+            "detalhe": "\"por que a filial não responde?\""
+          }
+        ]
+      },
+      {
+        "rotulo": "Escolha",
+        "caixas": [
+          {
+            "nome": "Lista de permissão fechada",
+            "detalhe": "21 ferramentas; o modelo devolve um nome, não um comando"
+          },
+          {
+            "nome": "Argumentos validados por tipo",
+            "detalhe": "antes de qualquer execução"
+          }
+        ]
+      },
+      {
+        "rotulo": "Execução",
+        "caixas": [
+          {
+            "nome": "API REST local",
+            "detalhe": "ping, ARP, DHCP, gateways, serviços, logs, tabelas do pf"
+          },
+          {
+            "nome": "Binário de diagnóstico",
+            "detalhe": "traceroute, drill, netstat, nc, sockstat, NDP, pfctl"
+          },
+          {
+            "nome": "Um arquivo só executa",
+            "detalhe": "a suíte reprova se uma primitiva vazar para outro"
+          }
+        ]
+      },
+      {
+        "rotulo": "Resposta",
+        "caixas": [
+          {
+            "nome": "Saída completa na conversa",
+            "detalhe": "o operador confere a medida, não só a conclusão"
+          },
+          {
+            "nome": "Alteração é proposta",
+            "detalhe": "assinada por HMAC; só roda depois do clique"
+          }
+        ]
+      }
+    ],
+    "nota": "Credencial emitida para um usuário dedicado de 15 privilégios, não uma chave de administrador — que traria reboot, desligamento e shell livre junto. Dados persistentes ficam em /conf e não em /var: o equipamento roda com disco em RAM, e log de auditoria que some no reboot não é registro de auditoria."
+  },
+  {
+    "arquivo": "pfsense-ia-02-vias.png",
+    "tipo": "tabela",
+    "titulo": "Duas vias para tocar o firewall, nesta ordem",
+    "subtitulo": "O que a API local cobre, e o que só existe no binário",
+    "colunas": [
+      "Via",
+      "Usada para",
+      "Por quê"
+    ],
+    "linhas": [
+      {
+        "celulas": [
+          "API REST local (127.0.0.1/api/v2)",
+          "ping, ARP, concessões DHCP, gateways, interfaces, status, serviços, logs, tabelas do pf",
+          "o pfSense já valida a entrada, aplica permissão e normaliza a saída"
+        ],
+        "melhores": [
+          0
+        ]
+      },
+      {
+        "celulas": [
+          "Binário de diagnóstico",
+          "traceroute, DNS (drill), rotas (netstat -rW), teste de porta (nc), sockets (sockstat), NDP, estados e contadores (pfctl)",
+          "a API REST não tem esses endpoints — é o mesmo binário, com os mesmos argumentos, que a página gráfica de Diagnostics usa"
+        ]
+      },
+      {
+        "celulas": [
+          "Sem o pacote RESTAPI instalado",
+          "as que têm equivalente caem no binário; as demais devolvem erro explicando o que falta",
+          "nunca uma resposta inventada"
+        ],
+        "alerta": true
+      }
+    ],
+    "nota": "218 testes automatizados rodam sem pfSense, contra um backup real de configuração. O addon não instala interpretador, biblioteca nem dependência: usa o nginx e o PHP que o firewall já tem."
   }
 ]

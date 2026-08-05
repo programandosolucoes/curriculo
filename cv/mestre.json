@@ -1163,6 +1163,51 @@
       ]
     },
     {
+      "id": "pfsense-suporte-ia",
+      "nome": "Addon de Suporte com IA para pfSense",
+      "contexto": "projeto próprio",
+      "periodo": "07/2026 - atual",
+      "bullets": {
+        "base": [
+          "Desenvolvi um addon em PHP instalado dentro do pfSense que dá suporte de primeiro nível em português, combinando o estado real do firewall no instante da pergunta com os playbooks do runbook da rede.",
+          "Dei mãos ao assistente com um catálogo fechado de 21 ferramentas de diagnóstico executadas no próprio firewall — ping, traceroute, DNS, tabela ARP, concessões DHCP, rotas, teste de porta e estados do filtro — pela API REST local do pfSense, criando as que a API não oferece a partir das mesmas chamadas das páginas gráficas de Diagnostics.",
+          "Isolei a superfície de risco: o modelo escolhe um nome da lista de permissão e devolve argumentos validados por tipo, nunca uma linha de comando; ação que altera o firewall é proposta assinada por HMAC e só roda depois da confirmação do operador.",
+          "Emiti a credencial da API com um usuário dedicado de 15 privilégios em vez de uma chave de administrador, que traria reboot, desligamento e shell livre junto.",
+          "Cobri o comportamento com 218 testes automatizados que rodam sem pfSense, contra um backup real de configuração."
+        ]
+      },
+      "areas": [
+        "backend",
+        "infra",
+        "ia"
+      ],
+      "resumo": "Suporte de primeiro nível com IA instalado dentro do pfSense: responde em português, executa o diagnóstico no próprio firewall e mostra o que executou.",
+      "problema": "Quem opera a rede precisa de resposta de suporte antes de conseguir falar com alguém que conheça o firewall. Um assistente que apenas lê a configuração salva não resolve: metade das perguntas reais é sobre o que está acontecendo agora — se o destino responde, quem está na rede, por onde o tráfego sai — e isso não está no arquivo de configuração, está no equipamento em execução.",
+      "arquitetura": "Páginas PHP servidas pelo próprio nginx do pfSense, autenticação herdada da WebGUI, sem instalar interpretador nem dependência. O assistente opera num laço de ferramentas: pede, o addon executa, o resultado volta e ele responde. O acesso ao firewall tem duas vias — a API REST local para o que ela cobre, e o binário de diagnóstico, chamado igual à página gráfica correspondente, para traceroute, DNS, rotas, teste de porta, sockets, NDP e pfctl, que a API não expõe. A execução vive num arquivo só, e a suíte reprova se uma primitiva de execução aparecer em qualquer outro.",
+      "resultado": "O assistente deixou de responder \"não consigo executar comandos no firewall\" e passa a medir antes de concluir, mostrando ao operador a saída completa de cada comando que rodou — a conclusão fica conferível, não só confiável. Dados persistentes ficam em /conf, e não em /var, porque o equipamento roda com disco em RAM e um log de auditoria que some no reboot não é registro de auditoria.",
+      "stack": [
+        "PHP 8.3",
+        "pfSense",
+        "FreeBSD",
+        "API REST",
+        "LLM (tool calling)",
+        "PHPUnit",
+        "Docker"
+      ],
+      "duracao": "em andamento",
+      "repo": "pfsense-suporte-ia.git",
+      "imagens": [
+        {
+          "arquivo": "pfsense-ia-01-execucao.png",
+          "legenda": "Da pergunta à resposta: lista de permissão fechada, execução e saída completa na conversa"
+        },
+        {
+          "arquivo": "pfsense-ia-02-vias.png",
+          "legenda": "As duas vias de acesso ao firewall e o que cada uma cobre"
+        }
+      ]
+    },
+    {
       "id": "auditor-amd",
       "nome": "Auditoria de Classificador de Secretária Eletrônica (AMD)",
       "contexto": "projeto próprio/freelance",

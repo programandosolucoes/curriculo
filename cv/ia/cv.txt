@@ -105,6 +105,13 @@ Plataforma de Análise de Interações com IA | produto de cliente | 05/2026 - a
 - Implementei coleta assíncrona com filas BullMQ e Redis, integração OAuth com Google Meet e integração com PABX Yeastar por API, incluindo token compartilhado para respeitar o limite do appliance.
 - Trabalho com tRPC 11 e Drizzle ORM ponta a ponta, com tipos compartilhados entre servidor e interface Next.js.
 
+Addon de Suporte com IA para pfSense | projeto próprio | 07/2026 - atual
+- Desenvolvi um addon em PHP instalado dentro do pfSense que dá suporte de primeiro nível em português, combinando o estado real do firewall no instante da pergunta com os playbooks do runbook da rede.
+- Dei mãos ao assistente com um catálogo fechado de 21 ferramentas de diagnóstico executadas no próprio firewall - ping, traceroute, DNS, tabela ARP, concessões DHCP, rotas, teste de porta e estados do filtro - pela API REST local do pfSense, criando as que a API não oferece a partir das mesmas chamadas das páginas gráficas de Diagnostics.
+- Isolei a superfície de risco: o modelo escolhe um nome da lista de permissão e devolve argumentos validados por tipo, nunca uma linha de comando; ação que altera o firewall é proposta assinada por HMAC e só roda depois da confirmação do operador.
+- Emiti a credencial da API com um usuário dedicado de 15 privilégios em vez de uma chave de administrador, que traria reboot, desligamento e shell livre junto.
+- Cobri o comportamento com 218 testes automatizados que rodam sem pfSense, contra um backup real de configuração.
+
 EXPERIÊNCIA PROFISSIONAL
 Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil
 - Aumentei a eficiência das campanhas em 30% integrando um serviço de Inteligência Artificial (IA) de classificação de áudio ao fluxo de discagem, em solução Python própria.
