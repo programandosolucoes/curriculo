@@ -139,7 +139,7 @@ Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance 
 - Desenvolvi motor de automação conversacional com estado, RBAC multi-tenant de 4 níveis e jobs assíncronos de Inteligência Artificial (IA) com Groq e Llama 3.1 para análise de sentimento e qualidade de atendimento.
 - A versão anterior incluía videochamada WebRTC (LiveKit/mediasoup), webphone SIP embarcado e segmentação de fundo por IA no navegador com TensorFlow.js. 41 migrations e 23 suítes PHPUnit.
 
-Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | freelance, setor de mobilidade e rodovias | 12/2025 - 01/2026
+Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | AstraMobi, setor de mobilidade e rodovias | 12/2025 - 01/2026
 - Contratado para arquitetar e desenvolver a retaguarda de leitura de transponder RFID em pedágio eletrônico: defini a arquitetura de integração e a implementei.
 - Entreguei o parser do protocolo da antena CIR, decriptação AES do payload do chip com suporte configurável a 10 combinações de algoritmo e modo (AES-128 e AES-256 em CBC, ECB, CFB, OFB e CTR), API assíncrona em FastAPI e publicação em fila JMS/STOMP no broker ActiveMQ da concessionária.
 - Implementei três serializadores intercambiáveis de saída (Protobuf, JSON e SOAP/XML) para atender formatos impostos por sistemas legados, com aderência às normas ISO/IEC 18000-63 e ISO/IEC 29167-10.

@@ -25,6 +25,11 @@
     "arquivo": "portfolio-pedagio.html"
   },
   {
+    "slug": "portfolio-freeflow",
+    "titulo": "Sistema de Free Flow para Pedágio Sem Cancela - Tráfego, Cobrança e Autuação",
+    "arquivo": "portfolio-freeflow.html"
+  },
+  {
     "slug": "portfolio-analise-audio",
     "titulo": "Análise de Qualidade de Chamadas por Processamento de Sinais",
     "arquivo": "portfolio-analise-audio.html"

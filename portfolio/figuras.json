@@ -61,6 +61,67 @@
     "nota": "O formato de saída é imposto pelo outro lado da integração, não escolhido pelo sistema — por isso os três serializadores convivem atrás da mesma interface."
   },
   {
+    "arquivo": "freeflow-01-ciclo.png",
+    "tipo": "diagrama",
+    "titulo": "Do pórtico à multa: o ciclo financeiro do pedágio sem cancela",
+    "subtitulo": "Sistema de free flow (AstraMobi)",
+    "etapas": [
+      {
+        "rotulo": "Tráfego",
+        "caixas": [
+          {
+            "nome": "Pórtico free flow",
+            "detalhe": "passagem lida sem cancela e sem parada"
+          },
+          {
+            "nome": "Visão de tráfego",
+            "detalhe": "passagens consolidadas para a operação"
+          }
+        ]
+      },
+      {
+        "rotulo": "Cobrança",
+        "caixas": [
+          {
+            "nome": "Tarifa da passagem",
+            "detalhe": "cada passagem vira valor a cobrar"
+          },
+          {
+            "nome": "NFe",
+            "detalhe": "emissão de nota fiscal eletrônica"
+          }
+        ]
+      },
+      {
+        "rotulo": "Recebimento",
+        "caixas": [
+          {
+            "nome": "Integradores de pagamento",
+            "detalhe": "meios de pagamento da operação"
+          },
+          {
+            "nome": "ERP",
+            "detalhe": "conciliação no sistema corporativo"
+          }
+        ]
+      },
+      {
+        "rotulo": "Inadimplência",
+        "caixas": [
+          {
+            "nome": "Emissão de multa",
+            "detalhe": "passagem não paga vira autuação"
+          },
+          {
+            "nome": "Suporte N3",
+            "detalhe": "divergência corrigida na origem, não no dado"
+          }
+        ]
+      }
+    ],
+    "nota": "Sem cancela não há como reter o veículo: a garantia de recebimento migra da pista para o sistema financeiro. É por isso que o suporte de nível 3 vive nessa camada, e não na de leitura."
+  },
+  {
     "arquivo": "sipproxy-01-arquitetura.png",
     "tipo": "diagrama",
     "titulo": "Sinalização e mídia atravessando o NAT",

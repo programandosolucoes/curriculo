@@ -655,7 +655,7 @@
     {
       "id": "pedagio",
       "nome": "Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico",
-      "contexto": "freelance, setor de mobilidade e rodovias",
+      "contexto": "AstraMobi, setor de mobilidade e rodovias",
       "periodo": "12/2025 - 01/2026",
       "bullets": {
         "base": [
@@ -709,6 +709,49 @@
         {
           "arquivo": "pedagio-02-arquitetura.png",
           "legenda": "Do transponder na pista à fila da concessionária"
+        }
+      ]
+    },
+    {
+      "id": "freeflow",
+      "nome": "Sistema de Free Flow para Pedágio Sem Cancela - Tráfego, Cobrança e Autuação",
+      "contexto": "AstraMobi, setor de mobilidade e rodovias",
+      "periodo": "12/2025 - 01/2026",
+      "bullets": {
+        "base": [
+          "Criei o sistema de free flow (pedágio sem cancela) da operação, cobrindo os três momentos do ciclo: visualização do tráfego que passa pelos pórticos, cobrança da tarifa de cada passagem e emissão de multa para a passagem que não é paga.",
+          "Atuei como suporte de nível 3 (N3) sobre a camada onde acontecem as ações financeiras do pedágio: é nela que a leitura da pista vira cobrança, recebimento conciliado ou autuação.",
+          "Integrei a operação ao ecossistema financeiro do cliente - emissão de nota fiscal eletrônica (NFe), ERP corporativo e integradores de meios de pagamento - cada um com contrato de dados e regra de conciliação próprios.",
+          "O sistema convive com a retaguarda de leitura de transponder RFID entregue para o mesmo cliente: uma lê a pista, a outra transforma a leitura em valor cobrado ou multa aplicada."
+        ],
+        "seguranca": [
+          "Atuei como suporte de nível 3 (N3) sobre a camada financeira de um sistema de arrecadação regulado, onde divergência não é defeito de tela: é receita perdida ou autuação indevida contra um cidadão.",
+          "Integrei a operação a emissão de nota fiscal eletrônica (NFe), ERP corporativo e integradores de meios de pagamento, com conciliação entre o que foi cobrado, o que foi recebido e o que virou multa.",
+          "Implementei a emissão de multa para a passagem não paga, etapa em que o rastro do dado precisa sustentar a autuação perante o titular do veículo."
+        ]
+      },
+      "areas": [
+        "backend"
+      ],
+      "resumo": "Sistema de free flow para pedágio sem cancela: acompanha o tráfego nos pórticos, cobra a tarifa de cada passagem e emite multa para quem não paga.",
+      "problema": "No pedágio sem cancela não existe barreira para reter o veículo: a passagem é lida e o dinheiro precisa ser cobrado depois. Isso transforma um problema de pista em um problema financeiro - cada passagem tem de virar cobrança rastreável, nota fiscal emitida, pagamento conciliado e, quando não é paga, autuação com respaldo. Erro nessa camada não é defeito de tela: é receita perdida ou multa indevida.",
+      "arquitetura": "O ciclo tem três estágios. O primeiro é a visão de tráfego: as passagens lidas nos pórticos são consolidadas para consulta e acompanhamento da operação. O segundo é a cobrança: cada passagem vira tarifa a cobrar do veículo, com emissão de nota fiscal eletrônica (NFe) e integração com o ERP corporativo e com integradores de meios de pagamento para receber e conciliar. O terceiro é a autuação: a passagem que não se converte em pagamento dentro da regra vira emissão de multa. O suporte de nível 3 (N3) fica exatamente sobre essa camada financeira, porque é onde a divergência aparece e onde ela precisa ser corrigida na origem, e não no dado.",
+      "resultado": "Sistema entregue para a AstraMobi cobrindo o ciclo completo do pedágio sem cancela - do tráfego lido na pista à multa emitida - conectado à emissão de NFe, ao ERP e aos integradores de pagamento da operação. Junto com a retaguarda de leitura de transponder (SLT), forma a plataforma de pedágio eletrônico do cliente.",
+      "stack": [
+        "Free Flow",
+        "NFe",
+        "ERP",
+        "Integradores de meios de pagamento",
+        "Conciliação financeira",
+        "Emissão de multa",
+        "Suporte N3"
+      ],
+      "duracao": "2 meses",
+      "repo": null,
+      "imagens": [
+        {
+          "arquivo": "freeflow-01-ciclo.png",
+          "legenda": "Do pórtico à multa: o ciclo financeiro do pedágio sem cancela"
         }
       ]
     },

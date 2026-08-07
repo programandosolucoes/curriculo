@@ -114,11 +114,16 @@ Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contí
 - Implementei rate limiting, bloqueio de IP, token CSRF, cabeçalhos de segurança e sanitização de entrada, com log de segurança auditável.
 - Controle de acesso a repositórios via gitolite, em plataforma sem nenhuma dependência de runtime - menos superfície de ataque herdada.
 
-Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | freelance, setor de mobilidade e rodovias | 12/2025 - 01/2026
+Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | AstraMobi, setor de mobilidade e rodovias | 12/2025 - 01/2026
 - Implementei a camada criptográfica de um sistema de arrecadação: decriptação AES do payload do chip RFID com suporte configurável a 10 combinações de algoritmo e modo (AES-128 e AES-256 em CBC, ECB, CFB, OFB e CTR).
 - Desenvolvi licenciamento próprio de software com assinatura digital RSA-2048, vínculo por hash de hardware e controle de expiração, impedindo execução não autorizada.
 - Garanti aderência às normas ISO/IEC 18000-63 e ISO/IEC 29167-10 e à regulamentação do órgão certificador, em contexto de homologação regulatória.
 - Atuei como arquiteto hands-on, definindo a arquitetura de integração segura entre a antena, o backend e o broker da concessionária.
+
+Sistema de Free Flow para Pedágio Sem Cancela - Tráfego, Cobrança e Autuação | AstraMobi, setor de mobilidade e rodovias | 12/2025 - 01/2026
+- Atuei como suporte de nível 3 (N3) sobre a camada financeira de um sistema de arrecadação regulado, onde divergência não é defeito de tela: é receita perdida ou autuação indevida contra um cidadão.
+- Integrei a operação a emissão de nota fiscal eletrônica (NFe), ERP corporativo e integradores de meios de pagamento, com conciliação entre o que foi cobrado, o que foi recebido e o que virou multa.
+- Implementei a emissão de multa para a passagem não paga, etapa em que o rastro do dado precisa sustentar a autuação perante o titular do veículo.
 
 SIP Proxy e SBC para FusionPBX | projeto próprio/freelance | 07/2026 - atual
 - Desenvolvo um proxy SIP baseado em Kamailio e rtpengine com foco em NAT traversal e modo transparent, como alternativa enxuta ao dSIPRouter para integração com FusionPBX.

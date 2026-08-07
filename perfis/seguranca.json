@@ -35,6 +35,7 @@
   "incluir_projetos": [
     "painel-git",
     "pedagio",
+    "freeflow",
     "sipproxy",
     "analise-audio",
     "vtiger-assistente-ia",

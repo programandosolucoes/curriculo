@@ -8,8 +8,8 @@ const mestre = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', '..', 'cv', 'mestre.json'), 'utf8'),
 );
 
-test('o mestre tem os 26 projetos do portfólio', () => {
-  assert.strictEqual(mestre.projetos.length, 26);
+test('o mestre tem os 27 projetos do portfólio', () => {
+  assert.strictEqual(mestre.projetos.length, 27);
 });
 
 test('a auditoria de AMD é projeto próprio, com repositório', () => {
