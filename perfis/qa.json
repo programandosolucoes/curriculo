@@ -30,6 +30,7 @@
     "analise-audio",
     "sipproxy",
     "omnichannel",
+    "painel-git",
     "migrador-email"
   ],
   "categorias_alvo": [

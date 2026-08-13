@@ -26,11 +26,14 @@ Desenvolvimento e Banco de Dados:
 - Prisma, Drizzle ORM, SQLAlchemy
 - API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
-- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+- Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
+- Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
+- Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas
 
 Qualidade e Testes:
 - pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
-- Testes end-to-end com Cypress
+- Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer
+- Code review por pull request, políticas de branch e histórico auditável
 - Teste de carga e performance com Locust
 - Teste de conformidade de protocolo com SIPp
 - Mock de HTTP, geração de dados sintéticos, cobertura de testes
@@ -43,7 +46,8 @@ Cloud e DevOps:
 - Proxmox, KVM, VMware vSphere, OpenStack, LXC
 - Infraestrutura como Código (IaC) e runbooks versionados
 - CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
-- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta
+- Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação
 - systemd, gunicorn, Nginx, Apache, healthcheck
 - Automação de provisionamento via API do Proxmox VE
 - Backup automatizado, disaster recovery (DR) e alta disponibilidade
@@ -69,6 +73,7 @@ Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contí
 - Desenvolvi e mantenho uma plataforma própria de hospedagem Git (alternativa self-hosted a GitHub e GitLab) em PHP, sem nenhuma dependência de runtime.
 - Implementei do zero o servidor WebDAV (RFC 4918: PROPFIND, MKCOL, COPY, MOVE, LOCK e UNLOCK) com mutex FIFO por caminho, o protocolo git smart HTTP (upload-pack e receive-pack) e autenticação por desafio criptográfico com chave SSH.
 - Construí pipeline de CI/CD com disparo assinado por HMAC-SHA256 e validação anti-SSRF do endpoint, credenciais cifradas em AES-256-GCM, controle de acesso via gitolite, rate limiting, bloqueio de IP, CSRF e cabeçalhos de segurança, com interface internacionalizada em 4 idiomas.
+- Implementei o fluxo de code review da plataforma: pull request com diff calculado no servidor, aprovação, comentário, merge e registro de push direto, mais políticas de branch aplicadas por hook de pré-recebimento que se auto-sincronizam em todos os repositórios.
 - 129 commits ao longo de quase um ano de operação contínua, hospedando mais de 30 repositórios.
 
 Editor Web de Currículos em LaTeX | projeto próprio/freelance | 08/2026

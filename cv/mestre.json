@@ -11,13 +11,13 @@
   },
   "resumos": {
     "voip": "Arquiteto de Soluções e Engenheiro VoIP Sênior com mais de 10 anos de experiência, focado em projetar e implementar sistemas de comunicação em nuvem de alta disponibilidade. Especialista em arquitetar ecossistemas VoIP complexos (Asterisk, Kamailio, OpenSIPS), integrar plataformas de telefonia a sistemas de negócio e desenvolver os componentes que faltam: appliances de roteamento, engines de URA/IVR, proxies SIP e APIs de integração. Certificado dCAA, com histórico de 99,99% de uptime em operação internacional e migrações sem indisponibilidade.",
-    "dev": "Desenvolvedor Backend Sênior com mais de 10 anos construindo sistemas de missão crítica em Node.js, Python e PHP. Projetei APIs REST que processam mais de 1 milhão de eventos diários, liderei squad de 11 desenvolvedores como referência técnica de CI/CD, e mantenho um portfólio de sete plataformas autorais em produção, de discador para call center a análise de áudio por processamento de sinais. Trabalho com PostgreSQL, Laravel, FastAPI, Prisma e Docker, com suítes automatizadas que somam mais de 850 testes.",
+    "dev": "Desenvolvedor Backend Sênior com mais de 10 anos construindo sistemas de missão crítica em Node.js, Python e PHP. Projetei APIs REST que processam mais de 1 milhão de eventos diários, liderei squad de 11 desenvolvedores como referência técnica de CI/CD, e mantenho um portfólio de sete plataformas autorais em produção, de discador para call center a análise de áudio por processamento de sinais. Trabalho com PostgreSQL, Laravel, FastAPI, Prisma e Docker, com suítes automatizadas que somam mais de 850 testes, versionamento e code review por pull request, e documentação técnica versionada junto do código.",
     "frontend": "Desenvolvedor Frontend Sênior com experiência em React 18, TypeScript e Next.js, construindo desde plataformas SaaS completas com design system próprio até interfaces em JavaScript puro sem framework nem build. Trabalhei com TailwindCSS, Radix UI, TanStack e Vite, testes end-to-end em Cypress, videochamada WebRTC e segmentação de imagem por Inteligência Artificial (IA) executando no navegador com TensorFlow.js. Base sólida de HTML, CSS e JavaScript, com mais de 10 anos de engenharia de backend por trás.",
     "ia": "Engenheiro de Inteligência Artificial (IA) com experiência prática em integrar modelos de linguagem (LLM) a produtos em produção. Construí cadeia de fallback entre cinco provedores sobre dois formatos de API distintos, inferência local em CPU com modelos quantizados para dados que não podem sair da máquina, e avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento comercial. Mais de 10 anos de engenharia de sistemas dão a base para colocar IA em produção, não só prototipar. Bacharelado em Ciências de Inteligência Artificial em curso.",
-    "devops": "Engenheiro DevOps e SRE Sênior com mais de 10 anos em infraestrutura de missão crítica. Reduzi o tempo médio de detecção de falhas em 40% modernizando a observabilidade, garanti 99,99% de uptime em operação internacional e mantive capacidade de disaster recovery para mais de 100 clientes. Trabalho com Kubernetes, Docker, Proxmox, LXC, pipelines de CI/CD e automação de provisionamento via API, com experiência de plantão N3 em ambientes onde a indisponibilidade custa dinheiro por minuto.",
+    "devops": "Engenheiro DevOps e SRE Sênior com mais de 10 anos em infraestrutura de missão crítica. Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% modernizando a observabilidade, sustentei um objetivo de disponibilidade (SLO) de 99,99% em operação internacional e mantive capacidade de disaster recovery para mais de 100 clientes. Trabalho com Kubernetes, Docker, Proxmox, LXC, pipelines de CI/CD e automação de provisionamento via API, com experiência de plantão N3 em ambientes onde a indisponibilidade custa dinheiro por minuto.",
     "dados": "Profissional de Dados e Business Intelligence com base sólida em engenharia de sistemas. Construí pipelines processando mais de 1 milhão de eventos diários, dashboards usados por gestores em mais de 25 empresas clientes, e sistemas analíticos que vão de modelagem relacional e tuning de PostgreSQL até processamento digital de sinais e Inteligência Artificial (IA) aplicada. Pós-graduação em Data Warehouse e Business Intelligence e Bacharelado em Ciências de Inteligência Artificial em curso.",
     "seguranca": "Analista de Segurança da Informação Sênior com experiência em proteção de aplicação, criptografia aplicada e resposta a incidentes. Implementei arquitetura WAF com ModSecurity e regras OWASP em ambiente financeiro, reduzi o tempo de resposta a incidentes em mais de 99% com análise automatizada de logs em nível de SOC, e desenvolvi sistemas com criptografia AES, assinatura digital RSA-2048 e isolamento físico de dados entre clientes. Experiência com pfSense, OpenVPN, hardening de Linux e conformidade regulatória (normas ISO/IEC).",
-    "qa": "Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.",
+    "qa": "Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript, além de automação de navegador com Playwright e Puppeteer. Implementei o fluxo de code review por pull request da plataforma Git que desenvolvi e opero. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.",
     "rpa": "Especialista em Automação de Processos (RPA, Robotic Process Automation) e Integração de Sistemas. Construí um motor de automação de navegador que opera portais web de forma autônoma e não supervisionada, bots de processamento de e-mail com decisão por Inteligência Artificial (IA), e chatbots que automatizaram até 25% do volume operacional de atendimento. Integração de API é especialidade recorrente: cinco gateways de mensageria atrás de uma única interface, clientes próprios de seis APIs distintas, mensageria assíncrona JMS/STOMP e webhooks substituindo polling."
   },
   "conquistas": [
@@ -31,7 +31,7 @@
     },
     {
       "id": "uptime",
-      "texto": "Garantia de uptime de serviço: garanti 99,99% de uptime para serviços críticos no mercado de telefonia italiano."
+      "texto": "Garantia de uptime de serviço: cumpri o objetivo de disponibilidade (SLO) de 99,99% para serviços críticos no mercado de telefonia italiano."
     },
     {
       "id": "mttd",
@@ -63,7 +63,9 @@
         "Prisma, Drizzle ORM, SQLAlchemy",
         "API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços",
         "Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis",
-        "Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)"
+        "Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)",
+        "Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas",
+        "Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas"
       ]
     },
     "frontend": {
@@ -88,7 +90,8 @@
         "Proxmox, KVM, VMware vSphere, OpenStack, LXC",
         "Infraestrutura como Código (IaC) e runbooks versionados",
         "CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git",
-        "Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)",
+        "Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta",
+        "Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação",
         "systemd, gunicorn, Nginx, Apache, healthcheck",
         "Automação de provisionamento via API do Proxmox VE",
         "Backup automatizado, disaster recovery (DR) e alta disponibilidade"
@@ -156,7 +159,8 @@
       "titulo": "Qualidade e Testes",
       "itens": [
         "pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library",
-        "Testes end-to-end com Cypress",
+        "Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer",
+        "Code review por pull request, políticas de branch e histórico auditável",
         "Teste de carga e performance com Locust",
         "Teste de conformidade de protocolo com SIPp",
         "Mock de HTTP, geração de dados sintéticos, cobertura de testes",
@@ -955,7 +959,13 @@
           "Desenvolvi e mantenho uma plataforma própria de hospedagem Git (alternativa self-hosted a GitHub e GitLab) em PHP, sem nenhuma dependência de runtime.",
           "Implementei do zero o servidor WebDAV (RFC 4918: PROPFIND, MKCOL, COPY, MOVE, LOCK e UNLOCK) com mutex FIFO por caminho, o protocolo git smart HTTP (upload-pack e receive-pack) e autenticação por desafio criptográfico com chave SSH.",
           "Construí pipeline de CI/CD com disparo assinado por HMAC-SHA256 e validação anti-SSRF do endpoint, credenciais cifradas em AES-256-GCM, controle de acesso via gitolite, rate limiting, bloqueio de IP, CSRF e cabeçalhos de segurança, com interface internacionalizada em 4 idiomas.",
+          "Implementei o fluxo de code review da plataforma: pull request com diff calculado no servidor, aprovação, comentário, merge e registro de push direto, mais políticas de branch aplicadas por hook de pré-recebimento que se auto-sincronizam em todos os repositórios.",
           "129 commits ao longo de quase um ano de operação contínua, hospedando mais de 30 repositórios."
+        ],
+        "qa": [
+          "Implementei o fluxo de code review da plataforma: pull request com diff calculado no servidor, aprovação, comentário, merge e registro de push direto — o mesmo processo de revisão que uso nos meus repositórios.",
+          "Construí políticas de branch aplicadas por hook de pré-recebimento, que se auto-sincronizam em todos os repositórios a cada acesso e recusam push fora da política, sem depender de intervenção manual após deploy.",
+          "Cobri a plataforma com suíte PHPUnit e mantenho o histórico auditável de quem alterou o quê, com log de acesso e de segurança."
         ],
         "seguranca": [
           "Implementei autenticação por desafio criptográfico com chave SSH: o servidor gera um nonce, o cliente assina e o servidor verifica contra o authorized_keys, com tratamento explícito de replay porque uma operação git reenvia o mesmo cabeçalho em requisições sucessivas.",
@@ -972,6 +982,7 @@
           "Implementei do zero o servidor WebDAV conforme a RFC 4918 (PROPFIND, MKCOL, COPY, MOVE, LOCK e UNLOCK), com mutex FIFO por caminho para serializar escritas concorrentes.",
           "Implementei o protocolo git smart HTTP (upload-pack e receive-pack) e um esquema de autenticação por desafio criptográfico com chave SSH.",
           "Construí a plataforma inteira em PHP sem nenhuma dependência de runtime, com interface internacionalizada em 4 idiomas.",
+          "Implementei o fluxo de code review por pull request (diff no servidor, aprovação, comentário e merge) e políticas de branch aplicadas por hook de pré-recebimento.",
           "129 commits ao longo de quase um ano de operação contínua."
         ]
       },

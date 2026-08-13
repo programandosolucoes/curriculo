@@ -43,7 +43,9 @@ Desenvolvimento e Banco de Dados:
 - Prisma, Drizzle ORM, SQLAlchemy
 - API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
-- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+- Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
+- Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
+- Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas
 
 Dados e Business Intelligence:
 - SQL avançado, modelagem relacional e tuning de PostgreSQL

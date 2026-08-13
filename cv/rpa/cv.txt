@@ -18,7 +18,9 @@ Desenvolvimento e Banco de Dados:
 - Prisma, Drizzle ORM, SQLAlchemy
 - API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
-- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+- Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
+- Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
+- Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas
 
 Ecossistema Python:
 - NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
@@ -39,7 +41,8 @@ Inteligência Artificial (IA) e LLM:
 
 Qualidade e Testes:
 - pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
-- Testes end-to-end com Cypress
+- Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer
+- Code review por pull request, políticas de branch e histórico auditável
 - Teste de carga e performance com Locust
 - Teste de conformidade de protocolo com SIPp
 - Mock de HTTP, geração de dados sintéticos, cobertura de testes
@@ -52,7 +55,8 @@ Cloud e DevOps:
 - Proxmox, KVM, VMware vSphere, OpenStack, LXC
 - Infraestrutura como Código (IaC) e runbooks versionados
 - CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
-- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta
+- Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação
 - systemd, gunicorn, Nginx, Apache, healthcheck
 - Automação de provisionamento via API do Proxmox VE
 - Backup automatizado, disaster recovery (DR) e alta disponibilidade

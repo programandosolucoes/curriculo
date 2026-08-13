@@ -15,7 +15,7 @@ Sem `npm install`, banco, chave de API ou rede. Só Node.js 18+:
 node ferramentas/gerar-cv.js                # gera os 9 currículos (18 arquivos)
 node ferramentas/aderencia.js --perfil=dev  # o que o mercado pede e falta no CV
 node ferramentas/simular-ats.js --perfil=dev  # quais vagas chamariam, e por quê
-node --test 'ferramentas/**/*.test.js'      # 70 testes
+node --test 'ferramentas/**/*.test.js'      # 102 testes
 ```
 
 Para ver um currículo, abra o HTML no navegador:
@@ -32,20 +32,25 @@ impressão e não entram no arquivo Word.
 
 | Perfil | Título | Alvo de medição | Aderência |
 |---|---|---|---|
+| Perfil | Título | Alvo de medição | Aderência (13/08) |
+|---|---|---|---|
 | `voip` | Arquiteto de Soluções VoIP Sênior | termo (sem vagas coletadas) | não mensurável |
-| `ia` | Engenheiro de Inteligência Artificial (IA) Sênior | termo | 53% |
-| `dev` | Desenvolvedor Backend Sênior ⭐ | Desenvolvedor, Eng. de Software | 53% |
-| `frontend` | Desenvolvedor Frontend Sênior | termo | 62% |
-| `devops` | Engenheiro DevOps / SRE Sênior | DevOps, Analista de Sistemas | 46% |
-| `dados` | Engenheiro de Dados / Business Intelligence | Analista de Dados | 64% |
-| `seguranca` | Analista de Segurança da Informação Sênior | Segurança da Informação | 27% |
-| `qa` | Analista de QA / Automação de Testes Sênior | QA | 56% |
-| `rpa` | Especialista em Automação de Processos (RPA) e Integração | termo | 59% |
+| `ia` | Engenheiro de Inteligência Artificial (IA) Sênior | termo | 57% |
+| `dev` | Desenvolvedor Backend Sênior ⭐ | Desenvolvedor, Eng. de Software | 66% |
+| `frontend` | Desenvolvedor Frontend Sênior | termo | 72% |
+| `devops` | Engenheiro DevOps / SRE Sênior | DevOps, Analista de Sistemas | 50% |
+| `dados` | Engenheiro de Dados / Business Intelligence | Analista de Dados | 67% |
+| `seguranca` | Analista de Segurança da Informação Sênior | Segurança da Informação | 38% |
+| `qa` | Analista de QA / Automação de Testes Sênior | QA | 58% |
+| `rpa` | Especialista em Automação de Processos (RPA) e Integração | termo | 64% |
 
 ⭐ = perfil padrão, o que vai para o `cv.txt` dos bots de candidatura.
 
 Comparativo completo, com o que os números dizem e o que não dizem:
 [aderencia/2026-07-30-comparativo-perfis.md](aderencia/2026-07-30-comparativo-perfis.md).
+O salto de 13/08 veio de escrever competência que já existia e estava omitida —
+não de competência nova. O método e a medição estão em
+[docs/PESQUISA_PROMPTS_MOTION_E_QUALIDADE.md](docs/PESQUISA_PROMPTS_MOTION_E_QUALIDADE.md).
 
 ## Como editar o currículo
 
@@ -92,6 +97,10 @@ docs/
   DIARIO.md            decisões e achados, em ordem — comece por aqui
   PROXIMAS_FRENTES.md  o que está enfileirado
   CV_ESTRATEGIA.md     inventário técnico dos projetos, com evidência
+  PESQUISA_PROMPTS_MOTION_E_QUALIDADE.md
+                       de onde vêm os "prompts de qualidade" que circulam na
+                       internet (motion/skeleton e observabilidade/lint/testes),
+                       a crítica deles e o que virou item de currículo
   PORTFOLIO_COMO_FOI_FEITO.md  como cada projeto foi levantado e fotografado,
                        e as armadilhas de publicar no WordPress (runbook)
   superpowers/         spec e plano do multi-perfil

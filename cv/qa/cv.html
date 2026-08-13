@@ -58,13 +58,14 @@
 <p class="contato">linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br</p>
 
 <h2>RESUMO PROFISSIONAL</h2>
-<p>Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.</p>
+<p>Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript, além de automação de navegador com Playwright e Puppeteer. Implementei o fluxo de code review por pull request da plataforma Git que desenvolvi e opero. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.</p>
 
 <h2>COMPETÊNCIAS</h2>
 <p class="grupo-titulo">Qualidade e Testes</p>
 <ul>
   <li>pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library</li>
-  <li>Testes end-to-end com Cypress</li>
+  <li>Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer</li>
+  <li>Code review por pull request, políticas de branch e histórico auditável</li>
   <li>Teste de carga e performance com Locust</li>
   <li>Teste de conformidade de protocolo com SIPp</li>
   <li>Mock de HTTP, geração de dados sintéticos, cobertura de testes</li>
@@ -80,7 +81,9 @@
   <li>Prisma, Drizzle ORM, SQLAlchemy</li>
   <li>API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços</li>
   <li>Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis</li>
-  <li>Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)</li>
+  <li>Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)</li>
+  <li>Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas</li>
+  <li>Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas</li>
 </ul>
 <p class="grupo-titulo">Ecossistema Python</p>
 <ul>
@@ -97,7 +100,8 @@
   <li>Proxmox, KVM, VMware vSphere, OpenStack, LXC</li>
   <li>Infraestrutura como Código (IaC) e runbooks versionados</li>
   <li>CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git</li>
-  <li>Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)</li>
+  <li>Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta</li>
+  <li>Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação</li>
   <li>systemd, gunicorn, Nginx, Apache, healthcheck</li>
   <li>Automação de provisionamento via API do Proxmox VE</li>
   <li>Backup automatizado, disaster recovery (DR) e alta disponibilidade</li>
@@ -127,6 +131,12 @@
   <li>Escrevi 23 suítes PHPUnit cobrindo a reescrita completa da plataforma, garantindo paridade de funcionalidades com a versão anterior.</li>
   <li>Cobri os fluxos críticos da versão React/TypeScript com testes end-to-end em Cypress.</li>
   <li>Projetei a camada de drivers de integração de forma isolável, permitindo testar cada gateway de mensageria sem depender do fornecedor.</li>
+</ul>
+<h3>Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual</h3>
+<ul>
+  <li>Implementei o fluxo de code review da plataforma: pull request com diff calculado no servidor, aprovação, comentário, merge e registro de push direto — o mesmo processo de revisão que uso nos meus repositórios.</li>
+  <li>Construí políticas de branch aplicadas por hook de pré-recebimento, que se auto-sincronizam em todos os repositórios a cada acesso e recusam push fora da política, sem depender de intervenção manual após deploy.</li>
+  <li>Cobri a plataforma com suíte PHPUnit e mantenho o histórico auditável de quem alterou o quê, com log de acesso e de segurança.</li>
 </ul>
 <h3>Migrador de Caixa Postal IMAP para Outlook | projeto próprio/freelance | 08/2026</h3>
 <ul>

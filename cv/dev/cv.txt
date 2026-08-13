@@ -4,7 +4,7 @@ São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
 linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
 
 RESUMO PROFISSIONAL
-Desenvolvedor Backend Sênior com mais de 10 anos construindo sistemas de missão crítica em Node.js, Python e PHP. Projetei APIs REST que processam mais de 1 milhão de eventos diários, liderei squad de 11 desenvolvedores como referência técnica de CI/CD, e mantenho um portfólio de sete plataformas autorais em produção, de discador para call center a análise de áudio por processamento de sinais. Trabalho com PostgreSQL, Laravel, FastAPI, Prisma e Docker, com suítes automatizadas que somam mais de 850 testes.
+Desenvolvedor Backend Sênior com mais de 10 anos construindo sistemas de missão crítica em Node.js, Python e PHP. Projetei APIs REST que processam mais de 1 milhão de eventos diários, liderei squad de 11 desenvolvedores como referência técnica de CI/CD, e mantenho um portfólio de sete plataformas autorais em produção, de discador para call center a análise de áudio por processamento de sinais. Trabalho com PostgreSQL, Laravel, FastAPI, Prisma e Docker, com suítes automatizadas que somam mais de 850 testes, versionamento e code review por pull request, e documentação técnica versionada junto do código.
 
 COMPETÊNCIAS
 Desenvolvimento e Banco de Dados:
@@ -15,7 +15,9 @@ Desenvolvimento e Banco de Dados:
 - Prisma, Drizzle ORM, SQLAlchemy
 - API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
-- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+- Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
+- Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
+- Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas
 
 Frontend:
 - HTML, CSS e JavaScript (ES6+)
@@ -51,14 +53,16 @@ Cloud e DevOps:
 - Proxmox, KVM, VMware vSphere, OpenStack, LXC
 - Infraestrutura como Código (IaC) e runbooks versionados
 - CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
-- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta
+- Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação
 - systemd, gunicorn, Nginx, Apache, healthcheck
 - Automação de provisionamento via API do Proxmox VE
 - Backup automatizado, disaster recovery (DR) e alta disponibilidade
 
 Qualidade e Testes:
 - pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
-- Testes end-to-end com Cypress
+- Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer
+- Code review por pull request, políticas de branch e histórico auditável
 - Teste de carga e performance com Locust
 - Teste de conformidade de protocolo com SIPp
 - Mock de HTTP, geração de dados sintéticos, cobertura de testes
@@ -106,6 +110,7 @@ Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contí
 - Implementei do zero o servidor WebDAV conforme a RFC 4918 (PROPFIND, MKCOL, COPY, MOVE, LOCK e UNLOCK), com mutex FIFO por caminho para serializar escritas concorrentes.
 - Implementei o protocolo git smart HTTP (upload-pack e receive-pack) e um esquema de autenticação por desafio criptográfico com chave SSH.
 - Construí a plataforma inteira em PHP sem nenhuma dependência de runtime, com interface internacionalizada em 4 idiomas.
+- Implementei o fluxo de code review por pull request (diff no servidor, aprovação, comentário e merge) e políticas de branch aplicadas por hook de pré-recebimento.
 - 129 commits ao longo de quase um ano de operação contínua.
 
 Migrador de Caixa Postal IMAP para Outlook | projeto próprio/freelance | 08/2026

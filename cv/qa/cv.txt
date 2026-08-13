@@ -4,12 +4,13 @@ São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
 linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
 
 RESUMO PROFISSIONAL
-Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.
+Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript, além de automação de navegador com Playwright e Puppeteer. Implementei o fluxo de code review por pull request da plataforma Git que desenvolvi e opero. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.
 
 COMPETÊNCIAS
 Qualidade e Testes:
 - pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
-- Testes end-to-end com Cypress
+- Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer
+- Code review por pull request, políticas de branch e histórico auditável
 - Teste de carga e performance com Locust
 - Teste de conformidade de protocolo com SIPp
 - Mock de HTTP, geração de dados sintéticos, cobertura de testes
@@ -24,7 +25,9 @@ Desenvolvimento e Banco de Dados:
 - Prisma, Drizzle ORM, SQLAlchemy
 - API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
-- Docker, Docker Compose, Git, metodologias ágeis (Scrum, Kanban, JIRA)
+- Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
+- Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
+- Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas
 
 Ecossistema Python:
 - NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
@@ -39,7 +42,8 @@ Cloud e DevOps:
 - Proxmox, KVM, VMware vSphere, OpenStack, LXC
 - Infraestrutura como Código (IaC) e runbooks versionados
 - CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
-- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino)
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta
+- Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação
 - systemd, gunicorn, Nginx, Apache, healthcheck
 - Automação de provisionamento via API do Proxmox VE
 - Backup automatizado, disaster recovery (DR) e alta disponibilidade
@@ -64,6 +68,11 @@ Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance 
 - Escrevi 23 suítes PHPUnit cobrindo a reescrita completa da plataforma, garantindo paridade de funcionalidades com a versão anterior.
 - Cobri os fluxos críticos da versão React/TypeScript com testes end-to-end em Cypress.
 - Projetei a camada de drivers de integração de forma isolável, permitindo testar cada gateway de mensageria sem depender do fornecedor.
+
+Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual
+- Implementei o fluxo de code review da plataforma: pull request com diff calculado no servidor, aprovação, comentário, merge e registro de push direto - o mesmo processo de revisão que uso nos meus repositórios.
+- Construí políticas de branch aplicadas por hook de pré-recebimento, que se auto-sincronizam em todos os repositórios a cada acesso e recusam push fora da política, sem depender de intervenção manual após deploy.
+- Cobri a plataforma com suíte PHPUnit e mantenho o histórico auditável de quem alterou o quê, com log de acesso e de segurança.
 
 Migrador de Caixa Postal IMAP para Outlook | projeto próprio/freelance | 08/2026
 - Montei a suíte contra dois servidores Dovecot de verdade em contêineres, não contra simulações de IMAP: são 2.054 linhas de teste para 3.576 de código, e sem os contêineres no ar os testes de integração são pulados com instrução em vez de falharem por ambiente.

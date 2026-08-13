@@ -33,6 +33,8 @@ decidido em conversa e não está aqui, está perdido.
 | 15 | Currículos à prova de ATS | Sim, com regras de renderização documentadas | usuário | [ATS](#10-regras-de-ats) |
 | 16 | Exportação | Botões de PDF e Word no HTML, sem biblioteca | usuário | [ATS](#10-regras-de-ats) |
 | 17 | Perfil padrão (o que vai para os bots) | `dev` por ora, a revisar com os números finais | Claude, a confirmar | [Perfis](#9-os-nove-perfis) |
+| 18 | O que dos "prompts de qualidade" entra no CV | Só o que já era verdade e não estava escrito (Nível 1) | Claude | [Prompts de qualidade](#15-prompts-de-qualidade-pesquisa-de-origem-e-o-que-entrou-no-cv-2026-08-13) |
+| 19 | Code review nos empregos formais (elev, tw-solutions) | Não escrito — aguarda confirmação do usuário | Claude, a confirmar | [Prompts de qualidade](#15-prompts-de-qualidade-pesquisa-de-origem-e-o-que-entrou-no-cv-2026-08-13) |
 
 ---
 
@@ -477,3 +479,84 @@ wp --skip-plugins menu location assign 107 primary
 - EvoluAI e o painel do SIP proxy não subiram com dados; ficaram com diagrama.
   Se o banco de dev do EvoluAI for semeado, dá para recapturar e republicar —
   o publicador é idempotente.
+
+---
+
+## 15. Prompts de qualidade: pesquisa de origem e o que entrou no CV (2026-08-13)
+
+**Pedido:** Carlos trouxe dois prompts vistos na internet — um mandando aplicar
+uma skill de motion design com skeleton, lazy loading e animação em toda a
+interface, outro mandando garantir observabilidade, lint e testes com uma lista
+de ferramentas. Perguntou de onde vêm essas dicas (livros, cursos), em que se
+baseiam, e o que vale aprender que ainda não está no currículo.
+
+Pesquisa completa, com os dois textos originais preservados, a linhagem de cada
+ideia e a crítica dos prompts:
+[PESQUISA_PROMPTS_MOTION_E_QUALIDADE.md](PESQUISA_PROMPTS_MOTION_E_QUALIDADE.md).
+
+### O que a pesquisa achou
+
+- O repositório citado no prompt (`kylezantos/design-principles`) **não
+  existe** — o real é `kylezantos/design-motion-principles`, e a skill dele
+  classifica como defeito ("anti-slop") exatamente o que o prompt manda fazer:
+  fade-in uniforme e animação no mount de conteúdo estático.
+- Os dois prompts listam **ferramenta em vez de critério**. O de observabilidade
+  empilha três backends de APM concorrentes (Sentry, Datadog, New Relic) mais a
+  camada de instrumentação (OTel), quando o correto é OTel instrumentando e
+  **um** backend.
+- A linhagem real: Disney (1981) → Val Head/Rachel Nabors → Material/Apple para
+  o movimento; Miller (1968) → Doherty (IBM, 1982) → Wroblewski (2013) → RAIL
+  (2015) para skeleton e lazy; Kálmán (1960) → Dapper (2010) → SRE Book (2016)
+  → Observability Engineering (2022) para observabilidade; Cohn (2009) → Fowler
+  → Testing Trophy → DeMillo/Lipton/Sayward (1978) para testes e mutação.
+
+### Critério do que entrou no CV
+
+Só o **Nível 1**: trabalho que já era verdade e só não estava escrito. Nada de
+OpenTelemetry, mutation testing, fitness function ou acessibilidade entrou —
+seria declarar competência inexistente. A lista completa das nove mudanças está
+na seção 6 do documento de pesquisa.
+
+O achado que sustenta o item mais forte: a `painel-git` tem fluxo de code review
+de verdade (`lib/pr.php` com `create_pr`, `approve_pr`, `comment_pr`,
+`merge_pr`, `pr_compute_diff`) e política de branch aplicada por hook
+(`lib/policy.php`). "Code review" era lacuna em 3 vagas e estava ausente do CV
+de quem **construiu** o mecanismo.
+
+### Efeito medido
+
+Linha de base gerada do HEAD em worktree separado, contra o mesmo snapshot de
+1.129 vagas — a diferença é atribuível só a esta edição:
+
+| Perfil | Antes | Depois | Δ | Lacunas fechadas |
+|---|---|---|---|---|
+| `dev` | 53% | **66%** | +13 | documentação técnica, versionamento, code review |
+| `frontend` | 62% | **72%** | +10 | versionamento, documentação técnica, code review |
+| `seguranca` | 28% | **38%** | +10 | versionamento, documentação técnica |
+| `devops` | 46% | **50%** | +4 | versionamento, documentação técnica |
+| `dados` | 64% | **67%** | +3 | versionamento |
+| `qa` | 56% | **58%** | +2 | playwright, versionamento |
+| `ia` | 55% | **57%** | +2 | versionamento |
+| `rpa` | 62% | **64%** | +2 | versionamento |
+
+Os 102 testes continuam passando. `voip` segue não mensurável — não há vaga de
+telecom no snapshot (frente 2 das próximas frentes).
+
+**O que o número não diz:** não houve ganho de capacidade nenhum. O salto é
+grande porque três termos de alta frequência estavam ausentes por omissão de
+escrita — o CV só parou de esconder o que já existia.
+
+### Calibragem registrada
+
+Nenhum dos termos dos dois prompts (Sentry, Datadog, NewRelic, OTel, Biome,
+commitlint, Knip, Stryker, Codecov) aparece nas 1.129 vagas coletadas. O que
+essas vagas pedem e falta continua sendo Azure, SQL Server, C#/.NET,
+Totvs/Protheus e SAP. Esses prompts são a régua do mercado freelance/remoto/
+internacional, não a do CLT de InfoJobs — os dois caminhos são legítimos, mas
+não são o mesmo investimento.
+
+### Em aberto
+
+- Confirmar se havia code review formal na `elev` (11 desenvolvedores) e na
+  `tw-solutions` (referência técnica de CI/CD). Se sim, entram dois bullets; por
+  ora o CV se apoia só na evidência verificável da `painel-git`.
