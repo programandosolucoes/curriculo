@@ -131,11 +131,11 @@ Recuperação de Código-Fonte a partir de Executável | projeto próprio/freela
 EXPERIÊNCIA PROFISSIONAL
 Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
 - Projetei e integrei APIs RESTful em Node.js que processam mais de 1 milhão de eventos diários, integrando um sistema omnichannel a uma plataforma de comunicação.
-- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.
+- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket.
 - Arquitetei solução clusterizada multi-tenant com escalabilidade horizontal e balanceamento de carga.
 
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
-- Liderei a arquitetura técnica de todos os projetos fullstack da empresa, supervisionando 11 desenvolvedores.
+- Liderei a arquitetura técnica de todos os projetos fullstack da empresa, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.
 - Desenvolvi o backend completo em Node.js e PHP e o frontend em Angular de uma plataforma de gerenciamento.
 - Impulsionei um ganho de 200% em novas receitas ao projetar a integração com Zendesk e Power BI, transformando-a em um novo produto.
 

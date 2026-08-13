@@ -88,7 +88,7 @@ Engenheiro VoIP Sênior | Ip Telecom | 01/2023 - 11/2025 | Itália
 
 Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
 - Arquitetei solução clusterizada multi-tenant com escalabilidade horizontal e balanceamento de carga, dimensionada para mais de 1 milhão de eventos diários.
-- Atuei como referência técnica dos pipelines de CI/CD no Bitbucket para todo o esquadrão de desenvolvimento.
+- Atuei como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket para todo o esquadrão de desenvolvimento.
 - Integrei sistemas distintos por API RESTful, substituindo acoplamento direto entre plataformas.
 
 Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019

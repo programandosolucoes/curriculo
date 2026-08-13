@@ -91,12 +91,12 @@ Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasil
 - Validei rotinas de backup e recuperação, garantindo capacidade de disaster recovery para mais de 100 clientes.
 
 Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
-- Atuei como referência técnica de CI/CD no Bitbucket para o esquadrão de desenvolvimento, definindo o que roda em cada estágio do pipeline.
+- Atuei como referência técnica de CI/CD e do code review de pull request no Bitbucket para o esquadrão de desenvolvimento, definindo o que roda em cada estágio do pipeline.
 - Projetei e integrei APIs RESTful de alto volume (mais de 1 milhão de eventos diários), com validação de contrato entre os sistemas.
 - Liderei o esquadrão em metodologia ágil (Scrum/JIRA).
 
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
-- Liderei a arquitetura técnica de todos os projetos da empresa, supervisionando 11 desenvolvedores e definindo o padrão de qualidade do código entregue.
+- Liderei a arquitetura técnica de todos os projetos da empresa, supervisionando 11 desenvolvedores e conduzindo o code review que definia o padrão de qualidade do código entregue.
 - Desenvolvi backend (Node.js, PHP) e frontend (Angular) de uma plataforma completa, respondendo pela integridade das duas pontas.
 - Projetei integração com Zendesk e Power BI que se tornou um novo produto.
 

@@ -116,7 +116,7 @@ Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
 - Projetei a integração entre a plataforma interna, o Zendesk e o Power BI, eliminando repasse manual de dados entre as ferramentas e gerando 200% de novas receitas.
 - Desenvolvi backend completo em Node.js e PHP com as APIs REST que sustentam essas integrações.
-- Liderei a arquitetura técnica supervisionando 11 desenvolvedores.
+- Liderei a arquitetura técnica e o code review das entregas, supervisionando 11 desenvolvedores.
 
 Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
 - Construí do zero um chatbot de voz (CPQD) que automatizou 10% do volume de chamadas operacionais, entregue como novo produto comercial.

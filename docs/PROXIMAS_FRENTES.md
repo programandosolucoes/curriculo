@@ -61,18 +61,13 @@ Não executado por ser configuração do usuário.
 
 ---
 
-## 6. Confirmar code review nos empregos formais
+## ~~6. Confirmar code review nos empregos formais~~ — CONCLUÍDO
 
-Os bullets de `elev` (11 desenvolvedores supervisionados) e `tw-solutions`
-(referência técnica de CI/CD no Bitbucket) são o lugar natural para um bullet de
-**code review**, termo pedido em 3 vagas dos perfis dev e frontend.
+Confirmado pelo usuário em 13/08: havia code review formal na `elev` e na
+`tw-solutions`. Os bullets foram escritos em ambas, dobrando os já existentes.
+Ver a seção 15 do [DIARIO.md](DIARIO.md#15-prompts-de-qualidade-pesquisa-de-origem-e-o-que-entrou-no-cv-2026-08-13).
 
-Não foi escrito porque não há registro de que a prática fosse formal nesses
-times — o CV hoje se apoia só na evidência verificável da `painel-git`, onde o
-fluxo de PR foi construído por ele. **Basta o usuário confirmar** para os dois
-bullets entrarem.
-
-Contexto em [PESQUISA_PROMPTS_MOTION_E_QUALIDADE.md](PESQUISA_PROMPTS_MOTION_E_QUALIDADE.md).
+O `cv.txt` dos bots também foi sincronizado com o perfil `dev` na mesma rodada.
 
 ---
 

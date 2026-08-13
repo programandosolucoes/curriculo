@@ -65,7 +65,7 @@ Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, 
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
 - Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.
 - Desenvolvi o backend completo (Node.js, PHP) que consolida os dados operacionais consumidos pelos painéis.
-- Liderei a arquitetura técnica supervisionando 11 desenvolvedores.
+- Liderei a arquitetura técnica e o code review das entregas, supervisionando 11 desenvolvedores.
 
 Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
 - Modelei e integrei o pipeline de mais de 1 milhão de eventos de chamadas diários, consumido por relatórios e painéis operacionais.

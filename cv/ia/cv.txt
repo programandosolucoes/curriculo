@@ -122,14 +122,14 @@ Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, 
 Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
 - Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.
 - Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).
-- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.
+- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket.
 
 Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil
 - Desenvolvi uma URA dinâmica em Python usando reconhecimento de voz (ASR) e síntese de fala (TTS/STT), substituindo menus fixos por interação em linguagem natural.
 - Criei APIs de microsserviços em Node.js que reduziram custos em mais de 300% ao substituir software licenciado.
 
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
-- Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores.
+- Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.
 - Desenvolvi o backend completo (REST APIs em Node.js, PHP) e o frontend (Angular) para a plataforma de gerenciamento de call center.
 - Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Zendesk e Power BI, criando um novo produto para a equipe de vendas.
 

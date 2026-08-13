@@ -285,16 +285,16 @@
         "base": [
           "Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.",
           "Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).",
-          "Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket."
+          "Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket."
         ],
         "dev": [
           "Projetei e integrei APIs RESTful em Node.js que processam mais de 1 milhão de eventos diários, integrando um sistema omnichannel a uma plataforma de comunicação.",
-          "Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.",
+          "Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket.",
           "Arquitetei solução clusterizada multi-tenant com escalabilidade horizontal e balanceamento de carga."
         ],
         "devops": [
           "Arquitetei solução clusterizada multi-tenant com escalabilidade horizontal e balanceamento de carga, dimensionada para mais de 1 milhão de eventos diários.",
-          "Atuei como referência técnica dos pipelines de CI/CD no Bitbucket para todo o esquadrão de desenvolvimento.",
+          "Atuei como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket para todo o esquadrão de desenvolvimento.",
           "Integrei sistemas distintos por API RESTful, substituindo acoplamento direto entre plataformas."
         ],
         "dados": [
@@ -308,7 +308,7 @@
           "Liderei o esquadrão de desenvolvimento em metodologia ágil, como referência técnica de CI/CD."
         ],
         "qa": [
-          "Atuei como referência técnica de CI/CD no Bitbucket para o esquadrão de desenvolvimento, definindo o que roda em cada estágio do pipeline.",
+          "Atuei como referência técnica de CI/CD e do code review de pull request no Bitbucket para o esquadrão de desenvolvimento, definindo o que roda em cada estágio do pipeline.",
           "Projetei e integrei APIs RESTful de alto volume (mais de 1 milhão de eventos diários), com validação de contrato entre os sistemas.",
           "Liderei o esquadrão em metodologia ágil (Scrum/JIRA)."
         ]
@@ -352,34 +352,34 @@
       "local": "São Paulo, Brasil",
       "bullets": {
         "base": [
-          "Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores.",
+          "Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.",
           "Desenvolvi o backend completo (REST APIs em Node.js, PHP) e o frontend (Angular) para a plataforma de gerenciamento de call center.",
           "Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Zendesk e Power BI, criando um novo produto para a equipe de vendas."
         ],
         "dev": [
-          "Liderei a arquitetura técnica de todos os projetos fullstack da empresa, supervisionando 11 desenvolvedores.",
+          "Liderei a arquitetura técnica de todos os projetos fullstack da empresa, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.",
           "Desenvolvi o backend completo em Node.js e PHP e o frontend em Angular de uma plataforma de gerenciamento.",
           "Impulsionei um ganho de 200% em novas receitas ao projetar a integração com Zendesk e Power BI, transformando-a em um novo produto."
         ],
         "frontend": [
           "Desenvolvi o frontend em Angular de uma plataforma completa de gerenciamento, junto do backend em Node.js e PHP que o alimenta.",
-          "Liderei a arquitetura técnica de todos os projetos fullstack, supervisionando 11 desenvolvedores.",
+          "Liderei a arquitetura técnica de todos os projetos fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.",
           "Projetei a integração com Zendesk e Power BI que virou um novo produto, com ganho de 200% em novas receitas."
         ],
         "dados": [
           "Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
           "Desenvolvi o backend completo (Node.js, PHP) que consolida os dados operacionais consumidos pelos painéis.",
-          "Liderei a arquitetura técnica supervisionando 11 desenvolvedores."
+          "Liderei a arquitetura técnica e o code review das entregas, supervisionando 11 desenvolvedores."
         ],
         "qa": [
-          "Liderei a arquitetura técnica de todos os projetos da empresa, supervisionando 11 desenvolvedores e definindo o padrão de qualidade do código entregue.",
+          "Liderei a arquitetura técnica de todos os projetos da empresa, supervisionando 11 desenvolvedores e conduzindo o code review que definia o padrão de qualidade do código entregue.",
           "Desenvolvi backend (Node.js, PHP) e frontend (Angular) de uma plataforma completa, respondendo pela integridade das duas pontas.",
           "Projetei integração com Zendesk e Power BI que se tornou um novo produto."
         ],
         "rpa": [
           "Projetei a integração entre a plataforma interna, o Zendesk e o Power BI, eliminando repasse manual de dados entre as ferramentas e gerando 200% de novas receitas.",
           "Desenvolvi backend completo em Node.js e PHP com as APIs REST que sustentam essas integrações.",
-          "Liderei a arquitetura técnica supervisionando 11 desenvolvedores."
+          "Liderei a arquitetura técnica e o code review das entregas, supervisionando 11 desenvolvedores."
         ]
       }
     },

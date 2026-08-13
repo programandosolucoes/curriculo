@@ -330,12 +330,12 @@ que já existia.
 
 ## 7. Em aberto
 
-- **Code review nos empregos formais.** Os bullets de `elev` (11
-  desenvolvedores supervisionados) e `tw-solutions` (referência técnica de
-  CI/CD) são o lugar natural para um bullet de code review, mas **não foi
-  escrito**: não há registro de que a prática fosse formal nesses times. Carlos
-  precisa confirmar antes de entrar — o que está no CV hoje se apoia só na
-  evidência verificável da `painel-git`.
+- ~~**Code review nos empregos formais.**~~ **Resolvido em 13/08:** Carlos
+  confirmou que havia code review formal na `elev` e na `tw-solutions`, e os
+  bullets foram escritos nas duas. A aderência **não** se moveu com isso — a
+  ferramenta conta presença de termo, e "code review" já tinha entrado pela
+  competência. O que mudou é a evidência: quem lê o CV agora vê *onde* a prática
+  aconteceu. Lembrete de que o número mede palavra-chave, não candidatura.
 - Nenhum item de Nível 2, 3 ou 4 foi para o CV. Cada um deles exige fazer o
   trabalho antes: instrumentar um projeto com OTel, rodar mutation testing numa
   suíte real, escrever uma fitness function, auditar acessibilidade.

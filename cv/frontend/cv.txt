@@ -94,7 +94,7 @@ Assistente de Suporte Guiado por Fluxo JSON, sem IA | projeto próprio/freelance
 EXPERIÊNCIA PROFISSIONAL
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
 - Desenvolvi o frontend em Angular de uma plataforma completa de gerenciamento, junto do backend em Node.js e PHP que o alimenta.
-- Liderei a arquitetura técnica de todos os projetos fullstack, supervisionando 11 desenvolvedores.
+- Liderei a arquitetura técnica de todos os projetos fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.
 - Projetei a integração com Zendesk e Power BI que virou um novo produto, com ganho de 200% em novas receitas.
 
 Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
@@ -104,7 +104,7 @@ Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, 
 Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
 - Processei mais de 1 milhão de eventos de chamadas diários ao projetar e integrar APIs RESTful (Node.js) com um sistema de call center omnichannel.
 - Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio (load balancer) e Asterisk (media).
-- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica para pipelines de CI/CD no Bitbucket.
+- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket.
 
 Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil
 - Projetei e implementei a arquitetura de borda (SBC) de alta disponibilidade da empresa, combinando Asterisk, OpenSIPS e Kamailio.

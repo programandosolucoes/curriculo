@@ -34,7 +34,8 @@ decidido em conversa e não está aqui, está perdido.
 | 16 | Exportação | Botões de PDF e Word no HTML, sem biblioteca | usuário | [ATS](#10-regras-de-ats) |
 | 17 | Perfil padrão (o que vai para os bots) | `dev` por ora, a revisar com os números finais | Claude, a confirmar | [Perfis](#9-os-nove-perfis) |
 | 18 | O que dos "prompts de qualidade" entra no CV | Só o que já era verdade e não estava escrito (Nível 1) | Claude | [Prompts de qualidade](#15-prompts-de-qualidade-pesquisa-de-origem-e-o-que-entrou-no-cv-2026-08-13) |
-| 19 | Code review nos empregos formais (elev, tw-solutions) | Não escrito — aguarda confirmação do usuário | Claude, a confirmar | [Prompts de qualidade](#15-prompts-de-qualidade-pesquisa-de-origem-e-o-que-entrou-no-cv-2026-08-13) |
+| 19 | Code review nos empregos formais (elev, tw-solutions) | Confirmado pelo usuário — bullets escritos | usuário | [Prompts de qualidade](#15-prompts-de-qualidade-pesquisa-de-origem-e-o-que-entrou-no-cv-2026-08-13) |
+| 20 | `cv.txt` dos bots de candidatura | Sincronizado com o perfil `dev`; era de 30/07, com título de VoIP | usuário | [Prompts de qualidade](#15-prompts-de-qualidade-pesquisa-de-origem-e-o-que-entrou-no-cv-2026-08-13) |
 
 ---
 
@@ -555,8 +556,29 @@ Totvs/Protheus e SAP. Esses prompts são a régua do mercado freelance/remoto/
 internacional, não a do CLT de InfoJobs — os dois caminhos são legítimos, mas
 não são o mesmo investimento.
 
-### Em aberto
+### Confirmado depois: code review nos empregos formais
 
-- Confirmar se havia code review formal na `elev` (11 desenvolvedores) e na
-  `tw-solutions` (referência técnica de CI/CD). Se sim, entram dois bullets; por
-  ora o CV se apoia só na evidência verificável da `painel-git`.
+O usuário confirmou que havia code review formal na `elev` e na `tw-solutions`.
+Os bullets foram escritos, dobrando os já existentes em vez de criar linha nova:
+
+- **`elev`** — "supervisionando 11 desenvolvedores **e conduzindo o code review
+  das entregas do time**" (variantes base, dev, frontend, qa, dados, rpa).
+- **`tw-solutions`** — "referência técnica **dos pipelines de CI/CD e do code
+  review de pull request** no Bitbucket" (variantes base, dev, devops, qa).
+
+**A aderência não mudou com isso, e é esperado:** a ferramenta conta presença de
+termo, e "code review" já tinha entrado pela competência. O que mudou é a
+evidência — quem lê o CV agora vê *onde* a prática aconteceu, em vez de uma
+competência declarada sem lastro no histórico. Bom lembrete de que o número mede
+palavra-chave, não qualidade de candidatura.
+
+### Sincronia com os bots
+
+O `cv.txt` dos dois bots (`bots/infojobs/` e `bots/vagas/` da
+`vagas-automation-suite`) era de **30/07 e trazia o título "Arquiteto de
+Soluções VoIP Sênior"** — anterior a todo o trabalho multi-perfil. Substituído
+pelo perfil `dev` e commitado lá (`7abd194b`), com autorização do usuário.
+
+**Ponto para revisar:** `dev` é o padrão por volume de vagas (62), não por
+aderência. Depois desta rodada, `frontend` (72%) e `dados` (67%) pontuam acima
+de `dev` (66%) — a decisão 17 continua valendo a revisão.
