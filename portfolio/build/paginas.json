@@ -45,6 +45,11 @@
     "arquivo": "portfolio-rpa.html"
   },
   {
+    "slug": "portfolio-n8n-drive-contabil",
+    "titulo": "API de Busca e Entrega de Documentos em Acervo Contábil (n8n)",
+    "arquivo": "portfolio-n8n-drive-contabil.html"
+  },
+  {
     "slug": "portfolio-painel-git",
     "titulo": "Plataforma Própria de Hospedagem Git",
     "arquivo": "portfolio-painel-git.html"

@@ -1,0 +1,81 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f172a;color:#e2e8f0;
+    font-family:'DejaVu Sans',system-ui,-apple-system,sans-serif;
+    width:1200px;padding:40px}
+  .fig-titulo{font-size:22px;font-weight:600;margin-bottom:4px}
+  .fig-sub{font-size:14px;color:#94a3b8;margin-bottom:28px}
+  .fig-nota{margin-top:24px;font-size:13px;color:#94a3b8;
+    border-left:3px solid #a78bfa;padding-left:12px;line-height:1.6}
+
+  .fluxo{display:flex;align-items:stretch;gap:14px}
+  .etapa{flex:1;display:flex;flex-direction:column;gap:10px}
+  .et-rotulo{font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+    color:#38bdf8;font-weight:600}
+  .et-caixas{display:flex;flex-direction:column;gap:10px;flex:1}
+  .cx{background:#1e293b;border:1px solid #334155;
+    border-radius:10px;padding:14px 16px;flex:1;display:flex;
+    flex-direction:column;justify-content:center;gap:5px}
+  .cx-nome{font-size:15px;font-weight:600;line-height:1.3}
+  .cx-det{font-size:12px;color:#94a3b8;line-height:1.45}
+  .seta{display:flex;align-items:center;font-size:26px;
+    color:#38bdf8;padding-top:20px}
+  </style></head><body>
+    <div class="fig-titulo">Do CNPJ ao arquivo: identificar, consultar e entregar</div>
+    <div class="fig-sub">API de pesquisa do acervo contábil no Google Drive, construída em n8n</div>
+    <div class="fluxo">
+    <div class="etapa">
+      <div class="et-rotulo">Consumidor</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Bot externo</div>
+        <div class="cx-det">Authorization: Bearer …</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">Ambiente de teste espelhado</div>
+        <div class="cx-det">/webhook/teste/* — o bot é construído antes da credencial existir</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">API em n8n</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">identificar</div>
+        <div class="cx-det">CNPJ ou nome → referência de 30 min</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">consultar</div>
+        <div class="cx-det">referência + filtros → documentos</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">entregar</div>
+        <div class="cx-det">binário, base64 (teto de 5 MB) ou link assinado</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Índice</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">163.738 pastas indexadas</div>
+        <div class="cx-det">Data Tables do n8n</div>
+      </div>
+      <div class="cx">
+        <div class="cx-nome">CNPJ no nível 0</div>
+        <div class="cx-det">vem de arquivo, não da convenção de nome das pastas</div>
+      </div></div>
+    </div>
+    <div class="seta">→</div>
+    <div class="etapa">
+      <div class="et-rotulo">Acervo</div>
+      <div class="et-caixas">
+      <div class="cx">
+        <div class="cx-nome">Google Drive do escritório</div>
+        <div class="cx-det">conta de serviço; até a credencial chegar, o provedor responde em modo simulado</div>
+      </div></div>
+    </div>
+    </div>
+    <div class="fig-nota">Nenhum modelo de linguagem participa da decisão de liberar documento: a autorização é determinística sobre índice e token. 15 workflows, 14 Data Tables e 53 rotas de webhook, contados da instância. 219 casos de teste.</div>
+  </body></html>

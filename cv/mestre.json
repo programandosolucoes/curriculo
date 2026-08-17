@@ -13,7 +13,7 @@
     "voip": "Arquiteto de Soluções e Engenheiro VoIP Sênior com mais de 10 anos de experiência, focado em projetar e implementar sistemas de comunicação em nuvem de alta disponibilidade. Especialista em arquitetar ecossistemas VoIP complexos (Asterisk, Kamailio, OpenSIPS), integrar plataformas de telefonia a sistemas de negócio e desenvolver os componentes que faltam: appliances de roteamento, engines de URA/IVR, proxies SIP e APIs de integração. Certificado dCAA, com histórico de 99,99% de uptime em operação internacional e migrações sem indisponibilidade.",
     "dev": "Desenvolvedor Backend Sênior com mais de 10 anos construindo sistemas de missão crítica em Node.js, Python e PHP. Projetei APIs REST que processam mais de 1 milhão de eventos diários, liderei squad de 11 desenvolvedores como referência técnica de CI/CD, e mantenho um portfólio de sete plataformas autorais em produção, de discador para call center a análise de áudio por processamento de sinais. Trabalho com PostgreSQL, Laravel, FastAPI, Prisma e Docker, com suítes automatizadas que somam mais de 850 testes, versionamento e code review por pull request, e documentação técnica versionada junto do código.",
     "frontend": "Desenvolvedor Frontend Sênior com experiência em React 18, TypeScript e Next.js, construindo desde plataformas SaaS completas com design system próprio até interfaces em JavaScript puro sem framework nem build. Trabalhei com TailwindCSS, Radix UI, TanStack e Vite, testes end-to-end em Cypress, videochamada WebRTC e segmentação de imagem por Inteligência Artificial (IA) executando no navegador com TensorFlow.js. Base sólida de HTML, CSS e JavaScript, com mais de 10 anos de engenharia de backend por trás.",
-    "ia": "Engenheiro de Inteligência Artificial (IA) com experiência prática em integrar modelos de linguagem (LLM) a produtos em produção. Construí cadeia de fallback entre cinco provedores sobre dois formatos de API distintos, inferência local em CPU com modelos quantizados para dados que não podem sair da máquina, e avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento comercial. Mais de 10 anos de engenharia de sistemas dão a base para colocar IA em produção, não só prototipar. Bacharelado em Ciências de Inteligência Artificial em curso.",
+    "ia": "Engenheiro de Inteligência Artificial (IA) e automação com mais de 10 anos de engenharia de sistemas, acostumado a levar a solução de ponta a ponta: entender o processo, escolher a tecnologia e colocar em produção. Construo aplicações e agentes com modelos de linguagem (LLM) — cadeia de fallback entre cinco provedores, chamada de função com catálogo fechado de ferramentas, servidores MCP próprios com 37 ferramentas — e automações de processo administrativo e documental em n8n auto-hospedado, Node.js e Python. Integro banco de dados, API, modelo e plataforma externa: PostgreSQL, OAuth2, webhook, fila e OpenAPI, com inferência local em CPU quando o dado não pode sair da máquina. Trabalho em Python e TypeScript/JavaScript, com Docker, Git e code review por pull request no dia a dia. Bacharelado em Ciências de Inteligência Artificial em curso.",
     "devops": "Engenheiro DevOps e SRE Sênior com mais de 10 anos em infraestrutura de missão crítica. Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% modernizando a observabilidade, sustentei um objetivo de disponibilidade (SLO) de 99,99% em operação internacional e mantive capacidade de disaster recovery para mais de 100 clientes. Trabalho com Kubernetes, Docker, Proxmox, LXC, pipelines de CI/CD e automação de provisionamento via API, com experiência de plantão N3 em ambientes onde a indisponibilidade custa dinheiro por minuto.",
     "dados": "Profissional de Dados e Business Intelligence com base sólida em engenharia de sistemas. Construí pipelines processando mais de 1 milhão de eventos diários, dashboards usados por gestores em mais de 25 empresas clientes, e sistemas analíticos que vão de modelagem relacional e tuning de PostgreSQL até processamento digital de sinais e Inteligência Artificial (IA) aplicada. Pós-graduação em Data Warehouse e Business Intelligence e Bacharelado em Ciências de Inteligência Artificial em curso.",
     "seguranca": "Analista de Segurança da Informação Sênior com experiência em proteção de aplicação, criptografia aplicada e resposta a incidentes. Implementei arquitetura WAF com ModSecurity e regras OWASP em ambiente financeiro, reduzi o tempo de resposta a incidentes em mais de 99% com análise automatizada de logs em nível de SOC, e desenvolvi sistemas com criptografia AES, assinatura digital RSA-2048 e isolamento físico de dados entre clientes. Experiência com pfSense, OpenVPN, hardening de Linux e conformidade regulatória (normas ISO/IEC).",
@@ -105,9 +105,11 @@
         "Reconhecimento de fala (ASR) local com faster-whisper",
         "Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico",
         "Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento",
-        "IA generativa, agentes de IA, MCP (Model Context Protocol), RAG",
+        "IA generativa aplicada a produto: assistente com acesso a dados, automação conversacional com escalada para humano e geração de resposta a partir de documento de referência",
+        "Agentes de IA com ferramentas: chamada de função (function calling), catálogo fechado por lista de permissão e servidores MCP próprios (37 ferramentas, em TypeScript e Rust)",
+        "RAG e busca semântica: embeddings de voz, similaridade de cosseno e busca vetorial em SQL com sqlite-vec (índice ANN)",
         "Machine learning aplicado, NLP e processamento de linguagem natural",
-        "Engenharia assistida por IA com metodologia spec-driven"
+        "Engenharia assistida por IA: CLIs de agentes (Claude Code entre outros três), skills, subagentes e metodologia spec-driven"
       ]
     },
     "sinais": {
@@ -152,7 +154,8 @@
         "Pipelines de mais de 1 milhão de eventos diários",
         "CDR e CEL: extração, correlação e análise de registros de chamada",
         "Pandas, NumPy e análise estatística",
-        "Data Warehouse e Business Intelligence (pós-graduação em curso)"
+        "Data Warehouse e Business Intelligence (pós-graduação em curso)",
+        "Busca vetorial e JSON em SQL com medição própria: sqlite-vec com índice ANN, colunas geradas, JSONB e FTS5; Supabase avaliado e registrado como destino planejado, por ser PostgreSQL empacotado"
       ]
     },
     "qa": {
@@ -166,6 +169,16 @@
         "Mock de HTTP, geração de dados sintéticos, cobertura de testes",
         "Checagem estática de tipos com mypy e TypeScript",
         "Suporte N3: reprodução e isolamento de defeito em produção"
+      ]
+    },
+    "automacao": {
+      "titulo": "Automação de Processos e Integração",
+      "itens": [
+        "n8n auto-hospedado em Docker: workflows, Data Tables, rotas de webhook, publicação de fluxos pela API e contrato em OpenAPI 3.1",
+        "Automação documental e administrativa: busca e entrega de documento em acervo de 163.738 pastas, limpeza de caixa postal em massa (98.800 mensagens) e migração de e-mail entre provedores",
+        "RPA de navegador em Node.js com Puppeteer e Playwright: adaptadores por site sobre núcleo comum, motor de regras e evidência auditável por captura de tela",
+        "Integrações: API REST, webhook, OAuth2 (Google Workspace e Microsoft 365), JSON-RPC, SOAP/XML, Protobuf, filas BullMQ/Redis e mensageria JMS/STOMP",
+        "Automação assinada e auditável: disparo por HMAC-SHA256, credenciais cifradas em AES-256-GCM e confirmação humana antes de ação que altera sistema"
       ]
     }
   },
@@ -950,6 +963,50 @@
       ]
     },
     {
+      "id": "n8n-drive-contabil",
+      "nome": "API de Busca e Entrega de Documentos em Acervo Contábil (n8n)",
+      "contexto": "projeto próprio/freelance",
+      "periodo": "08/2026 - atual",
+      "bullets": {
+        "base": [
+          "Construí em n8n auto-hospedado uma API de busca documental sobre o Google Drive de um escritório de contabilidade: identificação do cliente por CNPJ, consulta filtrada e entrega do arquivo em binário, base64 ou link assinado, com 15 workflows, 14 Data Tables e 53 rotas de webhook.",
+          "Indexei 163.738 pastas do acervo e provei a origem do CNPJ ponta a ponta contra o disco (43 arquivos, 43 linhas, zero divergência), em vez de confiar na convenção de nome das pastas.",
+          "Publiquei o contrato em OpenAPI 3.1, com Swagger auto-contido servido pelo próprio n8n e um ambiente de teste espelhado, para o bot consumidor ser construído sem depender de mim.",
+          "Cobri o comportamento com 219 casos de teste e escrevi um endpoint de prontidão que declara o que está pronto, o que falta e de quem depende."
+        ],
+        "ia": [
+          "Automatizei o atendimento documental de um escritório de contabilidade com n8n auto-hospedado: identificação do cliente por CNPJ, busca no acervo e entrega do arquivo em binário, base64 ou link assinado — 15 workflows, 14 Data Tables e 53 rotas de webhook, contados da instância e não estimados.",
+          "Decidi deixar o modelo de linguagem fora da autorização: liberar documento é decisão determinística sobre índice e token, porque um erro de modelo aqui entrega o documento de um cliente para outro. A IA conversa com o usuário; não decide o que sai.",
+          "Indexei 163.738 pastas e provei a origem do CNPJ ponta a ponta contra o disco (43 arquivos, 43 linhas, zero divergência), com 219 casos de teste e um endpoint que declara a prontidão de entrega item a item.",
+          "Publiquei o contrato em OpenAPI 3.1 com Swagger auto-contido e um ambiente de teste espelhado, o que permitiu ao bot consumidor ser desenvolvido inteiro antes de a credencial do Drive do cliente existir."
+        ]
+      },
+      "areas": [
+        "backend"
+      ],
+      "resumo": "API de pesquisa e entrega de documentos sobre o Google Drive de um escritório de contabilidade, construída inteira em n8n auto-hospedado.",
+      "problema": "Um acervo de quase 190 mil pastas no Drive, e o pedido que chega é \"o FGTS de março\". Encontrar o arquivo é trabalho humano repetitivo, e delegar a busca a um modelo de linguagem cria um risco novo: entregar o documento de um cliente para outro. O que se quer automatizar é a localização e a entrega, não a decisão de quem pode receber o quê.",
+      "arquitetura": "O n8n atua como API HTTP, não como robô de tela: três rotas encadeadas — identificar (CNPJ ou nome devolve uma referência de 30 minutos), consultar (referência mais filtros devolve os documentos) e entregar (binário, base64 com teto de 5 MB, ou link assinado). O acervo é indexado em Data Tables, com o CNPJ vindo de um arquivo no nível zero de cada pasta de empresa em vez da convenção de nome, que é irregular. Produção e teste são conjuntos separados de rotas sobre os mesmos fluxos, o que permite desenvolver e demonstrar o consumidor contra dados semeados enquanto a credencial do Drive real não chega. A documentação inteira é servida pela própria instância — Swagger auto-contido sem CDN, manual, catálogo de expressões regulares, explorador do acervo e um painel de prontidão para entrega.",
+      "resultado": "Instância local com 15 workflows, 14 Data Tables e 53 rotas de webhook, com 163.738 pastas indexadas e 219 casos de teste passando. A origem do CNPJ foi conferida contra o disco sem divergência. O que falta está declarado em rota própria: a credencial da conta de serviço do cliente — até ela chegar, o provedor do Drive responde em modo simulado, e isso é dito no ar em vez de descoberto no uso.",
+      "stack": [
+        "n8n",
+        "Python",
+        "JavaScript",
+        "Google Drive API",
+        "OpenAPI 3.1",
+        "Docker",
+        "SQLite"
+      ],
+      "duracao": "2 semanas",
+      "repo": "n8n-drive-contabil.git",
+      "imagens": [
+        {
+          "arquivo": "n8n-drive-contabil-01-fluxo.png",
+          "legenda": "Do CNPJ ao arquivo: identificar, consultar e entregar"
+        }
+      ]
+    },
+    {
       "id": "painel-git",
       "nome": "Plataforma Própria de Hospedagem Git",
       "contexto": "projeto pessoal, uso profissional contínuo",
@@ -984,6 +1041,12 @@
           "Construí a plataforma inteira em PHP sem nenhuma dependência de runtime, com interface internacionalizada em 4 idiomas.",
           "Implementei o fluxo de code review por pull request (diff no servidor, aprovação, comentário e merge) e políticas de branch aplicadas por hook de pré-recebimento.",
           "129 commits ao longo de quase um ano de operação contínua."
+        ],
+        "ia": [
+          "Escrevi o servidor MCP (Model Context Protocol) da plataforma: 37 ferramentas que dão a um assistente de IA leitura de repositório, histórico, diff, pull request, chaves e trilha de auditoria sem clonar nada.",
+          "Mantenho duas implementações com paridade exata de nomes e parâmetros — TypeScript empacotada em arquivo único, que instala sem npm install, e Rust em binário estático para quem não tem Node — com o contrato de paridade escrito nos dois READMEs e conferido pela saída de tools/list.",
+          "Tratei o login do agente como superfície de privilégio: a autenticação por chave SSH exige chave ativa vinculada a usuário, sem o recurso para root que existe no caminho do Git; comparar as duas implementações campo a campo achou um parâmetro divergente que descartava em silêncio o motivo de alteração de política.",
+          "A plataforma por baixo é minha: Git smart HTTP, WebDAV RFC 4918, code review por pull request e políticas de branch aplicadas por hook, em PHP sem dependência de runtime, com mais de 30 repositórios hospedados há quase um ano."
         ]
       },
       "areas": [

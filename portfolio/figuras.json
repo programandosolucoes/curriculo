@@ -1776,5 +1776,66 @@
       }
     ],
     "nota": "218 testes automatizados rodam sem pfSense, contra um backup real de configuração. O addon não instala interpretador, biblioteca nem dependência: usa o nginx e o PHP que o firewall já tem."
+  },
+  {
+    "arquivo": "n8n-drive-contabil-01-fluxo.png",
+    "tipo": "diagrama",
+    "titulo": "Do CNPJ ao arquivo: identificar, consultar e entregar",
+    "subtitulo": "API de pesquisa do acervo contábil no Google Drive, construída em n8n",
+    "etapas": [
+      {
+        "rotulo": "Consumidor",
+        "caixas": [
+          {
+            "nome": "Bot externo",
+            "detalhe": "Authorization: Bearer …"
+          },
+          {
+            "nome": "Ambiente de teste espelhado",
+            "detalhe": "/webhook/teste/* — o bot é construído antes da credencial existir"
+          }
+        ]
+      },
+      {
+        "rotulo": "API em n8n",
+        "caixas": [
+          {
+            "nome": "identificar",
+            "detalhe": "CNPJ ou nome → referência de 30 min"
+          },
+          {
+            "nome": "consultar",
+            "detalhe": "referência + filtros → documentos"
+          },
+          {
+            "nome": "entregar",
+            "detalhe": "binário, base64 (teto de 5 MB) ou link assinado"
+          }
+        ]
+      },
+      {
+        "rotulo": "Índice",
+        "caixas": [
+          {
+            "nome": "163.738 pastas indexadas",
+            "detalhe": "Data Tables do n8n"
+          },
+          {
+            "nome": "CNPJ no nível 0",
+            "detalhe": "vem de arquivo, não da convenção de nome das pastas"
+          }
+        ]
+      },
+      {
+        "rotulo": "Acervo",
+        "caixas": [
+          {
+            "nome": "Google Drive do escritório",
+            "detalhe": "conta de serviço; até a credencial chegar, o provedor responde em modo simulado"
+          }
+        ]
+      }
+    ],
+    "nota": "Nenhum modelo de linguagem participa da decisão de liberar documento: a autorização é determinística sobre índice e token. 15 workflows, 14 Data Tables e 53 rotas de webhook, contados da instância. 219 casos de teste."
   }
 ]

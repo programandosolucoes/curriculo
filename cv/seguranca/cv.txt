@@ -69,6 +69,7 @@ Dados e Business Intelligence:
 - CDR e CEL: extração, correlação e análise de registros de chamada
 - Pandas, NumPy e análise estatística
 - Data Warehouse e Business Intelligence (pós-graduação em curso)
+- Busca vetorial e JSON em SQL com medição própria: sqlite-vec com índice ANN, colunas geradas, JSONB e FTS5; Supabase avaliado e registrado como destino planejado, por ser PostgreSQL empacotado
 
 EXPERIÊNCIA PROFISSIONAL
 Analista de Infraestrutura e Redes de TI | E-Prepag Fintech | 03/2015 - 12/2017

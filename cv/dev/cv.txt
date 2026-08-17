@@ -44,8 +44,10 @@ Inteligência Artificial (IA) e LLM:
 - Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico
 - Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento
 - IA generativa, agentes de IA, MCP (Model Context Protocol), RAG
+- Agentes de IA com ferramentas: chamada de função (function calling), catálogo fechado por lista de permissão e servidores MCP próprios (37 ferramentas, em TypeScript e Rust)
+- RAG e busca semântica: embeddings de voz, similaridade de cosseno e busca vetorial em SQL com sqlite-vec (índice ANN)
 - Machine learning aplicado, NLP e processamento de linguagem natural
-- Engenharia assistida por IA com metodologia spec-driven
+- Engenharia assistida por IA: CLIs de agentes (Claude Code entre outros três), skills, subagentes e metodologia spec-driven
 
 Cloud e DevOps:
 - Kubernetes (K8s), Docker e Docker Compose

@@ -1,10 +1,10 @@
 CARLOS ALBERTO
-Engenheiro de Inteligência Artificial (IA) Sênior
+Arquiteto de Soluções de IA e Automação (AI Solutions Architect)
 São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
 linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
 
 RESUMO PROFISSIONAL
-Engenheiro de Inteligência Artificial (IA) com experiência prática em integrar modelos de linguagem (LLM) a produtos em produção. Construí cadeia de fallback entre cinco provedores sobre dois formatos de API distintos, inferência local em CPU com modelos quantizados para dados que não podem sair da máquina, e avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento comercial. Mais de 10 anos de engenharia de sistemas dão a base para colocar IA em produção, não só prototipar. Bacharelado em Ciências de Inteligência Artificial em curso.
+Engenheiro de Inteligência Artificial (IA) e automação com mais de 10 anos de engenharia de sistemas, acostumado a levar a solução de ponta a ponta: entender o processo, escolher a tecnologia e colocar em produção. Construo aplicações e agentes com modelos de linguagem (LLM) - cadeia de fallback entre cinco provedores, chamada de função com catálogo fechado de ferramentas, servidores MCP próprios com 37 ferramentas - e automações de processo administrativo e documental em n8n auto-hospedado, Node.js e Python. Integro banco de dados, API, modelo e plataforma externa: PostgreSQL, OAuth2, webhook, fila e OpenAPI, com inferência local em CPU quando o dado não pode sair da máquina. Trabalho em Python e TypeScript/JavaScript, com Docker, Git e code review por pull request no dia a dia. Bacharelado em Ciências de Inteligência Artificial em curso.
 
 PRINCIPAIS CONQUISTAS
 - Eficiência de campanha aprimorada: melhorei a eficiência das campanhas em 30% usando Inteligência Artificial (IA) para detecção de caixa postal.
@@ -16,24 +16,18 @@ Inteligência Artificial (IA) e LLM:
 - Reconhecimento de fala (ASR) local com faster-whisper
 - Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico
 - Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento
-- IA generativa, agentes de IA, MCP (Model Context Protocol), RAG
+- IA generativa aplicada a produto: assistente com acesso a dados, automação conversacional com escalada para humano e geração de resposta a partir de documento de referência
+- Agentes de IA com ferramentas: chamada de função (function calling), catálogo fechado por lista de permissão e servidores MCP próprios (37 ferramentas, em TypeScript e Rust)
+- RAG e busca semântica: embeddings de voz, similaridade de cosseno e busca vetorial em SQL com sqlite-vec (índice ANN)
 - Machine learning aplicado, NLP e processamento de linguagem natural
-- Engenharia assistida por IA com metodologia spec-driven
+- Engenharia assistida por IA: CLIs de agentes (Claude Code entre outros três), skills, subagentes e metodologia spec-driven
 
-Ecossistema Python:
-- NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
-- cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
-- Concorrência: threading, jobs assíncronos em background, asyncio
-- pytest, pytest-asyncio, cobertura de testes, Locust
-- mypy, black, flake8, PyInstaller
-
-Processamento de Sinais e Áudio:
-- Processamento Digital de Sinais (DSP) em Python e NumPy
-- FFT e features espectrais (flatness, flux, centroide)
-- Qualidade de voz por norma ITU-T: E-model G.107 (R-factor para MOS), P.862.1, P.835
-- Detecção de perda de pacote, clipping, dead-air, one-way, SNR e jitter
-- AMD (Answering Machine Detection) e auditoria de classificador
-- ffmpeg e ffprobe
+Automação de Processos e Integração:
+- n8n auto-hospedado em Docker: workflows, Data Tables, rotas de webhook, publicação de fluxos pela API e contrato em OpenAPI 3.1
+- Automação documental e administrativa: busca e entrega de documento em acervo de 163.738 pastas, limpeza de caixa postal em massa (98.800 mensagens) e migração de e-mail entre provedores
+- RPA de navegador em Node.js com Puppeteer e Playwright: adaptadores por site sobre núcleo comum, motor de regras e evidência auditável por captura de tela
+- Integrações: API REST, webhook, OAuth2 (Google Workspace e Microsoft 365), JSON-RPC, SOAP/XML, Protobuf, filas BullMQ/Redis e mensageria JMS/STOMP
+- Automação assinada e auditável: disparo por HMAC-SHA256, credenciais cifradas em AES-256-GCM e confirmação humana antes de ação que altera sistema
 
 Desenvolvimento e Banco de Dados:
 - JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
@@ -47,6 +41,13 @@ Desenvolvimento e Banco de Dados:
 - Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
 - Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas
 
+Ecossistema Python:
+- NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
+- cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
+- Concorrência: threading, jobs assíncronos em background, asyncio
+- pytest, pytest-asyncio, cobertura de testes, Locust
+- mypy, black, flake8, PyInstaller
+
 Dados e Business Intelligence:
 - SQL avançado, modelagem relacional e tuning de PostgreSQL
 - Power BI, dashboards e relatórios operacionais
@@ -54,18 +55,61 @@ Dados e Business Intelligence:
 - CDR e CEL: extração, correlação e análise de registros de chamada
 - Pandas, NumPy e análise estatística
 - Data Warehouse e Business Intelligence (pós-graduação em curso)
+- Busca vetorial e JSON em SQL com medição própria: sqlite-vec com índice ANN, colunas geradas, JSONB e FTS5; Supabase avaliado e registrado como destino planejado, por ser PostgreSQL empacotado
+
+Processamento de Sinais e Áudio:
+- Processamento Digital de Sinais (DSP) em Python e NumPy
+- FFT e features espectrais (flatness, flux, centroide)
+- Qualidade de voz por norma ITU-T: E-model G.107 (R-factor para MOS), P.862.1, P.835
+- Detecção de perda de pacote, clipping, dead-air, one-way, SNR e jitter
+- AMD (Answering Machine Detection) e auditoria de classificador
+- ffmpeg e ffprobe
 
 PROJETOS
+Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/2026 - atual
+- Implementei uma cadeia de fallback entre cinco provedores de Inteligência Artificial (IA) sobre dois formatos de API distintos (OpenAI-compatível e Anthropic Messages), garantindo disponibilidade mesmo com limite de cota.
+- Projetei a camada de decisão por IA para degradar em regra determinística quando todos os provedores falham, de modo que a automação nunca para por indisponibilidade de modelo.
+- Construí geração de resposta por IA a partir de documento de referência, com validação da saída antes do uso.
+
+API de Busca e Entrega de Documentos em Acervo Contábil (n8n) | projeto próprio/freelance | 08/2026 - atual
+- Automatizei o atendimento documental de um escritório de contabilidade com n8n auto-hospedado: identificação do cliente por CNPJ, busca no acervo e entrega do arquivo em binário, base64 ou link assinado - 15 workflows, 14 Data Tables e 53 rotas de webhook, contados da instância e não estimados.
+- Decidi deixar o modelo de linguagem fora da autorização: liberar documento é decisão determinística sobre índice e token, porque um erro de modelo aqui entrega o documento de um cliente para outro. A IA conversa com o usuário; não decide o que sai.
+- Indexei 163.738 pastas e provei a origem do CNPJ ponta a ponta contra o disco (43 arquivos, 43 linhas, zero divergência), com 219 casos de teste e um endpoint que declara a prontidão de entrega item a item.
+- Publiquei o contrato em OpenAPI 3.1 com Swagger auto-contido e um ambiente de teste espelhado, o que permitiu ao bot consumidor ser desenvolvido inteiro antes de a credencial do Drive do cliente existir.
+
+Plataforma de Análise de Interações com IA | produto de cliente | 05/2026 - atual
+- Desenvolvo uma plataforma que coleta gravações de PABX e de reuniões, transcreve e produz análise de qualidade assistida por IA, em monorepo Bun com Turborepo.
+- Implementei coleta assíncrona com filas BullMQ e Redis, integração OAuth com Google Meet e integração com PABX Yeastar por API, incluindo token compartilhado para respeitar o limite do appliance.
+- Trabalho com tRPC 11 e Drizzle ORM ponta a ponta, com tipos compartilhados entre servidor e interface Next.js.
+
+Assistente de IA com Acesso aos Dados do CRM | projeto próprio/freelance | 08/2026
+- Implementei chamada de função (function calling) sobre um provedor compatível com a API da OpenAI, com quatro ferramentas expostas ao modelo - buscar, contar, descrever módulo e criar registro - deixando a decisão de consultar ou não com o próprio modelo.
+- Tratei a defesa contra injeção de instrução como problema de arquitetura, não de prompt: a lista branca de módulos impede que uma instrução hostil no meio da conversa alcance dados administrativos, e não existe caminho de código para consulta bruta ao banco.
+- Diagnostiquei duas armadilhas da API que custaram tempo: o Cloudflare à frente do provedor responde 403 sem User-Agent e não menciona isso na mensagem, e os modelos gratuitos gastam o orçamento de tokens raciocinando antes de responder, devolvendo conteúdo vazio com finish_reason length quando max_tokens é baixo.
+
+Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual
+- Escrevi o servidor MCP (Model Context Protocol) da plataforma: 37 ferramentas que dão a um assistente de IA leitura de repositório, histórico, diff, pull request, chaves e trilha de auditoria sem clonar nada.
+- Mantenho duas implementações com paridade exata de nomes e parâmetros - TypeScript empacotada em arquivo único, que instala sem npm install, e Rust em binário estático para quem não tem Node - com o contrato de paridade escrito nos dois READMEs e conferido pela saída de tools/list.
+- Tratei o login do agente como superfície de privilégio: a autenticação por chave SSH exige chave ativa vinculada a usuário, sem o recurso para root que existe no caminho do Git; comparar as duas implementações campo a campo achou um parâmetro divergente que descartava em silêncio o motivo de alteração de política.
+- A plataforma por baixo é minha: Git smart HTTP, WebDAV RFC 4918, code review por pull request e políticas de branch aplicadas por hook, em PHP sem dependência de runtime, com mais de 30 repositórios hospedados há quase um ano.
+
+Addon de Suporte com IA para pfSense | projeto próprio | 07/2026 - atual
+- Desenvolvi um addon em PHP instalado dentro do pfSense que dá suporte de primeiro nível em português, combinando o estado real do firewall no instante da pergunta com os playbooks do runbook da rede.
+- Dei mãos ao assistente com um catálogo fechado de 21 ferramentas de diagnóstico executadas no próprio firewall - ping, traceroute, DNS, tabela ARP, concessões DHCP, rotas, teste de porta e estados do filtro - pela API REST local do pfSense, criando as que a API não oferece a partir das mesmas chamadas das páginas gráficas de Diagnostics.
+- Isolei a superfície de risco: o modelo escolhe um nome da lista de permissão e devolve argumentos validados por tipo, nunca uma linha de comando; ação que altera o firewall é proposta assinada por HMAC e só roda depois da confirmação do operador.
+- Emiti a credencial da API com um usuário dedicado de 15 privilégios em vez de uma chave de administrador, que traria reboot, desligamento e shell livre junto.
+- Cobri o comportamento com 218 testes automatizados que rodam sem pfSense, contra um backup real de configuração.
+
 Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
 - Construí uma camada de Inteligência Artificial (IA) 100% local em CPU, sem nuvem, porque os áudios são de clientes e não podem sair da máquina: reconhecimento de fala com faster-whisper quantizado em int8 e classificação por LLM quantizado GGUF via llama.cpp.
 - Implementei prompt engineering estruturado: system prompt com seis exemplos few-shot injetados como turnos, saída JSON forçada, coerção de schema e fallback determinístico quando o modelo falha.
 - Avaliei modelos neurais de qualidade percebida (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, medindo separação por eixo e correlação, com decisão de arquitetura documentada por desempenho e por licenciamento comercial.
 - Derivei uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) de terceiros, cruzando a classificação da API do cliente com análise independente do áudio para achar falso positivo nas duas direções.
 
-Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/2026 - atual
-- Implementei uma cadeia de fallback entre cinco provedores de Inteligência Artificial (IA) sobre dois formatos de API distintos (OpenAI-compatível e Anthropic Messages), garantindo disponibilidade mesmo com limite de cota.
-- Projetei a camada de decisão por IA para degradar em regra determinística quando todos os provedores falham, de modo que a automação nunca para por indisponibilidade de modelo.
-- Construí geração de resposta por IA a partir de documento de referência, com validação da saída antes do uso.
+Acervo de Skills de Agentes de IA Multi-CLI | projeto próprio/freelance | 08/2026
+- Consolidei cerca de 2.060 skills de agentes de IA vindas de fontes públicas distintas em um acervo único, resolvendo duplicata e conflito de nome, e distribuí para quatro CLIs que leem skills de diretórios diferentes.
+- Medi o que ninguém mede nesse tipo de acervo: cada skill publica nome e descrição no contexto de toda sessão, o que dá cerca de 121 mil tokens fixos por sessão com o acervo completo - e criei perfis de instalação reduzida a partir dessa medição.
+- Escrevi um gerador de mapa de repositório em Python puro que extrai símbolos por linguagem, monta o grafo de importações e ranqueia os arquivos por PageRank, entregando ao agente um índice dentro de um orçamento de tokens em vez de deixá-lo varrer o código.
 
 Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance | 02/2026 - 07/2026
 - Desenvolvi jobs assíncronos de Inteligência Artificial (IA) com Groq e Llama 3.1 (70B e 8B) para análise de sentimento e de qualidade de atendimento, executados fora do caminho crítico para não bloquear a operação.
@@ -76,43 +120,6 @@ Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2
 - Arquitetei e mantive uma suite completa de discador para call center: painel web de gestão (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (Asterisk ARI/PJSIP) e engine de URA/IVR JSON-driven com 16 primitivas interpretadas pelo dialplan, com backend realtime via ODBC (unixODBC, func_odbc, CDR/CEL sobre PostgreSQL) e editor visual de fluxo em React.
 - Provisionei a infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling.
 - Modelei 17 tabelas com tuning manual de PostgreSQL e escrevi 15 suítes pytest cobrindo cada primitiva da URA ponta a ponta.
-
-Detector de Secretária Eletrônica por Processamento de Sinais | projeto próprio/freelance | 08/2026
-- Resolvi por processamento de sinais um problema que o mercado trata como caso de IA: detecção de secretária eletrônica sem modelo, sem treino e sem inferência, decidindo por cadência de fala (silêncio inicial, duração do bloco contínuo e número de blocos).
-- Medi contra 80 gravações reais rotuladas por transcrição: 100% de recall em máquina, o que habilita o uso como pré-filtro barato antes da etapa cara - na amostra medida, 34% das chamadas nunca precisariam de transcrição ou LLM.
-- Escrevi a documentação de quando o algoritmo serve e quando não serve, com a origem de cada falso positivo classificada por causa (LONGGREETING, MAXWORDS, INITIALSILENCE).
-
-Assistente de IA com Acesso aos Dados do CRM | projeto próprio/freelance | 08/2026
-- Implementei chamada de função (function calling) sobre um provedor compatível com a API da OpenAI, com quatro ferramentas expostas ao modelo - buscar, contar, descrever módulo e criar registro - deixando a decisão de consultar ou não com o próprio modelo.
-- Tratei a defesa contra injeção de instrução como problema de arquitetura, não de prompt: a lista branca de módulos impede que uma instrução hostil no meio da conversa alcance dados administrativos, e não existe caminho de código para consulta bruta ao banco.
-- Diagnostiquei duas armadilhas da API que custaram tempo: o Cloudflare à frente do provedor responde 403 sem User-Agent e não menciona isso na mensagem, e os modelos gratuitos gastam o orçamento de tokens raciocinando antes de responder, devolvendo conteúdo vazio com finish_reason length quando max_tokens é baixo.
-
-Pipeline de Transcrição e Separação de Falantes | projeto próprio/freelance | 07/2026
-- Montei um pipeline de transcrição com Whisper large-v3 em float16 na GPU, com queda automática para int8 em CPU, somado a diarização por embeddings de voz e agrupamento hierárquico.
-- Implementei dois caminhos de diarização com trocas explícitas: embeddings de voz com similaridade de cosseno a partir de amostras de referência - offline, sem token e sem enviar áudio para fora - e um modelo de estado da arte que separa automaticamente e trata sobreposição, ao custo de exigir token e aceite de licença.
-- Registrei no próprio projeto o que degrada o resultado: áudio de reunião com vozes sobrepostas e ruído reduz a precisão dos dois estágios, e o rótulo de falante é arbitrário - o sistema separa vozes, não sabe nomes.
-
-Servidor de LLM de 235B em GPU de 6 GB | projeto próprio/freelance | 07/2026
-- Implementei um servidor FastAPI compatível com a API da OpenAI (/v1/models, /v1/chat/completions, /health) sobre offloading camada a camada: o modelo é carregado no dispositivo meta, cada camada sobe para a GPU, computa e volta para CPU ou disco, mantendo o pico de VRAM em 2 a 3 GB independentemente do tamanho total.
-- Fiz o servidor detectar o porte do modelo pelo identificador e escolher sozinho a estratégia - compressão 4bit para os grandes, fp16 para os pequenos - porque a configuração errada não falha, apenas estoura a memória no meio da inferência.
-- Registrei os números reais de custo: o Qwen3-235B ocupa 1.556 GB crus em disco e cerca de 438 GB depois do split em 4 bits, o que torna a restrição de armazenamento mais séria que a de VRAM.
-
-Auditoria de Classificador de Secretária Eletrônica (AMD) | projeto próprio/freelance | 07/2026 - atual
-- Construí uma ferramenta que audita o classificador de secretária eletrônica (AMD) de uma plataforma de discagem de terceiro, apontando os falsos positivos dela com evidência por chamada.
-- Reaproveitei sem alteração o motor DSP + Whisper + LLM local do projeto irmão de análise de qualidade, para que o veredito da auditoria fosse independente do sistema auditado.
-- Classifiquei a divergência em cinco categorias e implementei registro de reclamação com exportação em CSV para alimentar o faturamento.
-
-Plataforma de Análise de Interações com IA | produto de cliente | 05/2026 - atual
-- Desenvolvo uma plataforma que coleta gravações de PABX e de reuniões, transcreve e produz análise de qualidade assistida por IA, em monorepo Bun com Turborepo.
-- Implementei coleta assíncrona com filas BullMQ e Redis, integração OAuth com Google Meet e integração com PABX Yeastar por API, incluindo token compartilhado para respeitar o limite do appliance.
-- Trabalho com tRPC 11 e Drizzle ORM ponta a ponta, com tipos compartilhados entre servidor e interface Next.js.
-
-Addon de Suporte com IA para pfSense | projeto próprio | 07/2026 - atual
-- Desenvolvi um addon em PHP instalado dentro do pfSense que dá suporte de primeiro nível em português, combinando o estado real do firewall no instante da pergunta com os playbooks do runbook da rede.
-- Dei mãos ao assistente com um catálogo fechado de 21 ferramentas de diagnóstico executadas no próprio firewall - ping, traceroute, DNS, tabela ARP, concessões DHCP, rotas, teste de porta e estados do filtro - pela API REST local do pfSense, criando as que a API não oferece a partir das mesmas chamadas das páginas gráficas de Diagnostics.
-- Isolei a superfície de risco: o modelo escolhe um nome da lista de permissão e devolve argumentos validados por tipo, nunca uma linha de comando; ação que altera o firewall é proposta assinada por HMAC e só roda depois da confirmação do operador.
-- Emiti a credencial da API com um usuário dedicado de 15 privilégios em vez de uma chave de administrador, que traria reboot, desligamento e shell livre junto.
-- Cobri o comportamento com 218 testes automatizados que rodam sem pfSense, contra um backup real de configuração.
 
 EXPERIÊNCIA PROFISSIONAL
 Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil

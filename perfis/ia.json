@@ -1,6 +1,6 @@
 {
   "id": "ia",
-  "titulo": "Engenheiro de Inteligência Artificial (IA) Sênior",
+  "titulo": "Arquiteto de Soluções de IA e Automação (AI Solutions Architect)",
   "padrao": false,
   "ordem": [
     "resumo",
@@ -14,10 +14,11 @@
   ],
   "competencias": [
     "ia-llm",
-    "python",
-    "sinais",
+    "automacao",
     "desenvolvimento",
-    "dados"
+    "python",
+    "dados",
+    "sinais"
   ],
   "incluir_conquistas": [
     "campanha"
@@ -30,17 +31,16 @@
     "tld"
   ],
   "incluir_projetos": [
-    "analise-audio",
     "rpa",
-    "omnichannel",
-    "discador",
-    "amd-dsp",
-    "vtiger-assistente-ia",
-    "transcricao-diarizacao",
-    "airllm",
-    "auditor-amd",
+    "n8n-drive-contabil",
     "evoluai",
-    "pfsense-suporte-ia"
+    "vtiger-assistente-ia",
+    "painel-git",
+    "pfsense-suporte-ia",
+    "analise-audio",
+    "skills-hub",
+    "omnichannel",
+    "discador"
   ],
   "filtro_termos": [
     "inteligência artificial",
@@ -53,7 +53,11 @@
     "nlp",
     "agentes de ia",
     "rag",
-    "prompt engineering"
+    "prompt engineering",
+    "n8n",
+    "automação de processos",
+    "mcp",
+    "embeddings"
   ],
   "incluir_experiencia_compacta": [
     "akiva",

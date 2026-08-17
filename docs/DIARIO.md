@@ -582,3 +582,69 @@ pelo perfil `dev` e commitado lá (`7abd194b`), com autorização do usuário.
 **Ponto para revisar:** `dev` é o padrão por volume de vagas (62), não por
 aderência. Depois desta rodada, `frontend` (72%) e `dados` (67%) pontuam acima
 de `dev` (66%) — a decisão 17 continua valendo a revisão.
+
+---
+
+## 16. Perfil `ia` recalibrado para vaga de IA + automação (2026-08-17)
+
+Gatilho: uma vaga concreta — **AI Solutions Architect / AI Automation &
+Full-Stack Engineer**, PJ, Florianópolis, híbrido. Pede n8n, Supabase/PostgreSQL,
+Claude Code/Codex/OpenAI, RAG, embeddings, banco vetorial, agentes de IA,
+automação de processo financeiro e administrativo, e leitura/organização/busca
+de documentos.
+
+O critério continua o da seção 15: **só entra o que já era verdade e não estava
+escrito**. Nada aqui foi estudado para caber na vaga.
+
+### O que faltava no CV e existe no trabalho real
+
+| Requisito da vaga | O que já existia, e não estava no CV |
+|---|---|
+| n8n | PESCADOR — API de busca documental sobre o Drive de um escritório contábil, inteira em n8n auto-hospedado |
+| Leitura/busca/entrega de documentos | o mesmo projeto: 163.738 pastas indexadas, entrega em binário, base64 ou link assinado |
+| Agentes de IA, MCP | servidor MCP do painel-git: 37 ferramentas, duas implementações (TypeScript e Rust) com paridade exata |
+| Claude Code, CLIs de agente | `skills-hub` já estava no mestre, mas fora do perfil `ia` |
+| RAG, embeddings, banco vetorial | `sqlite-vec` com índice ANN, medido no repositório `pesquisa-sqlite-orm` |
+| Supabase | avaliado e registrado ali como destino planejado (é PostgreSQL empacotado) — entrou como estudo, não como experiência |
+
+### Mudanças
+
+- **Projeto novo no mestre:** `n8n-drive-contabil`, com variante `ia` e figura
+  própria no portfólio (`n8n-drive-contabil-01-fluxo.png`).
+- **`painel-git` ganhou variante `ia`**, focada no servidor MCP — o projeto já
+  estava no mestre, mas nenhum perfil contava a parte de agente.
+- **Competência nova `automacao`** ("Automação de Processos e Integração"): n8n,
+  automação documental e administrativa, RPA de navegador, integrações e
+  automação assinada/auditável. Estava diluída entre `desenvolvimento` e os
+  projetos.
+- **`ia-llm`**: agentes com ferramentas, RAG/busca semântica e CLIs de agente
+  passaram a ser itens próprios, em vez de uma linha de palavras-chave.
+- **`dados`**: busca vetorial e JSON em SQL, com a marca de que a medição é
+  própria.
+- **Perfil `ia`**: título passou a "Arquiteto de Soluções de IA e Automação (AI
+  Solutions Architect)"; ordem dos projetos reorganizada por relevância
+  (automação primeiro); saíram `amd-dsp`, `auditor-amd`, `transcricao-diarizacao`
+  e `airllm` para não crescer demais; entraram `n8n-drive-contabil`,
+  `painel-git` e `skills-hub`. `filtro_termos` ganhou n8n, automação de
+  processos, mcp e embeddings.
+
+### Medição
+
+| | antes (13/08) | depois (17/08) |
+|---|---|---|
+| vagas no alvo | 15 | 27 |
+| aderência média | 57% | 69% |
+| triagem de ATS | não medida nesta rodada | 82% de aprovação (9 de 11 avaliadas) |
+| palavras | 2.513 | 2.806 |
+
+**O aumento não é comparável de forma limpa:** os termos novos no
+`filtro_termos` mudaram o conjunto de vagas alvo de 15 para 27. O número que
+vale é o da extração — o simulador de ATS lê nome, cargo, contato, 12 empregos e
+12,2 anos de carreira sem problema.
+
+### O que continua lacuna de verdade
+
+`azure`, `dax`, `etl`, `excel avançado` e `sql server` seguem fora, e nenhum
+repositório sustenta. Da vaga em questão, **Lovable** não entrou por não haver
+uso real, e **Codex** também não: o `skills-hub` cobre quatro CLIs de agente,
+entre eles o Claude Code, mas não esse.

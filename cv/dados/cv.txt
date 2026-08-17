@@ -14,6 +14,7 @@ Dados e Business Intelligence:
 - CDR e CEL: extração, correlação e análise de registros de chamada
 - Pandas, NumPy e análise estatística
 - Data Warehouse e Business Intelligence (pós-graduação em curso)
+- Busca vetorial e JSON em SQL com medição própria: sqlite-vec com índice ANN, colunas geradas, JSONB e FTS5; Supabase avaliado e registrado como destino planejado, por ser PostgreSQL empacotado
 
 Ecossistema Python:
 - NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
@@ -29,8 +30,10 @@ Inteligência Artificial (IA) e LLM:
 - Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico
 - Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento
 - IA generativa, agentes de IA, MCP (Model Context Protocol), RAG
+- Agentes de IA com ferramentas: chamada de função (function calling), catálogo fechado por lista de permissão e servidores MCP próprios (37 ferramentas, em TypeScript e Rust)
+- RAG e busca semântica: embeddings de voz, similaridade de cosseno e busca vetorial em SQL com sqlite-vec (índice ANN)
 - Machine learning aplicado, NLP e processamento de linguagem natural
-- Engenharia assistida por IA com metodologia spec-driven
+- Engenharia assistida por IA: CLIs de agentes (Claude Code entre outros três), skills, subagentes e metodologia spec-driven
 
 Desenvolvimento e Banco de Dados:
 - JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
