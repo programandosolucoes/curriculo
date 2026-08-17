@@ -74,7 +74,7 @@ Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/
 API de Busca e Entrega de Documentos em Acervo Contábil (n8n) | projeto próprio/freelance | 08/2026 - atual
 - Automatizei o atendimento documental de um escritório de contabilidade com n8n auto-hospedado: identificação do cliente por CNPJ, busca no acervo e entrega do arquivo em binário, base64 ou link assinado - 15 workflows, 14 Data Tables e 53 rotas de webhook, contados da instância e não estimados.
 - Decidi deixar o modelo de linguagem fora da autorização: liberar documento é decisão determinística sobre índice e token, porque um erro de modelo aqui entrega o documento de um cliente para outro. A IA conversa com o usuário; não decide o que sai.
-- Indexei 163.738 pastas e provei a origem do CNPJ ponta a ponta contra o disco (43 arquivos, 43 linhas, zero divergência), com 219 casos de teste e um endpoint que declara a prontidão de entrega item a item.
+- Indexei 163.738 pastas e provei a origem do CNPJ ponta a ponta contra o disco (43 arquivos no disco, 43 linhas na tabela, zero divergência), com 219 casos de teste e um endpoint que declara a prontidão de entrega item a item.
 - Publiquei o contrato em OpenAPI 3.1 com Swagger auto-contido e um ambiente de teste espelhado, o que permitiu ao bot consumidor ser desenvolvido inteiro antes de a credencial do Drive do cliente existir.
 
 Plataforma de Análise de Interações com IA | produto de cliente | 05/2026 - atual
@@ -89,8 +89,8 @@ Assistente de IA com Acesso aos Dados do CRM | projeto próprio/freelance | 08/2
 
 Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual
 - Escrevi o servidor MCP (Model Context Protocol) da plataforma: 37 ferramentas que dão a um assistente de IA leitura de repositório, histórico, diff, pull request, chaves e trilha de auditoria sem clonar nada.
-- Mantenho duas implementações com paridade exata de nomes e parâmetros - TypeScript empacotada em arquivo único, que instala sem npm install, e Rust em binário estático para quem não tem Node - com o contrato de paridade escrito nos dois READMEs e conferido pela saída de tools/list.
-- Tratei o login do agente como superfície de privilégio: a autenticação por chave SSH exige chave ativa vinculada a usuário, sem o recurso para root que existe no caminho do Git; comparar as duas implementações campo a campo achou um parâmetro divergente que descartava em silêncio o motivo de alteração de política.
+- Mantenho duas implementações com paridade exata de nomes e parâmetros - TypeScript empacotada em arquivo único, que instala sem npm install, e Rust em binário estático para quem não tem Node - conferida pela saída de tools/list; a comparação campo a campo achou um parâmetro divergente que descartava em silêncio o motivo de alteração de política.
+- Tratei o login do agente como superfície de privilégio: a autenticação por chave SSH exige chave ativa vinculada a um usuário, sem herdar o comportamento do caminho do Git, onde chave não reconhecida cai para root - num login de painel isso seria escalada de privilégio.
 - A plataforma por baixo é minha: Git smart HTTP, WebDAV RFC 4918, code review por pull request e políticas de branch aplicadas por hook, em PHP sem dependência de runtime, com mais de 30 repositórios hospedados há quase um ano.
 
 Addon de Suporte com IA para pfSense | projeto próprio | 07/2026 - atual
