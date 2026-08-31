@@ -1352,7 +1352,7 @@
     },
     {
       "id": "pfsense-suporte-ia",
-      "nome": "Addon de Suporte com IA para pfSense",
+      "nome": "Assistente de IA Nativo para pfSense e Endpoint MCP",
       "contexto": "projeto próprio",
       "periodo": "07/2026 - atual",
       "bullets": {
@@ -1366,32 +1366,43 @@
       },
       "areas": [
         "backend",
+        "frontend",
         "infra",
         "ia"
       ],
       "resumo": "Suporte de primeiro nível com IA instalado dentro do pfSense: responde em português, executa o diagnóstico no próprio firewall e mostra o que executou.",
-      "problema": "Quem opera a rede precisa de resposta de suporte antes de conseguir falar com alguém que conheça o firewall. Um assistente que apenas lê a configuração salva não resolve: metade das perguntas reais é sobre o que está acontecendo agora — se o destino responde, quem está na rede, por onde o tráfego sai — e isso não está no arquivo de configuração, está no equipamento em execução.",
-      "arquitetura": "Páginas PHP servidas pelo próprio nginx do pfSense, autenticação herdada da WebGUI, sem instalar interpretador nem dependência. O assistente opera num laço de ferramentas: pede, o addon executa, o resultado volta e ele responde. O acesso ao firewall tem duas vias — a API REST local para o que ela cobre, e o binário de diagnóstico, chamado igual à página gráfica correspondente, para traceroute, DNS, rotas, teste de porta, sockets, NDP e pfctl, que a API não expõe. A execução vive num arquivo só, e a suíte reprova se uma primitiva de execução aparecer em qualquer outro.",
-      "resultado": "O assistente deixou de responder \"não consigo executar comandos no firewall\" e passa a medir antes de concluir, mostrando ao operador a saída completa de cada comando que rodou — a conclusão fica conferível, não só confiável. Dados persistentes ficam em /conf, e não em /var, porque o equipamento roda com disco em RAM e um log de auditoria que some no reboot não é registro de auditoria.",
+      "problema": "Quem opera redes corporativas precisa de diagnósticos imediatos e auditoria em tempo real antes de abrir chamados. Modelos de IA isolados não conseguem medir o estado dinâmico do firewall (tabela ARP, rotas ativas, conexões e estados do filtro pfctl), e conceder acesso shell irrestrito a um LLM gera alto risco de segurança e indisponibilidade da infraestrutura.",
+      "arquitetura": "Desenvolvi uma arquitetura em 5 pilares de segurança e engenharia de software:\n\n1. CATÁLOGO FECHADO DE 21 FERRAMENTAS: O modelo nunca gera linhas de comando de shell abertas. Ele seleciona funções com argumentos estritamente tipados e validados antes de qualquer execução.\n\n2. DUAS VIAS DE EXECUÇÃO: Acesso via REST API local (127.0.0.1/api/v2) para estado de serviços, interfaces, gateways e DHCP; e via binários nativos do FreeBSD (traceroute, drill, netstat -rW, sockstat, nc e pfctl) para diagnósticos profundos que a API REST não expõe.\n\n3. HUMAN-IN-THE-LOOP & HMAC: Comandos que alteram a rede (reiniciar serviços, remoção de leases e flush de estados) são apenas propostos na interface com alertas de impacto, exigindo confirmação explícita do operador.\n\n4. SERVIDOR MCP NATIVO: Endpoint embutido (/suporte_ia/mcp.php) expondo as 21 ferramentas e 690 operações da REST API para agentes externos (Claude Code, Gemini CLI, Cursor), com permissões herdadas do usuário emissor da chave.\n\n5. DOCUMENTAÇÃO VIVA & SNAPSHOTS: Gerador automático de topologia sob demanda sem envio de dados para nuvem, com arquivamento acionado apenas em alterações reais de configuração.",
+      "resultado": "Assistente autônomo com suporte em português integrado nativamente ao pfSense; eliminação completa de alucinações técnicas através de diagnósticos executados ao vivo; e suíte de 218 testes automatizados em PHPUnit cobrindo toda a lógica de segurança e tool calling.",
       "stack": [
         "PHP 8.3",
-        "pfSense",
+        "pfSense CE 2.8.x",
         "FreeBSD",
-        "API REST",
-        "LLM (tool calling)",
-        "PHPUnit",
-        "Docker"
+        "Model Context Protocol (MCP)",
+        "REST API (690 endpoints)",
+        "Tool Calling",
+        "Nginx",
+        "Human-in-the-Loop",
+        "PHPUnit"
       ],
       "duracao": "em andamento",
       "repo": "pfsense-suporte-ia.git",
       "imagens": [
         {
+          "arquivo": "painel-suporte-ia.png",
+          "legenda": "Painel do Suporte IA: interface nativa no pfSense com chat em português, playbooks e execução auditável"
+        },
+        {
+          "arquivo": "recorte-achados.png",
+          "legenda": "Diagnóstico inteligente em tempo real: identificação de gateways caídos, regras redundantes e rotas"
+        },
+        {
           "arquivo": "pfsense-ia-01-execucao.png",
-          "legenda": "Da pergunta à resposta: lista de permissão fechada, execução e saída completa na conversa"
+          "legenda": "Da pergunta à resposta: lista de permissão fechada, execução e saída completa dos comandos na conversa"
         },
         {
           "arquivo": "pfsense-ia-02-vias.png",
-          "legenda": "As duas vias de acesso ao firewall e o que cada uma cobre"
+          "legenda": "As duas vias de acesso ao firewall e o mapeamento de ferramentas"
         }
       ]
     },

@@ -28,39 +28,59 @@
 @media (max-width:600px){.pf-card img{height:150px}}
 </style>
 <div class="pf-wrap">
-  <a class="pf-voltar" href="/index.php/portfolio-backend/">← voltar ao portfólio</a>
+  <a class="pf-voltar" href="/index.php/portfolio-frontend/">← voltar ao portfólio</a>
 
   <header class="pf-hero">
     <p class="pf-meta">07/2026 - atual · em andamento</p>
     <p>Suporte de primeiro nível com IA instalado dentro do pfSense: responde em português, executa o diagnóstico no próprio firewall e mostra o que executou.</p>
-    <div class="pf-chips"><span class="pf-chip">PHP 8.3</span><span class="pf-chip">pfSense</span><span class="pf-chip">FreeBSD</span><span class="pf-chip">API REST</span><span class="pf-chip">LLM (tool calling)</span><span class="pf-chip">PHPUnit</span><span class="pf-chip">Docker</span></div>
+    <div class="pf-chips"><span class="pf-chip">PHP 8.3</span><span class="pf-chip">pfSense CE 2.8.x</span><span class="pf-chip">FreeBSD</span><span class="pf-chip">Model Context Protocol (MCP)</span><span class="pf-chip">REST API (690 endpoints)</span><span class="pf-chip">Tool Calling</span><span class="pf-chip">Nginx</span><span class="pf-chip">Human-in-the-Loop</span><span class="pf-chip">PHPUnit</span></div>
   </header>
 
   <section class="pf-secao">
     <h2>O problema</h2>
-    <p>Quem opera a rede precisa de resposta de suporte antes de conseguir falar com alguém que conheça o firewall. Um assistente que apenas lê a configuração salva não resolve: metade das perguntas reais é sobre o que está acontecendo agora — se o destino responde, quem está na rede, por onde o tráfego sai — e isso não está no arquivo de configuração, está no equipamento em execução.</p>
+    <p>Quem opera redes corporativas precisa de diagnósticos imediatos e auditoria em tempo real antes de abrir chamados. Modelos de IA isolados não conseguem medir o estado dinâmico do firewall (tabela ARP, rotas ativas, conexões e estados do filtro pfctl), e conceder acesso shell irrestrito a um LLM gera alto risco de segurança e indisponibilidade da infraestrutura.</p>
   </section>
 
   <section class="pf-secao">
     <h2>A arquitetura</h2>
-    <p>Páginas PHP servidas pelo próprio nginx do pfSense, autenticação herdada da WebGUI, sem instalar interpretador nem dependência. O assistente opera num laço de ferramentas: pede, o addon executa, o resultado volta e ele responde. O acesso ao firewall tem duas vias — a API REST local para o que ela cobre, e o binário de diagnóstico, chamado igual à página gráfica correspondente, para traceroute, DNS, rotas, teste de porta, sockets, NDP e pfctl, que a API não expõe. A execução vive num arquivo só, e a suíte reprova se uma primitiva de execução aparecer em qualquer outro.</p>
+    <p>Desenvolvi uma arquitetura em 5 pilares de segurança e engenharia de software:
+
+1. CATÁLOGO FECHADO DE 21 FERRAMENTAS: O modelo nunca gera linhas de comando de shell abertas. Ele seleciona funções com argumentos estritamente tipados e validados antes de qualquer execução.
+
+2. DUAS VIAS DE EXECUÇÃO: Acesso via REST API local (127.0.0.1/api/v2) para estado de serviços, interfaces, gateways e DHCP; e via binários nativos do FreeBSD (traceroute, drill, netstat -rW, sockstat, nc e pfctl) para diagnósticos profundos que a API REST não expõe.
+
+3. HUMAN-IN-THE-LOOP &amp; HMAC: Comandos que alteram a rede (reiniciar serviços, remoção de leases e flush de estados) são apenas propostos na interface com alertas de impacto, exigindo confirmação explícita do operador.
+
+4. SERVIDOR MCP NATIVO: Endpoint embutido (/suporte_ia/mcp.php) expondo as 21 ferramentas e 690 operações da REST API para agentes externos (Claude Code, Gemini CLI, Cursor), com permissões herdadas do usuário emissor da chave.
+
+5. DOCUMENTAÇÃO VIVA &amp; SNAPSHOTS: Gerador automático de topologia sob demanda sem envio de dados para nuvem, com arquivamento acionado apenas em alterações reais de configuração.</p>
   </section>
 
   <section class="pf-secao">
     <h2>O resultado</h2>
-    <p>O assistente deixou de responder &quot;não consigo executar comandos no firewall&quot; e passa a medir antes de concluir, mostrando ao operador a saída completa de cada comando que rodou — a conclusão fica conferível, não só confiável. Dados persistentes ficam em /conf, e não em /var, porque o equipamento roda com disco em RAM e um log de auditoria que some no reboot não é registro de auditoria.</p>
+    <p>Assistente autônomo com suporte em português integrado nativamente ao pfSense; eliminação completa de alucinações técnicas através de diagnósticos executados ao vivo; e suíte de 218 testes automatizados em PHPUnit cobrindo toda a lógica de segurança e tool calling.</p>
   </section>
 
   <div class="pf-galeria">
 
     <figure>
-      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/pfsense-ia-01-execucao.png" alt="Da pergunta à resposta: lista de permissão fechada, execução e saída completa na conversa" loading="lazy">
-      <figcaption>Da pergunta à resposta: lista de permissão fechada, execução e saída completa na conversa</figcaption>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/painel-suporte-ia.png" alt="Painel do Suporte IA: interface nativa no pfSense com chat em português, playbooks e execução auditável" loading="lazy">
+      <figcaption>Painel do Suporte IA: interface nativa no pfSense com chat em português, playbooks e execução auditável</figcaption>
     </figure>
 
     <figure>
-      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/pfsense-ia-02-vias.png" alt="As duas vias de acesso ao firewall e o que cada uma cobre" loading="lazy">
-      <figcaption>As duas vias de acesso ao firewall e o que cada uma cobre</figcaption>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/recorte-achados.png" alt="Diagnóstico inteligente em tempo real: identificação de gateways caídos, regras redundantes e rotas" loading="lazy">
+      <figcaption>Diagnóstico inteligente em tempo real: identificação de gateways caídos, regras redundantes e rotas</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/pfsense-ia-01-execucao.png" alt="Da pergunta à resposta: lista de permissão fechada, execução e saída completa dos comandos na conversa" loading="lazy">
+      <figcaption>Da pergunta à resposta: lista de permissão fechada, execução e saída completa dos comandos na conversa</figcaption>
+    </figure>
+
+    <figure>
+      <img src="https://carloslopes.programandosolucoes.com.br/wp-content/uploads/portfolio/pfsense-ia-02-vias.png" alt="As duas vias de acesso ao firewall e o mapeamento de ferramentas" loading="lazy">
+      <figcaption>As duas vias de acesso ao firewall e o mapeamento de ferramentas</figcaption>
     </figure>
   </div>
 
