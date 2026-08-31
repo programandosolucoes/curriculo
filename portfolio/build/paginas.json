@@ -10,6 +10,11 @@
     "arquivo": "portfolio-backend.html"
   },
   {
+    "slug": "portfolio-telemetria-pabx",
+    "titulo": "Telemetria de 250+ PABXs, Observabilidade Zabbix e Previsão de Churn",
+    "arquivo": "portfolio-telemetria-pabx.html"
+  },
+  {
     "slug": "portfolio-discador",
     "titulo": "Plataforma de Discador VoIP para Call Center",
     "arquivo": "portfolio-discador.html"

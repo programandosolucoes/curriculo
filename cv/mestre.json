@@ -521,6 +521,72 @@
   ],
   "projetos": [
     {
+      "id": "telemetria-pabx",
+      "nome": "Telemetria de 250+ PABXs, Observabilidade Zabbix e Previsão de Churn",
+      "contexto": "projeto próprio/produção",
+      "periodo": "07/2026 - atual",
+      "bullets": {
+        "base": [
+          "Desenvolvi a espinha dorsal de telemetria para 250+ PABXs Yeastar P-Series, integrando ingestão de CDRs, observabilidade Zabbix e análise de qualidade de voz (DSP).",
+          "Implementei cache Read-Through (CdrIndex) em SQLite WAL com gravação dupla no tenant sintético __ALL__, permitindo consultas de carteira em O(1) e auditoria de áudio em microssegundos sem custo de rede externa.",
+          "Construí endpoint /api/metrics/zabbix em Flat JSON nativo para LLD e JSONPath, lendo de camada pré-materializada (kpi_cache) com autodiagnóstico de frescor (kpi_idade_s e kpi_vencido).",
+          "Desenvolvi motor de detecção de Churn B2B cruzando séries temporais de volumetria com scores MOS (ITU-T G.107) e anomalias de áudio para retenção proativa.",
+          "Criei Dashboard SPA modular em JavaScript puro com renderização sub-100ms, tela de Mudança de Operação, telemetria de ramais e barreira de proteção de LGPD."
+        ],
+        "backend": [
+          "Construí pipeline de ingestão assíncrona em Python com rate limit governado por orçamento de tokens por tenant e persistência idempotente em SQLite WAL com chaves determinísticas por perna de chamada.",
+          "Implementei camada de entrega para sistemas externos (/api/metrics/zabbix) inspirada no Zabbix: o NOC e ferramentas externas consultam dados consolidados lendo direto do cache sem disparar queries pesadas nos PABXs.",
+          "Desenvolvi motor de correlação multivariada que cruza anomalias de áudio do DSP com séries temporais de volumetria para classificação preditiva de risco de churn em 4 faixas (Saudável, Atenção, Risco, Sem Uso)."
+        ],
+        "frontend": [
+          "Desenvolvi a interface do Dashboard de Telemetria como SPA sem framework em JavaScript puro, modularizada por telas e componentes de escopo, com renderização instantânea (sub-100ms) de KPIs consolidados e gráficos de tendência.",
+          "Criei o painel de Mudança de Operação com ranking estatístico de anomalias, detecção visual de clientes que reduziram tráfego e módulo de telemetria detalhada de ramais e chamadas úteis por PABX."
+        ],
+        "dados": [
+          "Desenvolvi o CdrIndex como índice invertido e materializado em SQLite WAL, permitindo cruzamento bidirecional instantâneo entre arquivos WAV de gravação e registros de bilhetagem CDR.",
+          "Implementei rotinas assíncronas de cálculo de médias móveis e limites de desvio padrão para identificar variações estatísticas anômalas no tráfego de voz de 250+ clientes corporativos."
+        ]
+      },
+      "areas": [
+        "backend",
+        "frontend",
+        "infra"
+      ],
+      "resumo": "Espinha dorsal de telemetria para 250+ PABXs com cache Read-Through, observabilidade Zabbix e previsão de churn por séries temporais.",
+      "problema": "Monitorar uma farm de mais de 250 PABXs Yeastar P-Series em nuvem consultando APIs ao vivo para auditar chamadas e extrair métricas operacionais gera rate limits, lentidão de rede e risco de indisponibilidade nas centrais. Além disso, o cancelamento de contratos B2B ocorre de forma silenciosa após semanas de degradação técnica de voz não percebida pelo suporte, e o NOC precisava de observabilidade no padrão Zabbix sem onerar a CPU dos PABXs.",
+      "arquitetura": "A arquitetura foi estruturada em três pilares fundamentais documentados no manual técnico do sistema:\n\n1. INGESTÃO & CACHE READ-THROUGH (CdrIndex): O coletor em Python faz a ingestão assíncrona por janelas deslizantes, governada por orçamento de tokens por tenant contra a OpenAPI (/openapi/v1.0/) do Yeastar. Os dados são normalizados e gravados com idempotência determinística em SQLite no modo WAL. O tenant sintético __ALL__ materializa a soma da carteira na própria escrita (gravação dupla), tornando a visão global uma leitura O(1) de uma linha em vez de um fan-out sobre 250+ bancos. O Analisador de Áudio consome essa base local diretamente em microssegundos (CdrIndex) para casar gravações WAV e CDRs com custo zero de rede externa, com fallback transparente sob demanda.\n\n2. OBSERVABILIDADE ZABBIX & KPI_CACHE: Inspirado no modelo de coleta do Zabbix, desenvolvi o endpoint nativo /api/metrics/zabbix com payload plano (Flat JSON) direto na raiz, otimizado para Low-Level Discovery (LLD) e JSONPath para itens dependentes sem sobrecarga de CPU. Todas as métricas são pré-materializadas assincronamente em kpi_cache para que consultas de monitoramento do NOC nunca disparem queries pesadas nas centrais. O payload inclui autodiagnóstico de frescor com kpi_calculado_em, kpi_idade_s e a flag booleana kpi_vencido, alertando se a esteira de dados parar.\n\n3. PREVISÃO DE CHURN & MUDANÇA DE OPERAÇÃO: Motor de análise de séries temporais que monitora médias móveis e desvios de volumetria (alertas automáticos para quedas de 30% a 50% de uso). Cruza esses desvios com métricas de qualidade de voz do DSP (MOS ITU-T G.107, taxas de picote, dead-air e anomalias de troncos SIP), classificando a carteira em 4 faixas de risco (Saudável, Atenção, Risco e Sem Uso).\n\n4. FRONTEND & SEGURANÇA (LGPD): Dashboard SPA modular em JavaScript nativo (sub-100ms de renderização) com rosca de saúde da carteira, tela de Mudança de Operação e telemetria detalhada de ramais. Controle de acesso rigoroso por allowlist de papéis (admin, gestor, cliente, ramal) com barreira de LGPD no after_request que expurga dados sensíveis e transcrições de perfis não autorizados.",
+      "resultado": "Eliminação de dezenas de milhares de requisições redundantes diárias nas centrais telefônicas através do cache Read-Through; integração de telemetria em tempo real com Zabbix e NOC sem nenhum impacto nas APIs dos PABXs; e identificação preditiva de clientes em risco de cancelamento semanas antes da abertura de tickets de suporte.",
+      "stack": [
+        "Python 3.14",
+        "SQLite WAL",
+        "Zabbix LLD",
+        "JSONPath",
+        "Flask",
+        "ITU-T G.107",
+        "NumPy",
+        "SPA JavaScript",
+        "Docker",
+        "Systemd",
+        "Séries Temporais"
+      ],
+      "duracao": "2 meses",
+      "repo": "analisador-chamadas.git",
+      "imagens": [
+        {
+          "arquivo": "telemetria-01-geral.png",
+          "legenda": "Dashboard Geral de Telemetria: visão global da carteira com 232 centrais, KPIs de topo e distribuição de saúde"
+        },
+        {
+          "arquivo": "telemetria-02-problemas.png",
+          "legenda": "Painel de Mudança de Operação: identificação precoce de clientes com queda brusca de tráfego e anomalias de uso"
+        },
+        {
+          "arquivo": "telemetria-03-ramais.png",
+          "legenda": "Telemetria de Ramais: monitoramento individual de ramais, tráfego e chamadas úteis por PABX"
+        }
+      ]
+    },
+    {
       "id": "discador",
       "nome": "Plataforma de Discador VoIP para Call Center",
       "contexto": "projeto próprio/freelance",
