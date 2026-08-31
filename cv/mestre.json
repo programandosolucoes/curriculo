@@ -840,7 +840,7 @@
     },
     {
       "id": "analise-audio",
-      "nome": "Análise de Qualidade de Chamadas por Processamento de Sinais",
+      "nome": "Análise de Qualidade de Chamadas por Processamento de Sinais (DSP) e IA Local",
       "contexto": "projeto próprio/freelance",
       "periodo": "07/2026 - atual",
       "bullets": {
@@ -872,6 +872,11 @@
           "Construí painel web em Flask com 31 endpoints REST, jobs assíncronos em threading, SQLite e multi-tenancy com isolamento físico de dados por cliente.",
           "Fiz o frontend como SPA de arquivo único em JavaScript puro, sem framework nem build, com Canvas desenhando a forma de onda.",
           "Empacotei em Docker e implantei via systemd em LXC/Proxmox. Ferramenta derivada com 121 testes em pytest."
+        ],
+        "backend": [
+          "Implementei o algoritmo ITU-T G.107 (E-model) do zero em Python vetorizado com NumPy, convertendo métricas espectrais (FFT) e temporais em fator R e MOS.",
+          "Construí pipeline de transcrição e classificação com IA 100% local em CPU usando faster-whisper (int8) e LLM GGUF (llama.cpp) com coerção estrita de JSON.",
+          "Desenvolvi backend multi-tenant em Flask com 31 endpoints REST, SQLite WAL com isolamento por cliente e suíte de 121 testes em pytest com sinais sintéticos."
         ]
       },
       "areas": [
@@ -880,9 +885,9 @@
         "ia"
       ],
       "resumo": "Detecta picote, dropout e falha de áudio em gravações de chamadas por processamento de sinais — sem depender de transcrição.",
-      "problema": "Quando o cliente reclama que \"a ligação estava picotando\", não há prova: a operação só tem a gravação e a percepção de quem ouviu. Transcrever tudo com IA é caro, lento e não mede qualidade de áudio, mede palavra.",
-      "arquitetura": "Todo o DSP é NumPy: energia RMS por frame de 20 ms com hop de 10 ms convertida em dBFS, janelas deslizantes vetorizadas, e estimativa de ruído de fundo por percentil — que é o discriminador que separa picote de pausa natural na conversa. A análise espectral usa FFT para spectral flatness. O E-model da ITU-T G.107, que converte fator R em MOS, foi implementado do zero. O decodificador de áudio é o ffmpeg, escolhido em vez da libsndfile por preservar os canais separados, o que é essencial para detectar áudio em uma via só. Onde há IA, ela roda local em CPU: faster-whisper em int8 e um LLM GGUF via llama.cpp, sem mandar áudio de cliente para fora. A decisão de não usar rede neural para a nota de qualidade não foi por preferência: foi medida. Um corpus real de telefonia em 8 kHz foi rotulado em quatro categorias — chamada boa, picote, queda e ruído — e quatro modelos foram comparados pela separação que cada um produz entre a categoria boa e cada categoria ruim. O painel é Flask com SQLite em modo WAL e uma SPA em JavaScript puro, sem build.",
-      "resultado": "Ferramenta multi-tenant com isolamento físico por cliente, rodando em Docker com gunicorn e systemd. A validação é por injeção: o selftest insere picote e clipping em sinal sintético e confere se a detecção pega, o que testa o DSP sem depender do PABX. O comparativo de modelos neurais expôs duas coisas. A primeira é técnica: os modelos neurais são cegos a silêncio, porque avaliam a qualidade da fala presente e não penalizam um trecho mudo — por isso o E-model próprio separa queda por 3,39 contra 0,17 do melhor neural. A segunda é de licenciamento: o NISQA é o melhor detector de picote medido, com separação 1,00, e mesmo assim não pode entrar no produto porque os pesos são CC BY-NC. Escolher modelo aqui foi decisão técnica e jurídica ao mesmo tempo, e ficou registrada.",
+      "problema": "Quando um operador ou cliente reclama que \"a ligação estava ruim ou picotando\", a discussão vira achismo técnico entre provedor de internet, tronco SIP e headset. Transcrever áudios com APIs na nuvem é financeiramente inviável em escala, viola a privacidade dos dados de chamadas telefônicas (LGPD) e não mede defeitos acústicos do sinal, apenas palavras.",
+      "arquitetura": "A engenharia do motor de análise foi construída em quatro camadas de processamento e auditoria:\n\n1. PROCESSAMENTO DIGITAL DE SINAIS (DSP NATIVO): Todo o pipeline opera vetorizado em Python e NumPy sobre janelas deslizantes de 20 ms com hop de 10 ms convertidas em dBFS. Utiliza FFT para medir spectral flatness (identificando voz metálica e robotização/PLC), estimativa de ruído de fundo por percentil para discriminar com precisão pausas naturais de perda real de pacotes (picotes), detecção de clipping (ganho estourado) e análise estéreo para identificar chamadas one-way (canal mudo).\n\n2. MODELAGEM MATEMÁTICA E-MODEL (ITU-T G.107): Implementação determinística das equações da norma internacional ITU-T G.107, convertendo defeitos acústicos medidos em Fator R (0 a 100) e MOS objetivo (Mean Opinion Score de 1.0 a 4.5). Realizei estudo empírico comparando o E-model contra redes neurais (DNSMOS P.835 via ONNX Runtime, NISQA e TorchAudio SQUIM) em um corpus real rotulado em 8 kHz: o E-model superou os modelos neurais na detecção de quedas e silêncio (separação de 3,39 contra 0,17), além de evitar restrições de licença não-comercial (CC BY-NC do NISQA).\n\n3. INTELIGÊNCIA ARTIFICIAL 100% LOCAL EM CPU: Transcrição e análise semântica operando exclusivamente on-premises sem envio de áudios para nuvem. Faster-whisper quantizado em int8 acoplado a LLM local em formato GGUF via llama.cpp, com prompt engineering estruturado (six-shot), coerção estrita de schema JSON e fallback determinístico para classificar reclamações verbais de áudio (\"está cortando\", \"não te escuto\").\n\n4. MULTI-TENANCY & SELF-SERVICE: Backend em Flask com 31 endpoints REST, SQLite em modo WAL com isolamento físico de dados por tenant/PABX, autenticação PBKDF2 e portal self-service onde operadores analisam apenas suas próprias chamadas através do login com ramal.",
+      "resultado": "Transformação de reclamações subjetivas em evidências matemáticas auditáveis com data, ramal e momento exato da falha na forma de onda; motor autônomo validado por 121 testes automatizados em pytest com injeção de anomalias em sinais sintéticos; e auditoria independente de classificadores AMD (Answering Machine Detection) de terceiros, eliminando falsos positivos.",
       "stack": [
         "Python 3.14",
         "NumPy",
