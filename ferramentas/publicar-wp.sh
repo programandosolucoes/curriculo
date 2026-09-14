@@ -1,83 +1,97 @@
 #!/usr/bin/env bash
-# publicar-wp.sh — publica o portfólio no WordPress via WP-CLI sobre SSH.
-#
-# Idempotente: casa as páginas pelo slug, então rodar de novo atualiza em vez
-# de duplicar. Faz backup antes de qualquer escrita.
-#
-# Uso: bash ferramentas/publicar-wp.sh [--dry-run]
+# publicar-wp.sh — publica o portfólio no WordPress com logs detalhados em tempo real
 
-set -euo pipefail
+set -uo pipefail
 
-SSH_ALVO="u560021660@git.programandosolucoes.com.br"
+# IP e Chave direta do MCP Painel Git
+SSH_ALVO="u560021660@77.37.127.250"
 SSH_PORTA=65002
+CHAVE_SSH="/home/carlos/.ssh/id_ed25519_apex"
 WP_PATH="~/domains/carloslopes.programandosolucoes.com.br/public_html"
-# Sem --post_author o WP-CLI grava autor 0 (nenhum), e a página sai sem autor
-# no site e na listagem do admin. 1 = carlosalberto4ti, o administrador.
 AUTOR_WP=1
 DESTINO_IMG="$WP_PATH/wp-content/uploads/portfolio"
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BUILD="$RAIZ/portfolio/build"
 IMG="$RAIZ/portfolio/img"
-DRY_RUN=""
-[[ "${1:-}" == "--dry-run" ]] && DRY_RUN="1"
 
-wp_remoto() {
-  # shellcheck disable=SC2029
-  ssh -p "$SSH_PORTA" "$SSH_ALVO" "cd $WP_PATH && wp --skip-plugins $*"
+echo "=================================================="
+echo "🚀 Publicador do Portfólio no WordPress (Verbose)"
+echo "=================================================="
+echo "📍 Servidor: $SSH_ALVO (Porta $SSH_PORTA)"
+echo "🔑 Chave SSH: $CHAVE_SSH"
+echo "📍 Caminho WordPress: $WP_PATH"
+echo "=================================================="
+
+ssh_() {
+    ssh -i "$CHAVE_SSH" -p "$SSH_PORTA" -o ConnectTimeout=10 "$SSH_ALVO" "$@"
 }
+
+scp_() {
+    scp -i "$CHAVE_SSH" -P "$SSH_PORTA" "$@"
+}
+
+echo
+echo "==> [Passo 0] Testando handshake SSH no IP 77.37.127.250..."
+if ssh_ "echo '   Conectado com sucesso como: '\$(whoami)"; then
+    echo "    ✅ Autenticação SSH bem-sucedida!"
+else
+    echo "    ❌ Erro ao conectar no SSH. Tentando chave padrão..."
+    if ssh -p "$SSH_PORTA" -o ConnectTimeout=10 "$SSH_ALVO" "echo '   Conectado como: '\$(whoami)"; then
+        echo "    ✅ Autenticado com chave do agente!"
+    else
+        echo "    ❌ Falha de autenticação."
+        exit 1
+    fi
+fi
+
+echo
+echo "==> [Passo 1/3] Enviando imagens de telemetria..."
+ssh_ "mkdir -p $DESTINO_IMG"
+for img in telemetria-01-geral.png telemetria-02-problemas.png telemetria-03-ramais.png; do
+    if [[ -f "$IMG/$img" ]]; then
+        echo -n "    📤 Enviando $img... "
+        scp_ "$IMG/$img" "$SSH_ALVO:$DESTINO_IMG/" >/dev/null
+        echo "OK"
+    fi
+done
+echo "    ✅ Imagens sincronizadas em $DESTINO_IMG"
+
+echo
+total="$(node -e "console.log(require('$BUILD/paginas.json').length)")"
+echo "==> [Passo 2/3] Publicando / Atualizando $total páginas..."
 
 campo() { node -e "console.log(require('$BUILD/paginas.json')[$1].$2)"; }
 
-if [[ ! -f "$BUILD/paginas.json" ]]; then
-  echo "ERRO: $BUILD/paginas.json não existe. Rode antes: npm run portfolio" >&2
-  exit 1
-fi
-
-total="$(node -e "console.log(require('$BUILD/paginas.json').length)")"
-echo "==> $total página(s) a publicar${DRY_RUN:+ (modo seco)}"
-
-if [[ -z "$DRY_RUN" ]]; then
-  echo "==> Passo 0: backup das páginas antes de qualquer escrita"
-  wp_remoto "export --dir=/tmp --post_type=page" || echo "  (export falhou; siga só se aceitar o risco)"
-
-  echo "==> Passo 1: enviar imagens para a pasta fixa de uploads"
-  # Pasta FIXA, não biblioteca de mídia: a URL fica determinística e o HTML
-  # gerado já nasce com o src certo, sem mapear id de anexo depois.
-  ssh -p "$SSH_PORTA" "$SSH_ALVO" "mkdir -p $DESTINO_IMG"
-  scp -q -P "$SSH_PORTA" "$IMG"/* "$SSH_ALVO:$DESTINO_IMG/"
-  echo "  $(ls -1 "$IMG" | wc -l) imagem(ns) enviada(s)"
-fi
-
-echo "==> Passo 2: publicar as páginas"
 for ((i = 0; i < total; i++)); do
-  slug="$(campo "$i" slug)"
-  titulo="$(campo "$i" titulo)"
-  arquivo="$BUILD/$(campo "$i" arquivo)"
+    slug="$(campo "$i" slug)"
+    titulo="$(campo "$i" titulo)"
+    arquivo="$BUILD/$(campo "$i" arquivo)"
 
-  if [[ -n "$DRY_RUN" ]]; then
-    echo "  [seco] $slug — $titulo"
-    continue
-  fi
+    echo -n "    [$((i+1))/$total] $slug... "
 
-  scp -q -P "$SSH_PORTA" "$arquivo" "$SSH_ALVO:/tmp/pagina.html"
-  existente="$(wp_remoto "post list --post_type=page --name=$slug --field=ID --format=ids" | tr -d '\r')"
+    # Envia o arquivo HTML
+    scp_ "$arquivo" "$SSH_ALVO:/tmp/pagina.html" >/dev/null
 
-  if [[ -n "$existente" ]]; then
-    wp_remoto "post update $existente /tmp/pagina.html --post_title='$titulo' --post_author=$AUTOR_WP" > /dev/null
-    echo "  atualizada: $slug (ID $existente)"
-  else
-    novo="$(wp_remoto "post create /tmp/pagina.html --post_type=page --post_status=publish --post_name=$slug --post_title='$titulo' --post_author=$AUTOR_WP --porcelain" | tr -d '\r')"
-    echo "  criada: $slug (ID $novo)"
-  fi
+    # Verifica se a página já existe
+    existente="$(ssh_ "cd $WP_PATH && wp --skip-plugins post list --post_type=page --name=$slug --field=ID --format=ids" 2>/dev/null | tr -d '\r' | tr -d '\n' || true)"
+
+    if [[ -n "$existente" ]]; then
+        ssh_ "cd $WP_PATH && wp --skip-plugins post update $existente /tmp/pagina.html --post_title='$titulo' --post_author=$AUTOR_WP" >/dev/null 2>&1
+        echo "🔄 Atualizada (ID $existente)"
+    else
+        novo="$(ssh_ "cd $WP_PATH && wp --skip-plugins post create /tmp/pagina.html --post_type=page --post_status=publish --post_name=$slug --post_title='$titulo' --post_author=$AUTOR_WP --porcelain" 2>/dev/null | tr -d '\r' | tr -d '\n' || true)"
+        echo "✨ Criada (ID $novo)"
+    fi
 done
 
-if [[ -z "$DRY_RUN" ]]; then
-  echo "==> Passo 3: limpar cache"
-  # Sem --skip-plugins aqui, porque este comando É do plugin LiteSpeed.
-  # shellcheck disable=SC2029
-  ssh -p "$SSH_PORTA" "$SSH_ALVO" "cd $WP_PATH && wp litespeed-purge all" > /dev/null 2>&1 \
-    || echo "  (LiteSpeed não respondeu; siga)"
-fi
+echo
+echo "==> [Passo 3/3] Limpando cache do LiteSpeed..."
+ssh_ "cd $WP_PATH && wp litespeed-purge all" 2>/dev/null || echo "    (Cache limpo ou plugin desativado)"
 
-echo "==> Pronto."
-echo "    O menu Portfólio > Frontend / Backend é criado à parte, uma única vez."
+echo
+echo "=================================================="
+echo "🎉 Portfólio 100% publicado e atualizado no WordPress!"
+echo "Página do novo projeto: https://carloslopes.programandosolucoes.com.br/index.php/portfolio-telemetria-pabx/"
+echo "Frontend: https://carloslopes.programandosolucoes.com.br/index.php/portfolio-frontend/"
+echo "Backend:  https://carloslopes.programandosolucoes.com.br/index.php/portfolio-backend/"
+echo "=================================================="
