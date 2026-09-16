@@ -63,20 +63,124 @@ const ESTILO = `
   }
 `;
 
+/** Cópia local em `cv/vendor/` (vale sem internet); o CDN cobre o HTML aberto fora do repositório. */
+const JSPDF_LOCAL = '../vendor/jspdf.umd.min.js';
+const JSPDF_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js';
+
 /**
  * Script de exportação, embutido no arquivo.
  *
- * PDF sai pela impressão do próprio navegador — é o caminho que preserva o
- * texto selecionável, que é o que o ATS lê. "Salvar como PDF" no diálogo.
+ * PDF sai do jsPDF, escrito como TEXTO, e é baixado direto. A impressão do
+ * navegador foi abandonada por dois defeitos medidos no Firefox (16/09/2026):
+ * põe título e caminho `file://` no topo de cada página, e a fonte com
+ * ligaduras quebra a extração do texto — o e-mail saía como
+ * "carlosalberto4�@gmail.com" para o ATS. Helvetica padrão não tem ligadura.
+ * Bibliotecas que "fotografam" a página (html2pdf, html2canvas) ficaram de
+ * fora de propósito: geram imagem, e imagem o ATS não lê.
+ *
+ * O PDF é montado a partir do DOM de #curriculo, então o texto é o mesmo do
+ * HTML — não existe um segundo lugar onde o conteúdo possa divergir.
  *
  * Word sai serializando o HTML do currículo com o tipo MIME do Word, sem
  * biblioteca nenhuma: o Word abre HTML e converte. A barra de botões fica
  * fora do container exportado, então não vai junto para dentro do documento.
  */
-function scriptExportacao(nomeArquivo) {
+function scriptExportacao(nomeArquivo, autor, assunto) {
   return `
+var JSPDF_CDN = ${JSON.stringify(JSPDF_CDN)};
+
+function comJsPdf(continuar) {
+  if (window.jspdf && window.jspdf.jsPDF) { continuar(window.jspdf.jsPDF); return; }
+  var script = document.createElement('script');
+  script.src = JSPDF_CDN;
+  script.onload = function () { continuar(window.jspdf.jsPDF); };
+  script.onerror = function () {
+    alert('Não consegui carregar o gerador de PDF (nem cv/vendor/jspdf.umd.min.js, nem o CDN). ' +
+          'Alternativa: Ctrl+P e desmarcar "cabeçalhos e rodapés".');
+  };
+  document.head.appendChild(script);
+}
+
+function textoDe(el) {
+  return el.textContent.replace(/\\s+/g, ' ').trim();
+}
+
+function gerarPdf(JsPDF) {
+  var doc = new JsPDF({ unit: 'pt', format: 'a4', compress: true });
+  var MARGEM_X = 48, MARGEM_TOPO = 46, MARGEM_BASE = 46;
+  var larguraPagina = doc.internal.pageSize.getWidth();
+  var alturaPagina = doc.internal.pageSize.getHeight();
+  var largura = larguraPagina - 2 * MARGEM_X;
+  var TINTA = [17, 17, 17], SUAVE = [68, 68, 68], LINHA = [187, 187, 187];
+  var y = MARGEM_TOPO;
+
+  function caber(altura) {
+    if (y + altura > alturaPagina - MARGEM_BASE) { doc.addPage(); y = MARGEM_TOPO; }
+  }
+
+  // manterCom: altura que precisa caber junto com a primeira linha, para um
+  // título não ficar sozinho no pé da página, separado do que ele intitula.
+  function bloco(texto, o) {
+    doc.setFont('helvetica', o.negrito ? 'bold' : 'normal');
+    doc.setFontSize(o.tamanho);
+    doc.setTextColor(o.cor[0], o.cor[1], o.cor[2]);
+    var entrelinha = o.tamanho * 1.35;
+    var recuo = o.recuo || 0;
+    var linhas = doc.splitTextToSize(texto, largura - recuo);
+    y += o.antes || 0;
+    // Item de lista curto não se parte entre duas páginas.
+    var inteiro = o.inteiro && linhas.length <= 4 ? linhas.length * entrelinha : entrelinha;
+    caber(inteiro + (o.manterCom || 0));
+    for (var i = 0; i < linhas.length; i++) {
+      caber(entrelinha);
+      if (i === 0 && o.marcador) doc.text(o.marcador, MARGEM_X + recuo - 10, y, { baseline: 'top' });
+      doc.text(linhas[i], MARGEM_X + recuo, y, { baseline: 'top' });
+      y += entrelinha;
+    }
+    y += o.depois || 0;
+  }
+
+  var filhos = document.getElementById('curriculo').children;
+  for (var i = 0; i < filhos.length; i++) {
+    var el = filhos[i];
+    var classe = el.classList;
+    if (el.tagName === 'H1') {
+      bloco(textoDe(el), { tamanho: 20, negrito: true, cor: TINTA, depois: 2 });
+    } else if (el.tagName === 'H2') {
+      bloco(textoDe(el), { tamanho: 11.5, negrito: true, cor: TINTA, antes: 12, manterCom: 40 });
+      doc.setDrawColor(LINHA[0], LINHA[1], LINHA[2]);
+      doc.setLineWidth(0.6);
+      doc.line(MARGEM_X, y + 1, larguraPagina - MARGEM_X, y + 1);
+      y += 7;
+    } else if (el.tagName === 'H3') {
+      bloco(textoDe(el), { tamanho: 10.5, negrito: true, cor: TINTA, antes: 6, depois: 1, manterCom: 28 });
+    } else if (el.tagName === 'UL') {
+      for (var j = 0; j < el.children.length; j++) {
+        bloco(textoDe(el.children[j]), { tamanho: 10, cor: TINTA, recuo: 14, marcador: '•', depois: 2, inteiro: true });
+      }
+      y += 3;
+    } else if (classe.contains('cargo')) {
+      bloco(textoDe(el), { tamanho: 12.5, negrito: true, cor: SUAVE, depois: 5 });
+    } else if (classe.contains('contato')) {
+      bloco(textoDe(el), { tamanho: 9.5, cor: SUAVE, depois: 1 });
+    } else if (classe.contains('grupo-titulo')) {
+      bloco(textoDe(el), { tamanho: 10.5, negrito: true, cor: TINTA, antes: 5, depois: 1, manterCom: 14 });
+    } else if (el.tagName === 'P') {
+      bloco(textoDe(el), { tamanho: 10, cor: TINTA, depois: 3 });
+    }
+  }
+
+  doc.setProperties({
+    title: document.title,
+    author: ${JSON.stringify(autor)},
+    subject: ${JSON.stringify(assunto)},
+    creator: 'curriculo / gerar-cv.js',
+  });
+  doc.save(${JSON.stringify(nomeArquivo)} + '.pdf');
+}
+
 document.getElementById('btn-pdf').addEventListener('click', function () {
-  window.print();
+  comJsPdf(gerarPdf);
 });
 
 document.getElementById('btn-doc').addEventListener('click', function () {
@@ -178,7 +282,7 @@ function renderHtml(cv) {
 <div class="barra">
   <button type="button" id="btn-pdf">Baixar PDF</button>
   <button type="button" id="btn-doc">Baixar Word (.doc)</button>
-  <p class="dica">No diálogo de impressão, escolha "Salvar como PDF".</p>
+  <p class="dica">O PDF é gerado e baixado direto: texto selecionável, sem cabeçalho nem rodapé do navegador.</p>
 </div>
 
 <div id="curriculo">
@@ -190,7 +294,8 @@ ${links ? `<p class="contato">${links}</p>` : ''}
 ${corpo}
 </div>
 
-<script>${scriptExportacao(arquivo)}</script>
+<script src="${JSPDF_LOCAL}"></script>
+<script>${scriptExportacao(arquivo, pessoal.nome, cv.titulo)}</script>
 </body>
 </html>
 `;

@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlos Alberto - Arquiteto DevOps Sênior</title>
+<style id="estilo-cv">
+  :root { --tinta: #111; --suave: #444; --linha: #bbb; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto; max-width: 820px; padding: 32px 28px 64px;
+    font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+    font-size: 11pt; line-height: 1.45; color: var(--tinta); background: #fff;
+  }
+  h1 { font-size: 20pt; margin: 0; letter-spacing: .01em; }
+  .cargo { font-size: 12.5pt; color: var(--suave); margin: 2px 0 8px; font-weight: 600; }
+  .contato { font-size: 10pt; color: var(--suave); margin: 0; }
+  .contato a { color: inherit; }
+  h2 {
+    font-size: 11.5pt; margin: 22px 0 8px; padding-bottom: 3px;
+    border-bottom: 1px solid var(--linha); letter-spacing: .04em;
+  }
+  h3 { font-size: 11pt; margin: 12px 0 3px; font-weight: 700; }
+  p { margin: 0 0 8px; }
+  ul { margin: 4px 0 10px; padding-left: 20px; }
+  li { margin-bottom: 3px; }
+  .grupo-titulo { font-weight: 700; margin: 10px 0 2px; }
+  .barra {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--linha);
+  }
+  .barra button {
+    font: inherit; font-size: 10pt; cursor: pointer;
+    padding: 7px 14px; border-radius: 6px;
+    color: var(--tinta); background: #f4f4f6; border: 1px solid var(--linha);
+  }
+  .barra button:hover { background: #e8e8ec; }
+  .barra .dica { font-size: 9.5pt; color: var(--suave); align-self: center; margin: 0; }
+  @media print {
+    body { max-width: none; padding: 0; font-size: 10.5pt; }
+    @page { margin: 14mm; }
+    h2, h3, li { break-inside: avoid; }
+    .barra { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="barra">
+  <button type="button" id="btn-pdf">Baixar PDF</button>
+  <button type="button" id="btn-doc">Baixar Word (.doc)</button>
+  <p class="dica">O PDF é gerado e baixado direto: texto selecionável, sem cabeçalho nem rodapé do navegador.</p>
+</div>
+
+<div id="curriculo">
+<h1>Carlos Alberto</h1>
+<p class="cargo">Arquiteto DevOps Sênior</p>
+<p class="contato">São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com</p>
+<p class="contato">linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br</p>
+
+<h2>RESUMO PROFISSIONAL</h2>
+<p>Arquiteto DevOps e de Software Sênior com mais de 12 anos em tecnologia, unindo desenvolvimento de software e infraestrutura de missão crítica, e mais de 5 anos em liderança técnica sênior: tech leader de 11 desenvolvedores, referência de CI/CD e code review de squad e arquiteto em três empresas. Defino arquitetura cloud-native (microsserviços, APIs, mensageria e pipelines de mais de 1 milhão de eventos diários) e as práticas que a sustentam: CI/CD com segurança no pipeline (DevSecOps), Infraestrutura como Código (Ansible), observabilidade e SRE com SLI/SLO. Reduzi o MTTD de falhas em 40%, sustentei SLO de 99,99% em operação internacional e mantive disaster recovery para mais de 100 clientes. Trabalho com Python e Java (Spring Boot), Node.js/TypeScript e PHP, Kubernetes, Docker, Ansible, AWS, GCP e nuvem privada (Proxmox, OpenStack), e aplico IA generativa em produto com LLMs open source (llama.cpp, Ollama) e comerciais (OpenAI/ChatGPT, Anthropic).</p>
+
+<h2>PRINCIPAIS CONQUISTAS</h2>
+<ul>
+  <li>Detecção de falhas aprimorada: reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade.</li>
+  <li>Garantia de uptime de serviço: cumpri o objetivo de disponibilidade (SLO) de 99,99% para serviços críticos no mercado de telefonia italiano.</li>
+  <li>Otimização do onboarding de clientes: reduzi o tempo de onboarding em 60% com provisionamento zero-touch.</li>
+</ul>
+
+<h2>COMPETÊNCIAS</h2>
+<p class="grupo-titulo">Arquitetura, Liderança Técnica e Governança</p>
+<ul>
+  <li>Arquitetura de software cloud-native: microsserviços, APIs REST e JSON-RPC, multi-tenancy e escalabilidade horizontal com balanceamento de carga</li>
+  <li>Arquitetura orientada a eventos: pipeline de mais de 1 milhão de eventos diários, mensageria JMS/STOMP (ActiveMQ), filas BullMQ/Redis e webhooks no lugar de polling</li>
+  <li>Liderança técnica sênior desde 2020: tech leader de 11 desenvolvedores, referência de CI/CD e code review do squad, arquiteto em três empresas</li>
+  <li>Decisões de arquitetura documentadas: comparativo de alternativas (LXC × Docker), critério de licenciamento comercial na escolha de modelos e runbooks versionados</li>
+  <li>Padrões de arquitetura e de engenharia: padrão Strategy para integrações intercambiáveis (5 gateways de WhatsApp atrás de uma interface), políticas de branch em hook de servidor, migrations versionadas e code review por pull request</li>
+  <li>Internal Developer Platform: plataforma Git própria com CI/CD, políticas de branch e servidor MCP para agentes de IA, em operação contínua com mais de 30 repositórios</li>
+  <li>Developer Experience (DX): ferramentas internas que instalam e replicam o ambiente com um comando, como o acervo de skills de agentes de IA distribuído para quatro CLIs</li>
+  <li>DevSecOps e desenvolvimento de software seguro: segurança no pipeline de CI/CD (disparo assinado por HMAC-SHA256, validação anti-SSRF, segredos cifrados em AES-256-GCM), credenciais de menor privilégio e WAF com regras OWASP</li>
+  <li>SRE: SLI/SLO, MTTD, plantão N3, gestão de incidentes e post-mortem com causa raiz documentada e teste de regressão para cada defeito encontrado</li>
+  <li>Análise de performance e profiling: py-spy em produção, teste de carga com Locust, tuning de PostgreSQL e MySQL, auditoria de N+1, cache, paginação e índices, e medição de consumo de memória de containers</li>
+  <li>Ambientes com múltiplos produtos e clientes: plataformas atendendo mais de 100 empresas clientes, com padrões comuns de provisionamento, monitoramento e backup</li>
+  <li>Integrações com plataformas SaaS: Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API</li>
+</ul>
+<p class="grupo-titulo">Cloud e DevOps</p>
+<ul>
+  <li>Kubernetes (K8s), Docker e Docker Compose</li>
+  <li>AWS e GCP; AWS S3 com presigned URL; Microsoft Entra ID (Azure AD) com OAuth2 para Microsoft 365</li>
+  <li>Proxmox, KVM, VMware vSphere, OpenStack, LXC</li>
+  <li>Infraestrutura como Código (IaC) com Ansible: roles por papel de servidor, inventário gerado por job e runbooks versionados</li>
+  <li>CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git</li>
+  <li>Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino e métricas no formato Prometheus), com templates próprios de coleta</li>
+  <li>Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação</li>
+  <li>systemd, gunicorn, Nginx, Apache, healthcheck</li>
+  <li>Automação de provisionamento via API do Proxmox VE</li>
+  <li>Backup automatizado, disaster recovery (DR) e alta disponibilidade</li>
+</ul>
+<p class="grupo-titulo">Desenvolvimento e Banco de Dados</p>
+<ul>
+  <li>Python (FastAPI, Flask, AGI, asyncio)</li>
+  <li>Java (Spring e Spring Boot, Jakarta EE com Servlets e JSP, JUnit)</li>
+  <li>JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)</li>
+  <li>PHP e Laravel 12</li>
+  <li>SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional</li>
+  <li>Prisma, Drizzle ORM, SQLAlchemy</li>
+  <li>API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços</li>
+  <li>Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis</li>
+  <li>Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)</li>
+  <li>Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas</li>
+  <li>Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas</li>
+</ul>
+<p class="grupo-titulo">Ecossistema Python</p>
+<ul>
+  <li>NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy</li>
+  <li>cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio</li>
+  <li>Concorrência: threading, jobs assíncronos em background, asyncio</li>
+  <li>pytest, pytest-asyncio, cobertura de testes, Locust</li>
+  <li>mypy, black, flake8, PyInstaller; profiling com py-spy em produção</li>
+</ul>
+<p class="grupo-titulo">Inteligência Artificial (IA) e LLM</p>
+<ul>
+  <li>Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic, NVIDIA NIM, Groq/Llama 3, Ollama)</li>
+  <li>Inferência local em CPU para dados sensíveis: LLM quantizado GGUF via llama.cpp e ONNX Runtime</li>
+  <li>Reconhecimento de fala (ASR) local com faster-whisper</li>
+  <li>Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico</li>
+  <li>Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento</li>
+  <li>IA generativa aplicada a produto: assistente com acesso a dados, automação conversacional com escalada para humano e geração de resposta a partir de documento de referência</li>
+  <li>Agentes de IA com ferramentas: chamada de função (function calling), catálogo fechado por lista de permissão e servidores MCP próprios (37 ferramentas, em TypeScript e Rust)</li>
+  <li>RAG e busca semântica: embeddings de voz, similaridade de cosseno e busca vetorial em SQL com sqlite-vec (índice ANN)</li>
+  <li>Machine learning aplicado, NLP e processamento de linguagem natural</li>
+  <li>Engenharia assistida por IA: CLIs de agentes (Claude Code entre outros três), skills, subagentes e metodologia spec-driven</li>
+</ul>
+<p class="grupo-titulo">Segurança Aplicada</p>
+<ul>
+  <li>WAF (ModSecurity, regras OWASP), pfSense, OpenVPN, Squid Proxy</li>
+  <li>Análise de logs em nível de SOC, Fail2ban, resposta a incidentes</li>
+  <li>Criptografia AES-128 e AES-256 (CBC, ECB, CFB, OFB, CTR) e AES-256-GCM</li>
+  <li>RSA-2048, HMAC-SHA256, PBKDF2, assinatura digital</li>
+  <li>OAuth2, JWT, TLS/SSL, autenticação por desafio criptográfico com chave SSH</li>
+  <li>Multi-tenancy com isolamento físico de dados, RBAC granular</li>
+  <li>Proteção contra SSRF, CSRF, XSS e SQL Injection; rate limiting e hardening</li>
+  <li>Conformidade regulatória: normas ISO/IEC, homologação técnica</li>
+</ul>
+<p class="grupo-titulo">Qualidade e Testes</p>
+<ul>
+  <li>pytest, JUnit, PHPUnit, Vitest, runner nativo do Node, Testing Library</li>
+  <li>Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer</li>
+  <li>Code review por pull request, políticas de branch e histórico auditável</li>
+  <li>Teste de carga e performance com Locust</li>
+  <li>Teste de conformidade de protocolo com SIPp</li>
+  <li>Mock de HTTP, geração de dados sintéticos, cobertura de testes</li>
+  <li>Checagem estática de tipos com mypy e TypeScript</li>
+  <li>Suporte N3: reprodução e isolamento de defeito em produção</li>
+</ul>
+
+<h2>EXPERIÊNCIA PROFISSIONAL</h2>
+<h3>Engenheiro VoIP | Akiva Software | 09/2025 - 11/2025 | São Paulo, Brasil</h3>
+<ul>
+  <li>Otimizei o processo de deploy da aplicação desenvolvendo scripts de autoinstalação de dependências e modernizando o sistema operacional base.</li>
+  <li>Escalei a capacidade de um serviço de classificação implantando e configurando novos servidores dedicados.</li>
+  <li>Tecnologias: Python, Java, Asterisk, classificador Khomp e codec G.729.</li>
+</ul>
+<h3>Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil</h3>
+<ul>
+  <li>Liderei a arquitetura e o desenvolvimento de uma plataforma de call center ativo (power dialer) projetada para mais de 500 agentes concorrentes.</li>
+  <li>Projetei e implementei a infraestrutura IaaS em nuvem da solução com Proxmox e Kubernetes (K8s) para orquestração de contêineres.</li>
+  <li>Defini onde a classificação por Inteligência Artificial (IA) entra no ciclo de vida da chamada e a integrei ao billing em Python, aumentando a eficiência das campanhas em 30%.</li>
+  <li>Conduzi migrações de clientes da plataforma GoTo para Yeastar PBX com zero downtime para as operações críticas.</li>
+  <li>Tecnologias: Python, Java, Kubernetes, Proxmox, Asterisk e Yeastar.</li>
+</ul>
+<h3>Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasil</h3>
+<ul>
+  <li>Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% ao modernizar o sistema de monitoramento Zabbix com novos templates de observabilidade.</li>
+  <li>Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.</li>
+  <li>Atuei como último nível de escalonamento (N3) na gestão de incidentes críticos de arquitetura e performance em produção.</li>
+  <li>Tecnologias: Python, Java, Zabbix, Asterisk e Linux.</li>
+</ul>
+<h3>Engenheiro VoIP Sênior | Ip Telecom | 01/2023 - 11/2025 | Itália</h3>
+<ul>
+  <li>Atuei como arquiteto de soluções da plataforma de telefonia COMMUNI5/PORTSIP, sustentando 99,99% de uptime para serviços críticos no mercado italiano.</li>
+  <li>Liderei a padronização do provisionamento de dispositivos e criei um sistema zero-touch que reduziu em 60% o tempo de onboarding de novos clientes.</li>
+  <li>Tecnologias: Python, Java, COMMUNI5/PORTSIP e provisionamento zero-touch (Snom, Fanvil).</li>
+</ul>
+<h3>Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil</h3>
+<ul>
+  <li>Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio como balanceador de carga e Asterisk como servidor de mídia.</li>
+  <li>Projetei e integrei APIs RESTful em Node.js que processam mais de 1 milhão de eventos de chamadas por dia, substituindo acoplamento direto entre plataformas.</li>
+  <li>Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket.</li>
+  <li>Tecnologias: Python, Java, Node.js, Kamailio, Asterisk, Bitbucket Pipelines e JIRA.</li>
+</ul>
+<h3>Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil</h3>
+<ul>
+  <li>Projetei e implementei a arquitetura de borda (SBC) de alta disponibilidade da empresa, combinando Asterisk, OpenSIPS e Kamailio.</li>
+  <li>Reduzi os custos de telefonia em mais de 300% ao criar APIs de microsserviços em Node.js que substituíram software licenciado de terceiros.</li>
+  <li>Desenvolvi um appliance de roteamento em Node.js/Drachtio para integração e roteamento dinâmico de chamadas com o Microsoft Teams.</li>
+  <li>Tecnologias: Python, Java, Node.js, Drachtio, Asterisk, OpenSIPS e Kamailio.</li>
+</ul>
+<h3>Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil</h3>
+<ul>
+  <li>Liderei a arquitetura técnica de todos os projetos Asterisk e fullstack da empresa, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.</li>
+  <li>Desenvolvi o backend completo (REST APIs em Node.js e PHP) e o frontend (Angular) da plataforma de gerenciamento de call center.</li>
+  <li>Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.</li>
+  <li>Tecnologias: Python, Java, Node.js, PHP, Angular, Zendesk e Power BI.</li>
+</ul>
+<h3>Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil</h3>
+<ul>
+  <li>Desenvolvi e mantive múltiplas plataformas Asterisk (FreePBX, Xcally, Xorcom) suportando mais de 200 agentes concorrentes em mais de 100 empresas clientes.</li>
+  <li>Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes.</li>
+  <li>Construí um chatbot de voz (CPQD) do zero como um novo produto, automatizando 10% do volume de chamadas operacionais dos clientes iniciais.</li>
+  <li>Tecnologias: Python, Java, Asterisk (FreePBX, Xcally, Xorcom) e CPQD.</li>
+</ul>
+<h3>Analista de Infraestrutura e Redes de TI | EZ-Security | 01/2018 - 08/2018</h3>
+<ul>
+  <li>Automatizei a resposta a incidentes implantando VMs e configurando Zabbix (SNMP) para monitorar métricas vitais, com abertura automática de ticket para as equipes responsáveis.</li>
+  <li>Tecnologias: Python, Java, Zabbix (SNMP) e virtualização.</li>
+</ul>
+<h3>Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019</h3>
+<ul>
+  <li>Administrei plataformas de nuvem (VMware vSphere, OpenStack) em ambiente de mais de 400 servidores, mantendo 99,99% de uptime.</li>
+  <li>Automatizei 25% das chamadas de triagem inicial desenvolvendo um chatbot em Asterisk e Node.js.</li>
+  <li>Tecnologias: Python, Java, Node.js, Asterisk, VMware vSphere e OpenStack.</li>
+</ul>
+<h3>Analista de Infraestrutura e Redes de TI | E-Prepag Fintech | 03/2015 - 12/2017</h3>
+<ul>
+  <li>Garanti 100% de continuidade dos negócios elaborando o plano completo de disaster recovery (DR) e gerenciando todas as rotinas de backup off-site.</li>
+  <li>Implementei a arquitetura de segurança web (WAF) da fintech com ModSecurity e regras OWASP contra SQL Injection, XSS e força bruta.</li>
+  <li>Desenvolvi análise automatizada de logs em nível de SOC com Fail2ban, reduzindo em mais de 99% o tempo de resposta a incidentes.</li>
+  <li>Tecnologias: Python, Java, ModSecurity, Fail2ban, Elastix e FreePBX.</li>
+</ul>
+<h3>Analista de Infraestrutura | All Net Group | 04/2013 - 02/2015</h3>
+<ul>
+  <li>Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows e Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.</li>
+  <li>Tecnologias: Python, Java, Windows Server e Linux.</li>
+</ul>
+
+<h2>PROJETOS</h2>
+<h3>Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual</h3>
+<ul>
+  <li>Construí e opero uma plataforma interna de desenvolvimento (Internal Developer Platform) self-hosted, alternativa a GitHub e GitLab, com git smart HTTP, code review por pull request e políticas de branch aplicadas por hook que se auto-sincronizam em todos os repositórios.</li>
+  <li>Desenhei o CI/CD como despachante: a plataforma nunca executa script, apenas dispara ações assinadas por HMAC-SHA256 com validação anti-SSRF do destino, e guarda credenciais cifradas em AES-256-GCM.</li>
+  <li>Expus a plataforma a agentes de IA por um servidor MCP (Model Context Protocol) com 37 ferramentas, em duas implementações com paridade exata: TypeScript e Rust.</li>
+  <li>Mantenho a plataforma em operação contínua há quase um ano, hospedando mais de 30 repositórios, empacotada em Docker sobre PHP e Apache.</li>
+</ul>
+<h3>Telemetria de 250+ PABXs, Observabilidade Zabbix e Previsão de Churn | projeto próprio/produção | 07/2026 - atual</h3>
+<ul>
+  <li>Desenvolvi a espinha dorsal de telemetria para 250+ PABXs Yeastar P-Series, integrando ingestão de CDRs, observabilidade Zabbix e análise de qualidade de voz (DSP).</li>
+  <li>Construí pipeline de ingestão assíncrona em Python com rate limit governado por orçamento de tokens por tenant e persistência idempotente em SQLite WAL com chaves determinísticas por perna de chamada.</li>
+  <li>Construí endpoint /api/metrics/zabbix em Flat JSON nativo para LLD e JSONPath, lendo de camada pré-materializada (kpi_cache) com autodiagnóstico de frescor (kpi_idade_s e kpi_vencido).</li>
+</ul>
+<h3>Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 08/2026</h3>
+<ul>
+  <li>Arquitetei e mantive uma suite completa de discador para call center: painel web (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (Asterisk ARI/PJSIP) e engine de URA/IVR orientada a JSON.</li>
+  <li>Automatizei o provisionamento de ponta a ponta: o painel cria os containers LXC pela API do Proxmox VE, gera o inventário de cada job e aplica um playbook Ansible com seis roles (base, tuning, banco de dados, callback, URA e motor), seguido de testes de fumaça.</li>
+  <li>Implementei autocorreção que reaplica a role Ansible de um único host, com trava que recusa alvo inválido para não reconfigurar containers em atendimento, e documentei o comparativo arquitetural entre LXC e Docker.</li>
+  <li>Configurei NAT e iptables multi-tenant, substituí polling por webhooks assíncronos e modelei 17 tabelas com tuning manual de PostgreSQL, cobertas por 15 suítes pytest.</li>
+</ul>
+<h3>Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | AstraMobi, setor de mobilidade e rodovias | 12/2025 - 01/2026</h3>
+<ul>
+  <li>Contratado para arquitetar e desenvolver a retaguarda de leitura de transponder RFID em pedágio eletrônico: defini a arquitetura de integração e a implementei.</li>
+  <li>Entreguei parser do protocolo da antena, decriptação AES do payload do chip (10 combinações de algoritmo e modo), API assíncrona em FastAPI e publicação orientada a eventos em fila JMS/STOMP no broker ActiveMQ da concessionária, com aderência às normas ISO/IEC 18000-63 e 29167-10.</li>
+  <li>Desenvolvi licenciamento próprio com assinatura RSA-2048 e vínculo por hash de hardware, com qualidade garantida por pytest, teste de carga com Locust e checagem estática de tipos com mypy.</li>
+</ul>
+<h3>API de Busca e Entrega de Documentos em Acervo Contábil (n8n) | projeto próprio/freelance | 08/2026 - atual</h3>
+<ul>
+  <li>Construí em n8n auto-hospedado uma API de busca documental sobre o Google Drive de um escritório de contabilidade: identificação do cliente por CNPJ, consulta filtrada e entrega do arquivo em binário, base64 ou link assinado, com 15 workflows, 14 Data Tables e 53 rotas de webhook.</li>
+  <li>Mantive o modelo de linguagem fora da autorização: liberar documento é decisão determinística sobre índice e token, e o contrato foi publicado em OpenAPI 3.1 com Swagger auto-contido e ambiente de teste espelhado.</li>
+  <li>Monitorei CPU, memória e atraso do event loop pelas métricas no formato Prometheus expostas pelo próprio n8n (/metrics), lidas por um workflow de monitoramento de recursos; 219 casos de teste cobrem o comportamento.</li>
+</ul>
+<h3>Plataforma de Análise de Interações com IA | produto de cliente | 05/2026 - atual</h3>
+<ul>
+  <li>Desenvolvo uma plataforma que coleta gravações de PABX e de reuniões, transcreve e produz análise de qualidade assistida por IA, em monorepo Bun com Turborepo.</li>
+  <li>Implementei coleta assíncrona com filas BullMQ e Redis, integração OAuth com Google Meet e integração com PABX Yeastar por API, incluindo token compartilhado para respeitar o limite do appliance.</li>
+  <li>Conduzi uma auditoria de performance da plataforma (N+1, cache, paginação, índices e bundle do frontend) que resultou em 33 correções e num checklist reutilizável aplicado antes de cada pull request.</li>
+</ul>
+<h3>Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance | 02/2026 - 07/2026</h3>
+<ul>
+  <li>Liderei a reescrita completa de uma plataforma SaaS de atendimento (originalmente Node.js/React/Drizzle) para Laravel 12/PHP, mantendo paridade de funcionalidades para viabilizar hospedagem própria.</li>
+  <li>Integrei 5 gateways de WhatsApp atrás de uma única interface de driver (Evolution, WAHA, Whaticket, WaVoIP, Meta Cloud API), aplicando o padrão Strategy à integração.</li>
+  <li>Implementei RBAC multi-tenant de 4 níveis e jobs assíncronos de IA generativa com Groq e Llama 3.1; a versão anterior tinha videochamada WebRTC e segmentação de fundo com TensorFlow.js. 41 migrations e 23 suítes PHPUnit.</li>
+</ul>
+<h3>Auditoria de Classificador de Secretária Eletrônica (AMD) | projeto próprio/freelance | 07/2026 - atual</h3>
+<ul>
+  <li>Construí uma ferramenta que audita o classificador de secretária eletrônica (AMD) de uma plataforma de discagem de terceiro, reaproveitando o motor DSP + Whisper + LLM local do projeto irmão para que o veredito fosse independente do sistema auditado.</li>
+  <li>Conduzi o post-mortem de um incidente de produção em que o serviço seguia ativo no systemd, mas a coleta estava parada havia 8 dias: diagnóstico com py-spy e inspeção de sockets e descritores, três causas-raiz, cada uma travada por um teste de regressão.</li>
+</ul>
+<h3>Análise de Qualidade de Chamadas por Processamento de Sinais (DSP) e IA Local | projeto próprio/freelance | 07/2026 - atual</h3>
+<ul>
+  <li>Implementei o algoritmo ITU-T G.107 (E-model) do zero em Python vetorizado com NumPy, convertendo métricas espectrais (FFT) e temporais em fator R e MOS.</li>
+  <li>Construí pipeline de transcrição e classificação com IA 100% local em CPU usando faster-whisper (int8) e LLM GGUF (llama.cpp) com coerção estrita de JSON.</li>
+  <li>Desenvolvi backend multi-tenant em Flask com 31 endpoints REST, SQLite WAL com isolamento por cliente e suíte de 121 testes em pytest com sinais sintéticos.</li>
+  <li>Empacotei em Docker e implantei via systemd em LXC/Proxmox; documentei a escolha dos modelos neurais por desempenho e por licenciamento comercial.</li>
+</ul>
+<h3>Assistente de IA Nativo para pfSense e Endpoint MCP | projeto próprio | 07/2026 - atual</h3>
+<ul>
+  <li>Desenvolvi um addon em PHP instalado dentro do pfSense que dá suporte de primeiro nível em português, combinando o estado real do firewall no instante da pergunta com os playbooks do runbook da rede.</li>
+  <li>Isolei a superfície de risco: o modelo escolhe um nome da lista de permissão e devolve argumentos validados por tipo, nunca uma linha de comando; ação que altera o firewall é proposta assinada por HMAC e só roda depois da confirmação do operador.</li>
+  <li>Emiti a credencial da API com um usuário dedicado de 15 privilégios em vez de chave de administrador, e cobri o comportamento com 218 testes automatizados contra um backup real de configuração.</li>
+</ul>
+<h3>Migrador de Caixa Postal IMAP para Outlook | projeto próprio/freelance | 08/2026</h3>
+<ul>
+  <li>Desenvolvi em Python, só com a biblioteca padrão, um migrador de caixas IMAP para Microsoft 365 com backup local em mbox e etapas retomáveis que não duplicam mensagem.</li>
+  <li>Implementei OAuth2 no fluxo device code da Microsoft Entra ID (Azure AD), exigido depois que a Microsoft desligou senha no IMAP, e testei contra dois servidores Dovecot reais em contêineres.</li>
+</ul>
+<h3>Acervo de Skills de Agentes de IA Multi-CLI | projeto próprio/freelance | 08/2026</h3>
+<ul>
+  <li>Criei uma ferramenta de Developer Experience que instala e sincroniza um acervo de skills de agentes de IA em quatro CLIs diferentes com um comando, com estado declarado em arquivos de texto editáveis (fontes, alvos e perfis).</li>
+  <li>Medi o custo escondido do acervo completo, cerca de 121 mil tokens de catálogo fixo em toda sessão, e criei perfis de instalação enxuta para quem não quer pagar isso.</li>
+</ul>
+
+<h2>FORMAÇÃO ACADÊMICA</h2>
+<ul>
+  <li>Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual</li>
+  <li>Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual</li>
+  <li>Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024</li>
+  <li>Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020</li>
+  <li>Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012</li>
+</ul>
+
+<h2>CERTIFICAÇÕES E TREINAMENTOS</h2>
+<ul>
+  <li>Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)</li>
+  <li>Asterisk Certified Essentials (ACE) - Sangoma University (2021)</li>
+  <li>FreePBX Certified Essentials - Sangoma University (2022)</li>
+  <li>LPIC-1 - Linux Professional Institute (2016)</li>
+  <li>Red Hat Certified System Administrator (RHCSA) (2022)</li>
+  <li>VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations</li>
+  <li>Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios</li>
+  <li>Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik</li>
+  <li>Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy</li>
+  <li>Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9</li>
+</ul>
+
+<h2>IDIOMAS</h2>
+<ul>
+  <li>Português: nativo / fluente</li>
+  <li>Italiano: fluente (proficiência profissional)</li>
+  <li>Espanhol: avançado</li>
+  <li>Inglês: intermediário (foco em leitura técnica)</li>
+</ul>
+</div>
+
+<script src="../vendor/jspdf.umd.min.js"></script>
+<script>
+var JSPDF_CDN = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js";
+
+function comJsPdf(continuar) {
+  if (window.jspdf && window.jspdf.jsPDF) { continuar(window.jspdf.jsPDF); return; }
+  var script = document.createElement('script');
+  script.src = JSPDF_CDN;
+  script.onload = function () { continuar(window.jspdf.jsPDF); };
+  script.onerror = function () {
+    alert('Não consegui carregar o gerador de PDF (nem cv/vendor/jspdf.umd.min.js, nem o CDN). ' +
+          'Alternativa: Ctrl+P e desmarcar "cabeçalhos e rodapés".');
+  };
+  document.head.appendChild(script);
+}
+
+function textoDe(el) {
+  return el.textContent.replace(/\s+/g, ' ').trim();
+}
+
+function gerarPdf(JsPDF) {
+  var doc = new JsPDF({ unit: 'pt', format: 'a4', compress: true });
+  var MARGEM_X = 48, MARGEM_TOPO = 46, MARGEM_BASE = 46;
+  var larguraPagina = doc.internal.pageSize.getWidth();
+  var alturaPagina = doc.internal.pageSize.getHeight();
+  var largura = larguraPagina - 2 * MARGEM_X;
+  var TINTA = [17, 17, 17], SUAVE = [68, 68, 68], LINHA = [187, 187, 187];
+  var y = MARGEM_TOPO;
+
+  function caber(altura) {
+    if (y + altura > alturaPagina - MARGEM_BASE) { doc.addPage(); y = MARGEM_TOPO; }
+  }
+
+  // manterCom: altura que precisa caber junto com a primeira linha, para um
+  // título não ficar sozinho no pé da página, separado do que ele intitula.
+  function bloco(texto, o) {
+    doc.setFont('helvetica', o.negrito ? 'bold' : 'normal');
+    doc.setFontSize(o.tamanho);
+    doc.setTextColor(o.cor[0], o.cor[1], o.cor[2]);
+    var entrelinha = o.tamanho * 1.35;
+    var recuo = o.recuo || 0;
+    var linhas = doc.splitTextToSize(texto, largura - recuo);
+    y += o.antes || 0;
+    // Item de lista curto não se parte entre duas páginas.
+    var inteiro = o.inteiro && linhas.length <= 4 ? linhas.length * entrelinha : entrelinha;
+    caber(inteiro + (o.manterCom || 0));
+    for (var i = 0; i < linhas.length; i++) {
+      caber(entrelinha);
+      if (i === 0 && o.marcador) doc.text(o.marcador, MARGEM_X + recuo - 10, y, { baseline: 'top' });
+      doc.text(linhas[i], MARGEM_X + recuo, y, { baseline: 'top' });
+      y += entrelinha;
+    }
+    y += o.depois || 0;
+  }
+
+  var filhos = document.getElementById('curriculo').children;
+  for (var i = 0; i < filhos.length; i++) {
+    var el = filhos[i];
+    var classe = el.classList;
+    if (el.tagName === 'H1') {
+      bloco(textoDe(el), { tamanho: 20, negrito: true, cor: TINTA, depois: 2 });
+    } else if (el.tagName === 'H2') {
+      bloco(textoDe(el), { tamanho: 11.5, negrito: true, cor: TINTA, antes: 12, manterCom: 40 });
+      doc.setDrawColor(LINHA[0], LINHA[1], LINHA[2]);
+      doc.setLineWidth(0.6);
+      doc.line(MARGEM_X, y + 1, larguraPagina - MARGEM_X, y + 1);
+      y += 7;
+    } else if (el.tagName === 'H3') {
+      bloco(textoDe(el), { tamanho: 10.5, negrito: true, cor: TINTA, antes: 6, depois: 1, manterCom: 28 });
+    } else if (el.tagName === 'UL') {
+      for (var j = 0; j < el.children.length; j++) {
+        bloco(textoDe(el.children[j]), { tamanho: 10, cor: TINTA, recuo: 14, marcador: '•', depois: 2, inteiro: true });
+      }
+      y += 3;
+    } else if (classe.contains('cargo')) {
+      bloco(textoDe(el), { tamanho: 12.5, negrito: true, cor: SUAVE, depois: 5 });
+    } else if (classe.contains('contato')) {
+      bloco(textoDe(el), { tamanho: 9.5, cor: SUAVE, depois: 1 });
+    } else if (classe.contains('grupo-titulo')) {
+      bloco(textoDe(el), { tamanho: 10.5, negrito: true, cor: TINTA, antes: 5, depois: 1, manterCom: 14 });
+    } else if (el.tagName === 'P') {
+      bloco(textoDe(el), { tamanho: 10, cor: TINTA, depois: 3 });
+    }
+  }
+
+  doc.setProperties({
+    title: document.title,
+    author: "Carlos Alberto",
+    subject: "Arquiteto DevOps Sênior",
+    creator: 'curriculo / gerar-cv.js',
+  });
+  doc.save("CV-Carlos-Alberto-arquiteto-devops" + '.pdf');
+}
+
+document.getElementById('btn-pdf').addEventListener('click', function () {
+  comJsPdf(gerarPdf);
+});
+
+document.getElementById('btn-doc').addEventListener('click', function () {
+  var conteudo = document.getElementById('curriculo').innerHTML;
+  var estilo = document.getElementById('estilo-cv').innerHTML;
+  var documento =
+    '<html xmlns:o="urn:schemas-microsoft-com:office:office"' +
+    ' xmlns:w="urn:schemas-microsoft-com:office:word"' +
+    ' xmlns="http://www.w3.org/TR/REC-html40">' +
+    '<head><meta charset="utf-8"><style>' + estilo + '</style></head>' +
+    '<body>' + conteudo + '</body></html>';
+
+  // O BOM faz o Word reconhecer o UTF-8 e não corromper os acentos.
+  var blob = new Blob(['\ufeff', documento], { type: 'application/msword' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url;
+  link.download = "CV-Carlos-Alberto-arquiteto-devops" + '.doc';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>

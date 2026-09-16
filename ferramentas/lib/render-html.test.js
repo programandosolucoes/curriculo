@@ -66,8 +66,22 @@ test('oferece botão de exportar para PDF e para Word', () => {
   const html = renderHtml(CV);
   assert.match(html, /id="btn-pdf"/, 'falta o botão de PDF');
   assert.match(html, /id="btn-doc"/, 'falta o botão de Word');
-  assert.match(html, /window\.print\(\)/, 'o botão de PDF não aciona a impressão');
+  assert.match(html, /doc\.save\(/, 'o botão de PDF não gera e baixa o arquivo');
   assert.match(html, /application\/msword/, 'o botão de Word não gera arquivo .doc');
+});
+
+test('o PDF sai do jsPDF como texto, sem depender da impressão do navegador', () => {
+  // A impressão do Firefox punha o caminho file:// no topo e quebrava o e-mail
+  // na extração (ligadura da fonte). Biblioteca que fotografa a página
+  // (html2canvas) geraria imagem, que o ATS não lê.
+  const html = renderHtml(CV);
+  assert.ok(!/window\.print\(\)/.test(html), 'o botão de PDF voltou a usar a impressão nativa');
+  assert.ok(!/html2canvas|html2pdf/.test(html), 'PDF gerado como imagem não é lido pelo ATS');
+  const local = html.match(/<script src="([^"]*jspdf[^"]*)"/);
+  assert.ok(local, 'falta o carregamento do jsPDF');
+  // O HTML gerado mora em cv/<perfil>/, e o caminho é relativo a ele.
+  const noDisco = require('node:path').join(__dirname, '..', '..', 'cv', 'perfil', local[1]);
+  assert.ok(require('node:fs').existsSync(noDisco), `cópia local do jsPDF ausente: ${noDisco}`);
 });
 
 test('a barra de botões some na impressão e não entra no PDF', () => {
