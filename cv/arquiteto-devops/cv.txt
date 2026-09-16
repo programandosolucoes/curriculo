@@ -1,0 +1,244 @@
+CARLOS ALBERTO
+Arquiteto DevOps Sênior
+São Paulo, SP, Brasil | +55 11 2615-2880 | carlosalberto4ti@gmail.com
+linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br
+
+RESUMO PROFISSIONAL
+Arquiteto DevOps e de Software Sênior com mais de 12 anos em tecnologia, unindo desenvolvimento de software e infraestrutura de missão crítica, e mais de 5 anos em liderança técnica sênior: tech leader de 11 desenvolvedores, referência de CI/CD e code review de squad e arquiteto em três empresas. Defino arquitetura cloud-native (microsserviços, APIs, mensageria e pipelines de mais de 1 milhão de eventos diários) e as práticas que a sustentam: CI/CD com segurança no pipeline (DevSecOps), Infraestrutura como Código (Ansible), observabilidade e SRE com SLI/SLO. Reduzi o MTTD de falhas em 40%, sustentei SLO de 99,99% em operação internacional e mantive disaster recovery para mais de 100 clientes. Trabalho com Python e Java (Spring Boot), Node.js/TypeScript e PHP, Kubernetes, Docker, Ansible, AWS, GCP e nuvem privada (Proxmox, OpenStack), e aplico IA generativa em produto com LLMs open source (llama.cpp, Ollama) e comerciais (OpenAI/ChatGPT, Anthropic).
+
+PRINCIPAIS CONQUISTAS
+- Detecção de falhas aprimorada: reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% com novos templates de observabilidade.
+- Garantia de uptime de serviço: cumpri o objetivo de disponibilidade (SLO) de 99,99% para serviços críticos no mercado de telefonia italiano.
+- Otimização do onboarding de clientes: reduzi o tempo de onboarding em 60% com provisionamento zero-touch.
+
+COMPETÊNCIAS
+Arquitetura, Liderança Técnica e Governança:
+- Arquitetura de software cloud-native: microsserviços, APIs REST e JSON-RPC, multi-tenancy e escalabilidade horizontal com balanceamento de carga
+- Arquitetura orientada a eventos: pipeline de mais de 1 milhão de eventos diários, mensageria JMS/STOMP (ActiveMQ), filas BullMQ/Redis e webhooks no lugar de polling
+- Liderança técnica sênior desde 2020: tech leader de 11 desenvolvedores, referência de CI/CD e code review do squad, arquiteto em três empresas
+- Decisões de arquitetura documentadas: comparativo de alternativas (LXC × Docker), critério de licenciamento comercial na escolha de modelos e runbooks versionados
+- Padrões de arquitetura e de engenharia: padrão Strategy para integrações intercambiáveis (5 gateways de WhatsApp atrás de uma interface), políticas de branch em hook de servidor, migrations versionadas e code review por pull request
+- Internal Developer Platform: plataforma Git própria com CI/CD, políticas de branch e servidor MCP para agentes de IA, em operação contínua com mais de 30 repositórios
+- Developer Experience (DX): ferramentas internas que instalam e replicam o ambiente com um comando, como o acervo de skills de agentes de IA distribuído para quatro CLIs
+- DevSecOps e desenvolvimento de software seguro: segurança no pipeline de CI/CD (disparo assinado por HMAC-SHA256, validação anti-SSRF, segredos cifrados em AES-256-GCM), credenciais de menor privilégio e WAF com regras OWASP
+- SRE: SLI/SLO, MTTD, plantão N3, gestão de incidentes e post-mortem com causa raiz documentada e teste de regressão para cada defeito encontrado
+- Análise de performance e profiling: py-spy em produção, teste de carga com Locust, tuning de PostgreSQL e MySQL, auditoria de N+1, cache, paginação e índices, e medição de consumo de memória de containers
+- Ambientes com múltiplos produtos e clientes: plataformas atendendo mais de 100 empresas clientes, com padrões comuns de provisionamento, monitoramento e backup
+- Integrações com plataformas SaaS: Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API
+
+Cloud e DevOps:
+- Kubernetes (K8s), Docker e Docker Compose
+- AWS e GCP; AWS S3 com presigned URL; Microsoft Entra ID (Azure AD) com OAuth2 para Microsoft 365
+- Proxmox, KVM, VMware vSphere, OpenStack, LXC
+- Infraestrutura como Código (IaC) com Ansible: roles por papel de servidor, inventário gerado por job e runbooks versionados
+- CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino e métricas no formato Prometheus), com templates próprios de coleta
+- Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação
+- systemd, gunicorn, Nginx, Apache, healthcheck
+- Automação de provisionamento via API do Proxmox VE
+- Backup automatizado, disaster recovery (DR) e alta disponibilidade
+
+Desenvolvimento e Banco de Dados:
+- Python (FastAPI, Flask, AGI, asyncio)
+- Java (Spring e Spring Boot, Jakarta EE com Servlets e JSP, JUnit)
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
+- PHP e Laravel 12
+- SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
+- Prisma, Drizzle ORM, SQLAlchemy
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
+- Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
+- Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
+- Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
+- Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas
+
+Ecossistema Python:
+- NumPy, Pandas, Flask, FastAPI, requests, SQLAlchemy
+- cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
+- Concorrência: threading, jobs assíncronos em background, asyncio
+- pytest, pytest-asyncio, cobertura de testes, Locust
+- mypy, black, flake8, PyInstaller; profiling com py-spy em produção
+
+Inteligência Artificial (IA) e LLM:
+- Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic, NVIDIA NIM, Groq/Llama 3, Ollama)
+- Inferência local em CPU para dados sensíveis: LLM quantizado GGUF via llama.cpp e ONNX Runtime
+- Reconhecimento de fala (ASR) local com faster-whisper
+- Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico
+- Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento
+- IA generativa aplicada a produto: assistente com acesso a dados, automação conversacional com escalada para humano e geração de resposta a partir de documento de referência
+- Agentes de IA com ferramentas: chamada de função (function calling), catálogo fechado por lista de permissão e servidores MCP próprios (37 ferramentas, em TypeScript e Rust)
+- RAG e busca semântica: embeddings de voz, similaridade de cosseno e busca vetorial em SQL com sqlite-vec (índice ANN)
+- Machine learning aplicado, NLP e processamento de linguagem natural
+- Engenharia assistida por IA: CLIs de agentes (Claude Code entre outros três), skills, subagentes e metodologia spec-driven
+
+Segurança Aplicada:
+- WAF (ModSecurity, regras OWASP), pfSense, OpenVPN, Squid Proxy
+- Análise de logs em nível de SOC, Fail2ban, resposta a incidentes
+- Criptografia AES-128 e AES-256 (CBC, ECB, CFB, OFB, CTR) e AES-256-GCM
+- RSA-2048, HMAC-SHA256, PBKDF2, assinatura digital
+- OAuth2, JWT, TLS/SSL, autenticação por desafio criptográfico com chave SSH
+- Multi-tenancy com isolamento físico de dados, RBAC granular
+- Proteção contra SSRF, CSRF, XSS e SQL Injection; rate limiting e hardening
+- Conformidade regulatória: normas ISO/IEC, homologação técnica
+
+Qualidade e Testes:
+- pytest, JUnit, PHPUnit, Vitest, runner nativo do Node, Testing Library
+- Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer
+- Code review por pull request, políticas de branch e histórico auditável
+- Teste de carga e performance com Locust
+- Teste de conformidade de protocolo com SIPp
+- Mock de HTTP, geração de dados sintéticos, cobertura de testes
+- Checagem estática de tipos com mypy e TypeScript
+- Suporte N3: reprodução e isolamento de defeito em produção
+
+EXPERIÊNCIA PROFISSIONAL
+Engenheiro VoIP | Akiva Software | 09/2025 - 11/2025 | São Paulo, Brasil
+- Otimizei o processo de deploy da aplicação desenvolvendo scripts de autoinstalação de dependências e modernizando o sistema operacional base.
+- Escalei a capacidade de um serviço de classificação implantando e configurando novos servidores dedicados.
+- Tecnologias: Python, Java, Asterisk, classificador Khomp e codec G.729.
+
+Arquiteto de Soluções VoIP Sênior | On Vox | 09/2024 - 11/2025 | São Paulo, Brasil
+- Liderei a arquitetura e o desenvolvimento de uma plataforma de call center ativo (power dialer) projetada para mais de 500 agentes concorrentes.
+- Projetei e implementei a infraestrutura IaaS em nuvem da solução com Proxmox e Kubernetes (K8s) para orquestração de contêineres.
+- Defini onde a classificação por Inteligência Artificial (IA) entra no ciclo de vida da chamada e a integrei ao billing em Python, aumentando a eficiência das campanhas em 30%.
+- Conduzi migrações de clientes da plataforma GoTo para Yeastar PBX com zero downtime para as operações críticas.
+- Tecnologias: Python, Java, Kubernetes, Proxmox, Asterisk e Yeastar.
+
+Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasil
+- Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% ao modernizar o sistema de monitoramento Zabbix com novos templates de observabilidade.
+- Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.
+- Atuei como último nível de escalonamento (N3) na gestão de incidentes críticos de arquitetura e performance em produção.
+- Tecnologias: Python, Java, Zabbix, Asterisk e Linux.
+
+Engenheiro VoIP Sênior | Ip Telecom | 01/2023 - 11/2025 | Itália
+- Atuei como arquiteto de soluções da plataforma de telefonia COMMUNI5/PORTSIP, sustentando 99,99% de uptime para serviços críticos no mercado italiano.
+- Liderei a padronização do provisionamento de dispositivos e criei um sistema zero-touch que reduziu em 60% o tempo de onboarding de novos clientes.
+- Tecnologias: Python, Java, COMMUNI5/PORTSIP e provisionamento zero-touch (Snom, Fanvil).
+
+Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | São Paulo, Brasil
+- Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio como balanceador de carga e Asterisk como servidor de mídia.
+- Projetei e integrei APIs RESTful em Node.js que processam mais de 1 milhão de eventos de chamadas por dia, substituindo acoplamento direto entre plataformas.
+- Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket.
+- Tecnologias: Python, Java, Node.js, Kamailio, Asterisk, Bitbucket Pipelines e JIRA.
+
+Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São Paulo, Brasil
+- Projetei e implementei a arquitetura de borda (SBC) de alta disponibilidade da empresa, combinando Asterisk, OpenSIPS e Kamailio.
+- Reduzi os custos de telefonia em mais de 300% ao criar APIs de microsserviços em Node.js que substituíram software licenciado de terceiros.
+- Desenvolvi um appliance de roteamento em Node.js/Drachtio para integração e roteamento dinâmico de chamadas com o Microsoft Teams.
+- Tecnologias: Python, Java, Node.js, Drachtio, Asterisk, OpenSIPS e Kamailio.
+
+Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
+- Liderei a arquitetura técnica de todos os projetos Asterisk e fullstack da empresa, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.
+- Desenvolvi o backend completo (REST APIs em Node.js e PHP) e o frontend (Angular) da plataforma de gerenciamento de call center.
+- Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.
+- Tecnologias: Python, Java, Node.js, PHP, Angular, Zendesk e Power BI.
+
+Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
+- Desenvolvi e mantive múltiplas plataformas Asterisk (FreePBX, Xcally, Xorcom) suportando mais de 200 agentes concorrentes em mais de 100 empresas clientes.
+- Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes.
+- Construí um chatbot de voz (CPQD) do zero como um novo produto, automatizando 10% do volume de chamadas operacionais dos clientes iniciais.
+- Tecnologias: Python, Java, Asterisk (FreePBX, Xcally, Xorcom) e CPQD.
+
+Analista de Infraestrutura e Redes de TI | EZ-Security | 01/2018 - 08/2018
+- Automatizei a resposta a incidentes implantando VMs e configurando Zabbix (SNMP) para monitorar métricas vitais, com abertura automática de ticket para as equipes responsáveis.
+- Tecnologias: Python, Java, Zabbix (SNMP) e virtualização.
+
+Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019
+- Administrei plataformas de nuvem (VMware vSphere, OpenStack) em ambiente de mais de 400 servidores, mantendo 99,99% de uptime.
+- Automatizei 25% das chamadas de triagem inicial desenvolvendo um chatbot em Asterisk e Node.js.
+- Tecnologias: Python, Java, Node.js, Asterisk, VMware vSphere e OpenStack.
+
+Analista de Infraestrutura e Redes de TI | E-Prepag Fintech | 03/2015 - 12/2017
+- Garanti 100% de continuidade dos negócios elaborando o plano completo de disaster recovery (DR) e gerenciando todas as rotinas de backup off-site.
+- Implementei a arquitetura de segurança web (WAF) da fintech com ModSecurity e regras OWASP contra SQL Injection, XSS e força bruta.
+- Desenvolvi análise automatizada de logs em nível de SOC com Fail2ban, reduzindo em mais de 99% o tempo de resposta a incidentes.
+- Tecnologias: Python, Java, ModSecurity, Fail2ban, Elastix e FreePBX.
+
+Analista de Infraestrutura | All Net Group | 04/2013 - 02/2015
+- Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows e Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.
+- Tecnologias: Python, Java, Windows Server e Linux.
+
+PROJETOS
+Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contínuo | 08/2025 - atual
+- Construí e opero uma plataforma interna de desenvolvimento (Internal Developer Platform) self-hosted, alternativa a GitHub e GitLab, com git smart HTTP, code review por pull request e políticas de branch aplicadas por hook que se auto-sincronizam em todos os repositórios.
+- Desenhei o CI/CD como despachante: a plataforma nunca executa script, apenas dispara ações assinadas por HMAC-SHA256 com validação anti-SSRF do destino, e guarda credenciais cifradas em AES-256-GCM.
+- Expus a plataforma a agentes de IA por um servidor MCP (Model Context Protocol) com 37 ferramentas, em duas implementações com paridade exata: TypeScript e Rust.
+- Mantenho a plataforma em operação contínua há quase um ano, hospedando mais de 30 repositórios, empacotada em Docker sobre PHP e Apache.
+
+Telemetria de 250+ PABXs, Observabilidade Zabbix e Previsão de Churn | projeto próprio/produção | 07/2026 - atual
+- Desenvolvi a espinha dorsal de telemetria para 250+ PABXs Yeastar P-Series, integrando ingestão de CDRs, observabilidade Zabbix e análise de qualidade de voz (DSP).
+- Construí pipeline de ingestão assíncrona em Python com rate limit governado por orçamento de tokens por tenant e persistência idempotente em SQLite WAL com chaves determinísticas por perna de chamada.
+- Construí endpoint /api/metrics/zabbix em Flat JSON nativo para LLD e JSONPath, lendo de camada pré-materializada (kpi_cache) com autodiagnóstico de frescor (kpi_idade_s e kpi_vencido).
+
+Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 08/2026
+- Arquitetei e mantive uma suite completa de discador para call center: painel web (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (Asterisk ARI/PJSIP) e engine de URA/IVR orientada a JSON.
+- Automatizei o provisionamento de ponta a ponta: o painel cria os containers LXC pela API do Proxmox VE, gera o inventário de cada job e aplica um playbook Ansible com seis roles (base, tuning, banco de dados, callback, URA e motor), seguido de testes de fumaça.
+- Implementei autocorreção que reaplica a role Ansible de um único host, com trava que recusa alvo inválido para não reconfigurar containers em atendimento, e documentei o comparativo arquitetural entre LXC e Docker.
+- Configurei NAT e iptables multi-tenant, substituí polling por webhooks assíncronos e modelei 17 tabelas com tuning manual de PostgreSQL, cobertas por 15 suítes pytest.
+
+Arquiteto de Software (Hands-On) - Retaguarda de Pedágio Eletrônico | AstraMobi, setor de mobilidade e rodovias | 12/2025 - 01/2026
+- Contratado para arquitetar e desenvolver a retaguarda de leitura de transponder RFID em pedágio eletrônico: defini a arquitetura de integração e a implementei.
+- Entreguei parser do protocolo da antena, decriptação AES do payload do chip (10 combinações de algoritmo e modo), API assíncrona em FastAPI e publicação orientada a eventos em fila JMS/STOMP no broker ActiveMQ da concessionária, com aderência às normas ISO/IEC 18000-63 e 29167-10.
+- Desenvolvi licenciamento próprio com assinatura RSA-2048 e vínculo por hash de hardware, com qualidade garantida por pytest, teste de carga com Locust e checagem estática de tipos com mypy.
+
+API de Busca e Entrega de Documentos em Acervo Contábil (n8n) | projeto próprio/freelance | 08/2026 - atual
+- Construí em n8n auto-hospedado uma API de busca documental sobre o Google Drive de um escritório de contabilidade: identificação do cliente por CNPJ, consulta filtrada e entrega do arquivo em binário, base64 ou link assinado, com 15 workflows, 14 Data Tables e 53 rotas de webhook.
+- Mantive o modelo de linguagem fora da autorização: liberar documento é decisão determinística sobre índice e token, e o contrato foi publicado em OpenAPI 3.1 com Swagger auto-contido e ambiente de teste espelhado.
+- Monitorei CPU, memória e atraso do event loop pelas métricas no formato Prometheus expostas pelo próprio n8n (/metrics), lidas por um workflow de monitoramento de recursos; 219 casos de teste cobrem o comportamento.
+
+Plataforma de Análise de Interações com IA | produto de cliente | 05/2026 - atual
+- Desenvolvo uma plataforma que coleta gravações de PABX e de reuniões, transcreve e produz análise de qualidade assistida por IA, em monorepo Bun com Turborepo.
+- Implementei coleta assíncrona com filas BullMQ e Redis, integração OAuth com Google Meet e integração com PABX Yeastar por API, incluindo token compartilhado para respeitar o limite do appliance.
+- Conduzi uma auditoria de performance da plataforma (N+1, cache, paginação, índices e bundle do frontend) que resultou em 33 correções e num checklist reutilizável aplicado antes de cada pull request.
+
+Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance | 02/2026 - 07/2026
+- Liderei a reescrita completa de uma plataforma SaaS de atendimento (originalmente Node.js/React/Drizzle) para Laravel 12/PHP, mantendo paridade de funcionalidades para viabilizar hospedagem própria.
+- Integrei 5 gateways de WhatsApp atrás de uma única interface de driver (Evolution, WAHA, Whaticket, WaVoIP, Meta Cloud API), aplicando o padrão Strategy à integração.
+- Implementei RBAC multi-tenant de 4 níveis e jobs assíncronos de IA generativa com Groq e Llama 3.1; a versão anterior tinha videochamada WebRTC e segmentação de fundo com TensorFlow.js. 41 migrations e 23 suítes PHPUnit.
+
+Auditoria de Classificador de Secretária Eletrônica (AMD) | projeto próprio/freelance | 07/2026 - atual
+- Construí uma ferramenta que audita o classificador de secretária eletrônica (AMD) de uma plataforma de discagem de terceiro, reaproveitando o motor DSP + Whisper + LLM local do projeto irmão para que o veredito fosse independente do sistema auditado.
+- Conduzi o post-mortem de um incidente de produção em que o serviço seguia ativo no systemd, mas a coleta estava parada havia 8 dias: diagnóstico com py-spy e inspeção de sockets e descritores, três causas-raiz, cada uma travada por um teste de regressão.
+
+Análise de Qualidade de Chamadas por Processamento de Sinais (DSP) e IA Local | projeto próprio/freelance | 07/2026 - atual
+- Implementei o algoritmo ITU-T G.107 (E-model) do zero em Python vetorizado com NumPy, convertendo métricas espectrais (FFT) e temporais em fator R e MOS.
+- Construí pipeline de transcrição e classificação com IA 100% local em CPU usando faster-whisper (int8) e LLM GGUF (llama.cpp) com coerção estrita de JSON.
+- Desenvolvi backend multi-tenant em Flask com 31 endpoints REST, SQLite WAL com isolamento por cliente e suíte de 121 testes em pytest com sinais sintéticos.
+- Empacotei em Docker e implantei via systemd em LXC/Proxmox; documentei a escolha dos modelos neurais por desempenho e por licenciamento comercial.
+
+Assistente de IA Nativo para pfSense e Endpoint MCP | projeto próprio | 07/2026 - atual
+- Desenvolvi um addon em PHP instalado dentro do pfSense que dá suporte de primeiro nível em português, combinando o estado real do firewall no instante da pergunta com os playbooks do runbook da rede.
+- Isolei a superfície de risco: o modelo escolhe um nome da lista de permissão e devolve argumentos validados por tipo, nunca uma linha de comando; ação que altera o firewall é proposta assinada por HMAC e só roda depois da confirmação do operador.
+- Emiti a credencial da API com um usuário dedicado de 15 privilégios em vez de chave de administrador, e cobri o comportamento com 218 testes automatizados contra um backup real de configuração.
+
+Migrador de Caixa Postal IMAP para Outlook | projeto próprio/freelance | 08/2026
+- Desenvolvi em Python, só com a biblioteca padrão, um migrador de caixas IMAP para Microsoft 365 com backup local em mbox e etapas retomáveis que não duplicam mensagem.
+- Implementei OAuth2 no fluxo device code da Microsoft Entra ID (Azure AD), exigido depois que a Microsoft desligou senha no IMAP, e testei contra dois servidores Dovecot reais em contêineres.
+
+Acervo de Skills de Agentes de IA Multi-CLI | projeto próprio/freelance | 08/2026
+- Criei uma ferramenta de Developer Experience que instala e sincroniza um acervo de skills de agentes de IA em quatro CLIs diferentes com um comando, com estado declarado em arquivos de texto editáveis (fontes, alvos e perfis).
+- Medi o custo escondido do acervo completo, cerca de 121 mil tokens de catálogo fixo em toda sessão, e criei perfis de instalação enxuta para quem não quer pagar isso.
+
+FORMAÇÃO ACADÊMICA
+- Pós-Graduação em Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - atual
+- Bacharelado em Ciências de Inteligência Artificial | UniBF Centro Universitário | 2025 - atual
+- Pós-Graduação (Especialização) em Banco de Dados | Faculdade Play | 2020 - 2024
+- Bacharelado em Sistemas de Informação | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020
+- Gestão da Tecnologia da Informação | Faculdade Sumaré | 2009 - 2012
+
+CERTIFICAÇÕES E TREINAMENTOS
+- Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)
+- Asterisk Certified Essentials (ACE) - Sangoma University (2021)
+- FreePBX Certified Essentials - Sangoma University (2022)
+- LPIC-1 - Linux Professional Institute (2016)
+- Red Hat Certified System Administrator (RHCSA) (2022)
+- VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations
+- Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios
+- Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik
+- Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy
+- Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9
+
+IDIOMAS
+- Português: nativo / fluente
+- Italiano: fluente (proficiência profissional)
+- Espanhol: avançado
+- Inglês: intermediário (foco em leitura técnica)

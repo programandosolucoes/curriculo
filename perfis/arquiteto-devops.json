@@ -1,0 +1,63 @@
+{
+  "id": "arquiteto-devops",
+  "titulo": "Arquiteto DevOps Sênior",
+  "padrao": false,
+  "ordem": [
+    "resumo",
+    "conquistas",
+    "competencias",
+    "experiencia",
+    "projetos",
+    "formacao",
+    "certificacoes",
+    "idiomas"
+  ],
+  "competencias": [
+    "arquitetura",
+    "cloud",
+    "desenvolvimento",
+    "python",
+    "ia-llm",
+    "seguranca",
+    "qa"
+  ],
+  "incluir_conquistas": [
+    "mttd",
+    "uptime",
+    "onboarding"
+  ],
+  "incluir_experiencia": [
+    "akiva",
+    "onvox",
+    "open-new",
+    "ip-telecom",
+    "tw-solutions",
+    "55pbx",
+    "elev",
+    "tld",
+    "ez-security",
+    "sothis",
+    "e-prepag",
+    "all-net"
+  ],
+  "incluir_projetos": [
+    "painel-git",
+    "telemetria-pabx",
+    "discador",
+    "pedagio",
+    "n8n-drive-contabil",
+    "evoluai",
+    "omnichannel",
+    "auditor-amd",
+    "analise-audio",
+    "pfsense-suporte-ia",
+    "migrador-email",
+    "skills-hub"
+  ],
+  "categorias_alvo": [
+    "DevOps",
+    "Engenheiro de Software",
+    "Analista de Sistemas"
+  ],
+  "incluir_experiencia_compacta": []
+}
