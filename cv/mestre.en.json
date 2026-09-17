@@ -1,0 +1,276 @@
+{
+  "_leia": "Tradução de cv/mestre.json para 'en'. Só texto: empresa e período vêm do mestre. Chaves = id do item no mestre, ou o próprio texto em português nas listas sem id. Mudou o texto no mestre? Atualize aqui também; o gerador aborta se faltar algo.",
+  "pessoal": {
+    "local": "São Paulo, SP, Brazil"
+  },
+  "resumos": {
+    "sysadmin-gcp": "Senior Linux Systems Administrator with 12+ years in mission-critical infrastructure and software development, RHCSA and LPIC-1 certified. I manage Linux servers, virtualization (Proxmox, KVM, VMware vSphere, OpenStack) and public cloud: Google Cloud Platform (Compute Engine, Cloud SQL, Cloud Storage, GKE, Cloud Run and IAM service accounts) and AWS. I write PHP (Laravel), Bash and SQL (MySQL, MariaDB, PostgreSQL): idempotent maintenance scripts, data fixes directly in the database, tuning and versioned migrations, as well as Python and Java. I cut Mean Time To Detect (MTTD) by 40% with Zabbix, sustained a 99.99% SLO in the Italian telephony market and ran backup and disaster recovery for more than 100 clients, with L3 on-call duty and documented post-mortems. Fluent in Italian."
+  },
+  "conquistas": {
+    "onboarding": "Faster client onboarding: cut new-client onboarding time by 60% with zero-touch provisioning.",
+    "uptime": "Service uptime: met a 99.99% availability objective (SLO) for critical services in the Italian telephony market.",
+    "mttd": "Faster fault detection: reduced Mean Time To Detect (MTTD) by 40% with new observability templates."
+  },
+  "competencias": {
+    "sistemas-linux": {
+      "titulo": "Linux Systems Administration",
+      "itens": [
+        "Linux servers (Red Hat, Rocky Linux, Ubuntu), RHCSA and LPIC-1 certified",
+        "systemd, cron, Apache, Nginx, gunicorn and health checks",
+        "Virtualization and containers: Proxmox VE, KVM, LXC, VMware vSphere, OpenStack, Docker, Docker Compose and Kubernetes",
+        "Networking and security: multi-tenant iptables and NAT, pfSense, OpenVPN, Squid, Fail2ban, ModSecurity WAF with OWASP rules, and hardening",
+        "Monitoring with Zabbix (custom templates, SNMP and low-level discovery), Prometheus-format metrics and Sentry",
+        "Automated backup, disaster recovery (DR) and high availability",
+        "Automation with Ansible (roles per server type and job-generated inventory) and provisioning through the Proxmox VE API",
+        "L3 on-call support, incident management and post-mortems with root cause and regression tests"
+      ]
+    },
+    "gcp-nuvem": {
+      "titulo": "Google Cloud Platform (GCP) and Cloud",
+      "itens": [
+        "GCP: Compute Engine (Linux VMs), Cloud SQL, Cloud Storage, GKE and Cloud Run",
+        "GCP IAM: service accounts, a dedicated project for API quotas, and OAuth apps (consent screen, test users, publishing and sensitive-scope verification)",
+        "Google Workspace APIs: Drive and Meet",
+        "AWS (S3 with presigned URLs) and Microsoft Entra ID (Azure AD) with OAuth2",
+        "CI/CD with Bitbucket Pipelines, Jenkins and GitHub Actions; Git with pull-request code review"
+      ]
+    },
+    "php-bash-sql": {
+      "titulo": "PHP, Bash and SQL",
+      "itens": [
+        "PHP 8 and Laravel 12: multi-tenant SaaS platforms, add-ons and command-line maintenance scripts",
+        "PHPUnit: 23 suites on the omnichannel platform and tests for the PHP add-on for pfSense",
+        "Bash: installation and deployment scripts and scheduled cron jobs",
+        "SQL: MySQL, MariaDB, PostgreSQL 17 and SQLite; relational modeling, indexes, tuning, PL/pgSQL and versioned migrations",
+        "Diagnosing and fixing data and schema directly on production databases, with a backup before any write",
+        "Python and Java (Spring Boot) for automation and integration; REST APIs, webhooks and JSON-RPC"
+      ]
+    }
+  },
+  "experiencia": {
+    "akiva": {
+      "cargo": "VoIP Engineer",
+      "local": "São Paulo, Brazil",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Streamlined application deployment with dependency auto-install scripts and modernized the base operating system of the telephony servers.",
+          "Scaled the call classification service by deploying and configuring new dedicated servers.",
+          "Resolved critical production incidents as L3 support.",
+          "Technologies: Linux, Python, Java, Asterisk, Khomp classifier and G.729 codec."
+        ]
+      }
+    },
+    "onvox": {
+      "cargo": "Senior VoIP Solutions Architect",
+      "local": "São Paulo, Brazil",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Designed and built the IaaS infrastructure of the call center platform with Proxmox and Kubernetes (K8s), sized for more than 500 concurrent agents.",
+          "Led client migrations from GoTo to Yeastar PBX with zero downtime for critical operations.",
+          "Integrated Artificial Intelligence (AI) call classification into the Python billing system, raising campaign efficiency by 30%.",
+          "Technologies: Linux, Proxmox, Kubernetes, Python, Java, Asterisk and Yeastar."
+        ]
+      }
+    },
+    "open-new": {
+      "cargo": "SRE DevOps Analyst",
+      "local": "Brasília, Brazil",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Reduced Mean Time To Detect (MTTD) by 40% by modernizing Zabbix monitoring with new observability templates.",
+          "Designed and maintained automated backup routines, ensuring 100% disaster recovery (DR) capability for more than 100 clients.",
+          "Served as the last escalation level (L3) for critical architecture and performance incidents in production.",
+          "Technologies: Linux, Zabbix, Python, Java and Asterisk."
+        ]
+      }
+    },
+    "ip-telecom": {
+      "cargo": "Senior VoIP Engineer",
+      "local": "Italy",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Served as solutions architect for the COMMUNI5/PORTSIP telephony platform, sustaining 99.99% uptime for critical services in the Italian market.",
+          "Led the standardization of device provisioning and built a zero-touch system that cut new-client onboarding time by 60%.",
+          "Technologies: Python, Java, COMMUNI5/PORTSIP and zero-touch provisioning (Snom, Fanvil)."
+        ]
+      }
+    },
+    "tw-solutions": {
+      "cargo": "Senior Development Analyst",
+      "local": "São Paulo, Brazil",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Designed a clustered multi-tenant PBX with horizontal scaling, using Kamailio as load balancer and Asterisk as media server.",
+          "Integrated platforms through Node.js RESTful APIs that process more than 1 million call events per day.",
+          "Acted as the technical reference for CI/CD pipelines and pull-request code review on Bitbucket in an agile (Scrum/JIRA) team.",
+          "Technologies: Linux, Python, Java, Node.js, Kamailio, Asterisk, Bitbucket Pipelines and JIRA."
+        ]
+      }
+    },
+    "55pbx": {
+      "cargo": "Senior Architect (Development and Telecom)",
+      "local": "São Paulo, Brazil",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Designed and implemented the company's high-availability edge (SBC) architecture, combining Asterisk, OpenSIPS and Kamailio.",
+          "Cut telephony costs by more than 300% with Node.js microservice APIs that replaced licensed third-party software.",
+          "Technologies: Linux, Python, Java, Node.js, Asterisk, OpenSIPS and Kamailio."
+        ]
+      }
+    },
+    "elev": {
+      "cargo": "Senior Developer and Tech Lead",
+      "local": "São Paulo, Brazil",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Built the backend (REST APIs in PHP and Node.js) and the frontend (Angular) of the call center management platform.",
+          "Led the technical architecture of the Asterisk and full-stack projects, supervising 11 developers and running code review of the team's deliveries.",
+          "Designed the Zendesk and Power BI integration that became a new commercial product, with a 200% increase in new service revenue.",
+          "Technologies: PHP, Python, Java, Node.js, Angular, Asterisk, Zendesk and Power BI."
+        ]
+      }
+    },
+    "tld": {
+      "cargo": "Mid-level Developer",
+      "local": "São Paulo, Brazil",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Maintained multiple Asterisk platforms (FreePBX, Xcally, Xorcom) serving more than 200 concurrent agents across more than 100 client companies.",
+          "Built Business Intelligence (BI) reports and dashboards used by managers at more than 25 client companies.",
+          "Technologies: Linux, Python, Java and Asterisk (FreePBX, Xcally, Xorcom)."
+        ]
+      }
+    },
+    "sothis": {
+      "cargo": "Mid-level Telecom Analyst",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Administered cloud platforms (VMware vSphere, OpenStack) in an environment of more than 400 servers, keeping 99.99% uptime.",
+          "Resolved L3 tickets for the NOC, virtualization and Linux servers.",
+          "Technologies: Linux, VMware vSphere, OpenStack, Python and Java."
+        ]
+      }
+    },
+    "ez-security": {
+      "cargo": "IT Infrastructure and Network Analyst",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Automated incident response by deploying VMs and configuring Zabbix (SNMP) to monitor vital metrics, with automatic ticket creation for the responsible teams.",
+          "Technologies: Zabbix (SNMP), virtualization, Python and Java."
+        ]
+      }
+    },
+    "e-prepag": {
+      "cargo": "IT Infrastructure and Network Analyst",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Ensured 100% business continuity by writing the complete disaster recovery (DR) plan and managing all off-site backup routines.",
+          "Implemented the fintech's web security architecture (WAF) with ModSecurity and OWASP rules against SQL injection, XSS and brute-force attacks.",
+          "Built SOC-level automated log analysis with Fail2ban, cutting incident response time by more than 99%.",
+          "Migrated the legacy Elastix PBX to FreePBX, with significant annual savings.",
+          "Technologies: Linux, ModSecurity, Fail2ban, Elastix, FreePBX, Python and Java."
+        ]
+      }
+    },
+    "all-net": {
+      "cargo": "Infrastructure Analyst",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Resolved L3 support issues for the NOC, virtualization and Windows and Linux servers, keeping systems stable for more than 800 users across 40 client accounts.",
+          "Technologies: Linux, Windows Server, Python and Java."
+        ]
+      }
+    }
+  },
+  "projetos": {
+    "n8n-drive-contabil": {
+      "nome": "Document Search and Delivery API for an Accounting Archive (n8n)",
+      "contexto": "own project/freelance",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Built a document search and delivery API on self-hosted n8n (Docker) over an accounting firm's Google Drive: 15 workflows, 14 Data Tables and 53 webhook routes over 163,738 indexed folders.",
+          "Authenticated Drive access with a Google Cloud service account (IAM) in a dedicated project: the shared quota of a third-party app ran out three times in one day, while the dedicated project allows about 12,000 calls per minute.",
+          "Monitored CPU, memory and event-loop lag through the Prometheus-format metrics exposed by n8n itself (/metrics); 219 test cases cover the behavior."
+        ]
+      }
+    },
+    "vtiger-crm": {
+      "nome": "Recovery and Operation of a Production vtiger CRM",
+      "contexto": "own project/freelance",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Recovered a vtiger CRM 8.4 installation (PHP, MySQL and Apache) whose menu came up broken: the cause was in the database, where the vtiger_app2tab table had 11 links instead of 38, with no way to fix it from the UI.",
+          "Wrote 3,291 lines of idempotent command-line PHP scripts, with a backup before any write, dry-run mode, cron and permission checks, and a dedicated exit code for monitoring.",
+          "Fixed the dashboard schema, which lacked three columns used by the code, and consolidated everything into a single post-install patch."
+        ]
+      }
+    },
+    "painel-git": {
+      "nome": "Self-Hosted Git Hosting Platform",
+      "contexto": "personal project in continuous professional use",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Operate a self-hosted Git platform written in PHP and packaged in Docker on Apache, hosting more than 30 repositories with Git smart HTTP, WebDAV and gitolite access control.",
+          "Secured the platform with rate limiting, IP blocking, CSRF protection, security headers and AES-256-GCM encrypted credentials; CI/CD only triggers HMAC-SHA256-signed actions.",
+          "Applied branch policies through pre-receive hooks that self-synchronize across all repositories, with no manual step after deployment."
+        ]
+      }
+    },
+    "discador": {
+      "nome": "VoIP Dialer Platform for Call Centers",
+      "contexto": "own project/freelance",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Automated end-to-end provisioning: the control panel creates LXC containers through the Proxmox VE API and applies an Ansible playbook with six roles (base, tuning, database, callback, IVR and dialer engine), followed by smoke tests.",
+          "Configured multi-tenant NAT and iptables and modeled 17 tables on PostgreSQL 17 with manual tuning, with CDR and CEL records written to the database through ODBC.",
+          "Built self-healing that re-applies the Ansible role to a single host, with a guard that rejects invalid targets so containers in active service are never reconfigured."
+        ]
+      }
+    },
+    "omnichannel": {
+      "nome": "Multi-tenant Omnichannel Customer Service Platform",
+      "contexto": "own project/freelance",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Led the rewrite of a customer service SaaS platform from Node.js/React to Laravel 12 and PHP 8.2 on PostgreSQL, with feature parity to enable self-hosting.",
+          "Implemented 4-level multi-tenant RBAC, asynchronous jobs and 5 WhatsApp gateways behind a single interface (Strategy pattern), with 41 migrations and 23 PHPUnit suites."
+        ]
+      }
+    },
+    "evoluai": {
+      "nome": "AI-Powered Interaction Analysis Platform",
+      "contexto": "client product",
+      "bullets": {
+        "sysadmin-gcp": [
+          "Configured the Google Cloud OAuth app for the Google Meet integration (consent screen, test users and redirect URIs) and mapped the publishing path with sensitive-scope verification; the access token renews itself.",
+          "Implemented asynchronous collection with BullMQ and Redis queues on PostgreSQL and led a performance audit (N+1 queries, caching, pagination and indexes) that resulted in 33 fixes."
+        ]
+      }
+    }
+  },
+  "formacao": {
+    "Pós-Graduação em Data Warehouse e Business Intelligence": "Postgraduate Specialization in Data Warehouse and Business Intelligence",
+    "Bacharelado em Ciências de Inteligência Artificial": "Bachelor's Degree in Artificial Intelligence Sciences",
+    "Pós-Graduação (Especialização) em Banco de Dados": "Postgraduate Specialization in Databases",
+    "Bacharelado em Sistemas de Informação": "Bachelor's Degree in Information Systems",
+    "Gestão da Tecnologia da Informação": "Information Technology Management"
+  },
+  "certificacoes": {
+    "Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)": "Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)",
+    "Asterisk Certified Essentials (ACE) - Sangoma University (2021)": "Asterisk Certified Essentials (ACE) - Sangoma University (2021)",
+    "FreePBX Certified Essentials - Sangoma University (2022)": "FreePBX Certified Essentials - Sangoma University (2022)",
+    "LPIC-1 - Linux Professional Institute (2016)": "LPIC-1 - Linux Professional Institute (2016)",
+    "Red Hat Certified System Administrator (RHCSA) (2022)": "Red Hat Certified System Administrator (RHCSA) (2022)",
+    "VoIP e Telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations": "VoIP and Telephony: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations",
+    "Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios": "Linux and DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios",
+    "Cloud e Infraestrutura: OpenStack Infrastructure, AWS Foundations, Mikrotik": "Cloud and Infrastructure: OpenStack Infrastructure, AWS Foundations, Mikrotik",
+    "Segurança e Redes: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy": "Security and Networking: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy",
+    "Desenvolvimento e Banco de Dados: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9": "Development and Databases: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9"
+  },
+  "idiomas": {
+    "Português: nativo / fluente": "Portuguese: native",
+    "Italiano: fluente (proficiência profissional)": "Italian: fluent (professional working proficiency)",
+    "Espanhol: avançado": "Spanish: advanced",
+    "Inglês: intermediário (foco em leitura técnica)": "English: upper-intermediate (professional use in technical contexts)"
+  }
+}

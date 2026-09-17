@@ -76,11 +76,27 @@ O que varia por perfil é a **ênfase**: cada item guarda um `bullets.base` e,
 opcionalmente, uma variante por perfil. A receita só seleciona e ordena — não
 contém nenhuma frase de currículo.
 
+### Versões em outros idiomas
+
+Uma receita com `"idiomas": ["en", "it"]` sai em cada idioma, em
+`cv/<perfil>-<idioma>/`, e precisa de `"titulos": { "en": ..., "it": ... }`.
+O texto vem de `cv/mestre.<idioma>.json`, chaveado pelo id do item do mestre
+(ou pelo próprio texto em português, nas listas sem id). Empresa e período
+continuam vindo só do mestre.
+
+O português continua sendo a fonte: escreva primeiro no `mestre.json` e depois
+traduza. Se faltar tradução, ou se a quantidade de bullets não bater com o
+mestre, o gerador para com erro, em vez de deixar um trecho em português no
+meio do currículo. Um teste procura português nas versões traduzidas.
+
+Hoje só `sysadmin-gcp` usa isso (inglês e italiano).
+
 ## Estrutura
 
 ```
 cv/
   mestre.json          único lugar onde se escreve conteúdo
+  mestre.<idioma>.json tradução do texto (en, it) para as receitas com "idiomas"
   <perfil>/cv.txt      gerado — é o que a aderência lê e os bots consomem
   <perfil>/cv.html     gerado — para revisar e exportar PDF/Word
 perfis/

@@ -1,0 +1,60 @@
+{
+  "id": "sysadmin-gcp",
+  "titulo": "Administrador de Sistemas Linux Sênior (GCP)",
+  "titulos": {
+    "en": "Senior Linux Systems Administrator (GCP)",
+    "it": "Sistemista Linux Senior (GCP)"
+  },
+  "idiomas": [
+    "en",
+    "it"
+  ],
+  "padrao": false,
+  "ordem": [
+    "resumo",
+    "conquistas",
+    "competencias",
+    "experiencia",
+    "projetos",
+    "formacao",
+    "certificacoes",
+    "idiomas"
+  ],
+  "competencias": [
+    "sistemas-linux",
+    "gcp-nuvem",
+    "php-bash-sql"
+  ],
+  "incluir_conquistas": [
+    "mttd",
+    "uptime",
+    "onboarding"
+  ],
+  "incluir_experiencia": [
+    "akiva",
+    "onvox",
+    "open-new",
+    "ip-telecom",
+    "tw-solutions",
+    "55pbx",
+    "elev",
+    "tld",
+    "ez-security",
+    "sothis",
+    "e-prepag",
+    "all-net"
+  ],
+  "incluir_projetos": [
+    "n8n-drive-contabil",
+    "vtiger-crm",
+    "painel-git",
+    "discador",
+    "omnichannel",
+    "evoluai"
+  ],
+  "categorias_alvo": [
+    "DevOps",
+    "Analista de Sistemas"
+  ],
+  "incluir_experiencia_compacta": []
+}

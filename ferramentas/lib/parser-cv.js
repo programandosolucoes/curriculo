@@ -11,14 +11,27 @@
  * Lógica pura: recebe texto, devolve objeto. Sem disco, sem rede.
  */
 
-const { TITULOS_SECAO } = require('./secoes');
+const { TITULOS_POR_IDIOMA, PALAVRA_ATUAL } = require('./secoes');
 
-const TITULOS_CANONICOS = new Set(Object.values(TITULOS_SECAO));
+// O currículo pode estar em qualquer idioma que o gerador produz.
+const IDIOMAS = Object.values(TITULOS_POR_IDIOMA);
+const TITULOS_CANONICOS = new Set(IDIOMAS.flatMap(t => Object.values(t)));
+const TITULOS_EXPERIENCIA = new Set(IDIOMAS.map(t => t.experiencia));
+const TITULOS_FORMACAO = new Set(IDIOMAS.map(t => t.formacao));
+const ATUAL = Object.values(PALAVRA_ATUAL).join('|');
 
 // Uma linha de emprego tem cargo, empresa e período separados por barra.
 // É o formato que o render-txt produz e o que um ATS reconhece.
-const LINHA_EMPREGO = /^(.+?)\s\|\s(.+?)\s\|\s(\d{2}\/\d{4}(?:\s-\s(?:\d{2}\/\d{4}|atual))?)(?:\s\|\s(.+))?$/;
-const PERIODO = /^(\d{2})\/(\d{4})(?:\s-\s(?:(\d{2})\/(\d{4})|atual))?$/;
+const LINHA_EMPREGO = new RegExp(
+  `^(.+?)\\s\\|\\s(.+?)\\s\\|\\s(\\d{2}\\/\\d{4}(?:\\s-\\s(?:\\d{2}\\/\\d{4}|${ATUAL}))?)(?:\\s\\|\\s(.+))?$`,
+);
+const PERIODO = new RegExp(`^(\\d{2})\\/(\\d{4})(?:\\s-\\s(?:(\\d{2})\\/(\\d{4})|${ATUAL}))?$`);
+
+/** Linhas da primeira seção cujo título está no conjunto (um por idioma). */
+function linhasDaSecao(secoes, titulos) {
+  const titulo = [...secoes.keys()].find(t => titulos.has(t));
+  return titulo ? secoes.get(titulo) : [];
+}
 
 const EMAIL = /[\w.+-]+@[\w-]+\.[\w.]+/;
 const TELEFONE = /\+?\d{2}[\s-]?\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}/;
@@ -108,7 +121,9 @@ function parsearCv(texto, opcoes = {}) {
     }
     // Linha em caixa alta e curta que não é título conhecido: o ATS não sabe
     // o que fazer com ela e pode perder a seção inteira.
-    if (t === t.toUpperCase() && t.length > 3 && t.length < 40 && !/[|:]/.test(t) && !/^-/.test(t)) {
+    // Precisa de letra: "02/2026 - 07/2026" sozinha numa linha (cabeçalho de
+    // projeto quebrado no PDF) também "está em caixa alta", e não é título.
+    if (t === t.toUpperCase() && /\p{L}/u.test(t) && t.length > 3 && t.length < 40 && !/[|:]/.test(t) && !/^-/.test(t)) {
       if (!TITULOS_CANONICOS.has(t) && t !== contato.nome) desconhecidas.push(t);
     }
     if (atual) secoes.get(atual).push(t);
@@ -116,13 +131,13 @@ function parsearCv(texto, opcoes = {}) {
   for (const t of desconhecidas) {
     problemas.push(`título de seção não reconhecido: "${t}"`);
   }
-  if (!secoes.has(TITULOS_SECAO.experiencia)) {
+  if (![...secoes.keys()].some(t => TITULOS_EXPERIENCIA.has(t))) {
     problemas.push('não encontrou a seção de experiência profissional');
   }
 
   // ── Empregos ────────────────────────────────────────────────────────────
   const empregos = [];
-  for (const linha of secoes.get(TITULOS_SECAO.experiencia) || []) {
+  for (const linha of linhasDaSecao(secoes, TITULOS_EXPERIENCIA)) {
     const m = LINHA_EMPREGO.exec(linha);
     if (!m) continue;
     const intervalo = interpretarPeriodo(m[3]);
@@ -135,7 +150,7 @@ function parsearCv(texto, opcoes = {}) {
     problemas.push('não conseguiu extrair nenhum emprego com cargo, empresa e período');
   }
 
-  const formacao = (secoes.get(TITULOS_SECAO.formacao) || [])
+  const formacao = linhasDaSecao(secoes, TITULOS_FORMACAO)
     .filter(l => l.startsWith('- '))
     .map(l => l.slice(2));
   if (formacao.length === 0) problemas.push('não encontrou formação acadêmica');

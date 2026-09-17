@@ -648,3 +648,36 @@ vale é o da extração — o simulador de ATS lê nome, cargo, contato, 12 empr
 repositório sustenta. Da vaga em questão, **Lovable** não entrou por não haver
 uso real, e **Codex** também não: o `skills-hub` cobre quatro CLIs de agente,
 entre eles o Claude Code, mas não esse.
+
+## 17. Perfil `sysadmin-gcp` em inglês e italiano (2026-09-17)
+
+Vaga de sistemista sênior em Varallo (Itália): plataforma em GCP, com PHP,
+Bash, SQL e servidores Linux; presencial e com teste de entrada de PHP e SQL.
+O Carlos pediu o CV em inglês e, em seguida, também em italiano.
+
+### Decisões
+
+| Decisão | Quem | Por quê |
+|---|---|---|
+| Gerador passa a sair em outros idiomas (`mestre.<idioma>.json`) | Claude, a partir do pedido | editar os arquivos gerados à mão quebra a regra do repositório; uma tradução por fora deixaria as datas divergirem |
+| O texto novo entra primeiro em português no mestre | Claude | o mestre continua sendo a fonte; a tradução só espelha |
+| GCP: Compute Engine, Cloud SQL, Cloud Storage, GKE e Cloud Run | Carlos (declarado) | no código só há prova de conta de serviço, cotas de API e app OAuth; o resto é palavra dele, sem emprego atribuído |
+| Nada sobre mudança de país ou visto no CV | Carlos | fica para a conversa com o recrutador |
+| Inglês sobe de "intermediário" para "upper-intermediate" na versão traduzida | Carlos pediu para subir; o nível exato foi escolha do Claude | **a confirmar**; o mestre em português segue "intermediário" |
+| "Linux" na linha de tecnologias dos empregos com Asterisk, Kamailio, FreePBX, Proxmox ou Zabbix | Claude | esses sistemas rodam em Linux; Bash e SQL não foram atribuídos a emprego nenhum |
+
+### Mudanças no gerador
+
+- O PDF não parte mais um período entre duas linhas. Partido no hífen, o
+  extrator de texto juntava as linhas e engolia o traço ("2025 presente").
+- O simulador de ATS lê títulos em inglês e italiano e aceita "Present" e
+  "presente". Uma linha só com período deixou de contar como título de seção.
+
+### Medição
+
+| | en | it |
+|---|---|---|
+| palavras | 2.000 | 2.218 |
+| páginas do PDF | 5 | 5 |
+| leitura do PDF pelo simulador | 12 empregos, 12,2 anos, 5 formações, sem problema | igual |
+

@@ -10,24 +10,29 @@
  * Lógica pura: não lê nem escreve arquivo, para ser testável sem disco.
  */
 
-const { TITULOS_SECAO, PADRAO_DATA } = require('./secoes');
+const { TITULOS_POR_IDIOMA, PALAVRA_ATUAL, PADRAO_DATA } = require('./secoes');
 
 /**
- * Bullets de um item para um perfil: a variante do perfil, ou a base.
+ * Qual chave de bullets vale para o perfil: a variante dele, ou a base.
  *
  * Ausência das duas é ERRO, não omissão: um item que some silenciosamente do
  * currículo é pior que um erro de geração, porque ninguém percebe.
  */
-function resolverBullets(item, perfilId) {
+function chaveDosBullets(item, perfilId) {
   const bullets = item.bullets || {};
-  const escolhidos = bullets[perfilId] || bullets.base;
-  if (!escolhidos || escolhidos.length === 0) {
+  const chave = bullets[perfilId] ? perfilId : 'base';
+  if (!bullets[chave] || bullets[chave].length === 0) {
     throw new Error(
       `Item "${item.id}" não tem bullets para o perfil "${perfilId}" nem "base". ` +
       `Acrescente um dos dois em cv/mestre.json.`,
     );
   }
-  return escolhidos;
+  return chave;
+}
+
+/** Bullets de um item para um perfil: a variante do perfil, ou a base. */
+function resolverBullets(item, perfilId) {
+  return item.bullets[chaveDosBullets(item, perfilId)];
 }
 
 /** Uma receita declara `categorias_alvo` OU `filtro_termos` — nunca os dois, nunca nenhum. */
@@ -72,39 +77,119 @@ function selecionarPorId(colecao, ids, nomeSecao, perfilId) {
   });
 }
 
+/** Id do currículo gerado: o do perfil, com sufixo quando não é português. */
+function idDeSaida(receita, idioma) {
+  return idioma === 'pt' ? receita.id : `${receita.id}-${idioma}`;
+}
+
+/**
+ * Leitor do texto de um currículo, no idioma pedido.
+ *
+ * Em português devolve o próprio texto do mestre. Nos outros idiomas lê de
+ * `cv/mestre.<idioma>.json`, que só traz TEXTO: chaveado pelo id do item do
+ * mestre, ou pelo próprio texto em português nas listas sem id (formação,
+ * certificações, idiomas). Empresa e período continuam vindo do mestre, e é
+ * isso que impede a versão traduzida de divergir nos fatos.
+ *
+ * Tradução ausente é ERRO, pelo mesmo motivo do bullet ausente: um trecho em
+ * português no meio do currículo em inglês é pior que falhar na geração.
+ * Texto do mestre alterado depois da tradução também cai aqui — a chave some,
+ * ou a quantidade de bullets deixa de bater.
+ */
+function criarLeitor(idioma, traducao, perfilId) {
+  if (!TITULOS_POR_IDIOMA[idioma]) {
+    throw new Error(
+      `Perfil "${perfilId}": idioma "${idioma}" desconhecido. ` +
+      `Válidos: ${Object.keys(TITULOS_POR_IDIOMA).join(', ')}.`,
+    );
+  }
+  const periodo = p => (p === undefined ? p : p.replace(/atual$/, PALAVRA_ATUAL[idioma]));
+
+  if (idioma === 'pt') {
+    return {
+      texto: (original) => original,
+      lista: (caminho, original) => original,
+      periodo,
+    };
+  }
+
+  const arquivo = `cv/mestre.${idioma}.json`;
+  if (!traducao) {
+    throw new Error(`Perfil "${perfilId}": idioma "${idioma}" pedido sem ${arquivo}.`);
+  }
+  const buscar = caminho => caminho.reduce((o, chave) => (o == null ? undefined : o[chave]), traducao);
+  const falta = caminho => new Error(
+    `Perfil "${perfilId}": falta tradução para "${idioma}" em ${arquivo}: ${caminho.join(' → ')}`,
+  );
+
+  return {
+    // `original` só existe para o português; aqui vale o caminho.
+    texto(original, ...caminho) {
+      const valor = buscar(caminho);
+      if (typeof valor !== 'string' || valor === '') throw falta(caminho);
+      return valor;
+    },
+    lista(caminho, original) {
+      const valor = buscar(caminho);
+      if (!Array.isArray(valor)) throw falta(caminho);
+      if (valor.length !== original.length) {
+        throw new Error(
+          `Perfil "${perfilId}": ${arquivo}, ${caminho.join(' → ')} tem ${valor.length} ` +
+          `itens e o mestre tem ${original.length}. O mestre mudou depois da tradução?`,
+        );
+      }
+      return valor;
+    },
+    periodo,
+  };
+}
+
 const MONTADORES = {
-  resumo(mestre, receita) {
+  resumo(mestre, receita, t) {
     const texto = (mestre.resumos || {})[receita.id];
     if (!texto) {
       throw new Error(`Falta o resumo do perfil "${receita.id}" em cv/mestre.json (chave "resumos").`);
     }
-    return { texto };
+    return { texto: t.texto(texto, 'resumos', receita.id) };
   },
 
-  conquistas(mestre, receita) {
+  conquistas(mestre, receita, t) {
     const itens = selecionarPorId(mestre.conquistas, receita.incluir_conquistas, 'incluir_conquistas', receita.id);
-    return { itens: itens.map(c => c.texto) };
+    return { itens: itens.map(c => t.texto(c.texto, 'conquistas', c.id)) };
   },
 
-  competencias(mestre, receita) {
+  competencias(mestre, receita, t) {
     const grupos = (receita.competencias || []).map(chave => {
       const grupo = (mestre.competencias || {})[chave];
       if (!grupo) {
         throw new Error(`Perfil "${receita.id}": grupo de competência "${chave}" não existe em cv/mestre.json.`);
       }
-      return { titulo: grupo.titulo, itens: grupo.itens };
+      return {
+        titulo: t.texto(grupo.titulo, 'competencias', chave, 'titulo'),
+        itens: t.lista(['competencias', chave, 'itens'], grupo.itens),
+      };
     });
     return { grupos };
   },
 
-  experiencia(mestre, receita) {
+  experiencia(mestre, receita, t) {
+    const cabecalho = e => ({
+      empresa: e.empresa,
+      cargo: t.texto(e.cargo, 'experiencia', e.id, 'cargo'),
+      periodo: t.periodo(e.periodo),
+      local: e.local && t.texto(e.local, 'experiencia', e.id, 'local'),
+    });
+
     const detalhados = selecionarPorId(
       mestre.experiencia, receita.incluir_experiencia, 'incluir_experiencia', receita.id,
-    ).map(e => ({
-      empresa: e.empresa, cargo: e.cargo, periodo: e.periodo, local: e.local,
-      compacto: false,
-      bullets: resolverBullets(e, receita.id),
-    }));
+    ).map(e => {
+      const chave = chaveDosBullets(e, receita.id);
+      return {
+        ...cabecalho(e),
+        compacto: false,
+        bullets: t.lista(['experiencia', e.id, 'bullets', chave], e.bullets[chave]),
+      };
+    });
 
     // Empregos compactos entram só com cargo, empresa e período, sem bullets.
     //
@@ -115,45 +200,65 @@ const MONTADORES = {
     // acontece nos bullets, não em apagar emprego.
     const compactos = selecionarPorId(
       mestre.experiencia, receita.incluir_experiencia_compacta, 'incluir_experiencia_compacta', receita.id,
-    ).map(e => ({
-      empresa: e.empresa, cargo: e.cargo, periodo: e.periodo, local: e.local,
-      compacto: true,
-      bullets: [],
-    }));
+    ).map(e => ({ ...cabecalho(e), compacto: true, bullets: [] }));
 
     return { itens: [...detalhados, ...compactos] };
   },
 
-  projetos(mestre, receita) {
+  projetos(mestre, receita, t) {
     const itens = selecionarPorId(mestre.projetos, receita.incluir_projetos, 'incluir_projetos', receita.id);
     return {
-      itens: itens.map(p => ({
-        nome: p.nome, contexto: p.contexto, periodo: p.periodo,
-        bullets: resolverBullets(p, receita.id),
+      itens: itens.map(p => {
+        const chave = chaveDosBullets(p, receita.id);
+        return {
+          nome: t.texto(p.nome, 'projetos', p.id, 'nome'),
+          contexto: p.contexto && t.texto(p.contexto, 'projetos', p.id, 'contexto'),
+          periodo: t.periodo(p.periodo),
+          bullets: t.lista(['projetos', p.id, 'bullets', chave], p.bullets[chave]),
+        };
+      }),
+    };
+  },
+
+  formacao(mestre, receita, t) {
+    return {
+      itens: (mestre.formacao || []).map(f => ({
+        ...f,
+        curso: t.texto(f.curso, 'formacao', f.curso),
+        periodo: t.periodo(f.periodo),
       })),
     };
   },
 
-  formacao(mestre) {
-    return { itens: mestre.formacao || [] };
+  certificacoes(mestre, receita, t) {
+    return { itens: (mestre.certificacoes || []).map(c => t.texto(c, 'certificacoes', c)) };
   },
 
-  certificacoes(mestre) {
-    return { itens: mestre.certificacoes || [] };
-  },
-
-  idiomas(mestre) {
-    return { itens: mestre.idiomas || [] };
+  idiomas(mestre, receita, t) {
+    return { itens: (mestre.idiomas || []).map(i => t.texto(i, 'idiomas', i)) };
   },
 };
+
+function tituloNoIdioma(receita, idioma) {
+  if (idioma === 'pt') return receita.titulo;
+  const titulo = (receita.titulos || {})[idioma];
+  if (!titulo) {
+    throw new Error(`Perfil "${receita.id}": falta "titulos": { "${idioma}": ... } na receita.`);
+  }
+  return titulo;
+}
 
 /**
  * @param {object} mestre conteúdo de `cv/mestre.json`
  * @param {object} receita conteúdo de `perfis/<id>.json`
- * @returns {{perfil: string, titulo: string, pessoal: object, secoes: object[]}}
+ * @param {{idioma?: string, traducao?: object}} [opcoes] idioma de saída
+ *   (padrão `pt`) e o conteúdo de `cv/mestre.<idioma>.json`
+ * @returns {{perfil: string, idioma: string, titulo: string, pessoal: object, secoes: object[]}}
  */
-function montarCv(mestre, receita) {
+function montarCv(mestre, receita, opcoes = {}) {
+  const idioma = opcoes.idioma || 'pt';
   validarReceita(receita);
+  const t = criarLeitor(idioma, opcoes.traducao, receita.id);
 
   // O mesmo emprego nas duas listas sairia duplicado no currículo.
   const repetidos = (receita.incluir_experiencia || [])
@@ -165,6 +270,7 @@ function montarCv(mestre, receita) {
     );
   }
 
+  const titulos = TITULOS_POR_IDIOMA[idioma];
   const secoes = (receita.ordem || []).map(tipo => {
     const montador = MONTADORES[tipo];
     if (!montador) {
@@ -173,10 +279,18 @@ function montarCv(mestre, receita) {
         `Válidas: ${Object.keys(MONTADORES).join(', ')}.`,
       );
     }
-    return { tipo, titulo: TITULOS_SECAO[tipo], ...montador(mestre, receita) };
+    return { tipo, titulo: titulos[tipo], ...montador(mestre, receita, t) };
   });
 
-  return { perfil: receita.id, titulo: receita.titulo, pessoal: mestre.pessoal, secoes };
+  const pessoal = { ...mestre.pessoal, local: t.texto(mestre.pessoal.local, 'pessoal', 'local') };
+
+  return {
+    perfil: idDeSaida(receita, idioma),
+    idioma,
+    titulo: tituloNoIdioma(receita, idioma),
+    pessoal,
+    secoes,
+  };
 }
 
-module.exports = { montarCv, resolverBullets, validarReceita };
+module.exports = { montarCv, resolverBullets, validarReceita, idDeSaida };

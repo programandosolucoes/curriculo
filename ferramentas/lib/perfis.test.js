@@ -79,3 +79,52 @@ test('seção declarada na ordem tem os dados correspondentes na receita', () =>
       `perfil "${id}": incluir_conquistas e a ordem discordam sobre a seção de conquistas`);
   }
 });
+
+// ── Receitas em outros idiomas ────────────────────────────────────────────
+
+const { renderTxt } = require('./render-txt');
+
+function receitasMultilingues() {
+  return fs.readdirSync(path.join(RAIZ, 'perfis'))
+    .filter(f => f.endsWith('.json'))
+    .map(f => lerReceita(f.replace(/\.json$/, '')))
+    .filter(r => Array.isArray(r.idiomas));
+}
+
+function lerTraducao(idioma) {
+  return JSON.parse(fs.readFileSync(path.join(RAIZ, 'cv', `mestre.${idioma}.json`), 'utf8'));
+}
+
+test('receita com idiomas monta em cada idioma declarado', () => {
+  const receitas = receitasMultilingues();
+  assert.ok(receitas.length > 0, 'nenhuma receita declara idiomas');
+  for (const r of receitas) {
+    for (const idioma of r.idiomas) {
+      assert.doesNotThrow(
+        () => montarCv(MESTRE, r, { idioma, traducao: lerTraducao(idioma) }),
+        `perfil "${r.id}" não monta em "${idioma}"`,
+      );
+    }
+  }
+});
+
+test('versão traduzida não carrega texto em português', () => {
+  // Nomes próprios (empresa, instituição) e contato ficam no original e
+  // saem da conta — o ".com" do e-mail não é a preposição.
+  const nomesProprios = [
+    ...MESTRE.experiencia.map(e => e.empresa),
+    ...MESTRE.formacao.map(f => f.instituicao),
+    MESTRE.pessoal.email,
+    ...MESTRE.pessoal.links,
+  ];
+  const marcas = /ção|ções|ão\b|\b(atual|não|para|com|uma|dos|das|pelo|pela)\b/i;
+  for (const r of receitasMultilingues()) {
+    for (const idioma of r.idiomas) {
+      let texto = renderTxt(montarCv(MESTRE, r, { idioma, traducao: lerTraducao(idioma) }));
+      for (const nome of nomesProprios) texto = texto.split(nome).join('');
+      texto = texto.split('São Paulo').join('');
+      const linha = texto.split('\n').find(l => marcas.test(l));
+      assert.equal(linha, undefined, `perfil "${r.id}" (${idioma}) com português: ${linha}`);
+    }
+  }
+});

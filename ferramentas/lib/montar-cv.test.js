@@ -117,3 +117,91 @@ test('o mesmo emprego nas duas listas é rejeitado', () => {
   const receita = { ...RECEITA, incluir_experiencia: ['emp1'], incluir_experiencia_compacta: ['emp1'] };
   assert.throws(() => montarCv(MESTRE, receita), /emp1[\s\S]*duplicado/);
 });
+
+// ── Idiomas ───────────────────────────────────────────────────────────────
+// A tradução só traz texto. Empresa e período vêm sempre do mestre.
+
+const TRADUCAO_EN = {
+  pessoal: { local: 'São Paulo, Brazil' },
+  resumos: { dev: 'Dev summary.' },
+  conquistas: { c1: 'Cut costs by 30%.' },
+  competencias: { back: { titulo: 'Backend', itens: ['Node.js', 'Python'] } },
+  experiencia: {
+    emp1: { cargo: 'Senior Dev', local: 'São Paulo', bullets: { dev: ['Built APIs.'] } },
+    emp2: { cargo: 'Analyst', local: 'Remote', bullets: { base: ['Ran a platform.'] } },
+  },
+  projetos: { p1: { nome: 'Project One', contexto: 'freelance', bullets: { base: ['Built a project.'] } } },
+  formacao: { Bacharelado: 'Bachelor' },
+  certificacoes: { 'Certificação X': 'Certification X' },
+  idiomas: { 'Português: nativo': 'Portuguese: native' },
+};
+
+const RECEITA_EN = {
+  ...RECEITA,
+  titulo: 'Desenvolvedor Backend Sênior',
+  titulos: { en: 'Senior Backend Developer' },
+  idiomas: ['en'],
+  ordem: ['resumo', 'conquistas', 'competencias', 'experiencia', 'projetos', 'formacao', 'certificacoes', 'idiomas'],
+};
+
+function montarEn(traducao = TRADUCAO_EN, receita = RECEITA_EN) {
+  return montarCv(MESTRE, receita, { idioma: 'en', traducao });
+}
+
+test('em inglês, texto vem da tradução e fatos vêm do mestre', () => {
+  const cv = montarEn();
+  assert.equal(cv.titulo, 'Senior Backend Developer');
+  assert.equal(cv.pessoal.local, 'São Paulo, Brazil');
+  assert.equal(cv.pessoal.email, 'f@exemplo.com');
+  const exp = cv.secoes.find(s => s.tipo === 'experiencia');
+  assert.deepEqual(exp.itens.map(i => [i.cargo, i.empresa]), [['Analyst', 'Empresa Dois'], ['Senior Dev', 'Empresa Um']]);
+  assert.deepEqual(exp.itens[1].bullets, ['Built APIs.']);
+  const form = cv.secoes.find(s => s.tipo === 'formacao');
+  assert.deepEqual(form.itens, [{ curso: 'Bachelor', instituicao: 'Universidade', periodo: '2016 - 2020' }]);
+});
+
+test('em inglês, títulos de seção e "atual" saem no idioma', () => {
+  const cv = montarEn();
+  assert.equal(cv.idioma, 'en');
+  assert.equal(cv.secoes.find(s => s.tipo === 'experiencia').titulo, 'PROFESSIONAL EXPERIENCE');
+  const exp = cv.secoes.find(s => s.tipo === 'experiencia');
+  assert.equal(exp.itens[0].periodo, '01/2023 - Present');
+  assert.equal(cv.secoes.find(s => s.tipo === 'projetos').itens[0].periodo, '01/2024 - Present');
+});
+
+test('o id de saída leva o idioma, para os arquivos não se sobrescreverem', () => {
+  assert.equal(montarEn().perfil, 'dev-en');
+  assert.equal(montarCv(MESTRE, RECEITA).perfil, 'dev');
+});
+
+test('tradução ausente aborta apontando o trecho', () => {
+  const traducao = structuredClone(TRADUCAO_EN);
+  delete traducao.experiencia.emp1.bullets.dev;
+  assert.throws(() => montarEn(traducao), /experiencia[\s\S]*emp1[\s\S]*dev/);
+});
+
+test('item de lista sem tradução aborta em vez de sair em português', () => {
+  const traducao = structuredClone(TRADUCAO_EN);
+  delete traducao.certificacoes['Certificação X'];
+  assert.throws(() => montarEn(traducao), /Certificação X/);
+});
+
+test('tradução com número de bullets diferente do mestre aborta', () => {
+  // Sinal de que o mestre mudou depois da tradução.
+  const traducao = structuredClone(TRADUCAO_EN);
+  traducao.experiencia.emp2.bullets.base.push('Extra.');
+  assert.throws(() => montarEn(traducao), /emp2[\s\S]*2[\s\S]*1/);
+});
+
+test('idioma sem título declarado na receita aborta', () => {
+  const { titulos, ...semTitulos } = RECEITA_EN;
+  assert.throws(() => montarEn(TRADUCAO_EN, semTitulos), /titulos[\s\S]*en/);
+});
+
+test('idioma pedido sem arquivo de tradução aborta', () => {
+  assert.throws(() => montarCv(MESTRE, RECEITA_EN, { idioma: 'en' }), /mestre\.en\.json/);
+});
+
+test('idioma desconhecido aborta', () => {
+  assert.throws(() => montarCv(MESTRE, RECEITA_EN, { idioma: 'xx', traducao: {} }), /xx/);
+});

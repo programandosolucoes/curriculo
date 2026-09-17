@@ -19,7 +19,8 @@
     "seguranca": "Analista de Segurança da Informação Sênior com experiência em proteção de aplicação, criptografia aplicada e resposta a incidentes. Implementei arquitetura WAF com ModSecurity e regras OWASP em ambiente financeiro, reduzi o tempo de resposta a incidentes em mais de 99% com análise automatizada de logs em nível de SOC, e desenvolvi sistemas com criptografia AES, assinatura digital RSA-2048 e isolamento físico de dados entre clientes. Experiência com pfSense, OpenVPN, hardening de Linux e conformidade regulatória (normas ISO/IEC).",
     "qa": "Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript, além de automação de navegador com Playwright e Puppeteer. Implementei o fluxo de code review por pull request da plataforma Git que desenvolvi e opero. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.",
     "rpa": "Especialista em Automação de Processos (RPA, Robotic Process Automation) e Integração de Sistemas. Construí um motor de automação de navegador que opera portais web de forma autônoma e não supervisionada, bots de processamento de e-mail com decisão por Inteligência Artificial (IA), e chatbots que automatizaram até 25% do volume operacional de atendimento. Integração de API é especialidade recorrente: cinco gateways de mensageria atrás de uma única interface, clientes próprios de seis APIs distintas, mensageria assíncrona JMS/STOMP e webhooks substituindo polling.",
-    "arquiteto-devops": "Arquiteto DevOps e de Software Sênior com mais de 12 anos em tecnologia, unindo desenvolvimento de software e infraestrutura de missão crítica, e mais de 5 anos em liderança técnica sênior: tech leader de 11 desenvolvedores, referência de CI/CD e code review de squad e arquiteto em três empresas. Defino arquitetura cloud-native (microsserviços, APIs, mensageria e pipelines de mais de 1 milhão de eventos diários) e as práticas que a sustentam: CI/CD com segurança no pipeline (DevSecOps), Infraestrutura como Código (Ansible), observabilidade e SRE com SLI/SLO. Reduzi o MTTD de falhas em 40%, sustentei SLO de 99,99% em operação internacional e mantive disaster recovery para mais de 100 clientes. Trabalho com Python e Java (Spring Boot), Node.js/TypeScript e PHP, Kubernetes, Docker, Ansible, AWS, GCP e nuvem privada (Proxmox, OpenStack), e aplico IA generativa em produto com LLMs open source (llama.cpp, Ollama) e comerciais (OpenAI/ChatGPT, Anthropic)."
+    "arquiteto-devops": "Arquiteto DevOps e de Software Sênior com mais de 12 anos em tecnologia, unindo desenvolvimento de software e infraestrutura de missão crítica, e mais de 5 anos em liderança técnica sênior: tech leader de 11 desenvolvedores, referência de CI/CD e code review de squad e arquiteto em três empresas. Defino arquitetura cloud-native (microsserviços, APIs, mensageria e pipelines de mais de 1 milhão de eventos diários) e as práticas que a sustentam: CI/CD com segurança no pipeline (DevSecOps), Infraestrutura como Código (Ansible), observabilidade e SRE com SLI/SLO. Reduzi o MTTD de falhas em 40%, sustentei SLO de 99,99% em operação internacional e mantive disaster recovery para mais de 100 clientes. Trabalho com Python e Java (Spring Boot), Node.js/TypeScript e PHP, Kubernetes, Docker, Ansible, AWS, GCP e nuvem privada (Proxmox, OpenStack), e aplico IA generativa em produto com LLMs open source (llama.cpp, Ollama) e comerciais (OpenAI/ChatGPT, Anthropic).",
+    "sysadmin-gcp": "Administrador de Sistemas Linux Sênior com mais de 12 anos em infraestrutura de missão crítica e desenvolvimento, com certificações RHCSA e LPIC-1. Administro servidores Linux, virtualização (Proxmox, KVM, VMware vSphere, OpenStack) e nuvem pública: Google Cloud Platform (Compute Engine, Cloud SQL, Cloud Storage, GKE, Cloud Run e contas de serviço do IAM) e AWS. Escrevo PHP (Laravel), Bash e SQL (MySQL, MariaDB, PostgreSQL): scripts de manutenção idempotentes, correção de dados direto no banco, tuning e migrations versionadas, além de Python e Java. Reduzi o MTTD de falhas em 40% com Zabbix, sustentei SLO de 99,99% no mercado de telefonia italiano e mantive backup e disaster recovery para mais de 100 clientes, com plantão N3 e post-mortem documentado. Italiano fluente."
   },
   "conquistas": [
     {
@@ -199,6 +200,40 @@
         "Ambientes com múltiplos produtos e clientes: plataformas atendendo mais de 100 empresas clientes, com padrões comuns de provisionamento, monitoramento e backup",
         "Integrações com plataformas SaaS: Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API"
       ]
+    },
+    "sistemas-linux": {
+      "titulo": "Administração de Sistemas Linux",
+      "itens": [
+        "Servidores Linux (Red Hat, Rocky Linux, Ubuntu), com certificações RHCSA e LPIC-1",
+        "systemd, cron, Apache, Nginx, gunicorn e healthcheck",
+        "Virtualização e containers: Proxmox VE, KVM, LXC, VMware vSphere, OpenStack, Docker, Docker Compose e Kubernetes",
+        "Rede e segurança: iptables e NAT multi-tenant, pfSense, OpenVPN, Squid, Fail2ban, WAF ModSecurity com regras OWASP e hardening",
+        "Monitoramento com Zabbix (templates próprios, SNMP e descoberta automática), métricas no formato Prometheus e Sentry",
+        "Backup automatizado, disaster recovery (DR) e alta disponibilidade",
+        "Automação com Ansible (roles por papel de servidor e inventário gerado por job) e provisionamento pela API do Proxmox VE",
+        "Plantão N3, gestão de incidentes e post-mortem com causa raiz e teste de regressão"
+      ]
+    },
+    "gcp-nuvem": {
+      "titulo": "Google Cloud Platform (GCP) e Nuvem",
+      "itens": [
+        "GCP: Compute Engine (VMs Linux), Cloud SQL, Cloud Storage, GKE e Cloud Run",
+        "GCP IAM: contas de serviço, projeto próprio para cotas de API e apps OAuth (tela de consentimento, usuários de teste, publicação e verificação de escopo sensível)",
+        "APIs do Google Workspace: Drive e Meet",
+        "AWS (S3 com presigned URL) e Microsoft Entra ID (Azure AD) com OAuth2",
+        "CI/CD com Bitbucket Pipelines, Jenkins e GitHub Actions; Git com code review por pull request"
+      ]
+    },
+    "php-bash-sql": {
+      "titulo": "PHP, Bash e SQL",
+      "itens": [
+        "PHP 8 e Laravel 12: plataformas SaaS multi-tenant, addons e scripts de manutenção para linha de comando",
+        "PHPUnit: 23 suítes na plataforma omnichannel e testes do addon PHP para pfSense",
+        "Bash: scripts de instalação, deploy e rotinas agendadas no cron",
+        "SQL: MySQL, MariaDB, PostgreSQL 17 e SQLite; modelagem relacional, índices, tuning, PL/pgSQL e migrations versionadas",
+        "Diagnóstico e correção de dados e de schema direto no banco de produção, com backup antes de qualquer escrita",
+        "Python e Java (Spring Boot) para automação e integração; API REST, webhooks e JSON-RPC"
+      ]
     }
   },
   "experiencia": [
@@ -229,6 +264,12 @@
           "Otimizei o processo de deploy da aplicação desenvolvendo scripts de autoinstalação de dependências e modernizando o sistema operacional base.",
           "Escalei a capacidade de um serviço de classificação implantando e configurando novos servidores dedicados.",
           "Tecnologias: Python, Java, Asterisk, classificador Khomp e codec G.729."
+        ],
+        "sysadmin-gcp": [
+          "Otimizei o deploy da aplicação com scripts de autoinstalação de dependências e modernizei o sistema operacional base dos servidores de telefonia.",
+          "Escalei a capacidade do serviço de classificação de chamadas implantando e configurando novos servidores dedicados.",
+          "Resolvi incidentes críticos de produção no suporte N3.",
+          "Tecnologias: Linux, Python, Java, Asterisk, classificador Khomp e codec G.729."
         ]
       }
     },
@@ -270,6 +311,12 @@
           "Defini onde a classificação por Inteligência Artificial (IA) entra no ciclo de vida da chamada e a integrei ao billing em Python, aumentando a eficiência das campanhas em 30%.",
           "Conduzi migrações de clientes da plataforma GoTo para Yeastar PBX com zero downtime para as operações críticas.",
           "Tecnologias: Python, Java, Kubernetes, Proxmox, Asterisk e Yeastar."
+        ],
+        "sysadmin-gcp": [
+          "Projetei e implementei a infraestrutura IaaS da plataforma de call center com Proxmox e Kubernetes (K8s), dimensionada para mais de 500 agentes concorrentes.",
+          "Conduzi migrações de clientes da plataforma GoTo para Yeastar PBX com zero downtime nas operações críticas.",
+          "Integrei a classificação por Inteligência Artificial (IA) ao billing em Python, aumentando a eficiência das campanhas em 30%.",
+          "Tecnologias: Linux, Proxmox, Kubernetes, Python, Java, Asterisk e Yeastar."
         ]
       }
     },
@@ -305,6 +352,12 @@
           "Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.",
           "Atuei como último nível de escalonamento (N3) na gestão de incidentes críticos de arquitetura e performance em produção.",
           "Tecnologias: Python, Java, Zabbix, Asterisk e Linux."
+        ],
+        "sysadmin-gcp": [
+          "Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% ao modernizar o monitoramento Zabbix com novos templates de observabilidade.",
+          "Arquitetei e mantive rotinas de backup automatizadas, garantindo 100% de capacidade de disaster recovery (DR) para mais de 100 clientes.",
+          "Atuei como último nível de escalonamento (N3) em incidentes críticos de arquitetura e performance em produção.",
+          "Tecnologias: Linux, Zabbix, Python, Java e Asterisk."
         ]
       }
     },
@@ -324,6 +377,11 @@
           "Reduzi o tempo de onboarding de novos clientes em 60% ao criar um sistema de provisionamento automatizado zero-touch para dispositivos de rede."
         ],
         "arquiteto-devops": [
+          "Atuei como arquiteto de soluções da plataforma de telefonia COMMUNI5/PORTSIP, sustentando 99,99% de uptime para serviços críticos no mercado italiano.",
+          "Liderei a padronização do provisionamento de dispositivos e criei um sistema zero-touch que reduziu em 60% o tempo de onboarding de novos clientes.",
+          "Tecnologias: Python, Java, COMMUNI5/PORTSIP e provisionamento zero-touch (Snom, Fanvil)."
+        ],
+        "sysadmin-gcp": [
           "Atuei como arquiteto de soluções da plataforma de telefonia COMMUNI5/PORTSIP, sustentando 99,99% de uptime para serviços críticos no mercado italiano.",
           "Liderei a padronização do provisionamento de dispositivos e criei um sistema zero-touch que reduziu em 60% o tempo de onboarding de novos clientes.",
           "Tecnologias: Python, Java, COMMUNI5/PORTSIP e provisionamento zero-touch (Snom, Fanvil)."
@@ -372,6 +430,12 @@
           "Projetei e integrei APIs RESTful em Node.js que processam mais de 1 milhão de eventos de chamadas por dia, substituindo acoplamento direto entre plataformas.",
           "Liderei o esquadrão de desenvolvimento em metodologia ágil (Scrum/JIRA), atuando como referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket.",
           "Tecnologias: Python, Java, Node.js, Kamailio, Asterisk, Bitbucket Pipelines e JIRA."
+        ],
+        "sysadmin-gcp": [
+          "Arquitetei uma solução de PBX clusterizado multi-tenant com escalabilidade horizontal, usando Kamailio como balanceador de carga e Asterisk como servidor de mídia.",
+          "Integrei plataformas por APIs RESTful em Node.js que processam mais de 1 milhão de eventos de chamadas por dia.",
+          "Fui a referência técnica dos pipelines de CI/CD e do code review de pull request no Bitbucket, em metodologia ágil (Scrum/JIRA).",
+          "Tecnologias: Linux, Python, Java, Node.js, Kamailio, Asterisk, Bitbucket Pipelines e JIRA."
         ]
       }
     },
@@ -408,6 +472,11 @@
           "Reduzi os custos de telefonia em mais de 300% ao criar APIs de microsserviços em Node.js que substituíram software licenciado de terceiros.",
           "Desenvolvi um appliance de roteamento em Node.js/Drachtio para integração e roteamento dinâmico de chamadas com o Microsoft Teams.",
           "Tecnologias: Python, Java, Node.js, Drachtio, Asterisk, OpenSIPS e Kamailio."
+        ],
+        "sysadmin-gcp": [
+          "Projetei e implementei a arquitetura de borda (SBC) de alta disponibilidade da empresa, combinando Asterisk, OpenSIPS e Kamailio.",
+          "Reduzi os custos de telefonia em mais de 300% com APIs de microsserviços em Node.js que substituíram software licenciado de terceiros.",
+          "Tecnologias: Linux, Python, Java, Node.js, Asterisk, OpenSIPS e Kamailio."
         ]
       }
     },
@@ -453,6 +522,12 @@
           "Desenvolvi o backend completo (REST APIs em Node.js e PHP) e o frontend (Angular) da plataforma de gerenciamento de call center.",
           "Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
           "Tecnologias: Python, Java, Node.js, PHP, Angular, Zendesk e Power BI."
+        ],
+        "sysadmin-gcp": [
+          "Desenvolvi o backend (REST APIs em PHP e Node.js) e o frontend (Angular) da plataforma de gerenciamento de call center.",
+          "Liderei a arquitetura técnica dos projetos Asterisk e fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas.",
+          "Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
+          "Tecnologias: PHP, Python, Java, Node.js, Angular, Asterisk, Zendesk e Power BI."
         ]
       }
     },
@@ -491,6 +566,11 @@
           "Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes.",
           "Construí um chatbot de voz (CPQD) do zero como um novo produto, automatizando 10% do volume de chamadas operacionais dos clientes iniciais.",
           "Tecnologias: Python, Java, Asterisk (FreePBX, Xcally, Xorcom) e CPQD."
+        ],
+        "sysadmin-gcp": [
+          "Mantive múltiplas plataformas Asterisk (FreePBX, Xcally, Xorcom) com mais de 200 agentes concorrentes em mais de 100 empresas clientes.",
+          "Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados por gerentes em mais de 25 empresas clientes.",
+          "Tecnologias: Linux, Python, Java e Asterisk (FreePBX, Xcally, Xorcom)."
         ]
       }
     },
@@ -529,6 +609,11 @@
           "Administrei plataformas de nuvem (VMware vSphere, OpenStack) em ambiente de mais de 400 servidores, mantendo 99,99% de uptime.",
           "Automatizei 25% das chamadas de triagem inicial desenvolvendo um chatbot em Asterisk e Node.js.",
           "Tecnologias: Python, Java, Node.js, Asterisk, VMware vSphere e OpenStack."
+        ],
+        "sysadmin-gcp": [
+          "Administrei plataformas de nuvem (VMware vSphere, OpenStack) em ambiente de mais de 400 servidores, mantendo 99,99% de uptime.",
+          "Resolvi chamados N3 de NOC, virtualização e servidores Linux.",
+          "Tecnologias: Linux, VMware vSphere, OpenStack, Python e Java."
         ]
       }
     },
@@ -554,6 +639,10 @@
         "arquiteto-devops": [
           "Automatizei a resposta a incidentes implantando VMs e configurando Zabbix (SNMP) para monitorar métricas vitais, com abertura automática de ticket para as equipes responsáveis.",
           "Tecnologias: Python, Java, Zabbix (SNMP) e virtualização."
+        ],
+        "sysadmin-gcp": [
+          "Automatizei a resposta a incidentes implantando VMs e configurando Zabbix (SNMP) para monitorar métricas vitais, com abertura automática de ticket para as equipes responsáveis.",
+          "Tecnologias: Zabbix (SNMP), virtualização, Python e Java."
         ]
       }
     },
@@ -585,6 +674,13 @@
           "Implementei a arquitetura de segurança web (WAF) da fintech com ModSecurity e regras OWASP contra SQL Injection, XSS e força bruta.",
           "Desenvolvi análise automatizada de logs em nível de SOC com Fail2ban, reduzindo em mais de 99% o tempo de resposta a incidentes.",
           "Tecnologias: Python, Java, ModSecurity, Fail2ban, Elastix e FreePBX."
+        ],
+        "sysadmin-gcp": [
+          "Garanti 100% de continuidade dos negócios elaborando o plano completo de disaster recovery (DR) e gerenciando todas as rotinas de backup off-site.",
+          "Implementei a arquitetura de segurança web (WAF) da fintech com ModSecurity e regras OWASP contra SQL Injection, XSS e força bruta.",
+          "Desenvolvi análise automatizada de logs em nível de SOC com Fail2ban, reduzindo em mais de 99% o tempo de resposta a incidentes.",
+          "Migrei o PBX legado Elastix para FreePBX, com economia anual significativa.",
+          "Tecnologias: Linux, ModSecurity, Fail2ban, Elastix, FreePBX, Python e Java."
         ]
       }
     },
@@ -600,6 +696,10 @@
         "arquiteto-devops": [
           "Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows e Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.",
           "Tecnologias: Python, Java, Windows Server e Linux."
+        ],
+        "sysadmin-gcp": [
+          "Resolvi problemas de suporte N3 para NOC, virtualização e servidores Windows e Linux, mantendo a estabilidade do sistema para mais de 800 usuários em 40 contas de clientes.",
+          "Tecnologias: Linux, Windows Server, Python e Java."
         ]
       }
     }
@@ -713,6 +813,11 @@
           "Automatizei o provisionamento de ponta a ponta: o painel cria os containers LXC pela API do Proxmox VE, gera o inventário de cada job e aplica um playbook Ansible com seis roles (base, tuning, banco de dados, callback, URA e motor), seguido de testes de fumaça.",
           "Implementei autocorreção que reaplica a role Ansible de um único host, com trava que recusa alvo inválido para não reconfigurar containers em atendimento, e documentei o comparativo arquitetural entre LXC e Docker.",
           "Configurei NAT e iptables multi-tenant, substituí polling por webhooks assíncronos e modelei 17 tabelas com tuning manual de PostgreSQL, cobertas por 15 suítes pytest."
+        ],
+        "sysadmin-gcp": [
+          "Automatizei o provisionamento de ponta a ponta: o painel cria os containers LXC pela API do Proxmox VE e aplica um playbook Ansible com seis roles (base, tuning, banco de dados, callback, URA e motor), seguido de testes de fumaça.",
+          "Configurei NAT e iptables multi-tenant e modelei 17 tabelas em PostgreSQL 17 com tuning manual, com CDR e CEL gravados no banco via ODBC.",
+          "Implementei autocorreção que reaplica a role Ansible de um único host, com trava que recusa alvo inválido para não reconfigurar containers em atendimento."
         ]
       },
       "areas": [
@@ -798,6 +903,10 @@
           "Liderei a reescrita completa de uma plataforma SaaS de atendimento (originalmente Node.js/React/Drizzle) para Laravel 12/PHP, mantendo paridade de funcionalidades para viabilizar hospedagem própria.",
           "Integrei 5 gateways de WhatsApp atrás de uma única interface de driver (Evolution, WAHA, Whaticket, WaVoIP, Meta Cloud API), aplicando o padrão Strategy à integração.",
           "Implementei RBAC multi-tenant de 4 níveis e jobs assíncronos de IA generativa com Groq e Llama 3.1; a versão anterior tinha videochamada WebRTC e segmentação de fundo com TensorFlow.js. 41 migrations e 23 suítes PHPUnit."
+        ],
+        "sysadmin-gcp": [
+          "Liderei a reescrita de uma plataforma SaaS de atendimento de Node.js/React para Laravel 12 e PHP 8.2 sobre PostgreSQL, com paridade de funcionalidades para viabilizar hospedagem própria.",
+          "Implementei RBAC multi-tenant de 4 níveis, jobs assíncronos e 5 gateways de WhatsApp atrás de uma única interface (padrão Strategy), com 41 migrations e 23 suítes PHPUnit."
         ]
       },
       "areas": [
@@ -1167,6 +1276,11 @@
           "Construí em n8n auto-hospedado uma API de busca documental sobre o Google Drive de um escritório de contabilidade: identificação do cliente por CNPJ, consulta filtrada e entrega do arquivo em binário, base64 ou link assinado, com 15 workflows, 14 Data Tables e 53 rotas de webhook.",
           "Mantive o modelo de linguagem fora da autorização: liberar documento é decisão determinística sobre índice e token, e o contrato foi publicado em OpenAPI 3.1 com Swagger auto-contido e ambiente de teste espelhado.",
           "Monitorei CPU, memória e atraso do event loop pelas métricas no formato Prometheus expostas pelo próprio n8n (/metrics), lidas por um workflow de monitoramento de recursos; 219 casos de teste cobrem o comportamento."
+        ],
+        "sysadmin-gcp": [
+          "Construí em n8n auto-hospedado (Docker) uma API de busca e entrega de documentos sobre o Google Drive de um escritório de contabilidade: 15 workflows, 14 Data Tables e 53 rotas de webhook sobre 163.738 pastas indexadas.",
+          "Autentiquei o acesso ao Drive por conta de serviço do Google Cloud (IAM) em projeto próprio: a cota compartilhada de um app de terceiros estourou três vezes num dia, e o projeto próprio dá cerca de 12.000 chamadas por minuto.",
+          "Monitorei CPU, memória e atraso do event loop pelas métricas no formato Prometheus expostas pelo próprio n8n (/metrics); 219 casos de teste cobrem o comportamento."
         ]
       },
       "areas": [
@@ -1241,6 +1355,11 @@
           "Desenhei o CI/CD como despachante: a plataforma nunca executa script, apenas dispara ações assinadas por HMAC-SHA256 com validação anti-SSRF do destino, e guarda credenciais cifradas em AES-256-GCM.",
           "Expus a plataforma a agentes de IA por um servidor MCP (Model Context Protocol) com 37 ferramentas, em duas implementações com paridade exata: TypeScript e Rust.",
           "Mantenho a plataforma em operação contínua há quase um ano, hospedando mais de 30 repositórios, empacotada em Docker sobre PHP e Apache."
+        ],
+        "sysadmin-gcp": [
+          "Opero desde 08/2025 uma plataforma Git self-hosted escrita em PHP, empacotada em Docker sobre Apache, com mais de 30 repositórios, git smart HTTP, WebDAV e controle de acesso via gitolite.",
+          "Protegi a plataforma com rate limiting, bloqueio de IP, proteção CSRF, cabeçalhos de segurança e credenciais cifradas em AES-256-GCM; o CI/CD só dispara ações assinadas por HMAC-SHA256.",
+          "Apliquei políticas de branch por hook de pré-recebimento que se auto-sincronizam em todos os repositórios, sem intervenção após o deploy."
         ]
       },
       "areas": [
@@ -1290,6 +1409,10 @@
           "Desenvolvo uma plataforma que coleta gravações de PABX e de reuniões, transcreve e produz análise de qualidade assistida por IA, em monorepo Bun com Turborepo.",
           "Implementei coleta assíncrona com filas BullMQ e Redis, integração OAuth com Google Meet e integração com PABX Yeastar por API, incluindo token compartilhado para respeitar o limite do appliance.",
           "Conduzi uma auditoria de performance da plataforma (N+1, cache, paginação, índices e bundle do frontend) que resultou em 33 correções e num checklist reutilizável aplicado antes de cada pull request."
+        ],
+        "sysadmin-gcp": [
+          "Configurei no Google Cloud o app OAuth da integração com o Google Meet (tela de consentimento, usuários de teste e URIs de redirecionamento) e mapeei o caminho de publicação com verificação de escopo sensível; o token de acesso se renova sozinho.",
+          "Implementei coleta assíncrona com filas BullMQ e Redis sobre PostgreSQL e conduzi uma auditoria de performance (N+1, cache, paginação e índices) que resultou em 33 correções."
         ]
       },
       "areas": [
@@ -1654,6 +1777,11 @@
         "dev": [
           "Diagnostiquei e corrigi uma instalação de vtiger CRM 8.4 cujo menu subiu quebrado: a origem era a tabela vtiger_app2tab incompleta (11 de 38 vínculos), e o Menu Editor da interface só faz UPDATE, nunca INSERT — não havia caminho de recuperação pela aplicação.",
           "Escrevi 3.291 linhas de PHP em scripts idempotentes e auto-descobríveis: backup antes de qualquer escrita, modo dry-run, verificação de integridade de menu, módulos órfãos, cron e permissões, com código de saída distinto quando sobra pendência manual.",
+          "Corrigi o schema do dashboard, que tinha três colunas usadas pelo código e ausentes na tabela, e consolidei tudo em um patch único de pós-instalação."
+        ],
+        "sysadmin-gcp": [
+          "Recuperei uma instalação de vtiger CRM 8.4 (PHP, MySQL e Apache) que subia com o menu quebrado: a causa estava no banco, na tabela vtiger_app2tab com 11 vínculos em vez de 38, sem caminho de correção pela interface.",
+          "Escrevi 3.291 linhas de scripts PHP idempotentes para linha de comando, com backup antes de qualquer escrita, modo dry-run, verificação de cron e permissões e código de saída próprio para o monitoramento.",
           "Corrigi o schema do dashboard, que tinha três colunas usadas pelo código e ausentes na tabela, e consolidei tudo em um patch único de pós-instalação."
         ]
       },

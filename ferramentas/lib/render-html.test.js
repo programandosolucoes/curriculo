@@ -104,3 +104,29 @@ test('o conteúdo do currículo fica isolado num container próprio', () => {
 test('o nome do arquivo exportado identifica pessoa e perfil', () => {
   assert.match(renderHtml(CV), /CV-Fulano-de-Tal-dev/);
 });
+
+test('declara o idioma do documento', () => {
+  assert.match(renderHtml(CV), /<html lang="pt-BR">/);
+  assert.match(renderHtml({ ...CV, idioma: 'en' }), /<html lang="en">/);
+  assert.match(renderHtml({ ...CV, idioma: 'it' }), /<html lang="it">/);
+});
+
+test('o PDF não parte um período entre duas linhas', () => {
+  const { protegerPeriodos } = require('./render-html');
+  const { PALAVRA_ATUAL } = require('./secoes');
+  const NBSP = ' ';
+  assert.equal(protegerPeriodos('Curso | Escola | 2016 - 2020'), `Curso | Escola | 2016${NBSP}-${NBSP}2020`);
+  assert.equal(protegerPeriodos('Dev | X | 01/2020 - 12/2022 | SP'), `Dev | X | 01/2020${NBSP}-${NBSP}12/2022 | SP`);
+  for (const palavra of Object.values(PALAVRA_ATUAL)) {
+    assert.equal(protegerPeriodos(`2025 - ${palavra}`), `2025${NBSP}-${NBSP}${palavra}`,
+      `"${palavra}" não é protegida: atualize protegerPeriodos junto com PALAVRA_ATUAL`);
+  }
+  // Hífen que não é de período fica como está.
+  assert.equal(protegerPeriodos('ESAB - Escola Superior'), 'ESAB - Escola Superior');
+});
+
+test('o script embutido usa a proteção de período', () => {
+  const html = renderHtml(CV);
+  assert.match(html, /var protegerPeriodos = function protegerPeriodos/);
+  assert.match(html, /splitTextToSize\(protegerPeriodos\(texto\)/);
+});

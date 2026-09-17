@@ -4,6 +4,10 @@
  * Combina `cv/mestre.json` com cada receita em `perfis/*.json` e escreve
  * `cv/<perfil>/cv.txt` e `cv/<perfil>/cv.html`.
  *
+ * Receita com `"idiomas": ["en", "it"]` sai em cada um desses idiomas, em
+ * `cv/<perfil>-<idioma>/`, com o texto lido de `cv/mestre.<idioma>.json`.
+ * Sem o campo, sai só em português, como sempre.
+ *
  * NENHUM arquivo em `cv/<perfil>/` deve ser editado à mão: são derivados e a
  * próxima execução sobrescreve. Para mudar o currículo, mude o mestre.
  *
@@ -12,7 +16,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
-const { montarCv } = require('./lib/montar-cv');
+const { montarCv, idDeSaida } = require('./lib/montar-cv');
 const { renderTxt } = require('./lib/render-txt');
 const { renderHtml } = require('./lib/render-html');
 
@@ -58,31 +62,46 @@ function main() {
     }
   }
 
-  let padraoGerado = null;
-  for (const receita of receitas) {
-    let cv;
-    try {
-      cv = montarCv(mestre, receita);
-    } catch (err) {
-      console.error(`[gerar-cv] Perfil "${receita.id}": ${err.message}`);
-      process.exit(1);
+  // Cada tradução é lida uma vez só, e só se alguma receita pedir o idioma.
+  const traducoes = new Map();
+  function traducao(idioma) {
+    if (idioma === 'pt') return undefined;
+    if (!traducoes.has(idioma)) {
+      traducoes.set(idioma, lerJson(path.join(DIR_CV, `mestre.${idioma}.json`)));
     }
+    return traducoes.get(idioma);
+  }
 
-    const destino = path.join(DIR_CV, receita.id);
-    fs.mkdirSync(destino, { recursive: true });
-    const txt = renderTxt(cv);
-    fs.writeFileSync(path.join(destino, 'cv.txt'), txt);
-    fs.writeFileSync(path.join(destino, 'cv.html'), renderHtml(cv));
+  let padraoGerado = null;
+  let gerados = 0;
+  for (const receita of receitas) {
+    for (const idioma of receita.idiomas || ['pt']) {
+      let cv;
+      try {
+        cv = montarCv(mestre, receita, { idioma, traducao: traducao(idioma) });
+      } catch (err) {
+        console.error(`[gerar-cv] Perfil "${receita.id}" (${idioma}): ${err.message}`);
+        process.exit(1);
+      }
 
-    const palavras = txt.split(/\s+/).filter(Boolean).length;
-    console.log(
-      `[gerar-cv] ${receita.id.padEnd(10)} ${String(cv.secoes.length).padStart(2)} seções  ` +
-      `${String(palavras).padStart(4)} palavras  →  cv/${receita.id}/`,
-    );
+      const id = idDeSaida(receita, idioma);
+      const destino = path.join(DIR_CV, id);
+      fs.mkdirSync(destino, { recursive: true });
+      const txt = renderTxt(cv);
+      fs.writeFileSync(path.join(destino, 'cv.txt'), txt);
+      fs.writeFileSync(path.join(destino, 'cv.html'), renderHtml(cv));
+      gerados += 1;
+
+      const palavras = txt.split(/\s+/).filter(Boolean).length;
+      console.log(
+        `[gerar-cv] ${id.padEnd(10)} ${String(cv.secoes.length).padStart(2)} seções  ` +
+        `${String(palavras).padStart(4)} palavras  →  cv/${id}/`,
+      );
+    }
     if (receita.padrao) padraoGerado = receita.id;
   }
 
-  console.log(`\n[gerar-cv] ${receitas.length} perfil(is), ${receitas.length * 2} arquivo(s).`);
+  console.log(`\n[gerar-cv] ${receitas.length} perfil(is), ${gerados * 2} arquivo(s).`);
 
   if (padraoGerado) {
     console.log(`\nPerfil padrão: ${padraoGerado}. Para sincronizar com os bots de candidatura:`);

@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlos Alberto - Sistemista Linux Senior (GCP)</title>
+<style id="estilo-cv">
+  :root { --tinta: #111; --suave: #444; --linha: #bbb; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto; max-width: 820px; padding: 32px 28px 64px;
+    font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+    font-size: 11pt; line-height: 1.45; color: var(--tinta); background: #fff;
+  }
+  h1 { font-size: 20pt; margin: 0; letter-spacing: .01em; }
+  .cargo { font-size: 12.5pt; color: var(--suave); margin: 2px 0 8px; font-weight: 600; }
+  .contato { font-size: 10pt; color: var(--suave); margin: 0; }
+  .contato a { color: inherit; }
+  h2 {
+    font-size: 11.5pt; margin: 22px 0 8px; padding-bottom: 3px;
+    border-bottom: 1px solid var(--linha); letter-spacing: .04em;
+  }
+  h3 { font-size: 11pt; margin: 12px 0 3px; font-weight: 700; }
+  p { margin: 0 0 8px; }
+  ul { margin: 4px 0 10px; padding-left: 20px; }
+  li { margin-bottom: 3px; }
+  .grupo-titulo { font-weight: 700; margin: 10px 0 2px; }
+  .barra {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--linha);
+  }
+  .barra button {
+    font: inherit; font-size: 10pt; cursor: pointer;
+    padding: 7px 14px; border-radius: 6px;
+    color: var(--tinta); background: #f4f4f6; border: 1px solid var(--linha);
+  }
+  .barra button:hover { background: #e8e8ec; }
+  .barra .dica { font-size: 9.5pt; color: var(--suave); align-self: center; margin: 0; }
+  @media print {
+    body { max-width: none; padding: 0; font-size: 10.5pt; }
+    @page { margin: 14mm; }
+    h2, h3, li { break-inside: avoid; }
+    .barra { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="barra">
+  <button type="button" id="btn-pdf">Baixar PDF</button>
+  <button type="button" id="btn-doc">Baixar Word (.doc)</button>
+  <p class="dica">O PDF é gerado e baixado direto: texto selecionável, sem cabeçalho nem rodapé do navegador.</p>
+</div>
+
+<div id="curriculo">
+<h1>Carlos Alberto</h1>
+<p class="cargo">Sistemista Linux Senior (GCP)</p>
+<p class="contato">San Paolo, SP, Brasile | +55 11 2615-2880 | carlosalberto4ti@gmail.com</p>
+<p class="contato">linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br</p>
+
+<h2>PROFILO PROFESSIONALE</h2>
+<p>Sistemista Linux Senior con oltre 12 anni di esperienza in infrastrutture mission-critical e sviluppo software, certificato RHCSA e LPIC-1. Gestisco server Linux, virtualizzazione (Proxmox, KVM, VMware vSphere, OpenStack) e cloud pubblico: Google Cloud Platform (Compute Engine, Cloud SQL, Cloud Storage, GKE, Cloud Run e service account IAM) e AWS. Scrivo PHP (Laravel), Bash e SQL (MySQL, MariaDB, PostgreSQL): script di manutenzione idempotenti, correzioni dei dati direttamente sul database, tuning e migrazioni versionate, oltre a Python e Java. Ho ridotto del 40% il tempo medio di rilevamento dei guasti (MTTD) con Zabbix, ho garantito uno SLO del 99,99% nel mercato italiano della telefonia e ho gestito backup e disaster recovery per oltre 100 clienti, con reperibilità di terzo livello (L3) e post-mortem documentati. Parlo italiano fluentemente.</p>
+
+<h2>RISULTATI PRINCIPALI</h2>
+<ul>
+  <li>Rilevamento guasti più rapido: ridotto del 40% il tempo medio di rilevamento (MTTD) con nuovi template di osservabilità.</li>
+  <li>Disponibilità del servizio: raggiunto un obiettivo di disponibilità (SLO) del 99,99% per servizi critici nel mercato italiano della telefonia.</li>
+  <li>Onboarding dei clienti più rapido: ridotto del 60% il tempo di attivazione dei nuovi clienti con il provisioning zero-touch.</li>
+</ul>
+
+<h2>COMPETENZE</h2>
+<p class="grupo-titulo">Amministrazione di sistemi Linux</p>
+<ul>
+  <li>Server Linux (Red Hat, Rocky Linux, Ubuntu), certificazioni RHCSA e LPIC-1</li>
+  <li>systemd, cron, Apache, Nginx, gunicorn e health check</li>
+  <li>Virtualizzazione e container: Proxmox VE, KVM, LXC, VMware vSphere, OpenStack, Docker, Docker Compose e Kubernetes</li>
+  <li>Rete e sicurezza: iptables e NAT multi-tenant, pfSense, OpenVPN, Squid, Fail2ban, WAF ModSecurity con regole OWASP e hardening</li>
+  <li>Monitoraggio con Zabbix (template personalizzati, SNMP e discovery automatica), metriche in formato Prometheus e Sentry</li>
+  <li>Backup automatizzati, disaster recovery (DR) e alta affidabilità</li>
+  <li>Automazione con Ansible (ruoli per tipo di server e inventario generato per job) e provisioning tramite l'API di Proxmox VE</li>
+  <li>Reperibilità di terzo livello (L3), gestione degli incidenti e post-mortem con causa radice e test di regressione</li>
+</ul>
+<p class="grupo-titulo">Google Cloud Platform (GCP) e cloud</p>
+<ul>
+  <li>GCP: Compute Engine (VM Linux), Cloud SQL, Cloud Storage, GKE e Cloud Run</li>
+  <li>GCP IAM: service account, progetto dedicato per le quote delle API e app OAuth (schermata di consenso, utenti di test, pubblicazione e verifica degli ambiti sensibili)</li>
+  <li>API di Google Workspace: Drive e Meet</li>
+  <li>AWS (S3 con URL prefirmati) e Microsoft Entra ID (Azure AD) con OAuth2</li>
+  <li>CI/CD con Bitbucket Pipelines, Jenkins e GitHub Actions; Git con code review tramite pull request</li>
+</ul>
+<p class="grupo-titulo">PHP, Bash e SQL</p>
+<ul>
+  <li>PHP 8 e Laravel 12: piattaforme SaaS multi-tenant, add-on e script di manutenzione da riga di comando</li>
+  <li>PHPUnit: 23 suite sulla piattaforma omnicanale e test dell'add-on PHP per pfSense</li>
+  <li>Bash: script di installazione e deploy e attività pianificate con cron</li>
+  <li>SQL: MySQL, MariaDB, PostgreSQL 17 e SQLite; modellazione relazionale, indici, tuning, PL/pgSQL e migrazioni versionate</li>
+  <li>Diagnosi e correzione di dati e schema direttamente sui database di produzione, con backup prima di ogni scrittura</li>
+  <li>Python e Java (Spring Boot) per automazione e integrazione; API REST, webhook e JSON-RPC</li>
+</ul>
+
+<h2>ESPERIENZA PROFESSIONALE</h2>
+<h3>Ingegnere VoIP | Akiva Software | 09/2025 - 11/2025 | San Paolo, Brasile</h3>
+<ul>
+  <li>Ho ottimizzato il deploy dell'applicazione con script di installazione automatica delle dipendenze e ho aggiornato il sistema operativo di base dei server di telefonia.</li>
+  <li>Ho aumentato la capacità del servizio di classificazione delle chiamate installando e configurando nuovi server dedicati.</li>
+  <li>Ho risolto incidenti critici di produzione come supporto di terzo livello (L3).</li>
+  <li>Tecnologie: Linux, Python, Java, Asterisk, classificatore Khomp e codec G.729.</li>
+</ul>
+<h3>Architetto di Soluzioni VoIP Senior | On Vox | 09/2024 - 11/2025 | San Paolo, Brasile</h3>
+<ul>
+  <li>Ho progettato e realizzato l'infrastruttura IaaS della piattaforma di call center con Proxmox e Kubernetes (K8s), dimensionata per oltre 500 operatori simultanei.</li>
+  <li>Ho condotto le migrazioni dei clienti da GoTo a Yeastar PBX senza alcun fermo per le attività critiche.</li>
+  <li>Ho integrato la classificazione tramite Intelligenza Artificiale (IA) nel sistema di billing in Python, aumentando del 30% l'efficienza delle campagne.</li>
+  <li>Tecnologie: Linux, Proxmox, Kubernetes, Python, Java, Asterisk e Yeastar.</li>
+</ul>
+<h3>Analista SRE DevOps | Open New | 08/2024 - 11/2025 | Brasília, Brasile</h3>
+<ul>
+  <li>Ho ridotto del 40% il tempo medio di rilevamento dei guasti (MTTD) modernizzando il monitoraggio Zabbix con nuovi template di osservabilità.</li>
+  <li>Ho progettato e gestito routine di backup automatizzate, garantendo il 100% di capacità di disaster recovery (DR) per oltre 100 clienti.</li>
+  <li>Sono stato l'ultimo livello di escalation (L3) per incidenti critici di architettura e prestazioni in produzione.</li>
+  <li>Tecnologie: Linux, Zabbix, Python, Java e Asterisk.</li>
+</ul>
+<h3>Ingegnere VoIP Senior | Ip Telecom | 01/2023 - 11/2025 | Italia</h3>
+<ul>
+  <li>Sono stato l'architetto di soluzioni della piattaforma di telefonia COMMUNI5/PORTSIP, garantendo un uptime del 99,99% per servizi critici nel mercato italiano.</li>
+  <li>Ho guidato la standardizzazione del provisioning dei dispositivi e ho creato un sistema zero-touch che ha ridotto del 60% i tempi di attivazione dei nuovi clienti.</li>
+  <li>Tecnologie: Python, Java, COMMUNI5/PORTSIP e provisioning zero-touch (Snom, Fanvil).</li>
+</ul>
+<h3>Analista Sviluppatore Senior | TW-Solutions Telecomunicações | 06/2022 - 08/2024 | San Paolo, Brasile</h3>
+<ul>
+  <li>Ho progettato un PBX in cluster multi-tenant con scalabilità orizzontale, con Kamailio come bilanciatore di carico e Asterisk come media server.</li>
+  <li>Ho integrato le piattaforme tramite API RESTful in Node.js che elaborano oltre 1 milione di eventi di chiamata al giorno.</li>
+  <li>Sono stato il riferimento tecnico per le pipeline CI/CD e la code review delle pull request su Bitbucket, in un team agile (Scrum/JIRA).</li>
+  <li>Tecnologie: Linux, Python, Java, Node.js, Kamailio, Asterisk, Bitbucket Pipelines e JIRA.</li>
+</ul>
+<h3>Architetto Senior (Sviluppo e Telecomunicazioni) | 55PBX | 11/2021 - 06/2022 | San Paolo, Brasile</h3>
+<ul>
+  <li>Ho progettato e realizzato l'architettura di bordo (SBC) ad alta affidabilità dell'azienda, combinando Asterisk, OpenSIPS e Kamailio.</li>
+  <li>Ho ridotto i costi di telefonia di oltre il 300% con API a microservizi in Node.js che hanno sostituito software di terze parti a licenza.</li>
+  <li>Tecnologie: Linux, Python, Java, Node.js, Asterisk, OpenSIPS e Kamailio.</li>
+</ul>
+<h3>Sviluppatore Senior e Tech Lead | ELEV Tecnologia | 04/2020 - 03/2022 | San Paolo, Brasile</h3>
+<ul>
+  <li>Ho sviluppato il backend (API REST in PHP e Node.js) e il frontend (Angular) della piattaforma di gestione del call center.</li>
+  <li>Ho guidato l'architettura tecnica dei progetti Asterisk e full-stack, coordinando 11 sviluppatori e curando la code review dei rilasci del team.</li>
+  <li>Ho progettato l'integrazione con Zendesk e Power BI, diventata un nuovo prodotto commerciale, con un aumento del 200% dei nuovi ricavi da servizi.</li>
+  <li>Tecnologie: PHP, Python, Java, Node.js, Angular, Asterisk, Zendesk e Power BI.</li>
+</ul>
+<h3>Sviluppatore (livello intermedio) | TLD Teledata Tecnologia | 12/2019 - 05/2020 | San Paolo, Brasile</h3>
+<ul>
+  <li>Ho gestito diverse piattaforme Asterisk (FreePBX, Xcally, Xorcom) con oltre 200 operatori simultanei in più di 100 aziende clienti.</li>
+  <li>Ho sviluppato report e dashboard di Business Intelligence (BI) usati dai manager di oltre 25 aziende clienti.</li>
+  <li>Tecnologie: Linux, Python, Java e Asterisk (FreePBX, Xcally, Xorcom).</li>
+</ul>
+<h3>Analista Infrastruttura e Reti IT | EZ-Security | 01/2018 - 08/2018</h3>
+<ul>
+  <li>Ho automatizzato la risposta agli incidenti installando VM e configurando Zabbix (SNMP) per monitorare le metriche vitali, con apertura automatica dei ticket per i team responsabili.</li>
+  <li>Tecnologie: Zabbix (SNMP), virtualizzazione, Python e Java.</li>
+</ul>
+<h3>Analista Telecomunicazioni (livello intermedio) | Sothis Telecom | 05/2017 - 08/2019</h3>
+<ul>
+  <li>Ho amministrato piattaforme cloud (VMware vSphere, OpenStack) in un ambiente di oltre 400 server, mantenendo un uptime del 99,99%.</li>
+  <li>Ho risolto ticket di terzo livello (L3) per NOC, virtualizzazione e server Linux.</li>
+  <li>Tecnologie: Linux, VMware vSphere, OpenStack, Python e Java.</li>
+</ul>
+<h3>Analista Infrastruttura e Reti IT | E-Prepag Fintech | 03/2015 - 12/2017</h3>
+<ul>
+  <li>Ho garantito il 100% della continuità operativa redigendo il piano completo di disaster recovery (DR) e gestendo tutte le routine di backup off-site.</li>
+  <li>Ho implementato l'architettura di sicurezza web (WAF) della fintech con ModSecurity e regole OWASP contro SQL injection, XSS e attacchi brute force.</li>
+  <li>Ho sviluppato l'analisi automatizzata dei log a livello SOC con Fail2ban, riducendo di oltre il 99% i tempi di risposta agli incidenti.</li>
+  <li>Ho migrato il PBX legacy Elastix a FreePBX, con un notevole risparmio annuo.</li>
+  <li>Tecnologie: Linux, ModSecurity, Fail2ban, Elastix, FreePBX, Python e Java.</li>
+</ul>
+<h3>Analista Infrastruttura | All Net Group | 04/2013 - 02/2015</h3>
+<ul>
+  <li>Ho risolto problemi di supporto di terzo livello (L3) per NOC, virtualizzazione e server Windows e Linux, mantenendo la stabilità dei sistemi per oltre 800 utenti in 40 account clienti.</li>
+  <li>Tecnologie: Linux, Windows Server, Python e Java.</li>
+</ul>
+
+<h2>PROGETTI</h2>
+<h3>API di ricerca e consegna documenti per un archivio contabile (n8n) | progetto proprio/freelance | 08/2026 - presente</h3>
+<ul>
+  <li>Ho realizzato su n8n self-hosted (Docker) un'API di ricerca e consegna di documenti sul Google Drive di uno studio contabile: 15 workflow, 14 Data Table e 53 rotte webhook su 163.738 cartelle indicizzate.</li>
+  <li>Ho autenticato l'accesso a Drive con un service account di Google Cloud (IAM) in un progetto dedicato: la quota condivisa di un'app di terze parti si è esaurita tre volte in un giorno, mentre il progetto dedicato consente circa 12.000 chiamate al minuto.</li>
+  <li>Ho monitorato CPU, memoria e ritardo dell'event loop tramite le metriche in formato Prometheus esposte da n8n (/metrics); 219 casi di test coprono il comportamento.</li>
+</ul>
+<h3>Ripristino e gestione di un CRM vtiger in produzione | progetto proprio/freelance | 08/2026</h3>
+<ul>
+  <li>Ho ripristinato un'installazione di vtiger CRM 8.4 (PHP, MySQL e Apache) che si avviava con il menu danneggiato: la causa era nel database, dove la tabella vtiger_app2tab aveva 11 collegamenti invece di 38, senza possibilità di correzione dall'interfaccia.</li>
+  <li>Ho scritto 3.291 righe di script PHP idempotenti da riga di comando, con backup prima di ogni scrittura, modalità dry-run, verifica di cron e permessi e un codice di uscita dedicato per il monitoraggio.</li>
+  <li>Ho corretto lo schema della dashboard, a cui mancavano tre colonne usate dal codice, e ho riunito tutto in un'unica patch post-installazione.</li>
+</ul>
+<h3>Piattaforma Git self-hosted | progetto personale, in uso professionale continuo | 08/2025 - presente</h3>
+<ul>
+  <li>Gestisco dall'08/2025 una piattaforma Git self-hosted scritta in PHP, containerizzata con Docker su Apache, con oltre 30 repository, Git smart HTTP, WebDAV e controllo degli accessi tramite gitolite.</li>
+  <li>Ho protetto la piattaforma con rate limiting, blocco degli IP, protezione CSRF, header di sicurezza e credenziali cifrate con AES-256-GCM; la CI/CD avvia solo azioni firmate con HMAC-SHA256.</li>
+  <li>Ho applicato policy di branch tramite hook pre-receive che si sincronizzano da sole su tutti i repository, senza interventi dopo il deploy.</li>
+</ul>
+<h3>Piattaforma di dialer VoIP per call center | progetto proprio/freelance | 01/2025 - 08/2026</h3>
+<ul>
+  <li>Ho automatizzato il provisioning end-to-end: il pannello crea i container LXC tramite l'API di Proxmox VE e applica un playbook Ansible con sei ruoli (base, tuning, database, callback, IVR e motore di chiamata), seguito da smoke test.</li>
+  <li>Ho configurato NAT e iptables multi-tenant e modellato 17 tabelle su PostgreSQL 17 con tuning manuale, con i record CDR e CEL scritti nel database tramite ODBC.</li>
+  <li>Ho realizzato un'autocorrezione che riapplica il ruolo Ansible a un singolo host, con un blocco che rifiuta i target non validi per non riconfigurare i container in servizio.</li>
+</ul>
+<h3>Piattaforma omnicanale multi-tenant per l'assistenza clienti | progetto proprio/freelance | 02/2026 - 07/2026</h3>
+<ul>
+  <li>Ho guidato la riscrittura di una piattaforma SaaS di assistenza clienti da Node.js/React a Laravel 12 e PHP 8.2 su PostgreSQL, a parità di funzionalità, per consentirne l'hosting in proprio.</li>
+  <li>Ho implementato RBAC multi-tenant a 4 livelli, job asincroni e 5 gateway WhatsApp dietro un'unica interfaccia (pattern Strategy), con 41 migrazioni e 23 suite PHPUnit.</li>
+</ul>
+<h3>Piattaforma di analisi delle interazioni con IA | prodotto per un cliente | 05/2026 - presente</h3>
+<ul>
+  <li>Ho configurato su Google Cloud l'app OAuth dell'integrazione con Google Meet (schermata di consenso, utenti di test e URI di reindirizzamento) e ho definito il percorso di pubblicazione con verifica degli ambiti sensibili; il token di accesso si rinnova da solo.</li>
+  <li>Ho implementato la raccolta asincrona con code BullMQ e Redis su PostgreSQL e ho condotto un audit delle prestazioni (query N+1, cache, paginazione e indici) che ha portato a 33 correzioni.</li>
+</ul>
+
+<h2>ISTRUZIONE E FORMAZIONE</h2>
+<ul>
+  <li>Specializzazione post-laurea in Data Warehouse e Business Intelligence | UniBF Centro Universitário | 2025 - presente</li>
+  <li>Laurea (Bachelor) in Scienze dell'Intelligenza Artificiale | UniBF Centro Universitário | 2025 - presente</li>
+  <li>Specializzazione post-laurea in Basi di Dati | Faculdade Play | 2020 - 2024</li>
+  <li>Laurea (Bachelor) in Sistemi Informativi | ESAB - Escola Superior Aberta do Brasil | 2016 - 2020</li>
+  <li>Gestione delle Tecnologie dell'Informazione | Faculdade Sumaré | 2009 - 2012</li>
+</ul>
+
+<h2>CERTIFICAZIONI E CORSI</h2>
+<ul>
+  <li>Digium Certified Asterisk Administrator (dCAA) - Sangoma University (2019)</li>
+  <li>Asterisk Certified Essentials (ACE) - Sangoma University (2021)</li>
+  <li>FreePBX Certified Essentials - Sangoma University (2022)</li>
+  <li>LPIC-1 - Linux Professional Institute (2016)</li>
+  <li>Red Hat Certified System Administrator (RHCSA) (2022)</li>
+  <li>VoIP e telefonia: Asterisk SCF (Advanced), OpenSIPS, Issabel PBX, Elastix, FusionPBX, SIP Foundations</li>
+  <li>Linux e DevOps: LPIC-2, LPIC-3, DevOps Foundation, Docker, Zabbix, Bacula, Nagios</li>
+  <li>Cloud e infrastruttura: OpenStack Infrastructure, AWS Foundations, Mikrotik</li>
+  <li>Sicurezza e reti: Penetration Testing (4Linux), pfSense, ModSecurity, Linux Security, Squid Proxy</li>
+  <li>Sviluppo e database: PHP Full Stack Developer, MySQL Tuning, Apache, Nginx, DNS Bind 9</li>
+</ul>
+
+<h2>LINGUE</h2>
+<ul>
+  <li>Portoghese: madrelingua</li>
+  <li>Italiano: fluente (competenza professionale)</li>
+  <li>Spagnolo: avanzato</li>
+  <li>Inglese: intermedio-avanzato (uso professionale in ambito tecnico)</li>
+</ul>
+</div>
+
+<script src="../vendor/jspdf.umd.min.js"></script>
+<script>
+var JSPDF_CDN = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js";
+
+function comJsPdf(continuar) {
+  if (window.jspdf && window.jspdf.jsPDF) { continuar(window.jspdf.jsPDF); return; }
+  var script = document.createElement('script');
+  script.src = JSPDF_CDN;
+  script.onload = function () { continuar(window.jspdf.jsPDF); };
+  script.onerror = function () {
+    alert('Não consegui carregar o gerador de PDF (nem cv/vendor/jspdf.umd.min.js, nem o CDN). ' +
+          'Alternativa: Ctrl+P e desmarcar "cabeçalhos e rodapés".');
+  };
+  document.head.appendChild(script);
+}
+
+var protegerPeriodos = function protegerPeriodos(texto) {
+  return texto.replace(
+    /(?:\d{2}\/)?\d{4} - (?:(?:\d{2}\/)?\d{4}|atual|Present|presente)/g,
+    function (periodo) { return periodo.replace(/ /g, '\u00a0'); },
+  );
+};
+
+function textoDe(el) {
+  return el.textContent.replace(/\s+/g, ' ').trim();
+}
+
+function gerarPdf(JsPDF) {
+  var doc = new JsPDF({ unit: 'pt', format: 'a4', compress: true });
+  var MARGEM_X = 48, MARGEM_TOPO = 46, MARGEM_BASE = 46;
+  var larguraPagina = doc.internal.pageSize.getWidth();
+  var alturaPagina = doc.internal.pageSize.getHeight();
+  var largura = larguraPagina - 2 * MARGEM_X;
+  var TINTA = [17, 17, 17], SUAVE = [68, 68, 68], LINHA = [187, 187, 187];
+  var y = MARGEM_TOPO;
+
+  function caber(altura) {
+    if (y + altura > alturaPagina - MARGEM_BASE) { doc.addPage(); y = MARGEM_TOPO; }
+  }
+
+  // manterCom: altura que precisa caber junto com a primeira linha, para um
+  // título não ficar sozinho no pé da página, separado do que ele intitula.
+  function bloco(texto, o) {
+    doc.setFont('helvetica', o.negrito ? 'bold' : 'normal');
+    doc.setFontSize(o.tamanho);
+    doc.setTextColor(o.cor[0], o.cor[1], o.cor[2]);
+    var entrelinha = o.tamanho * 1.35;
+    var recuo = o.recuo || 0;
+    var linhas = doc.splitTextToSize(protegerPeriodos(texto), largura - recuo)
+      .map(function (l) { return l.replace(/\u00a0/g, ' '); });
+    y += o.antes || 0;
+    // Item de lista curto não se parte entre duas páginas.
+    var inteiro = o.inteiro && linhas.length <= 4 ? linhas.length * entrelinha : entrelinha;
+    caber(inteiro + (o.manterCom || 0));
+    for (var i = 0; i < linhas.length; i++) {
+      caber(entrelinha);
+      if (i === 0 && o.marcador) doc.text(o.marcador, MARGEM_X + recuo - 10, y, { baseline: 'top' });
+      doc.text(linhas[i], MARGEM_X + recuo, y, { baseline: 'top' });
+      y += entrelinha;
+    }
+    y += o.depois || 0;
+  }
+
+  var filhos = document.getElementById('curriculo').children;
+  for (var i = 0; i < filhos.length; i++) {
+    var el = filhos[i];
+    var classe = el.classList;
+    if (el.tagName === 'H1') {
+      bloco(textoDe(el), { tamanho: 20, negrito: true, cor: TINTA, depois: 2 });
+    } else if (el.tagName === 'H2') {
+      bloco(textoDe(el), { tamanho: 11.5, negrito: true, cor: TINTA, antes: 12, manterCom: 40 });
+      doc.setDrawColor(LINHA[0], LINHA[1], LINHA[2]);
+      doc.setLineWidth(0.6);
+      doc.line(MARGEM_X, y + 1, larguraPagina - MARGEM_X, y + 1);
+      y += 7;
+    } else if (el.tagName === 'H3') {
+      bloco(textoDe(el), { tamanho: 10.5, negrito: true, cor: TINTA, antes: 6, depois: 1, manterCom: 28 });
+    } else if (el.tagName === 'UL') {
+      for (var j = 0; j < el.children.length; j++) {
+        bloco(textoDe(el.children[j]), { tamanho: 10, cor: TINTA, recuo: 14, marcador: '•', depois: 2, inteiro: true });
+      }
+      y += 3;
+    } else if (classe.contains('cargo')) {
+      bloco(textoDe(el), { tamanho: 12.5, negrito: true, cor: SUAVE, depois: 5 });
+    } else if (classe.contains('contato')) {
+      bloco(textoDe(el), { tamanho: 9.5, cor: SUAVE, depois: 1 });
+    } else if (classe.contains('grupo-titulo')) {
+      bloco(textoDe(el), { tamanho: 10.5, negrito: true, cor: TINTA, antes: 5, depois: 1, manterCom: 14 });
+    } else if (el.tagName === 'P') {
+      bloco(textoDe(el), { tamanho: 10, cor: TINTA, depois: 3 });
+    }
+  }
+
+  doc.setProperties({
+    title: document.title,
+    author: "Carlos Alberto",
+    subject: "Sistemista Linux Senior (GCP)",
+    creator: 'curriculo / gerar-cv.js',
+  });
+  doc.save("CV-Carlos-Alberto-sysadmin-gcp-it" + '.pdf');
+}
+
+document.getElementById('btn-pdf').addEventListener('click', function () {
+  comJsPdf(gerarPdf);
+});
+
+document.getElementById('btn-doc').addEventListener('click', function () {
+  var conteudo = document.getElementById('curriculo').innerHTML;
+  var estilo = document.getElementById('estilo-cv').innerHTML;
+  var documento =
+    '<html xmlns:o="urn:schemas-microsoft-com:office:office"' +
+    ' xmlns:w="urn:schemas-microsoft-com:office:word"' +
+    ' xmlns="http://www.w3.org/TR/REC-html40">' +
+    '<head><meta charset="utf-8"><style>' + estilo + '</style></head>' +
+    '<body>' + conteudo + '</body></html>';
+
+  // O BOM faz o Word reconhecer o UTF-8 e não corromper os acentos.
+  var blob = new Blob(['\ufeff', documento], { type: 'application/msword' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url;
+  link.download = "CV-Carlos-Alberto-sysadmin-gcp-it" + '.doc';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>

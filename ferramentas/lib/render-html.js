@@ -68,6 +68,23 @@ const JSPDF_LOCAL = '../vendor/jspdf.umd.min.js';
 const JSPDF_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js';
 
 /**
+ * Troca por espaço inquebrável os espaços de um período ("2025 - Present"),
+ * para a quebra de linha do PDF não partir a data. Partida no hífen, o
+ * extrator de texto junta as duas linhas e engole o traço ("2025 presente",
+ * medido em 17/09/2026). O jsPDF só quebra em espaço comum; depois de
+ * quebrar, o espaço normal volta, e o texto extraído não muda.
+ *
+ * Embutida no HTML por `toString()`, por isso não usa nada de fora dela. As
+ * palavras de "em curso" repetem `PALAVRA_ATUAL`; o teste confere as duas.
+ */
+function protegerPeriodos(texto) {
+  return texto.replace(
+    /(?:\d{2}\/)?\d{4} - (?:(?:\d{2}\/)?\d{4}|atual|Present|presente)/g,
+    function (periodo) { return periodo.replace(/ /g, '\u00a0'); },
+  );
+}
+
+/**
  * Script de exportação, embutido no arquivo.
  *
  * PDF sai do jsPDF, escrito como TEXTO, e é baixado direto. A impressão do
@@ -101,6 +118,8 @@ function comJsPdf(continuar) {
   document.head.appendChild(script);
 }
 
+var protegerPeriodos = ${protegerPeriodos.toString()};
+
 function textoDe(el) {
   return el.textContent.replace(/\\s+/g, ' ').trim();
 }
@@ -126,7 +145,8 @@ function gerarPdf(JsPDF) {
     doc.setTextColor(o.cor[0], o.cor[1], o.cor[2]);
     var entrelinha = o.tamanho * 1.35;
     var recuo = o.recuo || 0;
-    var linhas = doc.splitTextToSize(texto, largura - recuo);
+    var linhas = doc.splitTextToSize(protegerPeriodos(texto), largura - recuo)
+      .map(function (l) { return l.replace(/\\u00a0/g, ' '); });
     y += o.antes || 0;
     // Item de lista curto não se parte entre duas páginas.
     var inteiro = o.inteiro && linhas.length <= 4 ? linhas.length * entrelinha : entrelinha;
@@ -253,6 +273,9 @@ const RENDERIZADORES = {
   idiomas: secao => lista(secao.itens),
 };
 
+/** Valor do atributo `lang`: leitor de tela e hifenização dependem dele. */
+const LANG_HTML = { pt: 'pt-BR', en: 'en', it: 'it' };
+
 /**
  * @param {object} cv objeto devolvido por `montarCv`
  * @returns {string} documento HTML completo
@@ -271,7 +294,7 @@ function renderHtml(cv) {
   const arquivo = nomeDeArquivo(pessoal.nome, cv.perfil);
 
   return `<!doctype html>
-<html lang="pt-BR">
+<html lang="${LANG_HTML[cv.idioma] || LANG_HTML.pt}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -301,4 +324,4 @@ ${corpo}
 `;
 }
 
-module.exports = { renderHtml };
+module.exports = { renderHtml, protegerPeriodos };

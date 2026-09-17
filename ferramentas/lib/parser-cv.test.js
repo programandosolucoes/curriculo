@@ -99,3 +99,54 @@ test('trata "atual" como o mês de referência', () => {
   const emAberto = [{ intervalo: { inicio: paraMeses('07', '2024'), fim: null } }];
   assert.equal(anosDeExperiencia(emAberto, AGORA), 2);
 });
+
+const CV_EN = `CARLOS ALBERTO
+Senior Linux Systems Administrator
+São Paulo, Brazil | +55 11 2615-2880 | carlos@exemplo.com
+
+PROFESSIONAL SUMMARY
+Someone who does things.
+
+PROFESSIONAL EXPERIENCE
+Senior Dev | Company One | 01/2020 - 12/2022 | São Paulo
+- Did a thing.
+Analyst | Company Two | 01/2023 - Present | Remote
+- Did another thing.
+
+EDUCATION
+- Bachelor | University | 2016 - 2020
+
+LANGUAGES
+- Portuguese: native
+`;
+
+const CV_IT = CV_EN
+  .replace('PROFESSIONAL SUMMARY', 'PROFILO PROFESSIONALE')
+  .replace('PROFESSIONAL EXPERIENCE', 'ESPERIENZA PROFESSIONALE')
+  .replace('EDUCATION', 'ISTRUZIONE E FORMAZIONE')
+  .replace('LANGUAGES', 'LINGUE')
+  .replace('01/2023 - Present', '01/2023 - presente');
+
+test('lê currículo em inglês: seções, empregos em curso e formação', () => {
+  const r = parsearCv(CV_EN, { mesAtual: AGORA });
+  assert.deepEqual(r.problemas, []);
+  assert.equal(r.empregos.length, 2);
+  assert.equal(r.empregos[1].intervalo.fim, null);
+  assert.equal(r.anosExperiencia, 6.4);
+  assert.deepEqual(r.formacao, ['Bachelor | University | 2016 - 2020']);
+});
+
+test('lê currículo em italiano', () => {
+  const r = parsearCv(CV_IT, { mesAtual: AGORA });
+  assert.deepEqual(r.problemas, []);
+  assert.equal(r.empregos.length, 2);
+  assert.equal(r.anosExperiencia, 6.4);
+});
+
+test('linha só com período (cabeçalho quebrado no PDF) não é título de seção', () => {
+  const quebrado = CV_EN.replace(
+    'Analyst | Company Two | 01/2023 - Present | Remote',
+    'Analyst | Company Two | 01/2023 - Present | Remote\n\nPROJECTS\nLong project name | freelance |\n02/2026 - 07/2026\n- Did it.\n',
+  );
+  assert.deepEqual(parsearCv(quebrado, { mesAtual: AGORA }).problemas, []);
+});
