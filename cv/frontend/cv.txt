@@ -19,19 +19,20 @@ Frontend:
 - WebRTC (LiveKit, mediasoup) e TensorFlow.js no navegador
 
 Desenvolvimento e Banco de Dados:
-- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
 - Python (FastAPI, Flask, AGI, asyncio)
+- Java (Spring e Spring Boot, Jakarta EE com Servlets e JSP, JUnit)
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
 - PHP e Laravel 12
 - SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
 - Prisma, Drizzle ORM, SQLAlchemy
-- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços; integração com CRMs (Salesforce, Zendesk)
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
 - Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
 - Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
 - Documentação técnica: runbooks versionados, manuais de operação, documentos de arquitetura e lições aprendidas
 
 Qualidade e Testes:
-- pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
+- pytest, JUnit, PHPUnit, Vitest, runner nativo do Node, Testing Library
 - Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer
 - Code review por pull request, políticas de branch e histórico auditável
 - Teste de carga e performance com Locust
@@ -42,11 +43,11 @@ Qualidade e Testes:
 
 Cloud e DevOps:
 - Kubernetes (K8s), Docker e Docker Compose
-- AWS e GCP; AWS S3 com presigned URL
+- AWS e GCP; AWS S3 com presigned URL; Microsoft Entra ID (Azure AD) com OAuth2 para Microsoft 365
 - Proxmox, KVM, VMware vSphere, OpenStack, LXC
-- Infraestrutura como Código (IaC) e runbooks versionados
+- Infraestrutura como Código (IaC) com Ansible: roles por papel de servidor, inventário gerado por job e runbooks versionados
 - CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
-- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino e métricas no formato Prometheus), com templates próprios de coleta
 - Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação
 - systemd, gunicorn, Nginx, Apache, healthcheck
 - Automação de provisionamento via API do Proxmox VE
@@ -59,11 +60,11 @@ Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance 
 - Cobri os fluxos críticos com testes end-to-end em Cypress.
 - Na reescrita para Laravel 12, mantive a paridade de interface com Blade, Vite e TailwindCSS.
 
-Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026
+Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 08/2026
 - Desenvolvi um editor visual de fluxo de URA em React e TailwindCSS, com conversão bidirecional entre o grafo desenhado na tela e os passos executáveis do motor.
 - Construí o painel web de gestão que expõe campanhas, contatos, registros de chamada e execuções em tempo real.
 
-Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+Análise de Qualidade de Chamadas por Processamento de Sinais (DSP) e IA Local | projeto próprio/freelance | 07/2026 - atual
 - Desenvolvi um analisador de qualidade de áudio de telefonia que detecta perda de pacote, clipping, dead-air, one-way e nível/SNR baixo diretamente do sinal, em Python e NumPy: energia por frame, análise espectral (FFT) e estimativa de ruído de fundo por percentil para separar perda de pacote de pausa natural da conversa.
 - Implementei o E-model (ITU-T G.107) do zero, convertendo as detecções em R-factor e MOS, e avaliei modelos neurais no-reference (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, com decisão de arquitetura documentada por eixo de discriminação e por licenciamento comercial.
 - Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.
@@ -95,7 +96,7 @@ EXPERIÊNCIA PROFISSIONAL
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
 - Desenvolvi o frontend em Angular de uma plataforma completa de gerenciamento, junto do backend em Node.js e PHP que o alimenta.
 - Liderei a arquitetura técnica de todos os projetos fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.
-- Projetei a integração com Zendesk e Power BI que virou um novo produto, com ganho de 200% em novas receitas.
+- Projetei a integração com Salesforce, Zendesk e Power BI que virou um novo produto, com ganho de 200% em novas receitas.
 
 Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
 - Desenvolvi relatórios e dashboards de Business Intelligence (BI) usados diariamente por gerentes em mais de 25 empresas clientes.

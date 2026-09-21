@@ -75,8 +75,8 @@ Senior Architect (Development and Telecom) | 55PBX | 11/2021 - 06/2022 | São Pa
 Senior Developer and Tech Lead | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brazil
 - Built the backend (REST APIs in PHP and Node.js) and the frontend (Angular) of the call center management platform.
 - Led the technical architecture of the Asterisk and full-stack projects, supervising 11 developers and running code review of the team's deliveries.
-- Designed the Zendesk and Power BI integration that became a new commercial product, with a 200% increase in new service revenue.
-- Technologies: PHP, Python, Java, Node.js, Angular, Asterisk, Zendesk and Power BI.
+- Designed the Salesforce, Zendesk and Power BI integration that became a new commercial product, with a 200% increase in new service revenue.
+- Technologies: PHP, Python, Java, Node.js, Angular, Asterisk, Salesforce, Zendesk and Power BI.
 
 Mid-level Developer | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brazil
 - Maintained multiple Asterisk platforms (FreePBX, Xcally, Xorcom) serving more than 200 concurrent agents across more than 100 client companies.

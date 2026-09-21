@@ -11,12 +11,13 @@ PRINCIPAIS CONQUISTAS
 
 COMPETÊNCIAS
 Desenvolvimento e Banco de Dados:
-- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
 - Python (FastAPI, Flask, AGI, asyncio)
+- Java (Spring e Spring Boot, Jakarta EE com Servlets e JSP, JUnit)
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
 - PHP e Laravel 12
 - SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
 - Prisma, Drizzle ORM, SQLAlchemy
-- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços; integração com CRMs (Salesforce, Zendesk)
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
 - Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
 - Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
@@ -27,7 +28,7 @@ Ecossistema Python:
 - cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
 - Concorrência: threading, jobs assíncronos em background, asyncio
 - pytest, pytest-asyncio, cobertura de testes, Locust
-- mypy, black, flake8, PyInstaller
+- mypy, black, flake8, PyInstaller; profiling com py-spy em produção
 
 Inteligência Artificial (IA) e LLM:
 - Integração multi-provedor com fallback em cadeia (OpenRouter, OpenAI, Anthropic, NVIDIA NIM, Groq/Llama 3, Ollama)
@@ -35,14 +36,14 @@ Inteligência Artificial (IA) e LLM:
 - Reconhecimento de fala (ASR) local com faster-whisper
 - Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico
 - Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento
-- IA generativa, agentes de IA, MCP (Model Context Protocol), RAG
+- IA generativa aplicada a produto: assistente com acesso a dados, automação conversacional com escalada para humano e geração de resposta a partir de documento de referência
 - Agentes de IA com ferramentas: chamada de função (function calling), catálogo fechado por lista de permissão e servidores MCP próprios (37 ferramentas, em TypeScript e Rust)
 - RAG e busca semântica: embeddings de voz, similaridade de cosseno e busca vetorial em SQL com sqlite-vec (índice ANN)
 - Machine learning aplicado, NLP e processamento de linguagem natural
 - Engenharia assistida por IA: CLIs de agentes (Claude Code entre outros três), skills, subagentes e metodologia spec-driven
 
 Qualidade e Testes:
-- pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
+- pytest, JUnit, PHPUnit, Vitest, runner nativo do Node, Testing Library
 - Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer
 - Code review por pull request, políticas de branch e histórico auditável
 - Teste de carga e performance com Locust
@@ -53,11 +54,11 @@ Qualidade e Testes:
 
 Cloud e DevOps:
 - Kubernetes (K8s), Docker e Docker Compose
-- AWS e GCP; AWS S3 com presigned URL
+- AWS e GCP; AWS S3 com presigned URL; Microsoft Entra ID (Azure AD) com OAuth2 para Microsoft 365
 - Proxmox, KVM, VMware vSphere, OpenStack, LXC
-- Infraestrutura como Código (IaC) e runbooks versionados
+- Infraestrutura como Código (IaC) com Ansible: roles por papel de servidor, inventário gerado por job e runbooks versionados
 - CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
-- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino e métricas no formato Prometheus), com templates próprios de coleta
 - Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação
 - systemd, gunicorn, Nginx, Apache, healthcheck
 - Automação de provisionamento via API do Proxmox VE
@@ -74,12 +75,12 @@ Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance 
 - Automatizei o atendimento com um motor de automação conversacional com estado e ingestão automática de e-mail por IMAP.
 - Desenvolvi jobs assíncronos de Inteligência Artificial (IA) para análise de sentimento e qualidade, substituindo revisão manual de atendimento.
 
-Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026
+Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 08/2026
 - Arquitetei e mantive uma suite completa de discador para call center: painel web de gestão (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (Asterisk ARI/PJSIP) e engine de URA/IVR JSON-driven com 16 primitivas interpretadas pelo dialplan, com backend realtime via ODBC (unixODBC, func_odbc, CDR/CEL sobre PostgreSQL) e editor visual de fluxo em React.
 - Provisionei a infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling.
 - Modelei 17 tabelas com tuning manual de PostgreSQL e escrevi 15 suítes pytest cobrindo cada primitiva da URA ponta a ponta.
 
-Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+Análise de Qualidade de Chamadas por Processamento de Sinais (DSP) e IA Local | projeto próprio/freelance | 07/2026 - atual
 - Desenvolvi um analisador de qualidade de áudio de telefonia que detecta perda de pacote, clipping, dead-air, one-way e nível/SNR baixo diretamente do sinal, em Python e NumPy: energia por frame, análise espectral (FFT) e estimativa de ruído de fundo por percentil para separar perda de pacote de pausa natural da conversa.
 - Implementei o E-model (ITU-T G.107) do zero, convertendo as detecções em R-factor e MOS, e avaliei modelos neurais no-reference (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, com decisão de arquitetura documentada por eixo de discriminação e por licenciamento comercial.
 - Camada de Inteligência Artificial (IA) 100% local em CPU (faster-whisper e LLM GGUF via llama.cpp) classifica a transcrição com prompt few-shot de saída JSON e fallback determinístico.
@@ -116,7 +117,7 @@ Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São
 - Desenvolvi uma URA dinâmica em Python com reconhecimento de voz, automatizando triagem de chamadas.
 
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
-- Projetei a integração entre a plataforma interna, o Zendesk e o Power BI, eliminando repasse manual de dados entre as ferramentas e gerando 200% de novas receitas.
+- Projetei a integração entre a plataforma interna, o Salesforce, o Zendesk e o Power BI, eliminando repasse manual de dados entre as ferramentas e gerando 200% de novas receitas.
 - Desenvolvi backend completo em Node.js e PHP com as APIs REST que sustentam essas integrações.
 - Liderei a arquitetura técnica e o code review das entregas, supervisionando 11 desenvolvedores.
 

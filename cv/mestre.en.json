@@ -125,8 +125,8 @@
         "sysadmin-gcp": [
           "Built the backend (REST APIs in PHP and Node.js) and the frontend (Angular) of the call center management platform.",
           "Led the technical architecture of the Asterisk and full-stack projects, supervising 11 developers and running code review of the team's deliveries.",
-          "Designed the Zendesk and Power BI integration that became a new commercial product, with a 200% increase in new service revenue.",
-          "Technologies: PHP, Python, Java, Node.js, Angular, Asterisk, Zendesk and Power BI."
+          "Designed the Salesforce, Zendesk and Power BI integration that became a new commercial product, with a 200% increase in new service revenue.",
+          "Technologies: PHP, Python, Java, Node.js, Angular, Asterisk, Salesforce, Zendesk and Power BI."
         ]
       }
     },

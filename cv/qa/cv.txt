@@ -8,7 +8,7 @@ Especialista em Qualidade e Automação de Testes com base de desenvolvimento s�
 
 COMPETÊNCIAS
 Qualidade e Testes:
-- pytest, PHPUnit, Vitest, runner nativo do Node, Testing Library
+- pytest, JUnit, PHPUnit, Vitest, runner nativo do Node, Testing Library
 - Testes end-to-end com Cypress; automação de navegador com Playwright e Puppeteer
 - Code review por pull request, políticas de branch e histórico auditável
 - Teste de carga e performance com Locust
@@ -18,12 +18,13 @@ Qualidade e Testes:
 - Suporte N3: reprodução e isolamento de defeito em produção
 
 Desenvolvimento e Banco de Dados:
-- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
 - Python (FastAPI, Flask, AGI, asyncio)
+- Java (Spring e Spring Boot, Jakarta EE com Servlets e JSP, JUnit)
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
 - PHP e Laravel 12
 - SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
 - Prisma, Drizzle ORM, SQLAlchemy
-- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços; integração com CRMs (Salesforce, Zendesk)
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
 - Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
 - Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
@@ -34,15 +35,15 @@ Ecossistema Python:
 - cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
 - Concorrência: threading, jobs assíncronos em background, asyncio
 - pytest, pytest-asyncio, cobertura de testes, Locust
-- mypy, black, flake8, PyInstaller
+- mypy, black, flake8, PyInstaller; profiling com py-spy em produção
 
 Cloud e DevOps:
 - Kubernetes (K8s), Docker e Docker Compose
-- AWS e GCP; AWS S3 com presigned URL
+- AWS e GCP; AWS S3 com presigned URL; Microsoft Entra ID (Azure AD) com OAuth2 para Microsoft 365
 - Proxmox, KVM, VMware vSphere, OpenStack, LXC
-- Infraestrutura como Código (IaC) e runbooks versionados
+- Infraestrutura como Código (IaC) com Ansible: roles por papel de servidor, inventário gerado por job e runbooks versionados
 - CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git
-- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta
+- Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino e métricas no formato Prometheus), com templates próprios de coleta
 - Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação
 - systemd, gunicorn, Nginx, Apache, healthcheck
 - Automação de provisionamento via API do Proxmox VE
@@ -54,7 +55,7 @@ Motor de Automação Autônoma de Interação Web (RPA) | projeto próprio | 06/
 - Projetei o sistema para ser testável sem rede: a lógica de regras, detecção de página e estado de sessão é pura e verificável isoladamente.
 - Implementei evidência auditável por captura de tela a cada etapa, permitindo reconstruir o que a automação viu quando algo falha.
 
-Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+Análise de Qualidade de Chamadas por Processamento de Sinais (DSP) e IA Local | projeto próprio/freelance | 07/2026 - atual
 - Escrevi 121 testes automatizados em pytest para a ferramenta de auditoria de classificador, incluindo mock de HTTP e geração de WAV sintético para testar detecção sem depender de áudio real.
 - Validei o motor de detecção por autoteste que injeta defeitos conhecidos em sinal sintético e confere se cada um é apanhado, sem depender de infraestrutura externa.
 - Construí uma ferramenta de auditoria de classificador AMD (Answering Machine Detection) de terceiros, que cruza a classificação do fornecedor com análise independente para achar falso positivo nas duas direções.
@@ -98,7 +99,7 @@ Analista de Desenvolvimento Sênior | TW-Solutions Telecomunicações | 06/2022 
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
 - Liderei a arquitetura técnica de todos os projetos da empresa, supervisionando 11 desenvolvedores e conduzindo o code review que definia o padrão de qualidade do código entregue.
 - Desenvolvi backend (Node.js, PHP) e frontend (Angular) de uma plataforma completa, respondendo pela integridade das duas pontas.
-- Projetei integração com Zendesk e Power BI que se tornou um novo produto.
+- Projetei integração com Salesforce, Zendesk e Power BI que se tornou um novo produto.
 
 Analista de Telecom Pleno | Sothis Telecom | 05/2017 - 08/2019
 - Resolvi tickets de suporte N3 para NOC, virtualização e servidores Linux, mantendo 99,99% de uptime em todos os serviços.

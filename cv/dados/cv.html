@@ -48,7 +48,7 @@
 <div class="barra">
   <button type="button" id="btn-pdf">Baixar PDF</button>
   <button type="button" id="btn-doc">Baixar Word (.doc)</button>
-  <p class="dica">No diálogo de impressão, escolha "Salvar como PDF".</p>
+  <p class="dica">O PDF é gerado e baixado direto: texto selecionável, sem cabeçalho nem rodapé do navegador.</p>
 </div>
 
 <div id="curriculo">
@@ -58,7 +58,7 @@
 <p class="contato">linkedin.com/in/carlosalberto4ti | programandosolucoes.com.br</p>
 
 <h2>RESUMO PROFISSIONAL</h2>
-<p>Profissional de Dados e Business Intelligence com base sólida em engenharia de sistemas. Construí pipelines processando mais de 1 milhão de eventos diários, dashboards usados por gestores em mais de 25 empresas clientes, e sistemas analíticos que vão de modelagem relacional e tuning de PostgreSQL até processamento digital de sinais e Inteligência Artificial (IA) aplicada. Pós-graduação em Data Warehouse e Business Intelligence e Bacharelado em Ciências de Inteligência Artificial em curso.</p>
+<p>Profissional de Dados e Business Intelligence com base sólida em engenharia de sistemas. Construí pipelines processando mais de 1 milhão de eventos diários, dashboards integrando dados de CRMs (Salesforce, Zendesk) e telefonia usados por gestores em mais de 25 empresas clientes, e sistemas analíticos que vão de modelagem relacional e tuning de PostgreSQL até processamento digital de sinais e Inteligência Artificial (IA) aplicada. Pós-graduação em Data Warehouse e Business Intelligence e Bacharelado em Ciências de Inteligência Artificial em curso.</p>
 
 <h2>COMPETÊNCIAS</h2>
 <p class="grupo-titulo">Dados e Business Intelligence</p>
@@ -69,6 +69,7 @@
   <li>CDR e CEL: extração, correlação e análise de registros de chamada</li>
   <li>Pandas, NumPy e análise estatística</li>
   <li>Data Warehouse e Business Intelligence (pós-graduação em curso)</li>
+  <li>Integração e extração de dados analíticos de CRM e plataformas SaaS (Salesforce, Zendesk), alimentando Data Warehouse e painéis no Power BI</li>
   <li>Busca vetorial e JSON em SQL com medição própria: sqlite-vec com índice ANN, colunas geradas, JSONB e FTS5; Supabase avaliado e registrado como destino planejado, por ser PostgreSQL empacotado</li>
 </ul>
 <p class="grupo-titulo">Ecossistema Python</p>
@@ -77,7 +78,7 @@
   <li>cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio</li>
   <li>Concorrência: threading, jobs assíncronos em background, asyncio</li>
   <li>pytest, pytest-asyncio, cobertura de testes, Locust</li>
-  <li>mypy, black, flake8, PyInstaller</li>
+  <li>mypy, black, flake8, PyInstaller; profiling com py-spy em produção</li>
 </ul>
 <p class="grupo-titulo">Inteligência Artificial (IA) e LLM</p>
 <ul>
@@ -86,7 +87,7 @@
   <li>Reconhecimento de fala (ASR) local com faster-whisper</li>
   <li>Prompt engineering estruturado: few-shot, saída JSON validada e fallback determinístico</li>
   <li>Avaliação comparativa de modelos neurais com corpus rotulado e critério de licenciamento</li>
-  <li>IA generativa, agentes de IA, MCP (Model Context Protocol), RAG</li>
+  <li>IA generativa aplicada a produto: assistente com acesso a dados, automação conversacional com escalada para humano e geração de resposta a partir de documento de referência</li>
   <li>Agentes de IA com ferramentas: chamada de função (function calling), catálogo fechado por lista de permissão e servidores MCP próprios (37 ferramentas, em TypeScript e Rust)</li>
   <li>RAG e busca semântica: embeddings de voz, similaridade de cosseno e busca vetorial em SQL com sqlite-vec (índice ANN)</li>
   <li>Machine learning aplicado, NLP e processamento de linguagem natural</li>
@@ -94,12 +95,13 @@
 </ul>
 <p class="grupo-titulo">Desenvolvimento e Banco de Dados</p>
 <ul>
-  <li>JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)</li>
   <li>Python (FastAPI, Flask, AGI, asyncio)</li>
+  <li>Java (Spring e Spring Boot, Jakarta EE com Servlets e JSP, JUnit)</li>
+  <li>JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)</li>
   <li>PHP e Laravel 12</li>
   <li>SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional</li>
   <li>Prisma, Drizzle ORM, SQLAlchemy</li>
-  <li>API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços</li>
+  <li>API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços; integração com CRMs (Salesforce, Zendesk)</li>
   <li>Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis</li>
   <li>Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)</li>
   <li>Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas</li>
@@ -108,11 +110,11 @@
 <p class="grupo-titulo">Cloud e DevOps</p>
 <ul>
   <li>Kubernetes (K8s), Docker e Docker Compose</li>
-  <li>AWS e GCP; AWS S3 com presigned URL</li>
+  <li>AWS e GCP; AWS S3 com presigned URL; Microsoft Entra ID (Azure AD) com OAuth2 para Microsoft 365</li>
   <li>Proxmox, KVM, VMware vSphere, OpenStack, LXC</li>
-  <li>Infraestrutura como Código (IaC) e runbooks versionados</li>
+  <li>Infraestrutura como Código (IaC) com Ansible: roles por papel de servidor, inventário gerado por job e runbooks versionados</li>
   <li>CI/CD (Bitbucket Pipelines, Jenkins, GitHub Actions), Git</li>
-  <li>Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino), com templates próprios de coleta</li>
+  <li>Monitoramento e observabilidade (Zabbix, NOC, Sentry, pino e métricas no formato Prometheus), com templates próprios de coleta</li>
   <li>Indicadores e objetivo de nível de serviço (SLI/SLO), com MTTD como métrica de operação</li>
   <li>systemd, gunicorn, Nginx, Apache, healthcheck</li>
   <li>Automação de provisionamento via API do Proxmox VE</li>
@@ -128,7 +130,7 @@
 </ul>
 <h3>Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil</h3>
 <ul>
-  <li>Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.</li>
+  <li>Projetei a integração com Salesforce, Zendesk e Power BI que virou um novo produto comercial, consolidando dados operacionais e de vendas com ganho de 200% em novas receitas de serviço.</li>
   <li>Desenvolvi o backend completo (Node.js, PHP) que consolida os dados operacionais consumidos pelos painéis.</li>
   <li>Liderei a arquitetura técnica e o code review das entregas, supervisionando 11 desenvolvedores.</li>
 </ul>
@@ -159,14 +161,14 @@
 <h3>Analista de Infraestrutura | All Net Group | 04/2013 - 02/2015</h3>
 
 <h2>PROJETOS</h2>
-<h3>Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual</h3>
+<h3>Análise de Qualidade de Chamadas por Processamento de Sinais (DSP) e IA Local | projeto próprio/freelance | 07/2026 - atual</h3>
 <ul>
   <li>Construí um sistema de análise que extrai métricas objetivas de qualidade a partir do sinal bruto: energia por frame, análise espectral por FFT, estimativa de ruído por percentil e razão sinal-ruído.</li>
   <li>Implementei o modelo E-model (ITU-T G.107) do zero, convertendo detecções em R-factor e MOS, indicadores padrão da indústria de telefonia.</li>
   <li>Avaliei modelos neurais concorrentes contra corpus rotulado, medindo poder de discriminação por categoria e correlação, com decisão documentada.</li>
   <li>Painel Flask multi-tenant com isolamento físico de dados por cliente sobre SQLite.</li>
 </ul>
-<h3>Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026</h3>
+<h3>Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 08/2026</h3>
 <ul>
   <li>Modelei 17 tabelas em PostgreSQL 17 com tuning manual de configuração, sustentando registros de chamada (CDR/CEL), log de operação e o schema completo de fluxos de URA.</li>
   <li>Integrei o banco ao motor de telefonia por ODBC realtime, com consultas executadas dentro do plano de discagem.</li>
@@ -224,9 +226,110 @@
 </ul>
 </div>
 
+<script src="../vendor/jspdf.umd.min.js"></script>
 <script>
+var JSPDF_CDN = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js";
+
+function comJsPdf(continuar) {
+  if (window.jspdf && window.jspdf.jsPDF) { continuar(window.jspdf.jsPDF); return; }
+  var script = document.createElement('script');
+  script.src = JSPDF_CDN;
+  script.onload = function () { continuar(window.jspdf.jsPDF); };
+  script.onerror = function () {
+    alert('Não consegui carregar o gerador de PDF (nem cv/vendor/jspdf.umd.min.js, nem o CDN). ' +
+          'Alternativa: Ctrl+P e desmarcar "cabeçalhos e rodapés".');
+  };
+  document.head.appendChild(script);
+}
+
+var protegerPeriodos = function protegerPeriodos(texto) {
+  return texto.replace(
+    /(?:\d{2}\/)?\d{4} - (?:(?:\d{2}\/)?\d{4}|atual|Present|presente)/g,
+    function (periodo) { return periodo.replace(/ /g, '\u00a0'); },
+  );
+};
+
+function textoDe(el) {
+  return el.textContent.replace(/\s+/g, ' ').trim();
+}
+
+function gerarPdf(JsPDF) {
+  var doc = new JsPDF({ unit: 'pt', format: 'a4', compress: true });
+  var MARGEM_X = 48, MARGEM_TOPO = 46, MARGEM_BASE = 46;
+  var larguraPagina = doc.internal.pageSize.getWidth();
+  var alturaPagina = doc.internal.pageSize.getHeight();
+  var largura = larguraPagina - 2 * MARGEM_X;
+  var TINTA = [17, 17, 17], SUAVE = [68, 68, 68], LINHA = [187, 187, 187];
+  var y = MARGEM_TOPO;
+
+  function caber(altura) {
+    if (y + altura > alturaPagina - MARGEM_BASE) { doc.addPage(); y = MARGEM_TOPO; }
+  }
+
+  // manterCom: altura que precisa caber junto com a primeira linha, para um
+  // título não ficar sozinho no pé da página, separado do que ele intitula.
+  function bloco(texto, o) {
+    doc.setFont('helvetica', o.negrito ? 'bold' : 'normal');
+    doc.setFontSize(o.tamanho);
+    doc.setTextColor(o.cor[0], o.cor[1], o.cor[2]);
+    var entrelinha = o.tamanho * 1.35;
+    var recuo = o.recuo || 0;
+    var linhas = doc.splitTextToSize(protegerPeriodos(texto), largura - recuo)
+      .map(function (l) { return l.replace(/\u00a0/g, ' '); });
+    y += o.antes || 0;
+    // Item de lista curto não se parte entre duas páginas.
+    var inteiro = o.inteiro && linhas.length <= 4 ? linhas.length * entrelinha : entrelinha;
+    caber(inteiro + (o.manterCom || 0));
+    for (var i = 0; i < linhas.length; i++) {
+      caber(entrelinha);
+      if (i === 0 && o.marcador) doc.text(o.marcador, MARGEM_X + recuo - 10, y, { baseline: 'top' });
+      doc.text(linhas[i], MARGEM_X + recuo, y, { baseline: 'top' });
+      y += entrelinha;
+    }
+    y += o.depois || 0;
+  }
+
+  var filhos = document.getElementById('curriculo').children;
+  for (var i = 0; i < filhos.length; i++) {
+    var el = filhos[i];
+    var classe = el.classList;
+    if (el.tagName === 'H1') {
+      bloco(textoDe(el), { tamanho: 20, negrito: true, cor: TINTA, depois: 2 });
+    } else if (el.tagName === 'H2') {
+      bloco(textoDe(el), { tamanho: 11.5, negrito: true, cor: TINTA, antes: 12, manterCom: 40 });
+      doc.setDrawColor(LINHA[0], LINHA[1], LINHA[2]);
+      doc.setLineWidth(0.6);
+      doc.line(MARGEM_X, y + 1, larguraPagina - MARGEM_X, y + 1);
+      y += 7;
+    } else if (el.tagName === 'H3') {
+      bloco(textoDe(el), { tamanho: 10.5, negrito: true, cor: TINTA, antes: 6, depois: 1, manterCom: 28 });
+    } else if (el.tagName === 'UL') {
+      for (var j = 0; j < el.children.length; j++) {
+        bloco(textoDe(el.children[j]), { tamanho: 10, cor: TINTA, recuo: 14, marcador: '•', depois: 2, inteiro: true });
+      }
+      y += 3;
+    } else if (classe.contains('cargo')) {
+      bloco(textoDe(el), { tamanho: 12.5, negrito: true, cor: SUAVE, depois: 5 });
+    } else if (classe.contains('contato')) {
+      bloco(textoDe(el), { tamanho: 9.5, cor: SUAVE, depois: 1 });
+    } else if (classe.contains('grupo-titulo')) {
+      bloco(textoDe(el), { tamanho: 10.5, negrito: true, cor: TINTA, antes: 5, depois: 1, manterCom: 14 });
+    } else if (el.tagName === 'P') {
+      bloco(textoDe(el), { tamanho: 10, cor: TINTA, depois: 3 });
+    }
+  }
+
+  doc.setProperties({
+    title: document.title,
+    author: "Carlos Alberto",
+    subject: "Engenheiro de Dados / Business Intelligence",
+    creator: 'curriculo / gerar-cv.js',
+  });
+  doc.save("CV-Carlos-Alberto-dados" + '.pdf');
+}
+
 document.getElementById('btn-pdf').addEventListener('click', function () {
-  window.print();
+  comJsPdf(gerarPdf);
 });
 
 document.getElementById('btn-doc').addEventListener('click', function () {

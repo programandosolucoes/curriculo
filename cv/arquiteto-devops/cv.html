@@ -81,7 +81,7 @@
   <li>SRE: SLI/SLO, MTTD, plantão N3, gestão de incidentes e post-mortem com causa raiz documentada e teste de regressão para cada defeito encontrado</li>
   <li>Análise de performance e profiling: py-spy em produção, teste de carga com Locust, tuning de PostgreSQL e MySQL, auditoria de N+1, cache, paginação e índices, e medição de consumo de memória de containers</li>
   <li>Ambientes com múltiplos produtos e clientes: plataformas atendendo mais de 100 empresas clientes, com padrões comuns de provisionamento, monitoramento e backup</li>
-  <li>Integrações com plataformas SaaS: Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API</li>
+  <li>Integrações com plataformas SaaS e CRMs: Salesforce, Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API</li>
 </ul>
 <p class="grupo-titulo">Cloud e DevOps</p>
 <ul>
@@ -104,7 +104,7 @@
   <li>PHP e Laravel 12</li>
   <li>SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional</li>
   <li>Prisma, Drizzle ORM, SQLAlchemy</li>
-  <li>API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços</li>
+  <li>API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços; integração com CRMs (Salesforce, Zendesk)</li>
   <li>Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis</li>
   <li>Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)</li>
   <li>Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas</li>
@@ -200,8 +200,8 @@
 <ul>
   <li>Liderei a arquitetura técnica de todos os projetos Asterisk e fullstack da empresa, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.</li>
   <li>Desenvolvi o backend completo (REST APIs em Node.js e PHP) e o frontend (Angular) da plataforma de gerenciamento de call center.</li>
-  <li>Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.</li>
-  <li>Tecnologias: Python, Java, Node.js, PHP, Angular, Zendesk e Power BI.</li>
+  <li>Projetei a integração com Salesforce, Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.</li>
+  <li>Tecnologias: Python, Java, Node.js, PHP, Angular, Salesforce, Zendesk e Power BI.</li>
 </ul>
 <h3>Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil</h3>
 <ul>
@@ -356,6 +356,13 @@ function comJsPdf(continuar) {
   document.head.appendChild(script);
 }
 
+var protegerPeriodos = function protegerPeriodos(texto) {
+  return texto.replace(
+    /(?:\d{2}\/)?\d{4} - (?:(?:\d{2}\/)?\d{4}|atual|Present|presente)/g,
+    function (periodo) { return periodo.replace(/ /g, '\u00a0'); },
+  );
+};
+
 function textoDe(el) {
   return el.textContent.replace(/\s+/g, ' ').trim();
 }
@@ -381,7 +388,8 @@ function gerarPdf(JsPDF) {
     doc.setTextColor(o.cor[0], o.cor[1], o.cor[2]);
     var entrelinha = o.tamanho * 1.35;
     var recuo = o.recuo || 0;
-    var linhas = doc.splitTextToSize(texto, largura - recuo);
+    var linhas = doc.splitTextToSize(protegerPeriodos(texto), largura - recuo)
+      .map(function (l) { return l.replace(/\u00a0/g, ' '); });
     y += o.antes || 0;
     // Item de lista curto não se parte entre duas páginas.
     var inteiro = o.inteiro && linhas.length <= 4 ? linhas.length * entrelinha : entrelinha;

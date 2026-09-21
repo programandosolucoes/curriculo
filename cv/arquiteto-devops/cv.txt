@@ -24,7 +24,7 @@ Arquitetura, Liderança Técnica e Governança:
 - SRE: SLI/SLO, MTTD, plantão N3, gestão de incidentes e post-mortem com causa raiz documentada e teste de regressão para cada defeito encontrado
 - Análise de performance e profiling: py-spy em produção, teste de carga com Locust, tuning de PostgreSQL e MySQL, auditoria de N+1, cache, paginação e índices, e medição de consumo de memória de containers
 - Ambientes com múltiplos produtos e clientes: plataformas atendendo mais de 100 empresas clientes, com padrões comuns de provisionamento, monitoramento e backup
-- Integrações com plataformas SaaS: Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API
+- Integrações com plataformas SaaS e CRMs: Salesforce, Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API
 
 Cloud e DevOps:
 - Kubernetes (K8s), Docker e Docker Compose
@@ -45,7 +45,7 @@ Desenvolvimento e Banco de Dados:
 - PHP e Laravel 12
 - SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
 - Prisma, Drizzle ORM, SQLAlchemy
-- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços; integração com CRMs (Salesforce, Zendesk)
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
 - Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
 - Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
@@ -129,8 +129,8 @@ Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
 - Liderei a arquitetura técnica de todos os projetos Asterisk e fullstack da empresa, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.
 - Desenvolvi o backend completo (REST APIs em Node.js e PHP) e o frontend (Angular) da plataforma de gerenciamento de call center.
-- Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.
-- Tecnologias: Python, Java, Node.js, PHP, Angular, Zendesk e Power BI.
+- Projetei a integração com Salesforce, Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.
+- Tecnologias: Python, Java, Node.js, PHP, Angular, Salesforce, Zendesk e Power BI.
 
 Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
 - Desenvolvi e mantive múltiplas plataformas Asterisk (FreePBX, Xcally, Xorcom) suportando mais de 200 agentes concorrentes em mais de 100 empresas clientes.

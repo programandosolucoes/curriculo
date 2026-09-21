@@ -15,7 +15,7 @@
     "frontend": "Desenvolvedor Frontend Sênior com experiência em React 18, TypeScript e Next.js, construindo desde plataformas SaaS completas com design system próprio até interfaces em JavaScript puro sem framework nem build. Trabalhei com TailwindCSS, Radix UI, TanStack e Vite, testes end-to-end em Cypress, videochamada WebRTC e segmentação de imagem por Inteligência Artificial (IA) executando no navegador com TensorFlow.js. Base sólida de HTML, CSS e JavaScript, com mais de 10 anos de engenharia de backend por trás.",
     "ia": "Engenheiro de Inteligência Artificial (IA) e automação com mais de 10 anos de engenharia de sistemas, acostumado a levar a solução de ponta a ponta: entender o processo, escolher a tecnologia e colocar em produção. Construo aplicações e agentes com modelos de linguagem (LLM) — cadeia de fallback entre cinco provedores, chamada de função com catálogo fechado de ferramentas, servidores MCP próprios com 37 ferramentas — e automações de processo administrativo e documental em n8n auto-hospedado, Node.js e Python. Integro banco de dados, API, modelo e plataforma externa: PostgreSQL, OAuth2, webhook, fila e OpenAPI, com inferência local em CPU quando o dado não pode sair da máquina. Trabalho em Python e TypeScript/JavaScript, com Docker, Git e code review por pull request no dia a dia. Bacharelado em Ciências de Inteligência Artificial em curso.",
     "devops": "Engenheiro DevOps e SRE Sênior com mais de 10 anos em infraestrutura de missão crítica. Reduzi o Tempo Médio para Detecção (MTTD) de falhas em 40% modernizando a observabilidade, sustentei um objetivo de disponibilidade (SLO) de 99,99% em operação internacional e mantive capacidade de disaster recovery para mais de 100 clientes. Trabalho com Kubernetes, Docker, Proxmox, LXC, pipelines de CI/CD e automação de provisionamento via API, com experiência de plantão N3 em ambientes onde a indisponibilidade custa dinheiro por minuto.",
-    "dados": "Profissional de Dados e Business Intelligence com base sólida em engenharia de sistemas. Construí pipelines processando mais de 1 milhão de eventos diários, dashboards usados por gestores em mais de 25 empresas clientes, e sistemas analíticos que vão de modelagem relacional e tuning de PostgreSQL até processamento digital de sinais e Inteligência Artificial (IA) aplicada. Pós-graduação em Data Warehouse e Business Intelligence e Bacharelado em Ciências de Inteligência Artificial em curso.",
+    "dados": "Profissional de Dados e Business Intelligence com base sólida em engenharia de sistemas. Construí pipelines processando mais de 1 milhão de eventos diários, dashboards integrando dados de CRMs (Salesforce, Zendesk) e telefonia usados por gestores em mais de 25 empresas clientes, e sistemas analíticos que vão de modelagem relacional e tuning de PostgreSQL até processamento digital de sinais e Inteligência Artificial (IA) aplicada. Pós-graduação em Data Warehouse e Business Intelligence e Bacharelado em Ciências de Inteligência Artificial em curso.",
     "seguranca": "Analista de Segurança da Informação Sênior com experiência em proteção de aplicação, criptografia aplicada e resposta a incidentes. Implementei arquitetura WAF com ModSecurity e regras OWASP em ambiente financeiro, reduzi o tempo de resposta a incidentes em mais de 99% com análise automatizada de logs em nível de SOC, e desenvolvi sistemas com criptografia AES, assinatura digital RSA-2048 e isolamento físico de dados entre clientes. Experiência com pfSense, OpenVPN, hardening de Linux e conformidade regulatória (normas ISO/IEC).",
     "qa": "Especialista em Qualidade e Automação de Testes com base de desenvolvimento sênior. Mantenho suítes automatizadas que somam mais de 850 testes entre os projetos autorais, cobrindo desde lógica pura até integração com API, teste de carga e conformidade de protocolo. Trabalho com pytest, PHPUnit, Cypress, Vitest, mock de HTTP, geração de dados sintéticos, teste de carga com Locust e checagem estática de tipos com mypy e TypeScript, além de automação de navegador com Playwright e Puppeteer. Implementei o fluxo de code review por pull request da plataforma Git que desenvolvi e opero. Mais de 10 anos resolvendo incidentes N3 ensinam a reproduzir defeito antes de corrigir.",
     "rpa": "Especialista em Automação de Processos (RPA, Robotic Process Automation) e Integração de Sistemas. Construí um motor de automação de navegador que opera portais web de forma autônoma e não supervisionada, bots de processamento de e-mail com decisão por Inteligência Artificial (IA), e chatbots que automatizaram até 25% do volume operacional de atendimento. Integração de API é especialidade recorrente: cinco gateways de mensageria atrás de uma única interface, clientes próprios de seis APIs distintas, mensageria assíncrona JMS/STOMP e webhooks substituindo polling.",
@@ -64,7 +64,7 @@
         "PHP e Laravel 12",
         "SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional",
         "Prisma, Drizzle ORM, SQLAlchemy",
-        "API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços",
+        "API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços; integração com CRMs (Salesforce, Zendesk)",
         "Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis",
         "Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)",
         "Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas",
@@ -158,6 +158,7 @@
         "CDR e CEL: extração, correlação e análise de registros de chamada",
         "Pandas, NumPy e análise estatística",
         "Data Warehouse e Business Intelligence (pós-graduação em curso)",
+        "Integração e extração de dados analíticos de CRM e plataformas SaaS (Salesforce, Zendesk), alimentando Data Warehouse e painéis no Power BI",
         "Busca vetorial e JSON em SQL com medição própria: sqlite-vec com índice ANN, colunas geradas, JSONB e FTS5; Supabase avaliado e registrado como destino planejado, por ser PostgreSQL empacotado"
       ]
     },
@@ -180,7 +181,7 @@
         "n8n auto-hospedado em Docker: workflows, Data Tables, rotas de webhook, publicação de fluxos pela API e contrato em OpenAPI 3.1",
         "Automação documental e administrativa: busca e entrega de documento em acervo de 163.738 pastas, limpeza de caixa postal em massa (98.800 mensagens) e migração de e-mail entre provedores",
         "RPA de navegador em Node.js com Puppeteer e Playwright: adaptadores por site sobre núcleo comum, motor de regras e evidência auditável por captura de tela",
-        "Integrações: API REST, webhook, OAuth2 (Google Workspace e Microsoft 365), JSON-RPC, SOAP/XML, Protobuf, filas BullMQ/Redis e mensageria JMS/STOMP",
+        "Integrações: API REST, webhook, OAuth2 (Google Workspace, Microsoft 365 e Salesforce), JSON-RPC, SOAP/XML, Protobuf, filas BullMQ/Redis e mensageria JMS/STOMP",
         "Automação assinada e auditável: disparo por HMAC-SHA256, credenciais cifradas em AES-256-GCM e confirmação humana antes de ação que altera sistema"
       ]
     },
@@ -198,7 +199,7 @@
         "SRE: SLI/SLO, MTTD, plantão N3, gestão de incidentes e post-mortem com causa raiz documentada e teste de regressão para cada defeito encontrado",
         "Análise de performance e profiling: py-spy em produção, teste de carga com Locust, tuning de PostgreSQL e MySQL, auditoria de N+1, cache, paginação e índices, e medição de consumo de memória de containers",
         "Ambientes com múltiplos produtos e clientes: plataformas atendendo mais de 100 empresas clientes, com padrões comuns de provisionamento, monitoramento e backup",
-        "Integrações com plataformas SaaS: Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API"
+        "Integrações com plataformas SaaS e CRMs: Salesforce, Zendesk, Microsoft Teams, Google Meet (OAuth), Yeastar, Power BI e Meta Cloud API"
       ]
     },
     "sistemas-linux": {
@@ -490,44 +491,44 @@
         "base": [
           "Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.",
           "Desenvolvi o backend completo (REST APIs em Node.js, PHP) e o frontend (Angular) para a plataforma de gerenciamento de call center.",
-          "Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Zendesk e Power BI, criando um novo produto para a equipe de vendas."
+          "Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Salesforce, Zendesk e Power BI, criando um novo produto para a equipe de vendas."
         ],
         "dev": [
           "Liderei a arquitetura técnica de todos os projetos fullstack da empresa, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.",
           "Desenvolvi o backend completo em Node.js e PHP e o frontend em Angular de uma plataforma de gerenciamento.",
-          "Impulsionei um ganho de 200% em novas receitas ao projetar a integração com Zendesk e Power BI, transformando-a em um novo produto."
+          "Impulsionei um ganho de 200% em novas receitas ao projetar a integração com Salesforce, Zendesk e Power BI, transformando-a em um novo produto."
         ],
         "frontend": [
           "Desenvolvi o frontend em Angular de uma plataforma completa de gerenciamento, junto do backend em Node.js e PHP que o alimenta.",
           "Liderei a arquitetura técnica de todos os projetos fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.",
-          "Projetei a integração com Zendesk e Power BI que virou um novo produto, com ganho de 200% em novas receitas."
+          "Projetei a integração com Salesforce, Zendesk e Power BI que virou um novo produto, com ganho de 200% em novas receitas."
         ],
         "dados": [
-          "Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
+          "Projetei a integração com Salesforce, Zendesk e Power BI que virou um novo produto comercial, consolidando dados operacionais e de vendas com ganho de 200% em novas receitas de serviço.",
           "Desenvolvi o backend completo (Node.js, PHP) que consolida os dados operacionais consumidos pelos painéis.",
           "Liderei a arquitetura técnica e o code review das entregas, supervisionando 11 desenvolvedores."
         ],
         "qa": [
           "Liderei a arquitetura técnica de todos os projetos da empresa, supervisionando 11 desenvolvedores e conduzindo o code review que definia o padrão de qualidade do código entregue.",
           "Desenvolvi backend (Node.js, PHP) e frontend (Angular) de uma plataforma completa, respondendo pela integridade das duas pontas.",
-          "Projetei integração com Zendesk e Power BI que se tornou um novo produto."
+          "Projetei integração com Salesforce, Zendesk e Power BI que se tornou um novo produto."
         ],
         "rpa": [
-          "Projetei a integração entre a plataforma interna, o Zendesk e o Power BI, eliminando repasse manual de dados entre as ferramentas e gerando 200% de novas receitas.",
+          "Projetei a integração entre a plataforma interna, o Salesforce, o Zendesk e o Power BI, eliminando repasse manual de dados entre as ferramentas e gerando 200% de novas receitas.",
           "Desenvolvi backend completo em Node.js e PHP com as APIs REST que sustentam essas integrações.",
           "Liderei a arquitetura técnica e o code review das entregas, supervisionando 11 desenvolvedores."
         ],
         "arquiteto-devops": [
           "Liderei a arquitetura técnica de todos os projetos Asterisk e fullstack da empresa, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.",
           "Desenvolvi o backend completo (REST APIs em Node.js e PHP) e o frontend (Angular) da plataforma de gerenciamento de call center.",
-          "Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
-          "Tecnologias: Python, Java, Node.js, PHP, Angular, Zendesk e Power BI."
+          "Projetei a integração com Salesforce, Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
+          "Tecnologias: Python, Java, Node.js, PHP, Angular, Salesforce, Zendesk e Power BI."
         ],
         "sysadmin-gcp": [
           "Desenvolvi o backend (REST APIs em PHP e Node.js) e o frontend (Angular) da plataforma de gerenciamento de call center.",
           "Liderei a arquitetura técnica dos projetos Asterisk e fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas.",
-          "Projetei a integração com Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
-          "Tecnologias: PHP, Python, Java, Node.js, Angular, Asterisk, Zendesk e Power BI."
+          "Projetei a integração com Salesforce, Zendesk e Power BI que virou um novo produto comercial, com ganho de 200% em novas receitas de serviço.",
+          "Tecnologias: PHP, Python, Java, Node.js, Angular, Asterisk, Salesforce, Zendesk e Power BI."
         ]
       }
     },

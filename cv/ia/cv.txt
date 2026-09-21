@@ -26,16 +26,17 @@ Automação de Processos e Integração:
 - n8n auto-hospedado em Docker: workflows, Data Tables, rotas de webhook, publicação de fluxos pela API e contrato em OpenAPI 3.1
 - Automação documental e administrativa: busca e entrega de documento em acervo de 163.738 pastas, limpeza de caixa postal em massa (98.800 mensagens) e migração de e-mail entre provedores
 - RPA de navegador em Node.js com Puppeteer e Playwright: adaptadores por site sobre núcleo comum, motor de regras e evidência auditável por captura de tela
-- Integrações: API REST, webhook, OAuth2 (Google Workspace e Microsoft 365), JSON-RPC, SOAP/XML, Protobuf, filas BullMQ/Redis e mensageria JMS/STOMP
+- Integrações: API REST, webhook, OAuth2 (Google Workspace, Microsoft 365 e Salesforce), JSON-RPC, SOAP/XML, Protobuf, filas BullMQ/Redis e mensageria JMS/STOMP
 - Automação assinada e auditável: disparo por HMAC-SHA256, credenciais cifradas em AES-256-GCM e confirmação humana antes de ação que altera sistema
 
 Desenvolvimento e Banco de Dados:
-- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
 - Python (FastAPI, Flask, AGI, asyncio)
+- Java (Spring e Spring Boot, Jakarta EE com Servlets e JSP, JUnit)
+- JavaScript, TypeScript e Node.js (REST APIs, Express, Drachtio)
 - PHP e Laravel 12
 - SQL (MySQL, PostgreSQL, MariaDB, SQLite), PL/pgSQL, modelagem relacional
 - Prisma, Drizzle ORM, SQLAlchemy
-- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços
+- API REST, JSON-RPC, SOAP/XML, Protobuf, webhook, websocket, microsserviços; integração com CRMs (Salesforce, Zendesk)
 - Mensageria: JMS/STOMP (ActiveMQ), BullMQ e Redis
 - Docker, Docker Compose, metodologias ágeis (Scrum, Kanban, JIRA)
 - Versionamento com Git: code review por pull request, políticas de branch aplicadas por hook e migrations versionadas
@@ -46,7 +47,7 @@ Ecossistema Python:
 - cryptography, protobuf, ONNX Runtime, PyTorch e TorchAudio
 - Concorrência: threading, jobs assíncronos em background, asyncio
 - pytest, pytest-asyncio, cobertura de testes, Locust
-- mypy, black, flake8, PyInstaller
+- mypy, black, flake8, PyInstaller; profiling com py-spy em produção
 
 Dados e Business Intelligence:
 - SQL avançado, modelagem relacional e tuning de PostgreSQL
@@ -55,6 +56,7 @@ Dados e Business Intelligence:
 - CDR e CEL: extração, correlação e análise de registros de chamada
 - Pandas, NumPy e análise estatística
 - Data Warehouse e Business Intelligence (pós-graduação em curso)
+- Integração e extração de dados analíticos de CRM e plataformas SaaS (Salesforce, Zendesk), alimentando Data Warehouse e painéis no Power BI
 - Busca vetorial e JSON em SQL com medição própria: sqlite-vec com índice ANN, colunas geradas, JSONB e FTS5; Supabase avaliado e registrado como destino planejado, por ser PostgreSQL empacotado
 
 Processamento de Sinais e Áudio:
@@ -93,14 +95,14 @@ Plataforma Própria de Hospedagem Git | projeto pessoal, uso profissional contí
 - Tratei o login do agente como superfície de privilégio: a autenticação por chave SSH exige chave ativa vinculada a um usuário, sem herdar o comportamento do caminho do Git, onde chave não reconhecida cai para root - num login de painel isso seria escalada de privilégio.
 - A plataforma por baixo é minha: Git smart HTTP, WebDAV RFC 4918, code review por pull request e políticas de branch aplicadas por hook, em PHP sem dependência de runtime, com mais de 30 repositórios hospedados há quase um ano.
 
-Addon de Suporte com IA para pfSense | projeto próprio | 07/2026 - atual
+Assistente de IA Nativo para pfSense e Endpoint MCP | projeto próprio | 07/2026 - atual
 - Desenvolvi um addon em PHP instalado dentro do pfSense que dá suporte de primeiro nível em português, combinando o estado real do firewall no instante da pergunta com os playbooks do runbook da rede.
 - Dei mãos ao assistente com um catálogo fechado de 21 ferramentas de diagnóstico executadas no próprio firewall - ping, traceroute, DNS, tabela ARP, concessões DHCP, rotas, teste de porta e estados do filtro - pela API REST local do pfSense, criando as que a API não oferece a partir das mesmas chamadas das páginas gráficas de Diagnostics.
 - Isolei a superfície de risco: o modelo escolhe um nome da lista de permissão e devolve argumentos validados por tipo, nunca uma linha de comando; ação que altera o firewall é proposta assinada por HMAC e só roda depois da confirmação do operador.
 - Emiti a credencial da API com um usuário dedicado de 15 privilégios em vez de uma chave de administrador, que traria reboot, desligamento e shell livre junto.
 - Cobri o comportamento com 218 testes automatizados que rodam sem pfSense, contra um backup real de configuração.
 
-Análise de Qualidade de Chamadas por Processamento de Sinais | projeto próprio/freelance | 07/2026 - atual
+Análise de Qualidade de Chamadas por Processamento de Sinais (DSP) e IA Local | projeto próprio/freelance | 07/2026 - atual
 - Construí uma camada de Inteligência Artificial (IA) 100% local em CPU, sem nuvem, porque os áudios são de clientes e não podem sair da máquina: reconhecimento de fala com faster-whisper quantizado em int8 e classificação por LLM quantizado GGUF via llama.cpp.
 - Implementei prompt engineering estruturado: system prompt com seis exemplos few-shot injetados como turnos, saída JSON forçada, coerção de schema e fallback determinístico quando o modelo falha.
 - Avaliei modelos neurais de qualidade percebida (DNSMOS P.835 via ONNX Runtime, TorchAudio SQUIM, NISQA) contra corpus real rotulado, medindo separação por eixo e correlação, com decisão de arquitetura documentada por desempenho e por licenciamento comercial.
@@ -116,7 +118,7 @@ Plataforma de Atendimento Omnichannel Multi-tenant | projeto próprio/freelance 
 - Implementei segmentação de fundo por IA no navegador com TensorFlow.js e MediaPipe na videochamada WebRTC.
 - Construí motor de automação conversacional com estado, decidindo quando escalar para humano.
 
-Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 07/2026
+Plataforma de Discador VoIP para Call Center | projeto próprio/freelance | 01/2025 - 08/2026
 - Arquitetei e mantive uma suite completa de discador para call center: painel web de gestão (Python/Flask/gunicorn sobre PostgreSQL 17), motor de discagem horizontal com controle de concorrência multi-nível (Asterisk ARI/PJSIP) e engine de URA/IVR JSON-driven com 16 primitivas interpretadas pelo dialplan, com backend realtime via ODBC (unixODBC, func_odbc, CDR/CEL sobre PostgreSQL) e editor visual de fluxo em React.
 - Provisionei a infraestrutura por LXC e Docker, com cliente próprio da API do Proxmox VE para criar os containers pelo painel, NAT/iptables multi-tenant e webhooks assíncronos substituindo polling.
 - Modelei 17 tabelas com tuning manual de PostgreSQL e escrevi 15 suítes pytest cobrindo cada primitiva da URA ponta a ponta.
@@ -138,7 +140,7 @@ Arquiteto Sênior (Desenvolvimento e Telecom) | 55PBX | 11/2021 - 06/2022 | São
 Desenvolvedor Sênior e Tech Leader | ELEV Tecnologia | 04/2020 - 03/2022 | São Paulo, Brasil
 - Liderei a arquitetura técnica para todos os projetos Asterisk e fullstack, supervisionando 11 desenvolvedores e conduzindo o code review das entregas do time.
 - Desenvolvi o backend completo (REST APIs em Node.js, PHP) e o frontend (Angular) para a plataforma de gerenciamento de call center.
-- Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Zendesk e Power BI, criando um novo produto para a equipe de vendas.
+- Impulsionei um ganho de 200% em novas receitas de serviço ao projetar a integração com Salesforce, Zendesk e Power BI, criando um novo produto para a equipe de vendas.
 
 Desenvolvedor Pleno | TLD Teledata Tecnologia | 12/2019 - 05/2020 | São Paulo, Brasil
 - Construí do zero um chatbot de voz (CPQD) como novo produto, automatizando 10% do volume de chamadas operacionais dos clientes iniciais.
