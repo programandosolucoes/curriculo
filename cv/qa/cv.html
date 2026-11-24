@@ -47,8 +47,8 @@
 <body>
 <div class="barra">
   <button type="button" id="btn-pdf">Baixar PDF</button>
-  <button type="button" id="btn-doc">Baixar Word (.doc)</button>
-  <p class="dica">O PDF é gerado e baixado direto: texto selecionável, sem cabeçalho nem rodapé do navegador.</p>
+  <button type="button" id="btn-doc">Baixar Word (.docx)</button>
+  <p class="dica">O PDF e o Word são gerados e baixados direto: texto selecionável e formatação profissional.</p>
 </div>
 
 <div id="curriculo">
@@ -218,8 +218,10 @@
 </div>
 
 <script src="../vendor/jspdf.umd.min.js"></script>
+<script src="../vendor/docx.iife.js"></script>
 <script>
 var JSPDF_CDN = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js";
+var DOCX_CDN = "https://cdn.jsdelivr.net/npm/docx@9.16.0/dist/index.iife.js";
 
 function comJsPdf(continuar) {
   if (window.jspdf && window.jspdf.jsPDF) { continuar(window.jspdf.jsPDF); return; }
@@ -229,6 +231,17 @@ function comJsPdf(continuar) {
   script.onerror = function () {
     alert('Não consegui carregar o gerador de PDF (nem cv/vendor/jspdf.umd.min.js, nem o CDN). ' +
           'Alternativa: Ctrl+P e desmarcar "cabeçalhos e rodapés".');
+  };
+  document.head.appendChild(script);
+}
+
+function comDocx(continuar) {
+  if (window.docx) { continuar(window.docx); return; }
+  var script = document.createElement('script');
+  script.src = DOCX_CDN;
+  script.onload = function () { continuar(window.docx); };
+  script.onerror = function () {
+    alert('Não consegui carregar o gerador de Word (nem cv/vendor/docx.iife.js, nem o CDN).');
   };
   document.head.appendChild(script);
 }
@@ -323,26 +336,122 @@ document.getElementById('btn-pdf').addEventListener('click', function () {
   comJsPdf(gerarPdf);
 });
 
-document.getElementById('btn-doc').addEventListener('click', function () {
-  var conteudo = document.getElementById('curriculo').innerHTML;
-  var estilo = document.getElementById('estilo-cv').innerHTML;
-  var documento =
-    '<html xmlns:o="urn:schemas-microsoft-com:office:office"' +
-    ' xmlns:w="urn:schemas-microsoft-com:office:word"' +
-    ' xmlns="http://www.w3.org/TR/REC-html40">' +
-    '<head><meta charset="utf-8"><style>' + estilo + '</style></head>' +
-    '<body>' + conteudo + '</body></html>';
+function gerarDocx(docxLib) {
+  var Document = docxLib.Document;
+  var Paragraph = docxLib.Paragraph;
+  var TextRun = docxLib.TextRun;
+  var HeadingLevel = docxLib.HeadingLevel;
+  var BorderStyle = docxLib.BorderStyle;
+  var Packer = docxLib.Packer;
 
-  // O BOM faz o Word reconhecer o UTF-8 e não corromper os acentos.
-  var blob = new Blob(['\ufeff', documento], { type: 'application/msword' });
-  var url = URL.createObjectURL(blob);
-  var link = document.createElement('a');
-  link.href = url;
-  link.download = "CV-Carlos-Alberto-qa" + '.doc';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  var filhos = document.getElementById('curriculo').children;
+  var paragraphs = [];
+
+  for (var i = 0; i < filhos.length; i++) {
+    var el = filhos[i];
+    var classe = el.classList;
+    var texto = el.textContent.replace(/\s+/g, ' ').trim();
+    if (!texto && el.tagName !== 'UL') continue;
+
+    if (el.tagName === 'H1') {
+      paragraphs.push(new Paragraph({
+        spacing: { before: 0, after: 120 },
+        children: [
+          new TextRun({ text: texto, bold: true, size: 36, font: "Calibri", color: "111827" })
+        ]
+      }));
+    } else if (classe.contains('cargo')) {
+      paragraphs.push(new Paragraph({
+        spacing: { before: 40, after: 120 },
+        children: [
+          new TextRun({ text: texto, bold: true, size: 24, font: "Calibri", color: "2563EB" })
+        ]
+      }));
+    } else if (classe.contains('contato')) {
+      paragraphs.push(new Paragraph({
+        spacing: { before: 20, after: 40 },
+        children: [
+          new TextRun({ text: texto, size: 19, font: "Calibri", color: "4B5563" })
+        ]
+      }));
+    } else if (el.tagName === 'H2') {
+      paragraphs.push(new Paragraph({
+        heading: HeadingLevel.HEADING_2,
+        spacing: { before: 240, after: 80 },
+        border: {
+          bottom: { color: "CCCCCC", space: 4, style: BorderStyle.SINGLE, size: 6 }
+        },
+        children: [
+          new TextRun({ text: texto, bold: true, size: 22, font: "Calibri", color: "111827" })
+        ]
+      }));
+    } else if (el.tagName === 'H3') {
+      paragraphs.push(new Paragraph({
+        heading: HeadingLevel.HEADING_3,
+        spacing: { before: 160, after: 40 },
+        children: [
+          new TextRun({ text: texto, bold: true, size: 21, font: "Calibri", color: "1F2937" })
+        ]
+      }));
+    } else if (classe.contains('grupo-titulo')) {
+      paragraphs.push(new Paragraph({
+        spacing: { before: 120, after: 40 },
+        children: [
+          new TextRun({ text: texto, bold: true, size: 20, font: "Calibri", color: "374151" })
+        ]
+      }));
+    } else if (el.tagName === 'UL') {
+      for (var j = 0; j < el.children.length; j++) {
+        var liTexto = el.children[j].textContent.replace(/\s+/g, ' ').trim();
+        if (liTexto) {
+          paragraphs.push(new Paragraph({
+            bullet: { level: 0 },
+            spacing: { before: 30, after: 30, line: 260 },
+            children: [
+              new TextRun({ text: liTexto, size: 20, font: "Calibri", color: "111827" })
+            ]
+          }));
+        }
+      }
+    } else if (el.tagName === 'P') {
+      paragraphs.push(new Paragraph({
+        spacing: { before: 40, after: 120, line: 280 },
+        children: [
+          new TextRun({ text: texto, size: 20, font: "Calibri", color: "111827" })
+        ]
+      }));
+    }
+  }
+
+  var doc = new Document({
+    title: document.title,
+    author: "Carlos Alberto",
+    subject: "Analista de QA / Automação de Testes Sênior",
+    creator: 'curriculo / gerar-cv.js',
+    sections: [{
+      properties: {
+        page: {
+          margin: { top: 720, right: 720, bottom: 720, left: 720 }
+        }
+      },
+      children: paragraphs
+    }]
+  });
+
+  Packer.toBlob(doc).then(function (blob) {
+    var url = URL.createObjectURL(blob);
+    var link = document.createElement('a');
+    link.href = url;
+    link.download = "CV-Carlos-Alberto-qa" + '.docx';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  });
+}
+
+document.getElementById('btn-doc').addEventListener('click', function () {
+  comDocx(gerarDocx);
 });
 </script>
 </body>

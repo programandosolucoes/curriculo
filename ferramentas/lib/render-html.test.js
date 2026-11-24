@@ -67,7 +67,16 @@ test('oferece botão de exportar para PDF e para Word', () => {
   assert.match(html, /id="btn-pdf"/, 'falta o botão de PDF');
   assert.match(html, /id="btn-doc"/, 'falta o botão de Word');
   assert.match(html, /doc\.save\(/, 'o botão de PDF não gera e baixa o arquivo');
-  assert.match(html, /application\/msword/, 'o botão de Word não gera arquivo .doc');
+  assert.match(html, /\.docx/, 'o botão de Word não gera arquivo .docx');
+});
+
+test('o Word (.docx) sai do docx como documento OpenXML nativo', () => {
+  const html = renderHtml(CV);
+  assert.match(html, /comDocx/, 'falta a chamada da biblioteca docx');
+  const local = html.match(/<script src="([^"]*docx[^"]*)"/);
+  assert.ok(local, 'falta o carregamento do docx');
+  const noDisco = require('node:path').join(__dirname, '..', '..', 'cv', 'perfil', local[1]);
+  assert.ok(require('node:fs').existsSync(noDisco), `cópia local do docx ausente: ${noDisco}`);
 });
 
 test('o PDF sai do jsPDF como texto, sem depender da impressão do navegador', () => {
